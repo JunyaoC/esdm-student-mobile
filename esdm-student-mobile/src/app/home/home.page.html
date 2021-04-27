@@ -1,0 +1,48 @@
+<ion-content [fullscreen]="true">
+
+  <div class="headBar">
+    <span class="brand">TEAM ESDM SEC 1</span>
+
+    <div class="userIcon" (click)="logout()">
+      <ion-icon name="log-out"></ion-icon>
+    </div>
+
+  </div>
+
+  <div class="headDiv">
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide>
+          <h1>Slide 1</h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>Slide 2</h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>Slide 3</h1>
+        </ion-slide>
+      </ion-slides>
+  </div>
+
+  <div class="serviceWrapper">
+      
+    <h3>Services</h3>
+
+    <div class="serviceGrid">
+
+      <div class="serviceButton" *ngFor="let service of services" (click)="visitService(service.route)">
+        <div class="content">
+          
+          <img src="{{service.iconPath}}">
+          <span>{{service.label}}</span>  
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</ion-content>
