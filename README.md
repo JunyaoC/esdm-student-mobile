@@ -41,7 +41,7 @@ Moral of the story: you're not GUIlty for using GUI lol.
 ### Clone the repo
 This is a private repo, so sometimes things go haywire. If you face issue cloning, do escalate the issue so we fix this together.
 
-You can use Github Desktop (recommeneded) to clone.
+You can use Github Desktop (recommended) to clone.
 
 ```
 git clone https://github.com/JunyaoC/esdm-project.git
@@ -62,11 +62,11 @@ The good old XAMPP is perfect. But we need to configure the Apache Server to ser
 
 ![](doc_img/2.png)
 
-Open XAMPP and click on config, in the dropdown select httpd.conf, we are going to change the Document Root Directory. When you click the httpd.conf, a text file will launch. Find this line:
+Open XAMPP and click on config, in the drop down select httpd.conf, we are going to change the Document Root Directory. When you click the httpd.conf, a text file will launch. Find this line:
 
 ![](doc_img/3.png)
 
-Change the underlined path to your repo's directory. I'm sure you can do this! 💪 Just becareful of the slashes. Windows Machine sometimes has forward slash (\\) in the directory, so please replace with backward slash (/).
+Change the underlined path to your repo's directory. I'm sure you can do this! 💪 Just be careful of the slashes. Windows Machine sometimes has forward slash (\\) in the directory, so please replace with backward slash (/).
 
 > Make sure you point to the correct directory. This is the folder where you can see the php-folder.
 
@@ -74,7 +74,7 @@ At this point you can start XAMPP Apache and MySQL server.
 
 ### Import Boilerplate DB
 
-Once's that done, you will need to import the boilerplate database into MySQL. Visit PhpMyAdmin in your machine after starting Apache and MySQL.
+Once that's done, you will need to import the boilerplate database into MySQL. Visit PhpMyAdmin in your machine after starting Apache and MySQL.
 
 ![](doc_img/4.png)
 
