@@ -34,7 +34,7 @@ That's pretty much all the the stuff we gonna need to install. Since we are goin
 
 > But if you like to use CLI to do everything then, you memang power la. Kalau pakai yang hitam puteh, then ok, you are the man. -Our Beloved DR.
 
-Moral of the story: you're not guilty for using GUI lol.
+Moral of the story: you're not GUIlty for using GUI lol.
 
 ## Configure
 
