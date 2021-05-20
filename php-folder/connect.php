@@ -1,8 +1,12 @@
 <?php
-	$servername = "185.185.40.33";
+	// $servername = "185.185.40.33";
+	// $username = "root";
+	// $password = "pass";
+	// $database = "esdm_db";
+	$servername = "localhost";
 	$username = "root";
-	$password = "pass";
-	$database = "esdm_db";
+	$password = "";
+	$database = "esdm_boilerplate";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $database);

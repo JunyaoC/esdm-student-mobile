@@ -33,9 +33,9 @@ export class HomePage {
 		route:"health"
 	},
 	{
-		iconPath:"assets/icon/attendance.svg",
-		label:"Attendance",
-		route:"attendance"
+		iconPath:"assets/icon/vehicle.svg",
+		label:"Vehicle",
+		route:"vehicle"
 	},
 	{
 		iconPath:"assets/icon/attendance.svg",

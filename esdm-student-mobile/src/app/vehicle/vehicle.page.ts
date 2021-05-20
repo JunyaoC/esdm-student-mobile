@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiclePage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
+
+  backHome(){
+  	this.router.navigate(['./home'])
+  }
+
+  goregistervehicle(){
+  	this.router.navigate(['./registervehicle'])
+  }
+
+
 
 }

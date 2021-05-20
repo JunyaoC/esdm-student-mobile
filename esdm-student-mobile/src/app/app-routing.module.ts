@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'vehicle',
     loadChildren: () => import('./vehicle/vehicle.module').then( m => m.VehiclePageModule)
   },
+  {
+    path: 'registervehicle',
+    loadChildren: () => import('./registervehicle/registervehicle.module').then( m => m.RegistervehiclePageModule)
+  },
 
 
 ];
