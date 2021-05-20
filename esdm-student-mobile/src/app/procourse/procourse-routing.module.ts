@@ -7,7 +7,15 @@ const routes: Routes = [
   {
     path: '',
     component: ProcoursePage
+  },  {
+    path: 'coursehistory',
+    loadChildren: () => import('./coursehistory/coursehistory.module').then( m => m.CoursehistoryPageModule)
+  },
+  {
+    path: 'courselist',
+    loadChildren: () => import('./courselist/courselist.module').then( m => m.CourselistPageModule)
   }
+
 ];
 
 @NgModule({
