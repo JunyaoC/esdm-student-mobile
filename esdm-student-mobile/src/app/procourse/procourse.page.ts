@@ -19,11 +19,11 @@ export class ProcoursePage implements OnInit {
   }
 
   visitService(path){
-		this.router.navigate(['./courselist'])
+		this.router.navigate(['./procourse/courselist'])
 	}
 
   history(path){
-		this.router.navigate(['./history'])
+		this.router.navigate(['./procourse/coursehistory'])
 	}
 
 }
