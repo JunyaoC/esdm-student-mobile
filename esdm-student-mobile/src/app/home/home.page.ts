@@ -23,14 +23,14 @@ export class HomePage {
 		route:"library"
 	},
 	{
-		iconPath:"assets/icon/health.svg",
-		label:"Health",
-		route:"health"
-	},
-	{
 		iconPath:"assets/icon/attendance.svg",
 		label:"Attendance",
 		route:"attendance"
+	},
+	{
+		iconPath:"assets/icon/health.svg",
+		label:"Health",
+		route:"health"
 	},
 	{
 		iconPath:"assets/icon/attendance.svg",
