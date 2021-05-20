@@ -76,9 +76,11 @@ At this point you can start XAMPP Apache and MySQL server.
 
 Once that's done, you will need to import the boilerplate database into MySQL. Visit PhpMyAdmin in your machine after starting Apache and MySQL.
 
-![](doc_img/4.png)
-
-Before you import the DB, make sure you are at the "home" page. Click on home first, baru click Import.
+Procedures: 
+1. Create the database call esdm_boilerplate
+2. Select esdm_boilerplate database
+3. Click import
+4. Select the Database
 
 ![](doc_img/5.png)
 
@@ -94,7 +96,7 @@ Login info:
 
 ```
 cd esdm-student-mobile
-ionic run serve
+ionic serve
 ```
 Remember to use open mobile view during development!
 
