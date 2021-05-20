@@ -22,11 +22,7 @@ const routes: Routes = [
   {
     path: 'library',
     loadChildren: () => import('./library/library.module').then( m => m.LibraryPageModule)
-  },  {
-    path: 'health',
-    loadChildren: () => import('./health/health.module').then( m => m.HealthPageModule)
   },
-
 ];
 
 @NgModule({
