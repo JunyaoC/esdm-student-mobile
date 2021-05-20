@@ -95,7 +95,7 @@ login with:
 
 username: root
 
-password:pass
+password:root
 
 ### Run the Project
 
