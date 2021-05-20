@@ -34,8 +34,8 @@ export class HomePage {
 	},
 	{
 		iconPath:"assets/icon/attendance.svg",
-		label:"Attendance",
-		route:"attendance"
+		label:"ProCourse",
+		route:"procourse"
 	},
 	{
 		iconPath:"assets/icon/attendance.svg",
