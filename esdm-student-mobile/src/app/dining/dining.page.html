@@ -1,40 +1,33 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>UTMSmart Dining Modules</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <div class="headBar">
 	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
 		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
 		<span class="brand"></span>
-
 	</div>
 	<p>UTMSmart Dining Modules</p> 
 </div>
 
-<ion-content class="card-background-page">
-	<br><br>
-	<ion-card>
-		<img class="card-image" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
-		<div class="card-title">MakLong Ikan Bakai</div>
-    	<div class="card-subtitle">Arked Meranti</div>
-	</ion-card>
+<ion-card  type="button" (click)="checkMenu()">
+	<img class="card-image" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
+	<div class="card-title" (click)="checkMenu()">MakLong Ikan Bakai</div>
+    <div class="card-subtitle">Arked Meranti</div>
+</ion-card>
 
+
+<ion-content>
 
 	<ion-tabs>
 	  <!-- Tab bar -->
 	  <ion-tab-bar slot="bottom">
-	    <ion-tab-button tab="account">
+	    <ion-tab-button tab="dining">
 	      <ion-icon name="home"></ion-icon>
 	    </ion-tab-button>
-	    <ion-tab-button tab="contact">
+	    <ion-tab-button tab="cart">
 	      <ion-icon name="cart"></ion-icon>
 	    </ion-tab-button>
-	    <ion-tab-button tab="contact">
+	    <ion-tab-button tab="order-history">
 	      <ion-icon name="reorder-four-outline"></ion-icon>
 	    </ion-tab-button>
-	    <ion-tab-button tab="settings">
+	    <ion-tab-button tab="personal-info">
 	      <ion-icon name="person-circle-outline"></ion-icon>
 	    </ion-tab-button>
 	  </ion-tab-bar>

@@ -17,6 +17,9 @@ export class DiningPage implements OnInit {
   	this.router.navigate(['./home'])
   }
 
+  checkMenu(){
+    this.router.navigate(['dining/food'])
+  }
   // backHome() {
   //   this.route.navigate(['./home']);
   // }
