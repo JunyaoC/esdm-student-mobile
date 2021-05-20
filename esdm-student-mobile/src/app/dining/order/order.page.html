@@ -1,10 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>order</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title style='font-weight: bold'>Orders</ion-title>
+		  	<div class="headBar">
+				<div style="display: flex;justify-content: left;align-items: left;color: #493bff;" (click)="backHome()">
+					<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+					<span class="brand"></span>
+					<!--p style="align-content: left; color:black; font-weight: bold;">Order History</p--> 
+				</div>
+				
+			</div>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
+	<ion-card>
+      	<ion-card-header>
+          <ion-card-subtitle>My Order</ion-card-subtitle>
+          <ion-card-title>Nasi Lemak Ayumm yumm</ion-card-title>
+        </ion-card-header>
+
+        
+        <ion-card-content>
+          Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836. 
+          <img src="https://media-cdn.tripadvisor.com/media/photo-s/19/08/b1/f5/nasi-lemak.jpg" style="height: 100px; margin-left: 50%" />
+        </ion-card-content>
+    </ion-card>
+
+
+
+
+
+
 	<ion-tabs>
 	  <!-- Tab bar -->
 	  <ion-tab-bar slot="bottom">

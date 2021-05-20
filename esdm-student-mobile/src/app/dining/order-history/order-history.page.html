@@ -1,25 +1,150 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>order-history</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title style='font-weight: bold'>Order History</ion-title>
+		  	<div class="headBar">
+				<div style="display: flex;justify-content: left;align-items: left;color: #493bff;" (click)="backHome()">
+					<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+					<span class="brand"></span>
+					<!--p style="align-content: left; color:black; font-weight: bold;">Order History</p--> 
+				</div>
+				
+			</div>
+	</ion-toolbar>
 </ion-header>
+	<ion-content fullscreen>
+		<br>
+	    <ion-card style="overflow: visible; background-color: #d1d9f5;">
+	        <ion-card-content>
+	        	<ion-row>
+	        		<ion-col size="3">
+			        	<img src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" 
+			        		style="
+							  width: 65px;
+							  height: 61px;
+							  overflow: visible;
+							  background-image: url(/* batch_IMG_6935-2.jpg */);
+							  background-size: cover;
+							  background-repeat: no-repeat;
+							  background-position: center;
+							  border-radius: 10px;" />
+		          	</ion-col>
+		          	<ion-col size="6">
+		          		<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>Mak Ngah Buncit</ion-card-title>
+		          		<ion-card-subtitle> 21 May 2021 10:30A.M
+		          		</ion-card-subtitle>
+		          		<p>RM 15.00</p>
+		          	</ion-col>
+		          	<ion-col >
+		          		<ion-button size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="time-outline"></ion-icon>Processing</ion-button>
 
-<ion-content>
-	<ion-tabs>
-	  <!-- Tab bar -->
-	  <ion-tab-bar slot="bottom">
-	    <ion-tab-button (click)="home()">
-	      <ion-icon name="home"></ion-icon>
-	    </ion-tab-button>
-	    <ion-tab-button>
-	      <ion-icon name="cart"></ion-icon>
-	    </ion-tab-button>
-	    <ion-tab-button (click)="history()">
-	      <ion-icon name="reorder-four-outline"></ion-icon>
-	    </ion-tab-button>
-	    <ion-tab-button (click)="personal()">
-	      <ion-icon name="person-circle-outline"></ion-icon>
-	    </ion-tab-button>
-	  </ion-tab-bar>
-	</ion-tabs>
+		          		<ion-button size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="location-outline"></ion-icon>Track it</ion-button>
+		          	</ion-col>
+	          	</ion-row>
+	        </ion-card-content>
+	    </ion-card>
+	    <ion-card style="overflow: visible; background-color: #d1d9f5;">
+	        <ion-card-content>
+	        	<ion-row>
+	        		<ion-col size="3">
+			        	<img src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" 
+			        		style="
+							  width: 65px;
+							  height: 61px;
+							  overflow: visible;
+							  background-image: url(/* batch_IMG_6935-2.jpg */);
+							  background-size: cover;
+							  background-repeat: no-repeat;
+							  background-position: center;
+							  border-radius: 10px;" />
+		          	</ion-col>
+		          	<ion-col size="6">
+		          		<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>Pak Ngah Buncit</ion-card-title>
+		          		<ion-card-subtitle> 20 May 2021 09:30P.M
+		          		</ion-card-subtitle>
+		          		<p>RM 5.00</p>
+		          	</ion-col>
+		          	<ion-col >
+
+		          		<ion-button size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="checkmark-circle-outline"></ion-icon>Completed</ion-button>
+		          	</ion-col>
+	          	</ion-row>
+	        </ion-card-content>
+	    </ion-card>
+	    <ion-card style="overflow: visible; background-color: #d1d9f5;">
+	        <ion-card-content>
+	        	<ion-row>
+	        		<ion-col size="3">
+			        	<img src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" 
+			        		style="
+							  width: 65px;
+							  height: 61px;
+							  overflow: visible;
+							  background-image: url(/* batch_IMG_6935-2.jpg */);
+							  background-size: cover;
+							  background-repeat: no-repeat;
+							  background-position: center;
+							  border-radius: 10px;" />
+		          	</ion-col>
+		          	<ion-col size="6">
+		          		<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>Mak Ngah Buncit</ion-card-title>
+		          		<ion-card-subtitle> 20 May 2021 09:00P.M
+		          		</ion-card-subtitle>
+		          		<p>RM 55.00</p>
+		          	</ion-col>
+		          	<ion-col >
+
+		          		<ion-button size="small" color="danger" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="close-circle-outline"></ion-icon>Cencelled</ion-button>
+		          	</ion-col>
+	          	</ion-row>
+	        </ion-card-content>
+	    </ion-card>
+		<ion-card style="overflow: visible; background-color: #d1d9f5;">
+	        <ion-card-content>
+	        	<ion-row>
+	        		<ion-col size="3">
+			        	<img src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" 
+			        		style="
+							  width: 65px;
+							  height: 61px;
+							  overflow: visible;
+							  background-image: url(/* batch_IMG_6935-2.jpg */);
+							  background-size: cover;
+							  background-repeat: no-repeat;
+							  background-position: center;
+							  border-radius: 10px;" />
+		          	</ion-col>
+		          	<ion-col size="6">
+		          		<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>Mak Ngah Buncit</ion-card-title>
+		          		<ion-card-subtitle> 19 May 2021 12:30A.M
+		          		</ion-card-subtitle>
+		          		<p>RM 12.00</p>
+		          	</ion-col>
+		          	<ion-col >
+		          		<ion-button size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="checkmark-circle-outline"></ion-icon>Completed</ion-button>
+		          	</ion-col>
+	          	</ion-row>
+	        </ion-card-content>
+	    </ion-card>
+
 </ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<ion-tabs class="footer">
+		  <!-- Tab bar -->
+		  <ion-tab-bar slot="bottom">
+		    <ion-tab-button (click)="home()">
+		      <ion-icon name="home"></ion-icon>
+		    </ion-tab-button>
+		    <ion-tab-button>
+		      <ion-icon name="cart"></ion-icon>
+		    </ion-tab-button>
+		    <ion-tab-button (click)="history()">
+		      <ion-icon name="reorder-four-outline"></ion-icon>
+		    </ion-tab-button>
+		    <ion-tab-button (click)="personal()">
+		      <ion-icon name="person-circle-outline"></ion-icon>
+		    </ion-tab-button>
+		  </ion-tab-bar>
+		</ion-tabs>
+	</ion-toolbar>
+</ion-footer>

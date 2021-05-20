@@ -18,6 +18,10 @@ export class OrderPage implements OnInit {
   	  this.router.navigate(['dining'])
   }
 
+  backHome(){
+    this.router.navigate(['dining'])
+  }
+
   history(){
   	  this.router.navigate(['dining/order-history'])
   }
