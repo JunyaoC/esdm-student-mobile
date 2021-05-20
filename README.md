@@ -44,7 +44,7 @@ This is a private repo, so sometimes things go haywire. If you face issue clonin
 You can use Github Desktop (recommended) to clone.
 
 ```
-git clone https://github.com/JunyaoC/esdm-project.git
+git clone https://github.com/JunyaoC/esdm-student-mobile
 ```
 
 ### NPM I
