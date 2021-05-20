@@ -1,4 +1,7 @@
 <ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="fetchAttendance($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
 	<div class="headBar">
 
@@ -42,19 +45,20 @@
 	</div>
 
 	<div style="padding: 0 1rem;">
-		<h3>Signed Attendance</h3>
+		<h3 style="margin: 0;">Signed Attendance</h3>
+		<span style="font-size: 0.8rem;opacity: 0.58;">pull down to refresh</span>
 	</div>
 
 	<ion-list>
-		<ion-item>
+		<ion-item *ngFor="let record of attendance_records">
 			<ion-label>
-				<h1>ESDM</h1>
-				<h3>SCSP3843 Section 1</h3>
+				<h1>{{record.subject_name}}</h1>
+				<h3>{{record.subject_code}}} Section {{record.session_number}}</h3>
 			</ion-label>
 
 			<ion-note style="text-align: right;">
-				<span>10:00AM</span><br>
-				 <span>27 Apr 2020</span>
+				<span>{{record.attendance_timestamp | date : 'shortTime'}}</span><br>
+				 <span>{{record.attendance_timestamp | date : 'dd MMM yyyy'}}</span>
 			</ion-note>
 		</ion-item>
 	</ion-list>
