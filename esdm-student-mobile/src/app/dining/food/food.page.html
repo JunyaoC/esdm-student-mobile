@@ -6,114 +6,52 @@
 	<p>UTMSmart Dining Modules</p> 
 </div>
 
+
+
+  <div style="width: 95%;margin:auto;margin-bottom: 10px;">
+    <ion-card style="background-color: #d1d9f5;">
+      <ion-grid>
+      <ion-row>
+      <ion-col>
+        <img src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg">
+      </ion-col>
+      
+      <ion-col>
+        <p style="font-size: 15px; font-weight: bold;color:black;">Nasi Lemak Ayam</p>
+        <p style="font-size: 12px;">Speical nasi lemak with ayam goreng</p>
+        <div class="row">
+          <div class="column">
+            <p style="font-size: 20px;position: absolute;bottom:1px;">RM 5.00</p>
+          </div>
+          <div class="column">
+            <div  id="button-div"><ion-button size="small"  (click)="foodDetails()" >View</ion-button></div>
+          </div>
+        </div>
+      </ion-col>
+      </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+
+
 <ion-content>
- <ion-card>
-    <ion-card-header>
-  Shopping cart
-  </ion-card-header>
 
-
-     <img src="../assets/b.jpg"/>
- 
-     <ion-card-content>
-    <p>BEET ROOT AND RED BEAN VEGAN BURGERS</p>
-  </ion-card-content>
-
- <ion-row>
-    <ion-col>
-      <div>$ 10.00</div>
-    </ion-col>
-    <ion-col> 
-      <div> x</div>
-    </ion-col>
-    <ion-col>
-      <div> 3</div>
-    </ion-col>
-      <ion-col>
-         <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-         </button>
-      </ion-col>
- </ion-row>
-
-  </ion-card>
-
-  <ion-card>
-        <img src="../assets/b.jpg"/>
- 
-     <ion-card-content>
-    <p>BEET ROOT AND RED BEAN VEGAN BURGERS</p>
-  </ion-card-content>
-
- <ion-row>
-    <ion-col>
-      <div>$ 10.00</div>
-    </ion-col>
-    <ion-col> 
-      <div> x</div>
-    </ion-col>
-    <ion-col>
-      <div> 3</div>
-    </ion-col>
-      <ion-col>
-         <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-         </button>
-      </ion-col>
- </ion-row>
-
-  </ion-card>
-
-   <ion-card>
-        <img src="../assets/b.jpg"/>
- 
-     <ion-card-content>
-    <p>BEET ROOT AND RED BEAN VEGAN BURGERS</p>
-  </ion-card-content>
-
- <ion-row>
-    <ion-col>
-      <div>$ 10.00</div>
-    </ion-col>
-    <ion-col> 
-      <div> x</div>
-    </ion-col>
-    <ion-col>
-      <div> 3</div>
-    </ion-col>
-      <ion-col>
-         <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-         </button>
-      </ion-col>
- </ion-row>
-
-  </ion-card>
-  <ion-card>
- 
-  <ion-list>
-    <button ion-item>
-     
-      Subtotal   $543
-    </button>
-
-    <button ion-item>
-     
-     Shipping  $5
-    </button>
-
-    <button ion-item>
-    
-      Total     $548
-    </button>
-
-   
-
-  </ion-list>
-
-<ion-list>
-   <button ion-button type="submit"  >CHECKOUT</button>
-</ion-list>
-</ion-card>
- 
+  <ion-tabs>
+    <!-- Tab bar -->
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="backHome()">
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-icon name="cart"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="history()">
+        <ion-icon name="reorder-four-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="personal()">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  
 </ion-content>

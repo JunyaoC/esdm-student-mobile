@@ -13,7 +13,7 @@ export class FoodPage implements OnInit {
   ngOnInit() {
   }
 
-  home(){
+  backHome(){
   	  this.router.navigate(['dining'])
   }
 
@@ -23,5 +23,9 @@ export class FoodPage implements OnInit {
 
   personal(){
   	  this.router.navigate(['dining/personal-info'])
+  }
+
+  foodDetails(){
+      this.router.navigate(['dining/food-details'])
   }
 }
