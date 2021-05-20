@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hostel',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HostelPage implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }
-
+   registerPage() {
+    this.route.navigate(['hostel/registration']);
+  }
+     electricPage() {
+    this.route.navigate(['hostel/electric']);
+  }
+   complaintPage() {
+    this.route.navigate(['hostel/complaint']);
+  }
 }
