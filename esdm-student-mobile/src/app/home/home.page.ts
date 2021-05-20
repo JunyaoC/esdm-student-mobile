@@ -33,9 +33,9 @@ export class HomePage {
 		route:"health"
 	},
 	{
-		iconPath:"assets/icon/attendance.svg",
-		label:"Attendance",
-		route:"attendance"
+		iconPath:"assets/icon/course-manage.svg",
+		label:"ProCourse",
+		route:"procourse"
 	},
 	{
 		iconPath:"assets/icon/attendance.svg",
