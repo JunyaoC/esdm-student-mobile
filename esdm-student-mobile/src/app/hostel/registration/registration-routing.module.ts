@@ -10,6 +10,10 @@ const routes: Routes = [
   },  {
     path: 'kuota-pengetua',
     loadChildren: () => import('./kuota-pengetua/kuota-pengetua.module').then( m => m.KuotaPengetuaPageModule)
+  },
+  {
+    path: 'open-registration',
+    loadChildren: () => import('./open-registration/open-registration.module').then( m => m.OpenRegistrationPageModule)
   }
 
 ];
