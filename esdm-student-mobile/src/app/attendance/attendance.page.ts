@@ -17,4 +17,8 @@ export class AttendancePage implements OnInit {
   	this.router.navigate(['./home'])
   }
 
+  openCamera(){
+  	alert('add open camera function')
+  }
+
 }
