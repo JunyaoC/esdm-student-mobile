@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reportissue',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportissuePage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
+
+  backProcourse(){
+  	this.router.navigate(['./procourse'])
+  }
+  
 
 }

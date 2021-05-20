@@ -1,9 +1,72 @@
+
+
 <ion-header>
-  <ion-toolbar>
-    <ion-title>reportissue</ion-title>
-  </ion-toolbar>
+  
+  <div class="headBar">
+  
+    <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backProcourse()">
+      <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+      <span class="brand">Back</span>
+    </div>
+
+  </div>
+
 </ion-header>
 
 <ion-content>
 
+	<div class="wrapper">
+		<h1 style="text-align: center;">Report Issues</h1>
+	</div>
+
+  <div style="width: 100%;padding: 1rem;">
+    
+    <ion-card>
+      <ion-card-content>
+      <!-- Inputs with labels -->
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <!-- Inputs with labels -->
+      <ion-item>
+        <ion-label>Title Issue</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <!-- Input with placeholder -->
+      <ion-item>
+        <ion-textarea rows="6" cols="20" placeholder="Describe your issue..."></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-button color="success" size="default">Send</ion-button>
+      </ion-item>
+    </ion-card-content>
+    </ion-card>
+  </div>
+
 </ion-content>
+
+
+
+<script>  
+ 
+  var app = angular.module('myapp',[]);
+  app.controller('usercontroller',function($scope,$http){
+
+  
+       $scope.displayData = function(){  
+           //  $http.get("select.php").success(function(data){  
+        
+           //       $scope.codes = data;  
+           //  });  
+           alert('sdsds')
+       }  
+ 
+ 
+  
+  }) 
+  
+</script>  
