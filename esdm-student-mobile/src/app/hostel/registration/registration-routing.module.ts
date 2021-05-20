@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: RegistrationPage
+  },  {
+    path: 'kuota-pengetua',
+    loadChildren: () => import('./kuota-pengetua/kuota-pengetua.module').then( m => m.KuotaPengetuaPageModule)
   }
+
 ];
 
 @NgModule({
