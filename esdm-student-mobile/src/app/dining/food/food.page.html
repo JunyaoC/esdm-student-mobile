@@ -7,8 +7,8 @@
 </div>
 
 
-
-  <div style="width: 95%;margin:auto;margin-bottom: 10px;">
+<ion-content>
+  <div style="width: 95%;margin-left:13px;margin-bottom: 10px;">
     <ion-card style="background-color: #d1d9f5;">
       <ion-grid>
       <ion-row>
@@ -21,10 +21,10 @@
         <p style="font-size: 12px;">Speical nasi lemak with ayam goreng</p>
         <div class="row">
           <div class="column">
-            <p style="font-size: 20px;position: absolute;bottom:1px;">RM 5.00</p>
+            <p style="font-size: 20px;position: absolute;bottom:1px;font-weight: bold;color:black;">RM 5.00</p>
           </div>
           <div class="column">
-            <div  id="button-div"><ion-button size="small"  (click)="foodDetails()" >View</ion-button></div>
+            <div  id="button-div"><ion-button size="small"  (click)="foodDetails()" item-content >View</ion-button></div>
           </div>
         </div>
       </ion-col>
@@ -32,7 +32,7 @@
       </ion-grid>
     </ion-card>
   </div>
-
+</ion-content>
 
 <ion-content>
 
