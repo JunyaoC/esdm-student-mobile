@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationPage implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
+  }
+  kuotaPage() {
+    this.route.navigate(['hostel/registration/kuota-pengetua']);
+  }
+  openPage() {
+    this.route.navigate(['hostel/registration/open-registration']);
+  }
+  amendPage() {
+    this.route.navigate(['hostel/registration/amendment']);
   }
 
 }
