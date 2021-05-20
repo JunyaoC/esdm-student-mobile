@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./attendance/attendance.module').then( m => m.AttendancePageModule)
   },
   {
+    path: 'attendance/:class_id',
+    loadChildren: () => import('./attendance/attendance.module').then( m => m.AttendancePageModule)
+  },
+  {
     path: 'library',
     loadChildren: () => import('./library/library.module').then( m => m.LibraryPageModule)
   },
