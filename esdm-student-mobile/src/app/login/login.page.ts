@@ -15,7 +15,8 @@ export class LoginPage implements OnInit {
 	username:string = ''
 	password:string = ''
 
-	server : string = 'http://localhost/php-folder/';
+//	server : string = 'http://localhost/php-folder/';
+	server : string ='http://localhost/esdm-student-mobile-main/php-folder/';
 
   constructor(private router: Router, private toastController:ToastController, public us:UserServiceService,private storage: Storage,) { }
 
