@@ -24,34 +24,109 @@
 
 			<!-- List of Text Items -->
       <ion-list>
-        <ion-item>
-          <ion-label>
-            <h1>ESDM</h1>
-            <h3>SCSP3843 Section 1</h3>
+        <ion-item >
+          <ion-label class="ion-text-wrap">
+            <h2>Design Thinking For Enterpreneur</h2>
+            <h3 style="color: #493bff;">GLRB0010</h3>
           </ion-label>
-    
           <ion-note style="text-align: right;">
-            <span>10:00AM</span><br>
-             <span>27 Apr 2020</span>
+            <br><span>Compulsory</span>
+          </ion-note><br>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            <h2>Profrssional Ethics and Intergrity</h2>
+            <h3 style="color: #493bff;">GLRM0020</h3>
+          </ion-label>
+          <ion-note style="text-align: right;">
+            <br><span>Elective</span>
           </ion-note>
         </ion-item>
+
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            <h2>Data Anlaytics For Organization</h2>
+            <h3 style="color: #493bff;">GLRT0010</h3>
+          </ion-label>
+          <ion-note style="text-align: right;">
+            <br><span>Elective</span>
+          </ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            <h2>Construction Measurement (Mechanical & Electrical)</h2>
+            <h3 style="color: #493bff;">GLRT0020</h3>
+          </ion-label>
+          <ion-note style="text-align: right;">
+            <br><span>Elective</span>
+          </ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            <h2>Safety and Health Officer Introductory Course</h2>
+            <h3 style="color: #493bff;">GLRT0050</h3>
+          </ion-label>
+          <ion-note style="text-align: right;">
+            <br><span>Elective</span>
+          </ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            <h2>Quality Management For built Environment and Engineering</h2>
+            <h3 style="color: #493bff;">GLRT0060</h3>
+          </ion-label>
+          <ion-note style="text-align: right;">
+            <br><span>Elective</span>
+          </ion-note>
+        </ion-item>
+
+        
       </ion-list>
+
 
       
 		</div>
 	</div>
 
-<!-- <table>
-  <tr>
-    <th>Course Code</th>
-    <th>Course</th>
-  </tr>
-  <tr ng-repeat='x in somearray'>
-    <td>{{x.course_code}}</td>
-    <td>{{x.course_name}}</td>
 
-  </tr>
-</table> -->
 
+  <div ng-app="myapp" ng-controller="usercontroller" ng-init="displayData()">
+  <table>
+    <tr>
+      <th>Course Code</th>
+      <th>Course</th>
+    </tr>
+    <tr ng-repeat='x in names'>
+      <td>{{x?.u_name}}</td>
+      <td>{{x?.u_id}}</td>
+
+    </tr>
+  </table>
+  </div>
 
 </ion-content>
+
+<script>  
+ 
+  var app = angular.module('myapp',[]);
+  app.controller('usercontroller',function($scope,$http){
+
+  
+       $scope.displayData = function(){  
+           //  $http.get("select.php").success(function(data){  
+        
+           //       $scope.codes = data;  
+           //  });  
+           alert('sdsds')
+       }  
+ 
+ 
+  
+  }) 
+  
+  
+  </script>  
