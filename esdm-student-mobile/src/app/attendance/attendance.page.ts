@@ -18,7 +18,7 @@ export class AttendancePage implements OnInit {
   }
 
   openCamera(){
-  	alert('add open camera function')
+  	alert('add open camera function 123')
   }
 
 }
