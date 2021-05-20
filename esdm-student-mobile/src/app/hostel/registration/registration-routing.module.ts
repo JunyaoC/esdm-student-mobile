@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'open-registration',
     loadChildren: () => import('./open-registration/open-registration.module').then( m => m.OpenRegistrationPageModule)
+  },
+  {
+    path: 'amendment',
+    loadChildren: () => import('./amendment/amendment.module').then( m => m.AmendmentPageModule)
   }
 
 ];
