@@ -1,0 +1,51 @@
+.frame {
+  
+  overflow: visible;
+  background-image: url(/* batch_IMG_6935-2.jpg */);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.text1{
+	color: black;
+	font-weight: bold;
+}
+
+.titleheader{
+	font-size: 24px;
+}
+
+.gambor{
+	width: 70px;
+	height: 61px;
+	overflow: visible;
+	background-image: url(/* batch_IMG_6935-2.jpg */);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 10px;
+}
+
+.text2{
+	font-size:12px;
+}
+
+.divider{
+	margin-top:1rem;
+	margin-bottom:1rem;
+	border:0;
+	border-top:1px solid rgba(0,0,0,.1);
+}
+
+
+#footer {
+ width: 960px;
+ margin-top: auto;
+ margin-right: auto;
+ margin-left: auto;
+ text-align: center;
+ padding: 0px;
+ margin-bottom: 0px;
+}

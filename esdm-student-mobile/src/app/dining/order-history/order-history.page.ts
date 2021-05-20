@@ -28,4 +28,9 @@ export class OrderHistoryPage implements OnInit {
   	  this.router.navigate(['dining/personal-info'])
   }
 
+  orderpage(){
+      this.router.navigate(['dining/order'])
+  }
+
+
 }
