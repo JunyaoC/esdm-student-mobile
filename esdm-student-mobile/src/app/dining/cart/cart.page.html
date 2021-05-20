@@ -1,17 +1,50 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>cart</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title style='font-weight: bold'>Cart</ion-title>
+		  	<div class="headBar">
+				<div style="display: flex;justify-content: left;align-items: left;color: #493bff;" (click)="backHome()">
+					<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+					<span class="brand"></span>
+					<!--p style="align-content: left; color:black; font-weight: bold;">Order History</p--> 
+				</div>
+				
+			</div>
+	</ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+
+  <div class="cart-items">
+    <ion-card style="background-color: #d1d9f5;">
+      <ion-card-content>
+        <div class="item-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Nasi_Lemak%2C_Mamak%2C_Sydney.jpg" />
+        </div>
+
+        <div class="item-info">
+          <p>Special nasi lemak with ayam goreng</p>
+          <p>RM6.00</p>
+
+          <div class="qty-selector">
+            <ion-button fill="clear">-</ion-button>
+            <ion-label>1</ion-label>
+            <ion-button fill="clear">+</ion-button>
+          </div>
+          	  <div class="column">
+            <div  id="button-div"><ion-button size="small"  (click)="history()" item-content >Proceed</ion-button></div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 	<ion-tabs>
 	  <!-- Tab bar -->
 	  <ion-tab-bar slot="bottom">
 	    <ion-tab-button (click)="home()">
 	      <ion-icon name="home"></ion-icon>
 	    </ion-tab-button>
-	    <ion-tab-button>
+	    <ion-tab-button (click)="cart">
 	      <ion-icon name="cart"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button (click)="history()">
