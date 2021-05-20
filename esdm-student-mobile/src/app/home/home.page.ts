@@ -33,9 +33,9 @@ export class HomePage {
 		route:"health"
 	},
 	{
-		iconPath:"assets/icon/attendance.svg",
-		label:"Attendance",
-		route:"attendance"
+		iconPath:"assets/icon/hostel.svg",
+		label:"Residential Colleges",
+		route:"hostel"
 	},
 	{
 		iconPath:"assets/icon/attendance.svg",

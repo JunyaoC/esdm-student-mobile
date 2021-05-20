@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'health',
     loadChildren: () => import('./health/health.module').then( m => m.HealthPageModule)
+  },  {
+    path: 'hostel',
+    loadChildren: () => import('./hostel/hostel.module').then( m => m.HostelPageModule)
   },
+
 
 ];
 
