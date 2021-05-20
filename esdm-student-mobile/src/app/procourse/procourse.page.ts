@@ -26,4 +26,8 @@ export class ProcoursePage implements OnInit {
 		this.router.navigate(['./procourse/coursehistory'])
 	}
 
+  report(path){
+    this.router.navigate(['./procourse/reportissue'])
+  }
+
 }
