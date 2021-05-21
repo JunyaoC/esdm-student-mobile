@@ -9,7 +9,6 @@
 
 <ion-content>
 
-
 	<div class="card">
 		<div class="header">
 			<div class="avatar">
@@ -23,9 +22,9 @@
 		<p>A18CS0281</p>
 	</div>
 
-	<ion-list>
 
-		<ion-item button (click)="history()" detail>
+	<ion-card>
+		<ion-item button (click)="history()">
 			<ion-label>My Orders</ion-label>
 		</ion-item>
 
@@ -44,27 +43,32 @@
 		<ion-item button>
 			<ion-label>FAQ</ion-label>
 		</ion-item>
-
-	</ion-list>
-
+	</ion-card>
 
 
 
-	<ion-tabs>
-	  <!-- Tab bar -->
-	  <ion-tab-bar slot="bottom">
-	    <ion-tab-button (click)="home()">
-	      <ion-icon name="home"></ion-icon>
-	    </ion-tab-button>
-	    <ion-tab-button>
-	      <ion-icon name="cart"></ion-icon>
-	    </ion-tab-button>
-	    <ion-tab-button (click)="history()">
-	      <ion-icon name="reorder-four-outline"></ion-icon>
-	    </ion-tab-button>
-	    <ion-tab-button (click)="personal()">
-	      <ion-icon name="person-circle-outline"></ion-icon>
-	    </ion-tab-button>
-	  </ion-tab-bar>
-	</ion-tabs>
+
+
 </ion-content>
+
+<ion-footer>
+	<ion-toolbar>
+	<ion-tabs>
+		<!-- Tab bar -->
+		<ion-tab-bar slot="bottom">
+		  <ion-tab-button (click)="home()">
+			<ion-icon name="home"></ion-icon>
+		  </ion-tab-button>
+		  <ion-tab-button>
+			<ion-icon name="cart"></ion-icon>
+		  </ion-tab-button>
+		  <ion-tab-button (click)="history()">
+			<ion-icon name="reorder-four-outline"></ion-icon>
+		  </ion-tab-button>
+		  <ion-tab-button (click)="personal()">
+			<ion-icon name="person-circle-outline"></ion-icon>
+		  </ion-tab-button>
+		</ion-tab-bar>
+	  </ion-tabs>
+	  </ion-toolbar>
+</ion-footer>
