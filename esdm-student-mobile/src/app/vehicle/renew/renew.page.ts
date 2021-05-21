@@ -17,4 +17,14 @@ export class RenewPage implements OnInit {
   	this.router.navigate(['./vehicle'])
   }
 
+  public submit() {
+    //console.log(this.registrationForm.value);
+    this.router.navigate(['./vehicle/payment'])
+     //    this._apiService.submit(this.registrationForm.value).then((res:any) =>{
+     //   console.log("SUCCESS ===",res);
+     // },(error: any) => {
+     //   console.log("ERROR ===",error);
+     // })
+   }
+
 }
