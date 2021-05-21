@@ -16,7 +16,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class AttendancePage implements OnInit {
 
-  server : string = 'http://localhost:4896/php-folder/';
+  server : string = 'http://localhost/php-folder/';
   attendance_records:any = []
 
   constructor(
