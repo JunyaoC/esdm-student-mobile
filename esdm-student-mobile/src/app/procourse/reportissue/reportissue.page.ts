@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 
 
@@ -11,9 +12,10 @@ import { Router } from '@angular/router';
 })
 export class ReportissuePage implements OnInit {
 
+
   loginForm: FormGroup;
-  constructor(private fb: FormBuilder,private router:Router) {
-  }
+
+  constructor(private fb: FormBuilder,private router:Router,public alertController: AlertController) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -33,6 +35,20 @@ export class ReportissuePage implements OnInit {
 
   backProcourse(){
   	this.router.navigate(['./procourse'])
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Thanks for reporting',
+      message: 'Report submitted. We will review your report and take action',
+      buttons: ['Done']
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
   }
   
 

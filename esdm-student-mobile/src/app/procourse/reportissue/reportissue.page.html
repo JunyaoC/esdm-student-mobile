@@ -58,7 +58,8 @@
     <ion-col>
     </ion-col>
     <ion-col size="11">
-      <ion-button [disabled]="!loginForm.valid" expand="block" color="danger">Report</ion-button>
+
+      <ion-button [disabled]="!loginForm.valid" (click)="presentAlert()" expand="block" color="danger">Report</ion-button>
     </ion-col>
     <ion-col>
     </ion-col>
