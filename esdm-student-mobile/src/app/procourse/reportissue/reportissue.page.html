@@ -25,27 +25,38 @@
           <ion-label position="floating">Matric Number</ion-label>
           <ion-input autocapitalize="on" formControlName ="matric" maxlength='9'></ion-input>
         </ion-item>
-        <div *ngIf="isValidInput('matric')"
+        <div style="width: 100%;padding: 1rem;" *ngIf="isValidInput('matric')"
             class="alert alert-danger">
-            <div *ngIf="loginForm.controls['matric'].errors.required" style="text-align: center;color: red;">
+            <div *ngIf="loginForm.controls['matric'].errors.required" style="text-align: left;font-size:13px;color: red;">
               Matric is required.
             </div>
           </div>
+
+          <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input formControlName ="name"></ion-input>
+          </ion-item>
+          <div style="width: 100%;padding: 1rem;" *ngIf="isValidInput('name')"
+              class="alert alert-danger">
+              <div *ngIf="loginForm.controls['name'].errors.required" style="text-align: left;font-size:13px;color: red;">
+                Your name is required.
+              </div>
+            </div>
 
         <ion-item>
           <ion-label position="floating">Issue Title</ion-label>
           <ion-input formControlName ="title"></ion-input>
         </ion-item>
-        <div *ngIf="isValidInput('title')"
+        <div style="width: 100%;padding: 1rem;" *ngIf="isValidInput('title')"
             class="alert alert-danger">
-            <div *ngIf="loginForm.controls['title'].errors.required" style="text-align: center;color: red;">
+            <div *ngIf="loginForm.controls['title'].errors.required" style="text-align: left;font-size:13px;color: red;">
               Issue Title is required.
             </div>
           </div>
 
         
         <ion-item>
-          <ion-textarea rows="6" cols="20" placeholder="Describe your issue..."></ion-textarea>
+          <ion-textarea rows="6" cols="20" placeholder="Describe your issue..." required></ion-textarea>
         </ion-item>
 
       </ion-list>

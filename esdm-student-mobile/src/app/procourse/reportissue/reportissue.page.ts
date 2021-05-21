@@ -25,7 +25,9 @@ export class ReportissuePage implements OnInit {
 	  this.loginForm = this.fb.group({
 	      matric: ['',  [Validators.required,
       Validators.pattern('[A-Z0-9]+'), Validators.maxLength(9)]],
-	      title: ['', Validators.required]
+	      title: ['', Validators.required],
+        name: ['',  Validators.required]
+
 	});
   }
   isValidInput(fieldName): boolean {
