@@ -25,6 +25,15 @@ export class AppComponent {
 				// this.navCtrl.navigateRoot('/home');
 			}
 		})
+
+		this.storage.get('user_data').then( res => {
+
+			if(res){
+				this.us.currentUserData = res;
+			}
+
+		})
+
 	}
 
 
