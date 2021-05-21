@@ -12,7 +12,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 export class ClassSchedulePage implements OnInit {
 
 	classes
-	server : string = 'http://localhost:4896/php-folder/';
+	server : string = 'http://localhost/php-folder/';
 
   constructor(private router:Router,private localNotifications: LocalNotifications) { }
 
