@@ -8,6 +8,10 @@ const routes: Routes = [
   {
     path: '',
     component: RegisterPage
+  },
+  {
+    path: 'register-detail',
+    loadChildren: () => import('./register-detail/register-detail.module').then( m => m.RegisterDetailPageModule)
   }
 ];
 

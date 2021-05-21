@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,12 +9,12 @@ import { ModalController } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
 
-  constructor() {
-
-  }
-
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }
 
+  registerdetail(){
+    this.route.navigate(['hostel/registration/kuota-pengetua/register/register-detail']);
+  }
 }
