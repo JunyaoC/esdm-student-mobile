@@ -18,4 +18,10 @@ export class CoursehistoryPage implements OnInit {
   	this.router.navigate(['./procourse'])
   }
 
+  viewDetails()
+  {
+    this.router.navigate(['./procourse/coursehistory/details'])
+  }
+  
+
 }

@@ -1,0 +1,51 @@
+<ion-header>
+
+
+  <div class="headBar">
+
+    <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backCourse()">
+      <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+      <span class="brand">Back</span>
+    </div>
+
+  </div>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-content fullscreen>
+    <ion-card>
+      <img src="assets/icon/design-thinking.png" />
+      <ion-card-header>
+        <ion-card-subtitle>GLRB0010</ion-card-subtitle>
+        <ion-card-title>Design Thinking For Enterpreneur</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <span style="color:black"><strong>SECTION&nbsp;01</strong></span><br><br>
+
+        <span style="color:black"><strong>Appointment Details:</strong></span><br>
+        <ul>
+          <li><strong>Date : 30/5/2021</strong></li>
+          <li><strong>Location : UTM P20</strong></li>
+          <li><strong>Facilitator : ASSOC. PROF. DR ABDUL RASHID BIN HUSAIN</strong></li>
+        </ul><br>
+        <ion-card-subtitle style="color:red;text-align:right">COMPULSORY</ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+        </ion-col>
+        <ion-col size="11">
+          <ion-button (click)="presentAlertConfirm()" expand="block" color="danger">Cancel</ion-button>
+        </ion-col>
+        <ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>
