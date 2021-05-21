@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import axios from 'axios';
+
 
 @Component({
   selector: 'app-procourse',
@@ -8,10 +10,13 @@ import { Router } from '@angular/router';
 })
 export class ProcoursePage implements OnInit {
 
+  server : string = 'http://localhost/php-folder/';
+  announcement_records:any = [];
+
   constructor(private router:Router) { }
 
   ngOnInit() {
-    
+    this.fetchAnnouncement(0);
   }
 
   backHome(){
@@ -28,6 +33,23 @@ export class ProcoursePage implements OnInit {
 
   report(path){
     this.router.navigate(['./procourse/reportissue'])
+  }
+
+  fetchAnnouncement(event){
+    let body = {
+      action:'list_announcement',
+    }
+
+    axios.post(this.server + 'procourse/announcement.php', JSON.stringify(body)).then((res:any) => {
+      this.announcement_records = [...res.data.announcement]
+
+      console.log(res);
+
+      if(event != 0){
+        event.target.complete();
+      }
+    })
+
   }
 
 }
