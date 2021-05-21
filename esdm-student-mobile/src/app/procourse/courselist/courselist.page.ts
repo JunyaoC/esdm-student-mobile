@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import axios from 'axios';
+
 @Component({
   selector: 'app-courselist',
   templateUrl: './courselist.page.html',
@@ -7,12 +9,14 @@ import { Router } from '@angular/router';
 })
 export class CourselistPage implements OnInit {
 
-  // server : string = 'http://localhost/esdm-student-mobile-main/php-folder/';
+  server : string = 'http://localhost/php-folder/';
+  procourse_list:any = [];
 
   constructor(private router:Router) { }
 
 
   ngOnInit() {
+    this.fetchCourselist(0);
   }
 
   backProcourse(){
@@ -21,6 +25,23 @@ export class CourselistPage implements OnInit {
   viewDetails()
   {
     this.router.navigate(['./procourse/courselist/details'])
+  }
+
+  fetchCourselist(event){
+    let body = {
+      action:'list_procourse',
+    }
+
+    axios.post(this.server + 'procourse/courselist.php', JSON.stringify(body)).then((res:any) => {
+      this.procourse_list = [...res.data.procourse]
+
+      console.log(res);
+
+      if(event != 0){
+        event.target.complete();
+      }
+    })
+
   }
   
   

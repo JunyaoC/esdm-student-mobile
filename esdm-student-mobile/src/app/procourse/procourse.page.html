@@ -46,14 +46,14 @@
 	</div>
 
 
-	<ion-card color="danger"  >
+	<ion-card color="danger">
 	 <ion-card-header>
 		<ion-card-subtitle><h4>Announcement</h4></ion-card-subtitle>
 	  </ion-card-header>
 	<div style="height: 200px;overflow: scroll;">
 	<div *ngFor="let record of announcement_records" >
 	  <ion-card-header>
-		<ion-card-subtitle><h4>{{record.an_title}}</h4></ion-card-subtitle>
+		<ion-card-title>{{record.an_title}}</ion-card-title>
 	  </ion-card-header>
 	  <ion-card-content>
 	    {{record.an_detail}}
@@ -62,8 +62,6 @@
 	</div>
 	
 	</ion-card>
-
-
 
 
 </ion-content>

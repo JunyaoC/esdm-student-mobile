@@ -24,74 +24,20 @@
 
 			<!-- List of Text Items -->
       <ion-list>
+        <div *ngFor="let course of procourse_list" >
       <button (click)="viewDetails()">
         <ion-item >
           <ion-label class="ion-text-wrap">
-            <h2>Design Thinking For Enterpreneur</h2>
-            <h3 style="color: #493bff;">GLRB0010</h3>
+            <h2>{{course.procourse_name}}</h2>
+            <h3 style="color: #493bff;">{{course.procourse_code}}</h3>
           </ion-label>
           <ion-note style="text-align: right;">
-            <br><span>Compulsory</span>
+            <br><span>{{course.procourse_type}}</span>
           </ion-note><br>
         </ion-item>
       </button>
-      <button>
-        <ion-item>
-          <ion-label class="ion-text-wrap">
-            <h2>Professional Ethics and Intergrity</h2>
-            <h3 style="color: #493bff;">GLRM0020</h3>
-          </ion-label>
-          <ion-note style="text-align: right;">
-            <br><span>Elective</span>
-          </ion-note>
-        </ion-item>
-      </button>
-      <button>
-        <ion-item>
-          <ion-label class="ion-text-wrap">
-            <h2>Data Anlaytics For Organization</h2>
-            <h3 style="color: #493bff;">GLRT0010</h3>
-          </ion-label>
-          <ion-note style="text-align: right;">
-            <br><span>Elective</span>
-          </ion-note>
-        </ion-item>
-      </button>
-      <button>
-        <ion-item>
-          <ion-label class="ion-text-wrap">
-            <h2>Construction Measurement (Mechanical & Electrical)</h2>
-            <h3 style="color: #493bff;">GLRT0020</h3>
-          </ion-label>
-          <ion-note style="text-align: right;">
-            <br><span>Elective</span>
-          </ion-note>
-        </ion-item>
-      </button>
-      <button>
-        <ion-item>
-          <ion-label class="ion-text-wrap">
-            <h2>Safety and Health Officer Introductory Course</h2>
-            <h3 style="color: #493bff;">GLRT0050</h3>
-          </ion-label>
-          <ion-note style="text-align: right;">
-            <br><span>Elective</span>
-          </ion-note>
-        </ion-item>
-      </button>
-      <button>
-        <ion-item>
-          <ion-label class="ion-text-wrap">
-            <h2>Quality Management For built Environment and Engineering</h2>
-            <h3 style="color: #493bff;">GLRT0060</h3>
-          </ion-label>
-          <ion-note style="text-align: right;">
-            <br><span>Elective</span>
-          </ion-note>
-        </ion-item>
-      </button>
+    </div>
     
-        
       </ion-list>
 
       
@@ -99,40 +45,4 @@
 		</div>
 	</div>
 
-
-  <!-- <div ng-app="myapp" ng-controller="usercontroller" ng-init="displayData()">
-  <table>
-    <tr>
-      <th>Course Code</th>
-      <th>Course</th>
-    </tr>
-    <tr ng-repeat='x in names'>
-      <td>{{x?.u_name}}</td>
-      <td>{{x?.u_id}}</td>
-
-    </tr>
-  </table>
-  </div> -->
-
 </ion-content>
-
-<script>  
- 
-  var app = angular.module('myapp',[]);
-  app.controller('usercontroller',function($scope,$http){
-
-  
-       $scope.displayData = function(){  
-           //  $http.get("select.php").success(function(data){  
-        
-           //       $scope.codes = data;  
-           //  });  
-           alert('sdsds')
-       }  
- 
- 
-  
-  }) 
-  
-  
-  </script>  
