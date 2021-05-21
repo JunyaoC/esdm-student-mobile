@@ -26,7 +26,7 @@ export class DiningPage implements OnInit {
   }
 
   checkMenu(){
-     this.router.navigate(['dining/food'])
+    this.router.navigate(['dining/food'])
   }
 
   fetchRestaurant(event){
