@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router'; 
+import axios from 'axios';
 
 @Component({
   selector: 'app-dining',
@@ -8,9 +9,15 @@ import { Router } from '@angular/router';
 })
 export class DiningPage implements OnInit {
 
+  server : string = 'http://localhost:4896/php-folder/';
+  restaurant_records:any = []
+
   constructor(private router:Router) { }
 
   ngOnInit() {
+
+    this.fetchRestaurant(0);
+
   }
 
   backHome(){
@@ -20,8 +27,20 @@ export class DiningPage implements OnInit {
   checkMenu(){
      this.router.navigate(['dining/food'])
   }
-  // backHome() {
-  //   this.route.navigate(['./home']);
-  // }
+
+  fetchRestaurant(event){
+    let body = {
+      action:'list_restaurant',
+    }
+
+    axios.post(this.server + 'dining/restaurant.php', JSON.stringify(body)).then((res:any) => {
+      this.restaurant_records = [...res.data.restaurant]
+
+      if(event != 0){
+        event.target.complete();
+      }
+    })
+
+  }
 
 }

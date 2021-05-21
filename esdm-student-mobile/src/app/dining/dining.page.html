@@ -1,3 +1,4 @@
+
 <div class="headBar">
 	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
 		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
@@ -7,13 +8,22 @@
 </div>
 
 <ion-content>
-	
+
 <ion-card  type="button" (click)="checkMenu()">
 	<img class="card-image" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
 	<div class="card-title" (click)="checkMenu()">MakLong Ikan Bakai</div>
     <div class="card-subtitle">Arked Meranti</div>
 </ion-card>
 </ion-content>
+
+	<ion-list>
+		<ion-item *ngFor="let record of restaurant_records">
+			<ion-label>
+				<h1>{{record.restaurant_name}}</h1>
+			</ion-label>
+		</ion-item>
+	</ion-list>
+
 
 <ion-content>
 
