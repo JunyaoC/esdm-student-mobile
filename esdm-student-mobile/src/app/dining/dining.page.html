@@ -1,13 +1,18 @@
-
+<ion-content>
 <div class="headBar">
 	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
 		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-		<span class="brand"></span>
+		<span class="brand">Back to home</span>
 	</div>
-	<p>UTMSmart Dining Modules</p> 
+	
 </div>
 
-<ion-content>
+<div class="wrapper">
+	<h1 style="text-align: center;">UTMSmart Dining Modules</h1>
+	<p style="text-align: center;">Restaurant</p>
+</div>
+
+
 
 <ion-card  type="button" (click)="checkMenu()">
 	<img class="card-image" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
@@ -31,7 +36,7 @@
 	  <!-- Tab bar -->
 	  <ion-tab-bar slot="bottom">
 	    <ion-tab-button>
-	      <ion-icon name="home"></ion-icon>
+	      <ion-icon color="primary" name="home"selected="true"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button tab="cart">
 	      <ion-icon name="cart"></ion-icon>

@@ -7,10 +7,11 @@ import axios from 'axios';
   templateUrl: './dining.page.html',
   styleUrls: ['./dining.page.scss'],
 })
+ 
 export class DiningPage implements OnInit {
 
-  server : string = 'http://localhost:4896/php-folder/';
-  restaurant_records:any = []
+  server : string = 'http://localhost:php-folder/';
+  restaurant_records:any = [];
 
   constructor(private router:Router) { }
 
