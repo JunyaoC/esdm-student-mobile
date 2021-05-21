@@ -34,7 +34,7 @@ export class CoursehistoryPage implements OnInit {
     }
 
     axios.post(this.server + 'procourse/history.php', JSON.stringify(body)).then((res:any) => {
-      this.history_list = res.data.history
+      this.history_list = [...res.data.history]
 
       console.log(res);
 
