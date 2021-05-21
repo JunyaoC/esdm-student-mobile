@@ -18,7 +18,7 @@ export class VehiclePage implements OnInit {
   }
 
   goregistervehicle(){
-  	this.router.navigate(['./registervehicle'])
+  	this.router.navigate(['./vehicle/registervehicle'])
   }
 
 

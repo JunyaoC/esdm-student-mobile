@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: VehiclePage
+  },  {
+    path: 'registervehicle',
+    loadChildren: () => import('./registervehicle/registervehicle.module').then( m => m.RegistervehiclePageModule)
   }
+
 ];
 
 @NgModule({

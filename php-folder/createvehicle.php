@@ -8,26 +8,33 @@ include "connect.php";
 $input = file_get_contents("php//input");
 $data = json_decode($input,true);
 $message = array();
-$platenumber=$data['vehicleID'];
-$vmodel=$data['vehicleModel'];
-$vcolor=$data['vehicleColor'];
-$vtype=$data['vehicleType'];
+
+    $platenumber=$data['vehicleID'];
+    $vmodel=$data['vehicleModel'];
+    $vcolor=$data['vehicleColor'];
+    $vtype=$data['vehicleType'];
+
+
+
+    $q = mysqli_query($conn, "INSERT INTO `tb_vehicle`(`vehicleID`,`vehicleModel`,`vehicleColor`,`vehicleType`) VALUES ('$platenumber','$vmodel','$vcolor','$vtype')");
+
+if($q){
+
+    $message['status'] = "Success";
+}else{
+ 
+    $message['status'] = "Error";
+}
+
+echo json_encode($message);
+
+
 
 // $platenumber=$data['platenumber'];
 // $vmodel=$data['vmodel'];
 // $vcolor=$data['vcolor'];
 // $vtype=$data['vtype'];
 
-$q = mysqli_query($conn, "INSERT INTO `tb_vehicle`(`vehicleID`,`vehicleModel`,`vehicleColor`,`vehicleType`) VALUES ('$platenumber','$vmodel','$vcolor','$vtype')");
 
-if($q){
-    http_response_code(201);
-    $message['status'] = "Success";
-}else{
-    http_response_code(422);
-    $message['status'] = "Error";
-}
-
-echo json_encode($message);
 echo mysqli_error($conn);
 ?>

@@ -18,7 +18,7 @@ export class ApiService {
   // addVehicle(data){
   //   return this.http.post('http://localhost/esdm-student-mobile-main/php-folder/createvehicle.php',data);
   // }
-  submit(registrationForm){
-    return axios.post('http://localhost/esdm-student-mobile/php-folder/createvehicle.php',registrationForm.value);
-  }
+  // submit(registrationForm){
+  //   return axios.post('http://localhost/esdm-student-mobile/php-folder/createvehicle.php',registrationForm.value);
+  // }
 }
