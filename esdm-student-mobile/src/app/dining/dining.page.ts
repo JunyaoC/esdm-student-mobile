@@ -43,7 +43,6 @@ export class DiningPage implements OnInit {
         event.target.complete();
       }
     })
-
   }
 
 }
