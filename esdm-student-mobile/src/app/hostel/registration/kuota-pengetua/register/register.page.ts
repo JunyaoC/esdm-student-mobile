@@ -9,17 +9,10 @@ import { ModalController } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
 
-  constructor(public modalController: ModalController) {
+  constructor() {
 
   }
 
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: ModalPage,
-      cssClass: 'my-custom-class'
-    });
-    return await modal.present();
-  }
 
   ngOnInit() {
   }
