@@ -5,5 +5,8 @@
 </ion-header>
 
 <ion-content>
-
+<ion-card  type="button" (click)="checkMenu()" *ngFor="let record of restaurant_records">
+	<div class="card-title" (click)="checkMenu()">{{record.restaurant_name}}</div>
+    <div class="card-subtitle">{{record.restaurant_name}}</div>
+</ion-card>
 </ion-content>
