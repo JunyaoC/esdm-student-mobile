@@ -8,32 +8,23 @@
 </div>
 
 <div class="wrapper">
-	<h1 style="text-align: center;">UTMSmart Dining Modules</h1>
-	<p style="text-align: center;">Restaurant</p>
+	<h1 style="text-align: center;">Restaurant</h1>
 </div>
 
 
 
-<ion-card  type="button" (click)="checkMenu()">
+<ion-card  type="button" (click)="checkMenu()" *ngFor="let record of restaurant_records">
 	<img class="card-image" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
-	<div class="card-title" (click)="checkMenu()">MakLong Ikan Bakai</div>
-    <div class="card-subtitle">Arked Meranti</div>
+	<div class="card-title" (click)="checkMenu()">{{record.restaurant_name}}</div>
+    <div class="card-subtitle">{{record.restaurant_name}}</div>
 </ion-card>
 </ion-content>
 
-	<ion-list>
-		<ion-item *ngFor="let record of restaurant_records">
-			<ion-label>
-				<h1>{{record.restaurant_name}}</h1>
-			</ion-label>
-		</ion-item>
-	</ion-list>
 
 
-<ion-content>
+<ion-toolbar>
 
 	<ion-tabs>
-	  <!-- Tab bar -->
 	  <ion-tab-bar slot="bottom">
 	    <ion-tab-button>
 	      <ion-icon color="primary" name="home"selected="true"></ion-icon>
@@ -50,4 +41,4 @@
 	  </ion-tab-bar>
 	</ion-tabs>
 
-</ion-content>
+</ion-toolbar>

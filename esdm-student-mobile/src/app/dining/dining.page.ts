@@ -10,7 +10,7 @@ import axios from 'axios';
  
 export class DiningPage implements OnInit {
 
-  server : string = 'http://localhost:php-folder/';
+  server : string = 'http://localhost/php-folder/';
   restaurant_records:any = [];
 
   constructor(private router:Router) { }
@@ -36,6 +36,8 @@ export class DiningPage implements OnInit {
 
     axios.post(this.server + 'dining/restaurant.php', JSON.stringify(body)).then((res:any) => {
       this.restaurant_records = [...res.data.restaurant]
+
+      console.log(res);
 
       if(event != 0){
         event.target.complete();
