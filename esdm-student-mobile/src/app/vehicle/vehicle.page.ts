@@ -29,7 +29,7 @@ export class VehiclePage implements OnInit {
   	this.router.navigate(['./vehicle/history'])
   }
 
-  goviewhistory(){
+  goviewticket(){
   	this.router.navigate(['./vehicle/ticket'])
   }
 
