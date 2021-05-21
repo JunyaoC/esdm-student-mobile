@@ -12,4 +12,5 @@ export class KuotaPengetuaPage implements OnInit {
   ngOnInit() {
   }
 
+  
 }
