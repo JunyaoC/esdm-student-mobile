@@ -19,17 +19,29 @@
 <div style="width: 100%;padding: 1rem;">
   <div style="justify-content: space-between;align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%;">
 
-    
+    <form [formGroup]="loginForm">
       <ion-list lines="full" class="ion-no-margin">
         <ion-item>
           <ion-label position="floating">Matric Number</ion-label>
-          <ion-input></ion-input>
+          <ion-input autocapitalize="on" formControlName ="matric" maxlength='9'></ion-input>
         </ion-item>
+        <div *ngIf="isValidInput('matric')"
+            class="alert alert-danger">
+            <div *ngIf="loginForm.controls['matric'].errors.required" style="text-align: center;color: red;">
+              Matric is required.
+            </div>
+          </div>
 
         <ion-item>
           <ion-label position="floating">Issue Title</ion-label>
-          <ion-input></ion-input>
+          <ion-input formControlName ="title"></ion-input>
         </ion-item>
+        <div *ngIf="isValidInput('title')"
+            class="alert alert-danger">
+            <div *ngIf="loginForm.controls['title'].errors.required" style="text-align: center;color: red;">
+              Issue Title is required.
+            </div>
+          </div>
 
         
         <ion-item>
@@ -37,6 +49,7 @@
         </ion-item>
 
       </ion-list>
+    </form>
   </div>
 </div>
 
@@ -45,7 +58,7 @@
     <ion-col>
     </ion-col>
     <ion-col size="11">
-      <ion-button expand="block" color="danger">Report</ion-button>
+      <ion-button [disabled]="!loginForm.valid" expand="block" color="danger">Report</ion-button>
     </ion-col>
     <ion-col>
     </ion-col>
