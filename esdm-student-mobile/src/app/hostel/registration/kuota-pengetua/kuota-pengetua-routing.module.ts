@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: KuotaPengetuaPage
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'register-detail',
+    loadChildren: () => import('./register-detail/register-detail.module').then( m => m.RegisterDetailPageModule)
   }
 ];
 

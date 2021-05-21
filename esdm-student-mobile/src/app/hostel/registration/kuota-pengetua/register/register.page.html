@@ -1,0 +1,39 @@
+<ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="/hostel/registration"></ion-back-button>
+                      </ion-buttons>
+          <ion-title>Registration</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+
+      <ion-content fullscreen class="ion-padding">
+        <ion-grid>
+          <ion-row>
+            <ion-col size-md="6" offset-md="3">
+              <ion-list>
+                <ion-list-header>
+                  <ion-label>
+                    Hi there! <ion-icon name="happy-outline"></ion-icon>
+                  </ion-label>
+
+                </ion-list-header>
+                <br/>
+                <p>Choose your preferred accommodation: </p><br>
+                <ion-item>
+                  <ion-label>Hostel</ion-label>
+                  <ion-select placeholder="Select One" cancelText="Cancel" okText="Okay!" required>
+                    <ion-select-option value="KTDI">Kolej Tun Dr Ismail</ion-select-option>
+                    <ion-select-option value="KTHO">Kolej Tun Hussien Onn</ion-select-option>
+                    <ion-select-option value="KTF">Kolej Tun Fatimah</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+              </ion-list>
+              <br>
+              <ion-button expand="block">Register</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>

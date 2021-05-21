@@ -23,6 +23,7 @@
     "@ionic/storage-angular": "^3.0.6",
     "axios": "^0.21.1",
     "rxjs": "~6.6.0",
+    "scriptjs": "^2.5.9",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
