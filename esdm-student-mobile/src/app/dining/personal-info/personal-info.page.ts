@@ -23,4 +23,5 @@ export class PersonalInfoPage implements OnInit {
   personal(){
   	  this.router.navigate(['dining/personal-info'])
   }
+
 }
