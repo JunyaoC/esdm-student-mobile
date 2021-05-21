@@ -18,6 +18,7 @@ export class DetailsPage implements OnInit {
   backCourse(){
   	this.router.navigate(['./procourse/courselist'])
   }
+  
   async presentAlertMultipleButtons() {
     const alert = await this.alertController.create({
       header: 'Design Thinking For Enterpreneur - Section 1',
