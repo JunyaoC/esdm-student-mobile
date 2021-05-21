@@ -1,9 +1,8 @@
-
-
 <ion-header>
-  
+
+
   <div class="headBar">
-  
+
     <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backProcourse()">
       <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
       <span class="brand">Back</span>
@@ -12,61 +11,45 @@
   </div>
 
 </ion-header>
-
 <ion-content>
+<div class="wrapper">
+  <h1 style="text-align: center;">Report Issue</h1>
+</div>
 
-	<div class="wrapper">
-		<h1 style="text-align: center;">Report Issues</h1>
-	</div>
+<div style="width: 100%;padding: 1rem;">
+  <div style="justify-content: space-between;align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%;">
 
-  <div style="width: 100%;padding: 1rem;">
     
-    <ion-card>
-      <ion-card-content>
-      <!-- Inputs with labels -->
-      <ion-item>
-        <ion-label>Name</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
+      <ion-list lines="full" class="ion-no-margin">
+        <ion-item>
+          <ion-label position="floating">Matric Number</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
 
-      <!-- Inputs with labels -->
-      <ion-item>
-        <ion-label>Title Issue</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position="floating">Issue Title</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
 
-      <!-- Input with placeholder -->
-      <ion-item>
-        <ion-textarea rows="6" cols="20" placeholder="Describe your issue..."></ion-textarea>
-      </ion-item>
+        
+        <ion-item>
+          <ion-textarea rows="6" cols="20" placeholder="Describe your issue..."></ion-textarea>
+        </ion-item>
 
-      <ion-item>
-        <ion-button color="success" size="default">Send</ion-button>
-      </ion-item>
-    </ion-card-content>
-    </ion-card>
+      </ion-list>
   </div>
+</div>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+    </ion-col>
+    <ion-col size="11">
+      <ion-button expand="block" color="danger">Report</ion-button>
+    </ion-col>
+    <ion-col>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
 </ion-content>
-
-
-
-<script>  
- 
-  var app = angular.module('myapp',[]);
-  app.controller('usercontroller',function($scope,$http){
-
-  
-       $scope.displayData = function(){  
-           //  $http.get("select.php").success(function(data){  
-        
-           //       $scope.codes = data;  
-           //  });  
-           alert('sdsds')
-       }  
- 
- 
-  
-  }) 
-  
-</script>  

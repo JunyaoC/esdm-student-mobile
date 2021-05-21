@@ -18,6 +18,10 @@ export class CourselistPage implements OnInit {
   backProcourse(){
   	this.router.navigate(['./procourse'])
   }
+  viewDetails()
+  {
+    this.router.navigate(['./procourse/courselist/details'])
+  }
   
   
 
