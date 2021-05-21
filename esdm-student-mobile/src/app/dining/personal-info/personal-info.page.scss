@@ -24,3 +24,31 @@
 
 }
 
+.header {
+    height: 200px;
+
+    .avatar {
+        width: 160px;
+        height: 160px;
+        position: relative;
+        margin: 0 auto;
+
+        img {
+            display: block;
+            border-radius: 50%;
+            position: absolute;
+            top: 35px;
+            border: 8px solid #12aec9;
+            background-color: #fff;
+        }
+        
+    }
+
+
+}
+
+
+.name{
+    padding-top:15px;
+}
+
