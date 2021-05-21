@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+  		<ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Complaint Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+	
+<ion-content>
+	<ion-card>
+        <ion-card-header>
+          <ion-card-title>Complaint Form</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <form  #form="ngForm" (ngSubmit)="register(form)">
+		    <ion-grid>
+		      <ion-row color="primary" justify-content-center>
+		        <ion-col align-self-center size-md="10" size-lg="5" size-xs="12">
+		          <div padding>
+		            <ion-item>
+		              <ion-input  name="name" type="text" placeholder="Name" ngModel required></ion-input>
+		            </ion-item>
+		            <ion-item>
+		              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+		            </ion-item>
+		            <ion-item>
+		              <ion-input name="password" type="text" placeholder="College" ngModel required></ion-input>
+		            </ion-item>
+		            <ion-item>
+		              <ion-input name="password" type="text" placeholder="Block" ngModel required></ion-input>
+		            </ion-item>
+		              <ion-item>
+		              <ion-input name="password" type="text" placeholder="Room No." ngModel required></ion-input>
+		            </ion-item>
+		             <ion-item>
+		              <ion-textarea name="confirm" placeholder="Reason of Complaint" ngModel required></ion-textarea>
+		            </ion-item>
+			        <ion-item>
+			          <ion-label>Permission for techinician to enter room</ion-label>
+			          <ion-select value="dog">
+			            <ion-select-option value="cat">Permitted</ion-select-option>
+			            <ion-select-option value="dog">Not Permitted</ion-select-option>
+			          </ion-select>
+			        </ion-item>
+		          </div>
+		          <div padding>
+		            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Add Complaint</ion-button>
+		          </div>
+		        </ion-col>
+		      </ion-row>
+		    </ion-grid>
+		  </form>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

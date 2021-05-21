@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-complaint',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComplaintPage implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
+  }
+  formPage() {
+    this.route.navigate(['hostel/complaint/complaint-form']);
+  }
+  historyPage() {
+    this.route.navigate(['hostel/complaint/complaint-history']);
   }
 
 }
