@@ -69,7 +69,7 @@ export class RegistervehiclePage implements OnInit {
   });
   public submit() {
    console.log(this.registrationForm.value);
-
+   this.router.navigate(['./vehicle/registersticker'])
     //    this._apiService.submit(this.registrationForm.value).then((res:any) =>{
     //   console.log("SUCCESS ===",res);
     // },(error: any) => {

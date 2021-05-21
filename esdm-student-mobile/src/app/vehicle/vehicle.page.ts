@@ -21,6 +21,18 @@ export class VehiclePage implements OnInit {
   	this.router.navigate(['./vehicle/registervehicle'])
   }
 
+  gorenew(){
+  	this.router.navigate(['./vehicle/renew'])
+  }
+
+  gohistory(){
+  	this.router.navigate(['./vehicle/history'])
+  }
+
+  goviewhistory(){
+  	this.router.navigate(['./vehicle/ticket'])
+  }
+
 
 
 }

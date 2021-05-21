@@ -1,0 +1,108 @@
+<ion-content>
+
+	<div class="headBar">
+
+		<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="govehicle()">
+			<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+			<span class="brand">Back</span>
+		</div>
+
+	</div>
+
+
+	<div class="wrapper">
+		<h1 style="text-align: center;">Make Payment</h1>
+	</div>
+
+  <div class="ion-padding">
+
+      <ion-list>
+        <!-- <ion-item>
+          <ion-label position="floating">Sticker ID</ion-label>
+          <ion-input autocapitalize inputmode="text" name="stickerid" placeholder="Key in plate number"></ion-input>
+        </ion-item> -->
+        <!-- <div *ngFor="let error of errorMessages.platenumber">
+          <ng-container *ngIf="platenumber.hasError(error.type) && (platenumber.dirty || platenumber.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <!-- <ion-item>
+          <ion-label position="floating">Vehicle Model</ion-label>
+          <ion-input inputmode="text" formControlName="vmodel"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.vmodel">
+          <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <ion-item>
+          <ion-label position="floating">Plate Number</ion-label>
+          <ion-input autocapitalize inputmode="text" name="platenumber" placeholder="Key in plate number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Vehicle Model</ion-label>
+          <ion-select name="vmodel" placeholder="Select Vehicle Model">
+            <ion-select-option value="Perodua" checked="true">Perodua</ion-select-option>
+            <ion-select-option value="Toyota">Toyota</ion-select-option>
+            <ion-select-option value="Honda">Honda</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.vmodel">
+          <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        
+        <ion-item>
+          <ion-label position="floating">Vehicle Color</ion-label>
+          <ion-input inputmode="text" name="vcolor" placeholder="Key in color"></ion-input>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.vcolor">
+          <ng-container *ngIf="vcolor.hasError(error.type) && (vcolor.dirty || vcolor.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <!-- <ion-item>
+          <ion-label position="floating">Vehicle Type</ion-label>
+          <ion-input inputmode="text" formControlName="vtype"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.vtype">
+          <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+
+        <ion-item>
+          <ion-label position="floating">Vehicle Type</ion-label>
+          <ion-select name="vtype" placeholder="Select Vehicle Type">
+            <ion-select-option value="Car" checked="true">Car</ion-select-option>
+            <ion-select-option value="Motorcycle">Motorcycle</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.vtype">
+          <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <ion-item>
+        <ion-label position="floating">Payment Proof Link</ion-label>
+        <ion-input autocapitalize inputmode="text" name="filename" placeholder="Put the Google Drive Link"></ion-input>
+      </ion-item>
+        
+
+      </ion-list>
+<br>
+      <ion-button (click)="submit()" expand="block">Submit <ion-icon slot="end"
+          name="create">
+        </ion-icon>
+      </ion-button>
+
+  </div>
+
+
+
+
+
+</ion-content>
+
+

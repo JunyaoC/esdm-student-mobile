@@ -1,0 +1,97 @@
+<ion-content>
+
+	<div class="headBar">
+
+		<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="govehicle()">
+			<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+			<span class="brand">Back</span>
+		</div>
+
+	</div>
+
+
+	<div class="wrapper">
+		<h1 style="text-align: center;">Register Sticker</h1>
+	</div>
+
+  <div class="ion-padding">
+    <form [formGroup]="registrationForm">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Vehicle Plate Number</ion-label>
+          <ion-input autocapitalize inputmode="text" formControlName="platenumber" placeholder="Key in plate number"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.platenumber">
+          <ng-container *ngIf="platenumber.hasError(error.type) && (platenumber.dirty || platenumber.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <!-- <ion-item>
+          <ion-label position="floating">Vehicle Model</ion-label>
+          <ion-input inputmode="text" formControlName="vmodel"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.vmodel">
+          <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <ion-item>
+          <ion-label position="floating">Residential College</ion-label>
+          <ion-select formControlName="college" placeholder="Select College">
+            <ion-select-option value="KTDI" checked="true">KTDI</ion-select-option>
+            <ion-select-option value="KTHO">KTHO</ion-select-option>
+            <ion-select-option value="KTF">KTF</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.college">
+          <ng-container *ngIf="college.hasError(error.type) && (college.dirty || college.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        
+        <ion-item>
+          <ion-label position="floating">Apply Date</ion-label>
+          <!-- <ion-input inputmode="date" formControlName="applydate" placeholder="Select date"></ion-input> -->
+          <ion-datetime displayFormat="YYYY/MM/DD" display-timezone="utc" formControlName="applydate"></ion-datetime>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.vcolor">
+          <ng-container *ngIf="vcolor.hasError(error.type) && (vcolor.dirty || vcolor.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <!-- <ion-item>
+          <ion-label position="floating">Vehicle Type</ion-label>
+          <ion-input inputmode="text" formControlName="vtype"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.vtype">
+          <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+
+        <ion-item>
+          <ion-label position="floating">Fee Amount</ion-label>
+          <ion-input inputmode="text" formControlName="sfee" placeholder="Key in the amount"></ion-input>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.vtype">
+          <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+
+      </ion-list>
+
+      <ion-button [disabled]="!registrationForm.valid"  (click)="submit()" expand="block">Submit <ion-icon slot="end"
+          name="create">
+        </ion-icon>
+      </ion-button>
+    </form>
+  </div>
+
+
+
+
+
+</ion-content>
+
+
