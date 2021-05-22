@@ -8,8 +8,13 @@
 
 
 <ion-content>
+    
+  <ion-refresher slot="fixed" (ionRefresh)="fetchFoodList($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>   
+
   <div style="width: 95%;margin-left:13px;margin-bottom: 10px;">
-    <ion-card style="background-color: #d1d9f5;">
+      <ion-card style="background-color: #d1d9f5;" *ngFor="let record of food_list">
       <ion-grid>
       <ion-row>
       <ion-col>
@@ -17,11 +22,11 @@
       </ion-col>
       
       <ion-col>
-        <p style="font-size: 15px; font-weight: bold;color:black;">Nasi Lemak Ayam</p>
-        <p style="font-size: 12px;">Special nasi lemak with ayam goreng</p>
+        <p style="font-size: 15px; font-weight: bold;color:black;">{{record.food_name}}</p>
+        <p style="font-size: 12px;">{{record.food_description}}</p>
         <div class="row">
           <div class="column">
-            <p style="font-size: 20px;position: absolute;bottom:1px;font-weight: bold;color:black;">RM 5.00</p>
+            <p style="font-size: 20px;position: absolute;bottom:1px;font-weight: bold;color:black;">RM {{record.food_price}}</p>
           </div>
           <div class="column">
             <div  id="button-div"><ion-button size="small"  (click)="foodDetails()" item-content >View</ion-button></div>
@@ -30,8 +35,9 @@
       </ion-col>
       </ion-row>
       </ion-grid>
-    </ion-card>
+       </ion-card>
   </div>
+     
 </ion-content>
 
 <ion-content>
