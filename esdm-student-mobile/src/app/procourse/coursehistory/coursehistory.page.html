@@ -22,7 +22,7 @@
     <!-- List of Text Items -->
     <ion-list>
       <div *ngFor="let history of history_list" >
-      <ion-item (click)="viewDetails(history.procourse_sec)">
+      <ion-item (click)="viewDetails(history.regHis_id)">
         <ion-label class="ion-text-wrap">
           <h2>{{history.procourse_name}}</h2>
           <h3 style="color: #493bff;">{{history.procourse_code}}</h3>

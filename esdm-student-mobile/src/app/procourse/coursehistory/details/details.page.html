@@ -36,17 +36,19 @@
         <ion-card-subtitle style="color:red;text-align:right">{{history.procourse_type}}</ion-card-subtitle>
       </ion-card-content>
     </ion-card>
-</div>
+
     <ion-grid>
       <ion-row>
         <ion-col>
         </ion-col>
-        <ion-col size="11">
-          <ion-button (click)="presentAlertConfirm()" expand="block" color="danger">Cancel</ion-button>
+        <ion-col size="11" >
+          <ion-button *ngIf="history.diff > 3" expand="block" color="danger" (click)="presentAlertConfirm(history)">Cancel</ion-button>
+          <ion-button *ngIf="history.diff <= 3" expand="block" color="danger" (click)="report()">Report Admin</ion-button>
+          <!-- <ion-button  expand="block" color="danger"> -->
         </ion-col>
         <ion-col>
         </ion-col>
       </ion-row>
     </ion-grid>
-
+  </div>
 </ion-content>

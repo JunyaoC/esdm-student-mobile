@@ -73,7 +73,7 @@ export class DetailsPage implements OnInit {
   async presentAlertMultipleButtons(section) {
 
     const alert = await this.alertController.create({
-      header: `Section ${section.section_no}`,
+      header: `${section.courseSec_courseID} - Section ${section.section_no}`,
       message: `Date : ${section.courseSec_date}<br>Location : ${section.courseSec_loc}<br>Facilitator : ${section.fac_name}`,
       buttons: [
         {
@@ -87,6 +87,7 @@ export class DetailsPage implements OnInit {
           text: 'Register',
           handler: () => {
             this.registerCourse(section)
+            
           }
         }
       ]
@@ -97,7 +98,7 @@ export class DetailsPage implements OnInit {
   }
 
 
-  registerCourse(section){
+  async registerCourse(section){
     console.log(section)
 
     let body = {
@@ -114,6 +115,19 @@ export class DetailsPage implements OnInit {
       console.log(res);
 
     })
+
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Thanks for making an appointment',
+      message: 'Remember to attend the course.',
+      buttons: ['Done']
+    });
+    this.router.navigate(['./procourse/courselist']);
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+
   }
   
 }

@@ -13,30 +13,33 @@ export class DetailsPage implements OnInit {
 
   constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute) { }
  
-  
-  section:string;
+  remainSeat
+  regHis_id:string;
   server : string = 'http://localhost/php-folder/';
   section_list = [];
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
-      let procourse_sec = params['procourse_sec'];
-      this.section=procourse_sec;
+      let regHis_id = params['regHis_id'];
+      this.regHis_id=regHis_id;
       this.fetchSectionlist(0);
     });
     
-    
-    // console.log(this.section);
+
   }
 
   backCourse(){
   	this.router.navigate(['./procourse/coursehistory'])
   }
+  report()
+  {
+    this.router.navigate(['./procourse/reportissue'])
+  }
 
   fetchSectionlist(event){
     let body = {
       action:'list_section',
-      id:this.section,
+      id:this.regHis_id,
     }
 
     axios.post(this.server + 'procourse/historydetails.php', JSON.stringify(body)).then((res:any) => {
@@ -51,7 +54,7 @@ export class DetailsPage implements OnInit {
 
   }
 
-  async presentAlertConfirm() {
+  async presentAlertConfirm(history) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Cancel Appointment',
@@ -62,18 +65,51 @@ export class DetailsPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+            console.log('Confirm Cancel: Cancel');
           }
         }, {
           text: 'Yes',
           handler: () => {
             console.log('Confirm Okay');
+            this.cancelReg(history);
+            
           }
         }
       ]
     });
 
     await alert.present();
+  }
+
+  async cancelReg(history){
+    console.log(history);
+    this.remainSeat=parseInt(history.courseSec_seat, 10) +1;
+    let body = {
+      regHis_id: history.regHis_id,
+      coursesec_id:history.procourse_sec,
+      seat: this.remainSeat,
+      action: 'cancel',
+    }
+
+    
+    axios.post(this.server + 'procourse/historydetails.php', JSON.stringify(body)).then((res:any) => {
+
+      console.log(res);
+
+    })
+
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Success',
+      message: 'Your appointment was deleted.',
+      buttons: ['Done']
+    });
+    this.router.navigate(['./procourse/coursehistory']);
+    
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
   }
 
 }

@@ -24,7 +24,8 @@ export class CoursehistoryPage implements OnInit {
   }
   viewDetails(index)
   {
-    this.router.navigate(['./procourse/coursehistory/details'],{queryParams:{procourse_sec:index}})
+
+    this.router.navigate(['./procourse/coursehistory/details'],{queryParams:{regHis_id:index}})
 
   }
 
