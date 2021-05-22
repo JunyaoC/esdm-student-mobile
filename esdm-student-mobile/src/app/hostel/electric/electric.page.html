@@ -1,12 +1,127 @@
 <ion-header>
   <ion-toolbar>
   	  	<ion-buttons slot="start">
-  	<ion-back-button defaultHref="/"></ion-back-button>
-              </ion-buttons>
+  			<ion-back-button defaultHref="/"></ion-back-button>
+
+  		</ion-buttons>
     <ion-title>Electric Appliance</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+
+	<ion-card>
+	  <ion-card-header>
+	    <ion-card-subtitle>SEMESTER : 2020/2021-1</ion-card-subtitle>
+	    <ion-note style="text-align: right;">
+			<ion-button color="warning" (click)="electricHistory()"> Payment History <ion-icon slot="start" name="arrow-forward-circle-outline"></ion-icon></ion-button>
+		</ion-note>
+	    <ion-card-title>Add Item</ion-card-title>
+	  </ion-card-header>
+	  <ion-card-content>
+	    Electrical Items To Declare & Charge :
+	  </ion-card-content>
+	</ion-card>
+
+   <ion-grid>
+	<ion-card>
+	  <ion-item>
+	    <img src="assets/img/iron.jpeg" width="120" height="120">
+	    <ion-label align="center"><strong>Iron</strong> <br>RM10 (per semester)</ion-label>
+	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
+	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	  </ion-item>
+	  <ion-card-content>
+	    <ion-item>
+	    <ion-label>Qty :</ion-label>
+	    <ion-input></ion-input>
+	  </ion-item>
+	  </ion-card-content>
+	</ion-card>
+
+	<ion-card>
+	  <ion-item>
+	  	<img src="assets/img/kettle.jpeg" width="120" height="120">
+	    <!--<ion-icon name="pin" slot="start"></ion-icon>-->
+	    <ion-label align="center"><strong>Water Heater/Electric Kettle</strong> <br>RM10 (per semester)</ion-label>
+	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
+	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	  </ion-item>
+	  <ion-card-content>
+	    <ion-item>
+	    <ion-label>Qty : </ion-label>
+	    <ion-input></ion-input>
+	  </ion-item>
+	  </ion-card-content>
+	</ion-card>
+
+	<ion-card>
+	  <ion-item>
+	    <img src="assets/img/charger.jpeg" width="120" height="120">
+	    <ion-label align="center"><strong>Laptop/Handphone Charger</strong> <br>FREE (per semester)</ion-label>
+	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
+	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	  </ion-item>
+	  <ion-card-content>
+	    <ion-item>
+	    <ion-label>Qty :</ion-label>
+	    <ion-input></ion-input>
+	  </ion-item>
+	  </ion-card-content>
+	</ion-card>
+
+	<ion-card>
+	  <ion-item>
+	    <img src="assets/img/toaster.jpeg" width="120" height="120">
+	    <ion-label align="center"><strong>Toaster</strong> <br>RM10 (per semester)</ion-label>
+	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
+	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	  </ion-item>
+	  <ion-card-content>
+	    <ion-item>
+	    <ion-label>Qty :</ion-label>
+	    <ion-input></ion-input>
+	  </ion-item>
+	  </ion-card-content>
+	</ion-card>
+
+	<ion-card>
+	  <ion-item>
+	    <img src="assets/img/dryer.jpeg" width="120" height="120">
+	    <ion-label align="center"><strong>Hair Dryer</strong> <br>RM5 (per semester)</ion-label>
+	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
+	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	  </ion-item>
+	  <ion-card-content>
+	    <ion-item>
+	    <ion-label>Qty :</ion-label>
+	    <ion-input></ion-input>
+	  </ion-item>
+	  </ion-card-content>
+	</ion-card>
+
+	<ion-card>
+	  <ion-item>
+	    <img src="assets/img/radio.jpeg" width="130" height="120">
+	    <ion-label align="center"><strong>Radio</strong> <br>RM5 (per semester)</ion-label>
+	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
+	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	  </ion-item>
+	  <ion-card-content>
+	    <ion-item>
+	    <ion-label>Qty :</ion-label>
+	    <ion-input></ion-input>
+	  </ion-item>
+	  </ion-card-content>
+	</ion-card>
+	<!--<ion-button border-width="30" text-align="right">Payment<ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon></ion-button>-->
+
+	<div padding>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<ion-button (click)="paymentPage()"> Submit <ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon></ion-button>
+	</div>
+   </ion-grid>
 
 </ion-content>

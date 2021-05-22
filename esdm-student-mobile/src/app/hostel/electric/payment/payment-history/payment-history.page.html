@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+  	<ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registered Electric Appliances</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid>
+    <ion-row>
+      <ion-col size-md="8" offset-md="2">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>History</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+         <!--   <form  #form="ngForm" (ngSubmit)="register(form)">-->
+          <ion-grid>
+            <ion-row color="primary" justify-content-center>
+              <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
+                <div padding>
+                	<ion-item>
+						<ion-label>
+							<h2>Items</h2>
+						</ion-label>
+						<ion-note style="text-align: center;">
+							<span>&nbsp;</span>
+							<span></span>
+						</ion-note>
+						<ion-note style="text-align: right;">
+							<span>Status</span>
+						</ion-note>
+					</ion-item>
+	                  <ion-item>
+	                  	<ion-label>
+	                  		<h2><strong>Iron,Water Heater/Electric Kettle,<br>Laptop/Handphone Charger,Toaster,Radio</strong></h2>
+	                  	</ion-label>
+	                  	<ion-note style="text-align: center;">
+							<span><strong>Receipt No: 2252021-123</strong><br><br>Date: 22/5/2021<br>RM 35&nbsp;</span>
+						</ion-note>
+						<ion-note style="text-align: right;">
+							<span><strong>Accepted</strong></span>
+						</ion-note>
+	                  </ion-item>
+	                  <ion-item>
+	                  	<ion-label>
+	                  		<h2><strong>Hair Dryer</strong></h2>
+	                  	</ion-label>
+	                  	<ion-note style="text-align: center;">
+							<span><strong>Receipt No: 2252021-124</strong><br><br>Date: 22/5/2021<br>RM 10&nbsp;</span>
+						</ion-note>
+						<ion-note style="text-align: right;">
+							<span><strong>Pending</strong></span>
+						</ion-note>
+	                  </ion-item>
+	                  <ion-item>
+						<ion-note style="text-align: left;">
+							<h4>*Once payment status is "Accepted", please claim the electric appliances's stickers at the college's office</h4>
+						</ion-note>
+					</ion-item>
+	            	</div>
+	                <br>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          </ion-card-content>
+      </ion-card>
+     </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

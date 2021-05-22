@@ -10,20 +10,20 @@ import axios from 'axios';
 export class OpenRegistrationPage implements OnInit {
 
 	server : string = 'http://localhost/php-folder/';
-  restaurant_records:any = [];
+  college_records:any = [];
 
   constructor(private router:Router) { }
 
   ngOnInit() {
-  	this.fetchRestaurant(0);
+  	this.fetchCollege(0);
   }
-  fetchRestaurant(event){
+  fetchCollege(event){
     let body = {
-      action:'list_restaurant',
+      action:'list_college',
     }
 
     axios.post(this.server + 'hostel/open-registration.php', JSON.stringify(body)).then((res:any) => {
-      this.restaurant_records = [...res.data.restaurant]
+      this.college_records = [...res.data.college]
 
       console.log(res);
 
