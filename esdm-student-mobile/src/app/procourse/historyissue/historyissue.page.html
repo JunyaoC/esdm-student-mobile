@@ -17,18 +17,36 @@
 </div>
 
 <div style="width: 100%;padding: 1rem;">
-  <div style="display: flex;justify-content: space-between;align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%;">
+  <div style="align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%;">
 
     <!-- List of Text Items -->
-    <ion-list>
+    <ion-card *ngFor="let issue of list_issue">
       
-      
-    
-      
-    </ion-list>
+      <ion-card-header>
+        <ion-card-subtitle *ngIf="issue.issue_status ==0" style="color: red;">Haven Answer</ion-card-subtitle>
+        <ion-card-subtitle *ngIf="issue.issue_status ==1" style="color: green;">Answered</ion-card-subtitle>
+        <ion-card-title style="font-size: 20px;">{{issue.issue_title}}</ion-card-title>
+        
+
+      </ion-card-header>
+
+      <ion-card-content>
+        {{issue.issue_details}}
+      </ion-card-content>
+      <ion-item>
+          <ion-button (click)="details(issue)" *ngIf="issue.issue_status ==1" fill="outline" slot="end">Details</ion-button>
+          <ion-button (click)="edit()" *ngIf="issue.issue_status ==0" fill="outline" slot="end" color="warning">Edit</ion-button>
+        </ion-item>
+    </ion-card>
+
+ 
+
 
 
     
   </div>
 </div>
+
+
+
 </ion-content>
