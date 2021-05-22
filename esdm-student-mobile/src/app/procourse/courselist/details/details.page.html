@@ -18,10 +18,10 @@
   <ion-content fullscreen>
     <div *ngFor="let code of procourse_list">
     <ion-card>
-      <img src="assets/icon/design-thinking.png" />
+      <img src="assets/icon/{{code.procourse_code}}.png" />
       <ion-card-header>
     <ion-card-subtitle>{{code.procourse_code}}</ion-card-subtitle>
-    <ion-card-title>{{code.procourse_name}}</ion-card-title>
+    <ion-card-title >{{code.procourse_name}}</ion-card-title>
   </ion-card-header>
   
   <ion-card-content>
@@ -30,37 +30,23 @@
   </ion-card-content>
   <ion-card-content>
     <span style="color:black"><strong>Learning Outcome</strong></span><br>
-    <!-- At the end of this course, the student will be able to: -->
     {{code.procourse_learningOut}}
-    <!-- <ul>
-      <li>Understand the concepts of design thinking approaches</li>
-      <li>Create design thinking teams and conduct design thinking sessions</li>
-      <li>Apply both critical thinking and design thinking in parallel to solve problems</li>
-    </ul> -->
     <ion-card-subtitle style="color:red;text-align:right">{{code.procourse_type}}</ion-card-subtitle>
   </ion-card-content>
 </ion-card>
 </div>
 
 <ion-card>
-  <ion-alert-controller></ion-alert-controller>
-  <ion-item (click)="presentAlertMultipleButtons()">
-    <ion-icon name="information-circle-outline"></ion-icon>&nbsp;&nbsp;&nbsp;
-    <ion-label>Section 1</ion-label><ion-badge>30</ion-badge>
-  </ion-item>
 
-  <ion-alert-controller></ion-alert-controller>
-  <ion-item (click)="presentAlertMultipleButtons()">
+  <ion-item *ngFor="let section of section_list;let i=index" (click)="presentAlertMultipleButtons(section)">
     <ion-icon name="information-circle-outline"></ion-icon>&nbsp;&nbsp;&nbsp;
-    <ion-label>Section 2</ion-label><ion-badge color="warning">11</ion-badge>
-  </ion-item>
+    <ion-label>Section {{i+1}}</ion-label>
+    
+    <ion-badge *ngIf="section.courseSec_seat < (section.courseSec_maxseat / 2)">{{section.courseSec_seat}} / {{section.courseSec_maxseat}}</ion-badge>
+    <ion-badge *ngIf="section.courseSec_seat >= (section.courseSec_maxseat / 2) && section.courseSec_seat != section.courseSec_maxseat" color="warning">{{section.courseSec_seat}} / {{section.courseSec_maxseat}}</ion-badge>
+    <ion-badge *ngIf="section.courseSec_seat == section.courseSec_maxseat && section.courseSec_seat!=0" color="danger">FULL</ion-badge>
 
-  <ion-alert-controller></ion-alert-controller>
-  <ion-item (click)="presentAlertMultipleButtons()">
-    <ion-icon name="information-circle-outline"></ion-icon>&nbsp;&nbsp;&nbsp;
-    <ion-label>Section 3</ion-label><ion-badge color="danger">FULL</ion-badge>
   </ion-item>
-  
  
 </ion-card>
 
