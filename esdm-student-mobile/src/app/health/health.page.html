@@ -1,9 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>health</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+
+<div class="headBar" style="margin-bottom: 2rem;">
+
+	<div style="display: flex;justify-content: center;align-items: left;color: #81163F;" (click)="backHome()">
+		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+		<span class="brand"></span>
+	</div>
+	<span class="brand" style="display: flex;justify-content: center;align-items: center;color: #81163F;">HEALTH</span> 
+	<div style="display: flex;justify-content: center;align-items: left;color: #81163F;opacity: 0;">
+		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+		<span class="brand"></span>
+	</div>
+
+</div>
+
+<ion-list *ngFor="let direct of directions" (click)="directPage(direct.route)">
+	<ion-item >
+		<ion-label style="display: flex;justify-content: left; margin-bottom: 1rem;">
+		<img src="{{direct.iconPath}}">
+		<h1 style="padding-left: 1rem; color: #81163F;">{{direct.label}}</h1>
+		</ion-label>
+	</ion-item>
+</ion-list>
 
 </ion-content>

@@ -30,7 +30,23 @@ const routes: Routes = [
   {
     path: 'health',
     loadChildren: () => import('./health/health.module').then( m => m.HealthPageModule)
+  },  {
+    path: 'appointment',
+    loadChildren: () => import('./appointment/appointment.module').then( m => m.AppointmentPageModule)
   },
+  {
+    path: 'schedule',
+    loadChildren: () => import('./schedule/schedule.module').then( m => m.SchedulePageModule)
+  },
+  {
+    path: 'record',
+    loadChildren: () => import('./record/record.module').then( m => m.RecordPageModule)
+  },
+  {
+    path: 'booking',
+    loadChildren: () => import('./booking/booking.module').then( m => m.BookingPageModule)
+  },
+
 
 ];
 

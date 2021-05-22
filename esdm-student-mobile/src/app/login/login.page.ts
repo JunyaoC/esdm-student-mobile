@@ -20,6 +20,7 @@ export class LoginPage implements OnInit {
   constructor(private router: Router, private toastController:ToastController, public us:UserServiceService,private storage: Storage,) { }
 
   ngOnInit() {
+  	this.storage.create()
   }
 
   login(){
@@ -45,7 +46,7 @@ export class LoginPage implements OnInit {
 					this.us.currentUserData = res.data.user_data[0];
 					this.us.currentRole = res.data.user_data[0].u_role;
 
-					this.storage.create()
+					
 
 					this.storage.set('storage_xxx', this.us.currentRole);
 					this.presentToast('Welcome to ESDM Boilderplate! 😁', 'success');

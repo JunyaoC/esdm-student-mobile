@@ -1,0 +1,52 @@
+<ion-content>
+
+<div class="headBar" style="margin-bottom: 2rem;">
+
+	<div style="display: flex;justify-content: center;align-items: left;color: #81163F;" (click)="cancel()">
+		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+		<span class="brand"></span>
+	</div>
+	<span class="brand" style="display: flex;justify-content: center;align-items: center;color: #81163F;">BOOKING CONFIRMATION</span> 
+	<div style="display: flex;justify-content: center;align-items: left;color: #81163F;opacity: 0;">
+		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+		<span class="brand"></span>
+	</div>
+
+</div>
+
+<div style="margin:1rem;">
+	
+	<span style="color: #81163F; font-weight: bold; font-size: 1.2rem;">Appointment Details</span>
+	<div class="rounded">
+
+		<ion-list style="width:100%;background:none;">
+
+			<ion-item color="transparent" lines="none">
+				<ion-label>Date</ion-label>
+				<ion-text style="text-align: right;">
+					<span>{{slot.slot_datetime | date : 'dd MMM YYYY'}}</span>
+				</ion-text>
+			</ion-item>
+			<ion-item color="transparent" lines="none">
+				<ion-label>Time</ion-label>
+				<ion-text style="text-align: right;">
+					<span>{{slot.slot_datetime | date : 'shortTime'}}</span>
+				</ion-text>
+			</ion-item>
+			<ion-item color="transparent" lines="none">
+				<ion-label>Status</ion-label>
+				<ion-text style="text-align: right;">
+					<span>{{status}}</span>
+				</ion-text>
+			</ion-item>
+
+		</ion-list>
+
+	</div>
+
+	<div style="display: flex; justify-content: space-around;align-items: center; width: 100%">
+		<ion-button style="--background:#81163F; width:50%;" (click)="cancel()" >Cancel</ion-button>
+		<ion-button style="--background:#81163F; width:50%;" (click)="submit()" >Confirm</ion-button>
+	</div>
+</div>
+</ion-content>
