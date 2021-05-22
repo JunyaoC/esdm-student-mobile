@@ -18,18 +18,14 @@
 
 
 				<ion-col size="9">
-					<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>{{record.restaurant_name}}</ion-card-title>
-					<ion-card-subtitle>{{record.restaurant_name}}
-					</ion-card-subtitle>
+					<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>{{record.food_name}}</ion-card-title>
+					<ion-card-subtitle>{{record.restaurant_name}}</ion-card-subtitle>
 					
 					<ion-row>
 						<ion-col size="4">
-							<p style="padding-top:7px;">RM 15.00</p>
+							<p style="padding-top:7px;">RM{{record.food_totalprice}}</p>
 						</ion-col>
 
-						<ion-col size="5">
-							<ion-button size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:10px"><ion-icon name="time-outline"></ion-icon>Processing</ion-button>
-						</ion-col>
 					</ion-row>					
 				</ion-col>
 			  </ion-row>
@@ -43,7 +39,7 @@
 			</ion-col>
 
 			<ion-col size="5">
-				<p class="output">{{record.restaurant_name}}</p>
+				<p class="output">11.30 A.M.</p>
 			</ion-col>
 		</ion-row>
 
@@ -51,7 +47,7 @@
 			<p class="title">Pickup Location</p>
 		</ion-row>
 		<ion-row class="location">
-			<p class="locationout">Pah Dunno Arked Meranti</p>
+			<p class="locationout">{{record.restaurant_name}}</p>
 		</ion-row>
 
 		<ion-row class="section">
@@ -60,7 +56,7 @@
 			</ion-col>
 
 			<ion-col size="6">
-				<p class="output">RM 15.00</p>
+				<p class="output">RM{{record.food_totalprice}}</p>
 			</ion-col>
 		</ion-row>
 
