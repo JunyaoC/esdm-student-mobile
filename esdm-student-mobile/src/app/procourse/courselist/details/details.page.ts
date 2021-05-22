@@ -13,7 +13,7 @@ export class DetailsPage implements OnInit {
 
   server : string = 'http://localhost/php-folder/';
   procourse_list:any = [];
-
+  code:string;
   constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute) { }
  
 
@@ -22,6 +22,7 @@ export class DetailsPage implements OnInit {
       let procourse_code = params['procourse_code'];
       
       console.log(procourse_code);
+      this.code=procourse_code;
       this.fetchCourselist(1);
     });
  
@@ -45,6 +46,7 @@ export class DetailsPage implements OnInit {
   fetchCourselist(event){
     let body = {
       action:'list_procourse',
+      id:this.code,
     }
 
     axios.post(this.server + 'procourse/coursedetails.php', JSON.stringify(body)).then((res:any) => {
