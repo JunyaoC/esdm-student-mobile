@@ -16,10 +16,10 @@
 
   <div class="ion-padding">
 
-      <ion-list>
+    <ion-list *ngFor="let record of renew_records">
         <ion-item>
           <ion-label position="floating">Sticker ID</ion-label>
-          <ion-input autocapitalize inputmode="text" name="stickerid" placeholder="Key in plate number"></ion-input>
+          <ion-input readonly autocapitalize inputmode="text" name="stickerid" [(ngModel)]="record.id"></ion-input>
         </ion-item>
         <!-- <div *ngFor="let error of errorMessages.platenumber">
           <ng-container *ngIf="platenumber.hasError(error.type) && (platenumber.dirty || platenumber.touched)">
@@ -37,15 +37,11 @@
         </div> -->
         <ion-item>
           <ion-label position="floating">Plate Number</ion-label>
-          <ion-input autocapitalize inputmode="text" name="platenumber" placeholder="Key in plate number"></ion-input>
+          <ion-input readonly autocapitalize inputmode="text" name="platenumber" [(ngModel)]="record.vehiclePlateNo"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Vehicle Model</ion-label>
-          <ion-select name="vmodel" placeholder="Select Vehicle Model">
-            <ion-select-option value="Perodua" checked="true">Perodua</ion-select-option>
-            <ion-select-option value="Toyota">Toyota</ion-select-option>
-            <ion-select-option value="Honda">Honda</ion-select-option>
-          </ion-select>
+          <ion-input readonly autocapitalize inputmode="text" name="vmodel" [(ngModel)]="record.vehicleModel"></ion-input>
         </ion-item>
         <!-- <div *ngFor="let error of errorMessages.vmodel">
           <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
@@ -55,7 +51,7 @@
         
         <ion-item>
           <ion-label position="floating">Vehicle Color</ion-label>
-          <ion-input inputmode="text" name="vcolor" placeholder="Key in color"></ion-input>
+          <ion-input readonly inputmode="text" name="vcolor" [(ngModel)]="record.vehicleColor"></ion-input>
         </ion-item>
         <!-- <div *ngFor="let error of errorMessages.vcolor">
           <ng-container *ngIf="vcolor.hasError(error.type) && (vcolor.dirty || vcolor.touched)">
@@ -74,18 +70,14 @@
 
         <ion-item>
           <ion-label position="floating">Vehicle Type</ion-label>
-          <ion-select name="vtype" placeholder="Select Vehicle Type">
-            <ion-select-option value="Car" checked="true">Car</ion-select-option>
-            <ion-select-option value="Motorcycle">Motorcycle</ion-select-option>
-          </ion-select>
+          <ion-input readonly inputmode="text" name="vtype" [(ngModel)]="record.vehicleType"></ion-input>
         </ion-item>
         <!-- <div *ngFor="let error of errorMessages.vtype">
           <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
             <small class="error-message">{{error.message}}</small>
           </ng-container>
         </div> -->
-
-      </ion-list>
+    </ion-list>
 
       <ion-button (click)="submit()" expand="block">Submit <ion-icon slot="end"
           name="create">

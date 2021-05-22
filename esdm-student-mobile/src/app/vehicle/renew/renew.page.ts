@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import axios from 'axios'; 
 
 @Component({
   selector: 'app-renew',
@@ -7,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./renew.page.scss'],
 })
 export class RenewPage implements OnInit {
-
+  server : string = "http://localhost/php-folder/";
+  renew_records:any =[];
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.fetchSticker(0);
   }
 
   govehicle(){
@@ -26,5 +29,19 @@ export class RenewPage implements OnInit {
      //   console.log("ERROR ===",error);
      // })
    }
+
+   fetchSticker(event){
+    let body={
+      action: 'show_record',
+    }
+
+    
+    axios.post(this.server+'vehicle/renew.php', JSON.stringify(body)).then((res:any)=>{
+      this.renew_records = [...res.data.record]
+      console.log(res);
+       //console.log(this.renew_records);
+    })
+
+  }
 
 }
