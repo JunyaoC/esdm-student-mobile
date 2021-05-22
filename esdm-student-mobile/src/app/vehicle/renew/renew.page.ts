@@ -1,47 +1,65 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from 'axios'; 
+import { ToastController } from '@ionic/angular';
+import { UserServiceService } from '../../user-service.service';
 
 @Component({
   selector: 'app-renew',
   templateUrl: './renew.page.html',
   styleUrls: ['./renew.page.scss'],
 })
+
 export class RenewPage implements OnInit {
   server : string = "http://localhost/php-folder/";
-  renew_records:any =[];
-  constructor(private router: Router) { }
+  constructor(private router: Router, public toastController: ToastController, public userService: UserServiceService) { }
+  
+  stickerid: any= "6";
+  platenumber: any = "QM0";
+  payment: any=5;
+  filename: any = "link_QM0";
+  pstatus: any = "Received";
 
   ngOnInit() {
-    this.fetchSticker(0);
   }
 
   govehicle(){
   	this.router.navigate(['./vehicle'])
   }
 
-  public submit() {
-    //console.log(this.registrationForm.value);
-    this.router.navigate(['./vehicle/payment'])
-     //    this._apiService.submit(this.registrationForm.value).then((res:any) =>{
-     //   console.log("SUCCESS ===",res);
-     // },(error: any) => {
-     //   console.log("ERROR ===",error);
-     // })
-   }
-
-   fetchSticker(event){
-    let body={
-      action: 'show_record',
-    }
-
-    
-    axios.post(this.server+'vehicle/renew.php', JSON.stringify(body)).then((res:any)=>{
-      this.renew_records = [...res.data.record]
-      console.log(res);
-       //console.log(this.renew_records);
-    })
-
+  submit() {
+    //this.router.navigate(['./vehicle'])
+    let body = {
+      action: 'renew_sticker',
+    //  paymentID: this.paymentid,
+      stickerID: this.stickerid,
+      vehicleID: this.platenumber,
+      paymentAmount: this.payment,
+      paymentProve:this.filename,
+      paymentStatus: this.pstatus,
+      stuACID: this.userService.currentUserData.student.student_matric
   }
 
+console.log(body);
+    axios.post(this.server + 'vehicle/renew.php', JSON.stringify(body)).then((res: any) => {
+      console.log(res);
+      if (res.data.success) {
+        this.presentToast('Request submitted!', 'success');
+        this.router.navigate(['./vehicle'])
+      } else {
+        this.presentToast(res.data.msg, 'danger');
+      }
+
+      //console.log(this.vehicle_records);
+    })
+   }
+
+   async presentToast(message: any, color: any) {
+    const toast = await this.toastController.create({
+      color: color,
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
 }
