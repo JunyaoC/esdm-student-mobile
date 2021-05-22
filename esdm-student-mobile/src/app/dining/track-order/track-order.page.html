@@ -9,7 +9,7 @@
 
 <ion-content>
 
-	<ion-card style="overflow: visible; background-color: #d1d9f5;" (click)="orderpage()">
+	<ion-card style="overflow: visible; background-color: #d1d9f5;" (click)="orderpage()" *ngFor="let record of order_records">
 		<ion-card-content>
 			<ion-row>
 				<ion-col size="3">
@@ -18,8 +18,8 @@
 
 
 				<ion-col size="9">
-					<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>Mak Ngah Buncit</ion-card-title>
-					<ion-card-subtitle> 23 May 2021 10:30A.M
+					<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>{{record.restaurant_name}}</ion-card-title>
+					<ion-card-subtitle>{{record.restaurant_name}}
 					</ion-card-subtitle>
 					
 					<ion-row>
@@ -36,14 +36,14 @@
 		</ion-card-content>
 	</ion-card>
 
-	<ion-card style="overflow: visible; background-color: #ffffff;">
+	<ion-card style="overflow: visible; background-color: #ffffff;" *ngFor="let record of order_records">
 		<ion-row class="section">
 			<ion-col size="7">
 				<p class="title">Estimated Pickup at</p>
 			</ion-col>
 
 			<ion-col size="5">
-				<p class="output">11.55 A.M.</p>
+				<p class="output">{{record.restaurant_name}}</p>
 			</ion-col>
 		</ion-row>
 

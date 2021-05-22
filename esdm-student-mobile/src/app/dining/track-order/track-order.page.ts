@@ -10,9 +10,13 @@ import axios from 'axios';
 })
 export class TrackOrderPage implements OnInit {
 
+  server : string = 'http://localhost/php-folder/';
+  order_records :any = [];
+
   constructor(private router:Router) { }
 
   ngOnInit() {
+    this.fetchOrder(0);
   }
 
   home(){
@@ -27,13 +31,13 @@ export class TrackOrderPage implements OnInit {
   	  this.router.navigate(['dining/personal-info'])
   }
 
-  fetchRestaurant(event){
+  fetchOrder(event){
     let body = {
-      action:'list_restaurant',
+      action:'list_order',
     }
 
-    axios.post(this.server + 'dining/restaurant.php', JSON.stringify(body)).then((res:any) => {
-      this.restaurant_records = [...res.data.restaurant]
+    axios.post(this.server + 'dining/order.php', JSON.stringify(body)).then((res:any) => {
+      this.order_records = [...res.data.order]
 
       console.log(res);
 
