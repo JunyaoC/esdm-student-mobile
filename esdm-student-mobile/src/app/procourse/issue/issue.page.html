@@ -1,0 +1,43 @@
+<ion-header>
+
+
+	<div class="headBar">
+
+		<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+			<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+			<span class="brand">Back</span>
+		</div>
+
+	</div>
+
+</ion-header>
+
+<ion-content>
+
+	<div class="wrapper">
+		<h1 style="text-align: center;position: sticky;">Issue</h1>
+	</div>
+
+	<div style="width: 100%;padding: 1rem; position: sticky;">
+		<div style="display: flex;justify-content: space-between;align-items: center; padding: 1.5rem 3rem 1.5rem 3rem;;background: #f2f2f2;border-radius: 1rem;width: 100%;">
+
+			<div class="gridButton" (click)="report()">
+				<div class="content">
+          <ion-icon name="create-outline"></ion-icon>
+					<span>Report</span>
+				</div>
+			</div>
+
+			<div class="gridButton" (click)="history()">
+				<div class="content">
+					<ion-icon name="list-circle"></ion-icon>
+					<span>History</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+</ion-content>

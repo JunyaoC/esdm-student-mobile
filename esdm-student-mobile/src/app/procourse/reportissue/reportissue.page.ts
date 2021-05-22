@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import axios from 'axios';
 
 
 
@@ -13,40 +14,50 @@ import { AlertController } from '@ionic/angular';
 export class ReportissuePage implements OnInit {
 
 
-  loginForm: FormGroup;
+  // loginForm: FormGroup;
+  matricInput;
+  nameInput;
+  issueTitleInput;
+  contentInput;
+
+server = 'http://localhost/php-folder/'
 
   constructor(private fb: FormBuilder,private router:Router,public alertController: AlertController) { }
 
   ngOnInit(): void {
-    this.initForm();
+
   }
 
-  initForm(): void {
-	  this.loginForm = this.fb.group({
-	      matric: ['',  [Validators.required,
-      Validators.pattern('[A-Z0-9]+'), Validators.maxLength(9)]],
-	      title: ['', Validators.required],
-        name: ['',  Validators.required]
-
-	});
-  }
-  isValidInput(fieldName): boolean {
-    return this.loginForm.controls[fieldName].invalid &&
-      (this.loginForm.controls[fieldName].dirty || this.loginForm.controls[fieldName].touched);
-}
 
   backProcourse(){
-  	this.router.navigate(['./procourse'])
+    this.router.navigate(['./procourse/issue'])
   }
 
   async presentAlert() {
+
+    let body = {
+      name: this.nameInput,
+      title: this.issueTitleInput,
+      matric: this.matricInput,
+      content: this.contentInput,
+      action: 'create_issue',
+    }
+
+    
+    axios.post(this.server + 'procourse/reportissue.php', JSON.stringify(body)).then((res:any) => {
+
+      console.log(res);
+
+    })
+
+
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Thanks for reporting',
       message: 'Report submitted. We will review your report and take action',
       buttons: ['Done']
     });
-
+    this.router.navigate(['./procourse/issue']);
     await alert.present();
 
     const { role } = await alert.onDidDismiss();
