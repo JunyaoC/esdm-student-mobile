@@ -32,7 +32,7 @@ export class ProcoursePage implements OnInit {
 	}
 
   report(path){
-    this.router.navigate(['./procourse/reportissue'])
+    this.router.navigate(['./procourse/issue'])
   }
 
   fetchAnnouncement(event){

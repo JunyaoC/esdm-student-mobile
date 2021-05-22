@@ -1,3 +1,4 @@
+
 <ion-header>
 
 
@@ -19,48 +20,46 @@
 <div style="width: 100%;padding: 1rem;">
   <div style="justify-content: space-between;align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%;">
 
-    <form [formGroup]="loginForm">
-      <ion-list lines="full" class="ion-no-margin">
+    <ion-list lines="full" class="ion-no-margin">
+      <ion-item>
+        <ion-label position="floating">Matric Number</ion-label>
+        <ion-input autocapitalize="on"  [(ngModel)]="matricInput" maxlength='9' required="true"></ion-input>
+      </ion-item>
+      <div style="width: 100%;padding: 1rem;"
+          class="alert alert-danger">
+          <!-- <div *ngIf="loginForm.controls['matric'].errors.required" style="text-align: left;font-size:13px;color: red;">
+            Matric is required.
+          </div> -->
+        </div>
+
         <ion-item>
-          <ion-label position="floating">Matric Number</ion-label>
-          <ion-input autocapitalize="on" formControlName ="matric" maxlength='9'></ion-input>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input [(ngModel)]="nameInput" required="true"></ion-input>
         </ion-item>
-        <div style="width: 100%;padding: 1rem;" *ngIf="isValidInput('matric')"
+        <div style="width: 100%;padding: 1rem;"
             class="alert alert-danger">
-            <div *ngIf="loginForm.controls['matric'].errors.required" style="text-align: left;font-size:13px;color: red;">
-              Matric is required.
-            </div>
+            <!-- <div *ngIf="loginForm.controls['name'].errors.required" style="text-align: left;font-size:13px;color: red;">
+              Your name is required.
+            </div> -->
           </div>
 
-          <ion-item>
-            <ion-label position="floating">Name</ion-label>
-            <ion-input formControlName ="name"></ion-input>
-          </ion-item>
-          <div style="width: 100%;padding: 1rem;" *ngIf="isValidInput('name')"
-              class="alert alert-danger">
-              <div *ngIf="loginForm.controls['name'].errors.required" style="text-align: left;font-size:13px;color: red;">
-                Your name is required.
-              </div>
-            </div>
+      <ion-item>
+        <ion-label position="floating">Issue Title</ion-label>
+        <ion-input  [(ngModel)]="issueTitleInput" required="true"></ion-input>
+      </ion-item>
+      <div style="width: 100%;padding: 1rem;"
+          class="alert alert-danger">
+          <!-- <div *ngIf="loginForm.controls['title'].errors.required" style="text-align: left;font-size:13px;color: red;">
+            Issue Title is required.
+          </div> -->
+        </div>
 
-        <ion-item>
-          <ion-label position="floating">Issue Title</ion-label>
-          <ion-input formControlName ="title"></ion-input>
-        </ion-item>
-        <div style="width: 100%;padding: 1rem;" *ngIf="isValidInput('title')"
-            class="alert alert-danger">
-            <div *ngIf="loginForm.controls['title'].errors.required" style="text-align: left;font-size:13px;color: red;">
-              Issue Title is required.
-            </div>
-          </div>
+      
+      <ion-item>
+        <ion-textarea rows="6" cols="20" placeholder="Describe your issue..."   [(ngModel)]="contentInput" required="true"></ion-textarea>
+      </ion-item>
 
-        
-        <ion-item>
-          <ion-textarea rows="6" cols="20" placeholder="Describe your issue..." required></ion-textarea>
-        </ion-item>
-
-      </ion-list>
-    </form>
+    </ion-list>
   </div>
 </div>
 
@@ -70,7 +69,7 @@
     </ion-col>
     <ion-col size="11">
 
-      <ion-button [disabled]="!loginForm.valid" (click)="presentAlert()" expand="block" color="danger">Report</ion-button>
+      <ion-button (click)="presentAlert()" expand="block" color="danger" clearInput>Report</ion-button>
     </ion-col>
     <ion-col>
     </ion-col>

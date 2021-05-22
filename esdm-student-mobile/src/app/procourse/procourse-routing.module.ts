@@ -18,6 +18,14 @@ const routes: Routes = [
   {
     path: 'reportissue',
     loadChildren: () => import('./reportissue/reportissue.module').then( m => m.ReportissuePageModule)
+  },
+  {
+    path: 'issue',
+    loadChildren: () => import('./issue/issue.module').then( m => m.IssuePageModule)
+  },
+  {
+    path: 'historyissue',
+    loadChildren: () => import('./historyissue/historyissue.module').then( m => m.HistoryissuePageModule)
   }
 
 ];
