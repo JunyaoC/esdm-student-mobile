@@ -18,10 +18,10 @@ export class RegistervehiclePage implements OnInit {
   server: string = "http://localhost/php-folder/";
   vehicle_records: any = [];
 
-  platenumber: any = "QM1234";
-  vmodel: any = "Toyota";
-  vcolor: any = "Red";
-  vtype: any = "Car";
+  platenumber: any = "";
+  vmodel: any = "";
+  vcolor: any = "";
+  vtype: any = "";
 
   constructor(private formBuilder: FormBuilder, private router: Router, public toastController: ToastController, public userService: UserServiceService) { }
   // get platenumber() {

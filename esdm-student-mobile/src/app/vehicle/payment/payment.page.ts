@@ -12,7 +12,7 @@ import { UserServiceService } from '../../user-service.service';
 export class PaymentPage implements OnInit {
   server: string = "http://localhost/php-folder/";
   constructor(private router: Router, public toastController: ToastController, public userService: UserServiceService) { }
-  platenumber: any = "QM4666";
+  platenumber: any = "";
   filename: any = "";
   stickerid: any= "";
   paymentid: any="";
