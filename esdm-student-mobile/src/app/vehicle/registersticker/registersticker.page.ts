@@ -94,13 +94,14 @@ let body = {
 }
 
 axios.post(this.server + 'vehicle/registerstickers.php', JSON.stringify(body)).then((res: any) => {
-  console.log(res);
+  console.log(body);
   if (res.data.success) {
     this.presentToast('Sticker Created!', 'success');
+    this.router.navigate(['./vehicle/payment'])
     
   } else {
     this.presentToast(res.data.msg, 'danger');
-    this.router.navigate(['./vehicle/payment'])
+    
   }
  
   

@@ -34,7 +34,7 @@ export class PaymentPage implements OnInit {
     //this.router.navigate(['./vehicle'])
     let body = {
       action: 'addpayment',
-      paymentID: this.paymentid,
+    //  paymentID: this.paymentid,
       stickerID: this.stickerid,
       vehicleID: this.platenumber,
       vehicleModel: this.vmodel,
