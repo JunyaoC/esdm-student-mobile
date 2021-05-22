@@ -37,11 +37,11 @@
         </div> -->
         <ion-item>
           <ion-label position="floating">Plate Number</ion-label>
-          <ion-input autocapitalize inputmode="text" name="platenumber" placeholder="Key in plate number"></ion-input>
+          <ion-input autocapitalize inputmode="text" [(ngModel)]="platenumber" placeholder="Key in plate number"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Vehicle Model</ion-label>
-          <ion-select name="vmodel" placeholder="Select Vehicle Model">
+          <ion-select [(ngModel)]="vmodel" placeholder="Select Vehicle Model">
             <ion-select-option value="Perodua" checked="true">Perodua</ion-select-option>
             <ion-select-option value="Toyota">Toyota</ion-select-option>
             <ion-select-option value="Honda">Honda</ion-select-option>
@@ -55,7 +55,7 @@
         
         <ion-item>
           <ion-label position="floating">Vehicle Color</ion-label>
-          <ion-input inputmode="text" name="vcolor" placeholder="Key in color"></ion-input>
+          <ion-input inputmode="text" [(ngModel)]="vcolor" placeholder="Key in color"></ion-input>
         </ion-item>
         <!-- <div *ngFor="let error of errorMessages.vcolor">
           <ng-container *ngIf="vcolor.hasError(error.type) && (vcolor.dirty || vcolor.touched)">
@@ -74,7 +74,7 @@
 
         <ion-item>
           <ion-label position="floating">Vehicle Type</ion-label>
-          <ion-select name="vtype" placeholder="Select Vehicle Type">
+          <ion-select [(ngModel)]="vtype" placeholder="Select Vehicle Type">
             <ion-select-option value="Car" checked="true">Car</ion-select-option>
             <ion-select-option value="Motorcycle">Motorcycle</ion-select-option>
           </ion-select>
@@ -86,7 +86,7 @@
         </div> -->
         <ion-item>
         <ion-label position="floating">Payment Proof Link</ion-label>
-        <ion-input autocapitalize inputmode="text" name="filename" placeholder="Put the Google Drive Link"></ion-input>
+        <ion-input autocapitalize inputmode="text" [(ngModel)]="filename" placeholder="Put the Google Drive Link"></ion-input>
       </ion-item>
         
 
