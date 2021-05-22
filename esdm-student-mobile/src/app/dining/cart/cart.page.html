@@ -1,43 +1,67 @@
-<ion-header>
-	<ion-toolbar>
-		<ion-title style='font-weight: bold'>Cart</ion-title>
-		  	<div class="headBar">
-				<div style="display: flex;justify-content: left;align-items: left;color: #493bff;" (click)="backHome()">
-					<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-					<span class="brand"></span>
-					<!--p style="align-content: left; color:black; font-weight: bold;">Order History</p--> 
-				</div>
-				
-			</div>
-	</ion-toolbar>
-</ion-header>
-
-
 <ion-content>
 
-  <div class="cart-items">
-    <ion-card style="background-color: #d1d9f5;">
+<div class="headBar">
+	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+		<span class="brand">Back to home</span>
+	</div>
+	
+</div>
+
+<div class="wrapper">
+	<h1 style="text-align: center;">My Cart</h1>
+</div>
+
+    <ion-card style="padding: 0%;background-color: #d1d9f5;"  *ngFor="let record of cart_list">
       <ion-card-content>
-        <div class="item-img">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Nasi_Lemak%2C_Mamak%2C_Sydney.jpg" />
-        </div>
+      	<ion-grid>
+	      <ion-row class="item-bar">
+	      <ion-col size="1">
+	      	{{record.item_quantity}}x
+	      </ion-col>
+	      <ion-col size="6">
+	      	<p>{{record.food_name}}</p>
+	      	{{record.restaurant_name}}
+	      </ion-col>
+	      <ion-col size="2">
+	      	RM {{record.food_price| number:'1.2-2'}}
+	      </ion-col>
+	      <ion-col size="1">
+	      	<ion-icon name="trash-sharp" style="color:red;"></ion-icon>
+	      </ion-col>
 
-        <div class="item-info">
-          <p>Special nasi lemak with ayam goreng</p>
-          <p>RM6.00</p>
-
-          <div class="qty-selector">
-            <ion-button fill="clear" (click)="dec(prod)">-</ion-button>
-            <ion-label>1</ion-label>
-            <ion-button fill="clear" (click)="inc(prod)">+</ion-button>
-          </div>
-          	  <div class="column">
-            <div  id="button-div"><ion-button size="small"  (click)="history()" item-content >Proceed</ion-button></div>
-          </div>
-        </div>
+	  	</ion-row>
+	  </ion-grid>
       </ion-card-content>
     </ion-card>
-  </div>
+
+      	<ion-grid style="padding-top:20px;padding-left:10px;">
+	      <ion-row>
+	      <ion-col size="6">
+	      	Delivery
+	      </ion-col>
+	      <ion-col size="6" style="text-align: right;">
+	      	Self-Pickup
+	      </ion-col>
+	  	</ion-row>
+	      <ion-row>
+	      <ion-col size="6">
+	      	Total
+	      </ion-col>
+	      <ion-col size="6" style="text-align: right;">
+	      	RM 15.00
+	      </ion-col>
+	  	</ion-row>
+
+	  </ion-grid>
+
+
+	<ion-button expand="block">Checkout</ion-button>
+	<ion-button expand="block" (click)="home()">Order More</ion-button>
+
+</ion-content>
+
+  <ion-toolbar>
 	<ion-tabs>
 	  <!-- Tab bar -->
 	  <ion-tab-bar slot="bottom">
@@ -56,4 +80,4 @@
 	  </ion-tab-bar>
 	</ion-tabs>
 
-</ion-content>
+</ion-toolbar>

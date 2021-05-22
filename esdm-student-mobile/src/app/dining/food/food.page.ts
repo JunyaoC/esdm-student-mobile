@@ -39,8 +39,12 @@ export class FoodPage implements OnInit {
   	  this.router.navigate(['dining/personal-info'])
   }
 
-  foodDetails(){
-      this.router.navigate(['dining/food-details'])
+  cart(){
+      this.router.navigate(['dining/cart'])
+  }
+
+  foodDetails(index){
+      this.router.navigate(['dining/food-details'],{queryParams:{food_id:index}})
   }
 
   fetchFoodList(event){

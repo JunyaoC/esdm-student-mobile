@@ -1,36 +1,58 @@
-<ion-header>
-	<ion-toolbar>
-		<ion-title style='font-weight: bold'>Food Details</ion-title>
-		  	<div class="headBar">
-				<div style="display: flex;justify-content: left;align-items: left;color: #493bff;" (click)="backHome()">
-					<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-					<span class="brand"></span>
-					<!--p style="align-content: left; color:black; font-weight: bold;">Order History</p--> 
-				</div>
-				
-			</div>
-	</ion-toolbar>
-</ion-header>
-
-<!-- <ion-content>
-
-</ion-content> -->
-
-
 <ion-content>
-	<ion-card>
+<div class="headBar">
+  <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand">Back to restaurant</span>
+  </div>
+  
+</div>
+
+<div class="wrapper">
+  <h1 style="text-align: center;">Food Details</h1>
+</div>
+
+	<ion-card *ngFor="let record of food_list">
 	  <ion-card-header>
-	    <ion-card-subtitle>{{record.food_name}}</ion-card-subtitle>
 	    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Nasi_Lemak%2C_Mamak%2C_Sydney.jpg">
 	  </ion-card-header>
 
 	  <ion-card-content>
-	    <p style="font-size: 12px;">{{record.food_description}}</p>
+	  	<div style="text-align: center;">
+	  	<p style="font-size: 25px;">{{record.food_name}}</p>
+	    <p style="font-size: 18px;">{{record.food_description}}</p>
+		</div>
 	  </ion-card-content>
-	  <div class="column">
-            <div  id="button-div"><ion-button size="small"  (click)="cart" item-content >Add To Cart</ion-button></div>
-          </div>
+
+	  	<ion-grid>
+	  	<ion-row class="ion-align-items-center">
+    		<ion-col size="12" class="ion-text-center">
+    			<ion-icon name="remove-circle-outline" style="font-size:30px;" (click)="decrement(record.food_price)" ></ion-icon>
+				{{currentNumber}}
+				<ion-icon name="add-circle-outline" style="font-size:30px;" (click)="increment(record.food_price)"></ion-icon>
+ 			</ion-col>
+    	</ion-row>
+
+	  	<ion-row class="ion-align-items-center">
+    		<ion-col size="12" class="ion-text-center">
+		       	<ion-button size="big"  item-content >RM {{total| number:'1.2-2'}}</ion-button>
+ 			</ion-col>
+    	</ion-row>
+
+	  	<ion-row class="ion-align-items-center">
+    		<ion-col size="12" class="ion-text-center">
+		       	<ion-button size="big"  (click)="addCart(total,record.food_id,currentNumber)" item-content >Add To Cart</ion-button>
+ 			</ion-col>
+    	</ion-row>
+<!-- addCart(total,record.food_id,currentNumber) -->
+    	    			
+
+    	</ion-grid>
 	</ion-card>
+
+</ion-content>
+
+
+<ion-toolbar>
 	<ion-tabs>
 	  <!-- Tab bar -->
 	  <ion-tab-bar slot="bottom">
@@ -48,4 +70,4 @@
 	    </ion-tab-button>
 	  </ion-tab-bar>
 	</ion-tabs>
-</ion-content>
+</ion-toolbar>

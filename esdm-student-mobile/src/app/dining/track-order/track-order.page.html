@@ -9,52 +9,53 @@
 
 <ion-content>
 
-	<ion-card style="overflow: visible; background-color: #d1d9f5;" (click)="orderpage()" *ngFor="let record of order_records">
-		<ion-card-content>
-			<ion-row>
-				<ion-col size="3">
-					<img class="gambor" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
-				</ion-col>
+	<div style="width: 95%;margin-left:13px;margin-bottom: 10px;">
+      <ion-card style="background-color: #d1d9f5;" *ngFor="let record of order_records">
+      <ion-grid>
+      <ion-row>
+      <ion-col>
+        <img src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg">
+      </ion-col>
+      
+      <ion-col>
+        <p style="font-size: 15px; font-weight: bold;color:black;">{{record.restaurant_name}}</p>
+        <p style="font-size: 12px;">{{record.order_date}}</p>
+        <div class="row">
+          <div class="column">
+            <p style="font-size: 20px;position: absolute;bottom:1px;font-weight: bold;color:black;">RM {{record.food_totalprice}}</p>
+          </div>
+        </div>
+      </ion-col>
+      </ion-row>
+      </ion-grid>
+       </ion-card>
+  	</div>
 
-
-				<ion-col size="9">
-					<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'></ion-card-title>
-					<ion-card-subtitle></ion-card-subtitle>
-					
-					<ion-row>
-						<ion-col size="4">
-							<p style="padding-top:7px;">RM{{record.order_date}}</p>
-						</ion-col>
-
-					</ion-row>					
-				</ion-col>
-			  </ion-row>
-		</ion-card-content>
-	</ion-card>
 
 	<ion-card style="overflow: visible; background-color: #ffffff;" *ngFor="let record of order_records">
 		<ion-row class="section">
-			<ion-col size="7">
-				<p class="title">Estimated Pickup at</p>
+			<ion-col size="6">
+				<p class="title">Restaurant Name</p>
 			</ion-col>
 
-			<ion-col size="5">
-				<p class="output">11.30 A.M.</p>
+			<ion-col size="6">
+				<p class="output">{{record.restaurant_name}}</p>
 			</ion-col>
 		</ion-row>
 
-		<ion-row class="location">
+		<ion-row class="section">
+			<ion-col size="6">
 			<p class="title">Pickup Location</p>
-		</ion-row>
-		<ion-row class="location">
-			<p class="locationout">{{record.restaurant_name}}</p>
+			</ion-col>
+			<ion-col size="6">
+			<p class="output">{{record.restaurant_address}}</p>
+			</ion-col>
 		</ion-row>
 
 		<ion-row class="section">
 			<ion-col size="6">
 				<p class="title">Total Cost</p>
 			</ion-col>
-
 			<ion-col size="6">
 				<p class="output">RM{{record.food_totalprice}}</p>
 			</ion-col>

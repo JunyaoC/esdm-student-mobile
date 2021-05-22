@@ -31,10 +31,10 @@
         <p style="font-size: 12px;">{{record.food_description}}</p>
         <div class="row">
           <div class="column">
-            <p style="font-size: 20px;position: absolute;bottom:1px;font-weight: bold;color:black;">RM {{record.food_price}}</p>
+            <p style="font-size: 20px;position: absolute;bottom:1px;font-weight: bold;color:black;">RM {{record.food_price| number:'1.2-2'}}</p>
           </div>
           <div class="column">
-            <div  id="button-div"><ion-button size="small"  (click)="foodDetails()" item-content >View</ion-button></div>
+            <div  id="button-div"><ion-button size="small"  (click)="foodDetails(record.food_id)" item-content >View</ion-button></div>
           </div>
         </div>
       </ion-col>
@@ -52,7 +52,7 @@
       <ion-tab-button (click)="backHome()">
         <ion-icon name="home"></ion-icon>
       </ion-tab-button>
-      <ion-tab-button (click)="Cart()">
+      <ion-tab-button (click)="cart()">
         <ion-icon name="cart"></ion-icon>
       </ion-tab-button>
       <ion-tab-button (click)="history()">
