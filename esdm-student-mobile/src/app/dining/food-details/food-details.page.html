@@ -20,12 +20,12 @@
 <ion-content>
 		<ion-card>
 	  <ion-card-header>
-	    <ion-card-subtitle>Nasi Lemak Ayam</ion-card-subtitle>
+	    <ion-card-subtitle>{{record.food_name}}</ion-card-subtitle>
 	    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Nasi_Lemak%2C_Mamak%2C_Sydney.jpg">
 	  </ion-card-header>
 
 	  <ion-card-content>
-	    Dihujani dengan kelazatan dan kesedapan yang pasti membawa anda melayari bahtera cinta di antara anda dan juga sajian ini
+	    <p style="font-size: 12px;">{{record.food_description}}</p>
 	  </ion-card-content>
 	  <div class="column">
             <div  id="button-div"><ion-button size="small"  (click)="cart" item-content >Add To Cart</ion-button></div>

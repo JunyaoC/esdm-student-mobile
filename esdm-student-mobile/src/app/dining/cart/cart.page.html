@@ -27,9 +27,9 @@
           <p>RM6.00</p>
 
           <div class="qty-selector">
-            <ion-button fill="clear">-</ion-button>
+            <ion-button fill="clear" (click)="dec(prod)">-</ion-button>
             <ion-label>1</ion-label>
-            <ion-button fill="clear">+</ion-button>
+            <ion-button fill="clear" (click)="inc(prod)">+</ion-button>
           </div>
           	  <div class="column">
             <div  id="button-div"><ion-button size="small"  (click)="history()" item-content >Proceed</ion-button></div>
