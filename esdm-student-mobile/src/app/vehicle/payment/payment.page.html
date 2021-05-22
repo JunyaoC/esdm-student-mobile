@@ -40,51 +40,21 @@
           <ion-input autocapitalize inputmode="text" [(ngModel)]="platenumber" placeholder="Key in plate number"></ion-input>
         </ion-item>
 
-        <!-- <div *ngFor="let error of errorMessages.vmodel">
-          <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
-            <small class="error-message">{{error.message}}</small>
-          </ng-container>
-        </div> -->
-
-        <!-- <div *ngFor="let error of errorMessages.vcolor">
-          <ng-container *ngIf="vcolor.hasError(error.type) && (vcolor.dirty || vcolor.touched)">
-            <small class="error-message">{{error.message}}</small>
-          </ng-container>
-        </div> -->
-        <!-- <ion-item>
-          <ion-label position="floating">Vehicle Type</ion-label>
-          <ion-input inputmode="text" formControlName="vtype"></ion-input>
-        </ion-item>
-        <div *ngFor="let error of errorMessages.vtype">
-          <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
-            <small class="error-message">{{error.message}}</small>
-          </ng-container>
-        </div> -->
-
-
-        <!-- <div *ngFor="let error of errorMessages.vtype">
-          <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
-            <small class="error-message">{{error.message}}</small>
-          </ng-container>
-        </div> -->
         <ion-item>
           <ion-label position="floating">Amount Payment</ion-label>
-          <ion-input inputmode="text" [(ngModel)]="payment" placeholder="Put the Google Drive Link"></ion-input>
+          <ion-input inputmode="text" [(ngModel)]="payment" placeholder="Key in payment amount"></ion-input>
         </ion-item>
 
         <ion-item>
         <ion-label position="floating">Payment Proof Link</ion-label>
         <ion-input inputmode="text" [(ngModel)]="filename" placeholder="Put the Google Drive Link"></ion-input>
-<<<<<<< Updated upstream
-=======
       </ion-item>
 
       <ion-item>
         <ion-label position="floating">Payment Status</ion-label>
-        <ion-select [(ngModel)]="pstatus" placeholder="Select Vehicle Type">
+        <ion-select [(ngModel)]="pstatus" placeholder="Select Payment Status">
           <ion-select-option value="Received" checked="true">Received</ion-select-option>
         </ion-select>
->>>>>>> Stashed changes
       </ion-item>
         
 
