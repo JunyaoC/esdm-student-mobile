@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'amendment',
     loadChildren: () => import('./amendment/amendment.module').then( m => m.AmendmentPageModule)
+  },
+  {
+    path: 'status',
+    loadChildren: () => import('./status/status.module').then( m => m.StatusPageModule)
   }
 
 ];

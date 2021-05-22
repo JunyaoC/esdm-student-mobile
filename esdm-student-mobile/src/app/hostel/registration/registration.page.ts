@@ -22,4 +22,8 @@ export class RegistrationPage implements OnInit {
     this.route.navigate(['hostel/registration/amendment']);
   }
 
+  checkStatus() {
+    this.route.navigate(['hostel/registration/status']);
+  }
+
 }
