@@ -54,6 +54,12 @@ export class HistoryissuePage implements OnInit {
     await alert.present();
   }
 
+  edit(index)
+  {
+    
+    this.router.navigate(['./procourse/historyissue/issuedetails'],{queryParams:{issue_id:index}})
+
+  }
 
 
 }
