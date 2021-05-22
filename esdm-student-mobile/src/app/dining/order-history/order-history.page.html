@@ -22,17 +22,32 @@
 	        		<ion-col size="3">
 			        	<img class="gambor" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
 		          	</ion-col>
-		          	<ion-col size="6">
+		          	<ion-col size="7">
 		          		<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>{{record.restaurant_name}}</ion-card-title>
 		          		<ion-card-subtitle> {{record.order_date}}
 		          		</ion-card-subtitle>
 		          		<p>RM 15.00</p>
 		          	</ion-col>
-		          	<ion-col >
-		          		<ion-button size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="time-outline"></ion-icon>Processing</ion-button>
+		          	<!-- <ng-template  #processingBlock> -->
+			          	<ion-col *ngIf="record.order_status=='Processing'">
+			          		<ion-button size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="time-outline"></ion-icon>Processing</ion-button>
 
-		          		<ion-button size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="location-outline"></ion-icon>Track it</ion-button>
-		          	</ion-col>
+			          		<ion-button size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="location-outline"></ion-icon>Track it</ion-button>
+			          	</ion-col>
+		          	<!-- </ng-template> -->
+		          	<!-- <ng-template #completedBlock> -->
+		          		<ion-col  *ngIf="record.order_status=='Completed'">
+			          		<ion-button size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="checkmark-circle-outline"></ion-icon>Completed</ion-button>
+			          	</ion-col>
+		          	<!-- </ng-template> -->
+		          	<!-- <ng-template #cancelledBlock> -->
+		          		<ion-col  *ngIf="record.order_status=='Cancelled'" >
+			          		<ion-button size="small" color="danger" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="close-circle-outline"></ion-icon>Cancelled</ion-button>
+			          	</ion-col>
+		          	<!-- </ng-template> -->
+		          		<ion-col  *ngIf="record.order_status=='Pick Up'" >
+			          		<ion-button size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="Bag-outline"></ion-icon>Pick Up Now</ion-button>
+			          	</ion-col>
 	          	</ion-row>
 	        </ion-card-content>
 	    </ion-card>
