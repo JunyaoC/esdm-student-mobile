@@ -24,19 +24,19 @@
 
                   <ion-item>
                     <ion-label>Matric Number</ion-label>
-                    <ion-input  name="matric" type="text" placeholder="Enter matric number"ngModel required></ion-input>
+                    <ion-input [(ngModel)]="matric" type="text" placeholder="Enter matric number" required></ion-input>
                   </ion-item>
 
                   <br><br>
 
                   <ion-label>Activity in Campus</ion-label><br>
                   <ion-item>
-                    <ion-textarea name="text" placeholder="List activities you've joined in this university" ngModel required></ion-textarea>
+                    <ion-textarea [(ngModel)]="activity" placeholder="List activities you've joined in this university"  required></ion-textarea>
                   </ion-item>
                   <br><br>
                   <ion-label>Reason Applying</ion-label><br>
                   <ion-item>
-                    <ion-textarea name="text" placeholder="Why you choose this hostel?" ngModel required></ion-textarea>
+                    <ion-textarea [(ngModel)]="reason" placeholder="Why you choose this hostel?"  required></ion-textarea>
                   </ion-item>
 
                <!--    <ion-item>
@@ -45,7 +45,7 @@
                 </div>
                 <br>
                 <div padding>
-                  <ion-button (click)="presentAlertConfirm()" expand="block">Submit</ion-button>
+                  <ion-button (click)="submitForm()" expand="block">Submit</ion-button>
                 </div>
               </ion-col>
             </ion-row>

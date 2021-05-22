@@ -1,5 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import axios from 'axios';
 
 @Component({
@@ -14,7 +15,7 @@ export class OpenRegistrationPage implements OnInit {
   selectedOption;
   matricNo;
 
-  constructor(private router:Router) { }
+  constructor(private route:Router, private toastController:ToastController) { }
 
   ngOnInit() {
     this.fetchCollege();
@@ -25,7 +26,7 @@ export class OpenRegistrationPage implements OnInit {
       action:'list_college',
     }
 
-    axios.post(this.server + 'hostel/open-registration.php', JSON.stringify(body)).then((res:any) => {
+    axios.post(this.server + 'hostel/kuota-pengetua.php', JSON.stringify(body)).then((res:any) => {
 
       this.college_records = [...res.data.colleges]
 
@@ -43,10 +44,18 @@ export class OpenRegistrationPage implements OnInit {
     axios.post(this.server + 'hostel/open-registration.php', JSON.stringify(body)).then((res:any) => {
 
      console.log(res);
-
+     this.route.navigate(['hostel/registration']);
+     this.presentToast('Register successfully !', 'success');
     })
   }
 
-
+  async presentToast(message:any ,color:any) {
+		const toast = await this.toastController.create({
+			color: color,
+			message: message,
+			duration: 2000
+		});
+		toast.present();
+	}
 
 }
