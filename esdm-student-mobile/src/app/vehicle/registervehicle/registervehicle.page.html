@@ -15,17 +15,16 @@
 	</div>
 
   <div class="ion-padding">
-    <form [formGroup]="registrationForm">
       <ion-list>
         <ion-item>
           <ion-label position="floating">Vehicle Plate Number</ion-label>
-          <ion-input autocapitalize inputmode="text" formControlName="platenumber" placeholder="Key in plate number"></ion-input>
+          <ion-input autocapitalize inputmode="text" [(ngModel)]="platenumber" placeholder="Key in plate number"></ion-input>
         </ion-item>
-        <div *ngFor="let error of errorMessages.platenumber">
+        <!-- <div *ngFor="let error of errorMessages.platenumber">
           <ng-container *ngIf="platenumber.hasError(error.type) && (platenumber.dirty || platenumber.touched)">
             <small class="error-message">{{error.message}}</small>
           </ng-container>
-        </div>
+        </div> -->
         <!-- <ion-item>
           <ion-label position="floating">Vehicle Model</ion-label>
           <ion-input inputmode="text" formControlName="vmodel"></ion-input>
@@ -37,27 +36,27 @@
         </div> -->
         <ion-item>
           <ion-label position="floating">Vehicle Model</ion-label>
-          <ion-select formControlName="vmodel" placeholder="Select Vehicle Model">
+          <ion-select [(ngModel)]="vmodel" placeholder="Select Vehicle Model">
             <ion-select-option value="Perodua" checked="true">Perodua</ion-select-option>
             <ion-select-option value="Toyota">Toyota</ion-select-option>
             <ion-select-option value="Honda">Honda</ion-select-option>
           </ion-select>
         </ion-item>
-        <div *ngFor="let error of errorMessages.vmodel">
+        <!-- <div *ngFor="let error of errorMessages.vmodel">
           <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
             <small class="error-message">{{error.message}}</small>
           </ng-container>
-        </div>
+        </div> -->
         
         <ion-item>
           <ion-label position="floating">Vehicle Color</ion-label>
-          <ion-input inputmode="text" formControlName="vcolor" placeholder="Key in color"></ion-input>
+          <ion-input inputmode="text" [(ngModel)]="vcolor" placeholder="Key in color"></ion-input>
         </ion-item>
-        <div *ngFor="let error of errorMessages.vcolor">
+        <!-- <div *ngFor="let error of errorMessages.vcolor">
           <ng-container *ngIf="vcolor.hasError(error.type) && (vcolor.dirty || vcolor.touched)">
             <small class="error-message">{{error.message}}</small>
           </ng-container>
-        </div>
+        </div> -->
         <!-- <ion-item>
           <ion-label position="floating">Vehicle Type</ion-label>
           <ion-input inputmode="text" formControlName="vtype"></ion-input>
@@ -70,24 +69,23 @@
 
         <ion-item>
           <ion-label position="floating">Vehicle Type</ion-label>
-          <ion-select formControlName="vtype" placeholder="Select Vehicle Type">
+          <ion-select [(ngModel)]="vtype" placeholder="Select Vehicle Type">
             <ion-select-option value="Car" checked="true">Car</ion-select-option>
             <ion-select-option value="Motorcycle">Motorcycle</ion-select-option>
           </ion-select>
         </ion-item>
-        <div *ngFor="let error of errorMessages.vtype">
+        <!-- <div *ngFor="let error of errorMessages.vtype">
           <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
             <small class="error-message">{{error.message}}</small>
           </ng-container>
-        </div>
+        </div> -->
 
       </ion-list>
 
-      <ion-button [disabled]="!registrationForm.valid"  (click)="submit()" expand="block">Submit <ion-icon slot="end"
-          name="create">
+      <ion-button (click)="submit()" expand="block">Submit <ion-icon slot="end"
+          name="submit">
         </ion-icon>
       </ion-button>
-    </form>
   </div>
 
 

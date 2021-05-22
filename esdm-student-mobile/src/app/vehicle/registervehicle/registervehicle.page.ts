@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import axios from 'axios';
+import { ToastController } from '@ionic/angular';
+import { UserServiceService } from '../../user-service.service';
+
 //import { ApiService } from '../api.service';
 
 
@@ -11,81 +15,120 @@ import { Router } from '@angular/router';
   styleUrls: ['./registervehicle.page.scss'],
 })
 export class RegistervehiclePage implements OnInit {
-  // platenumber: any;
-  // vmodel: any;
-  // vcolor: any;
-  // vtype: any;
+  server: string = "http://localhost/php-folder/";
+  vehicle_records: any = [];
 
-  constructor(private formBuilder: FormBuilder,private router: Router) { }
-  get platenumber() {
-    return this.registrationForm.get("platenumber");
-  }
-  get vmodel() {
-    return this.registrationForm.get('vmodel');
-  }
-  get vcolor() {
-    return this.registrationForm.get('vcolor');
-  }
-  get vtype() {
-    return this.registrationForm.get('vtype');
+  platenumber: any = "QM1234";
+  vmodel: any = "Toyota";
+  vcolor: any = "Red";
+  vtype: any = "Car";
+
+  constructor(private formBuilder: FormBuilder, private router: Router, public toastController: ToastController, public userService: UserServiceService) { }
+  // get platenumber() {
+  //   return this.registrationForm.get("platenumber");
+  // }
+  // get vmodel() {
+  //   return this.registrationForm.get('vmodel');
+  // }
+  // get vcolor() {
+  //   return this.registrationForm.get('vcolor');
+  // }
+  // get vtype() {
+  //   return this.registrationForm.get('vtype');
+  // }
+
+  // public errorMessages = {
+  //   platenumber: [
+  //     { type: 'required', message: 'Plate number is required' },
+  //     { type: 'maxlength', message: 'Plate number cannot be longer than 8 characters' }
+  //   ],
+  //   vmodel: [
+  //     { type: 'required', message: 'Vehicle model is required' }
+  //   ],
+  //   vcolor: [
+  //     { type: 'required', message: 'Vehicle color is required' }
+  //   ],
+  //   vtype: [
+  //     { type: 'required', message: 'Type of vehicle is required' }
+  //   ]
+  // };
+  // registrationForm = this.formBuilder.group({
+  //   platenumber: ['', [Validators.required, Validators.maxLength(8)]],
+  //   vmodel: [
+  //     '',
+  //     [
+  //       Validators.required
+  //     ]
+  //   ],
+  //   vcolor: [
+  //     '',
+  //     [
+  //       Validators.required
+  //     ]
+  //   ],
+  //   vtype: [
+  //     '',
+  //     [
+  //       Validators.required
+  //     ]
+  //   ]
+
+  // });
+
+
+  ngOnInit() {
+    // this.submit();
   }
 
-  public errorMessages = {
-    platenumber: [
-      { type: 'required', message: 'Plate number is required' },
-      { type: 'maxlength', message: 'Plate number cannot be longer than 8 characters' }
-    ],
-    vmodel: [
-      { type: 'required', message: 'Vehicle model is required' }
-    ],
-    vcolor: [
-      { type: 'required', message: 'Vehicle color is required' }
-    ],
-    vtype: [
-      { type: 'required', message: 'Type of vehicle is required' }
-    ]
-  };
-  registrationForm = this.formBuilder.group({
-    platenumber: ['', [Validators.required, Validators.maxLength(8)]],
-    vmodel: [
-      '',
-      [
-        Validators.required
-      ]
-    ],
-    vcolor: [
-      '',
-      [
-        Validators.required
-      ]
-    ],
-    vtype: [
-      '',
-      [
-        Validators.required
-      ]
-    ]
+  submit() {
+    //  console.log(this.registrationForm.value);
 
-  });
-  public submit() {
-   console.log(this.registrationForm.value);
-   this.router.navigate(['./vehicle/registersticker'])
     //    this._apiService.submit(this.registrationForm.value).then((res:any) =>{
     //   console.log("SUCCESS ===",res);
     // },(error: any) => {
     //   console.log("ERROR ===",error);
     // })
+
+    // this.userService.currentUserData
+
+    axios.post('http://localhost/php-folder/get_student.php', JSON.stringify({ u_id: this.userService.currentUserData.u_id })).then(res => {
+      if (res.data.success) {
+        let body = {
+          action: 'addvehicle',
+          vehicleID: this.platenumber,
+          vehicleModel: this.vmodel,
+          vehicleColor: this.vcolor,
+          vehicleType: this.vtype,
+          stuACID: res.data.student[0].student_matric
+        }
+        axios.post(this.server + 'vehicle/registervehicles.php', JSON.stringify(body)).then((res: any) => {
+          console.log(res);
+          if (res.data.success) {
+            this.presentToast('Vehicle Added!', 'success');
+            //this.router.navigate(['./vehicle/registersticker'])
+          } else {
+            this.presentToast(res.data.msg, 'danger');
+          }
+
+          //console.log(this.vehicle_records);
+        })
+      }
+    })
+
+
+
+
+
   }
 
-  ngOnInit() {
+
+
+  govehicle() {
+    this.router.navigate(['./vehicle'])
   }
 
-  govehicle(){
-  	this.router.navigate(['./vehicle'])
-  }
-
-  addVehicle(){
-    let data={
+  addVehicle() {
+    let data = {
       // platenumber: this.platenumber,
       // vmodel: this.vmodel,
       // vcolor: this.vcolor,
@@ -101,7 +144,16 @@ export class RegistervehiclePage implements OnInit {
     // },(error: any) => {
     //   console.log("ERROR ===",error);
     // })
- //   console.log(this.platenumber, this.vmodel, this.vcolor, this.vtype);
+    //   console.log(this.platenumber, this.vmodel, this.vcolor, this.vtype);
+  }
+
+  async presentToast(message: any, color: any) {
+    const toast = await this.toastController.create({
+      color: color,
+      message: message,
+      duration: 2000
+    });
+    toast.present();
   }
 
 }
