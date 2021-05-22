@@ -42,8 +42,8 @@
     <ion-icon name="information-circle-outline"></ion-icon>&nbsp;&nbsp;&nbsp;
     <ion-label>Section {{i+1}}</ion-label>
     
-    <ion-badge *ngIf="section.courseSec_seat < (section.courseSec_maxseat / 2)">{{section.courseSec_seat}} / {{section.courseSec_maxseat}}</ion-badge>
-    <ion-badge *ngIf="section.courseSec_seat >= (section.courseSec_maxseat / 2) && section.courseSec_seat != section.courseSec_maxseat" color="warning">{{section.courseSec_seat}} / {{section.courseSec_maxseat}}</ion-badge>
+    <ion-badge *ngIf="section.courseSec_seat < (section.courseSec_maxseat / 2)" color="warning">{{section.courseSec_seat}} / {{section.courseSec_maxseat}}</ion-badge>
+    <ion-badge *ngIf="section.courseSec_seat >= (section.courseSec_maxseat / 2) && section.courseSec_seat != section.courseSec_maxseat">{{section.courseSec_seat}} / {{section.courseSec_maxseat}}</ion-badge>
     <ion-badge *ngIf="section.courseSec_seat == section.courseSec_maxseat && section.courseSec_seat!=0" color="danger">FULL</ion-badge>
 
   </ion-item>

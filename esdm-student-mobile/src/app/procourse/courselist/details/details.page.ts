@@ -100,7 +100,20 @@ export class DetailsPage implements OnInit {
   registerCourse(section){
     console.log(section)
 
-    // axios.post('endpit')
+    let body = {
+      course_section: section.courseSec_id,
+      // need to change
+      student: 'A18CS1234',
+      seat: section.courseSec_seat-1,
+      action: 'register',
+    }
+
+    
+    axios.post(this.server + 'procourse/coursedetails.php', JSON.stringify(body)).then((res:any) => {
+
+      console.log(res);
+
+    })
   }
   
 }
