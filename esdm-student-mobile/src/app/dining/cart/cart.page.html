@@ -1,7 +1,7 @@
 <ion-content>
 
 <div class="headBar">
-	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="home()">
 		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
 		<span class="brand">Back to home</span>
 	</div>
@@ -11,6 +11,10 @@
 <div class="wrapper">
 	<h1 style="text-align: center;">My Cart</h1>
 </div>
+
+  <ion-refresher slot="fixed" (ionRefresh)="fetchCartList($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>   
 
     <ion-card style="padding: 0%;background-color: #d1d9f5;"  *ngFor="let record of cart_list">
       <ion-card-content>
@@ -69,7 +73,7 @@
 	      <ion-icon name="home"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button (click)="cart">
-	      <ion-icon name="cart"></ion-icon>
+	      <ion-icon color="primary" name="cart"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button (click)="history()">
 	      <ion-icon name="reorder-four-outline"></ion-icon>
