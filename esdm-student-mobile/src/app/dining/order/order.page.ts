@@ -39,6 +39,7 @@ export class OrderPage implements OnInit {
   	  this.router.navigate(['dining/order-history'])
   }
 
+
   personal(){
   	  this.router.navigate(['dining/personal-info'])
   }

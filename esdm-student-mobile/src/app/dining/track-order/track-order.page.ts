@@ -1,5 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import axios from 'axios';
 
 
@@ -12,11 +13,18 @@ export class TrackOrderPage implements OnInit {
 
   server : string = 'http://localhost/php-folder/';
   order_records :any = [];
-
-  constructor(private router:Router) { }
+  order_id:string;
+  constructor(private router:Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.fetchOrder(0);
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      let order_id = params['order_id'];
+      
+      console.log(order_id);
+      this.order_id=order_id;
+      this.fetchOrder(0);
+    });
   }
 
   home(){
@@ -33,17 +41,19 @@ export class TrackOrderPage implements OnInit {
 
   fetchOrder(event){
     let body = {
-      action:'list_order',
+      action:'track_order',
+      order_id:this.order_id,
     }
 
-    axios.post(this.server + 'dining/order.php', JSON.stringify(body)).then((res:any) => {
-      this.order_records = [...res.data.order]
+    axios.post(this.server + 'dining/track-order.php', JSON.stringify(body)).then((res:any) => {
+      this.order_records = [...res.data.order_item];
 
       console.log(res);
 
-      if(event != 0){
-        event.target.complete();
-      }
+      // if(event != 0){
+      //   event.target.complete();
+      // }
     })
   }
+
 }
