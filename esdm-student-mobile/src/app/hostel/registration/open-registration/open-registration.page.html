@@ -4,9 +4,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-button (click)="fetchCollege">College List</ion-button>
-<ion-select>
-	<ion-select-option *ngFor="let option of college_records">{{option.kolej_name}}</ion-select-option>
+<ion-content fullscreen class="ion-padding">
+	<ion-list>
+	<ion-list-header>
+                  <ion-label>
+                    Hi there! <ion-icon name="happy-outline"></ion-icon>
+                  </ion-label>
+
+                </ion-list-header>
+                <br>
+                <p>Choose your preferred college: </p><br>
+<ion-item>
+	<ion-label (click)="fetchCollege()">College List</ion-label>
+<ion-select [(ngModel)]="selectedOption">
+	<ion-select-option *ngFor="let option of college_records" [value]="option.kolej_id">{{option.kolej_name}}</ion-select-option>
 </ion-select>
+</ion-item>
+</ion-list>
+<ion-button >Done</ion-button>
 </ion-content>

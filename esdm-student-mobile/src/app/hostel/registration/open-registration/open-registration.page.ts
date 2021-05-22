@@ -9,13 +9,15 @@ import axios from 'axios';
 })
 export class OpenRegistrationPage implements OnInit {
 
-	server : string = 'http://localhost/php-folder/';
+  server : string = 'http://localhost/php-folder/';
   college_records:any = [];
 
   constructor(private router:Router) { }
 
   ngOnInit() {
+    this.fetchCollege();
   }
+  
   fetchCollege(){
     let body = {
       action:'list_college',
@@ -23,10 +25,14 @@ export class OpenRegistrationPage implements OnInit {
 
     axios.post(this.server + 'hostel/open-registration.php', JSON.stringify(body)).then((res:any) => {
       
-      this.college_records = res.data.colleges;
+      this.college_records = [...res.data.colleges]
+
+      console.log(this.college_records);
 
     })
 
   }
+
+
 
 }
