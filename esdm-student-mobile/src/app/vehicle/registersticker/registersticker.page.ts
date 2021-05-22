@@ -14,10 +14,10 @@ export class RegisterstickerPage implements OnInit {
   server: string = "http://localhost/php-folder/";
 
   stickerid: any = "";
-  platenumber: any = "QM4666";
-  college: any = "KTDI";
+  platenumber: any = "";
+  college: any = "";
   applydate: any = "";
-  sfee: any = "5";
+  sfee: any = "";
   sstatus: any="";
   constructor(private formBuilder: FormBuilder,private router: Router, public toastController: ToastController, public userService: UserServiceService) { }
   // get platenumber() {
