@@ -14,7 +14,112 @@
 
 <ion-content>
 	
-	<ion-card  style="background-color: #d1d9f5;">
+     <ion-refresher slot="fixed" (ionRefresh)="fetchOrderList($event)">
+          <ion-refresher-content></ion-refresher-content>
+     </ion-refresher>
+
+     <ion-card  style="background-color: #d1d9f5;" *ngFor="let record of order_list">
+          <ion-card-header>
+          <ion-card-title class="titleheader">My Order</ion-card-title>
+          <ion-card-subtitle>{{record.order_date}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row>
+               <ion-col size="6">
+                    <ion-card-subtitle class="text1">Name</ion-card-subtitle>
+                    <p>Kasim Selamat</p>
+               </ion-col>
+               <ion-col size="6">
+                    <ion-card-subtitle class="text1">Contact No.</ion-card-subtitle>
+                    <p>012-3456789</p>
+               </ion-col>
+               <ion-col size="12">
+                    <ion-card-subtitle class="text1">Email</ion-card-subtitle>
+                    <p>kasimselamat@utm.my</p>
+               </ion-col>
+          </ion-row>
+          <br>
+          <ion-row>
+               <ion-col size="3">
+                    <img class="gambor" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
+               </ion-col>
+               <ion-col size="6">
+                    <ion-card-subtitle class="text1">Nasi Lemak Ayam</ion-card-subtitle>
+                    <p class="text2">Mak Ngah Buncit</p>
+                    <p class="text2">RM3.00</p>
+               </ion-col>
+               <ion-col size="3" >
+                    <ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle>
+                    <p align="right">x3</p>
+               </ion-col>
+          </ion-row>
+          <!-- 2nd order--------------------------------------------------------------->
+          <ion-row>
+               <ion-col size="3">
+                    <img class="gambor" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
+               </ion-col>
+               <ion-col size="6">
+                    <ion-card-subtitle class="text1">Burger Ayam</ion-card-subtitle>
+                    <p class="text2">Mak Ngah Buncit</p>
+                    <p class="text2">RM2.50</p>
+               </ion-col>
+               <ion-col size="3" >
+                    <ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle>
+                    <p align="right">x1</p>
+               </ion-col>
+          </ion-row>
+          <!---blank --------------------------------------------------------------------------->
+          <ion-row style="height: 50px">
+          </ion-row>
+          <hr class="divider">
+          <!---receipt --------------------------------------------------------------------------->
+          <!---sub total --------------------------------------------------------------------------->
+          <ion-row>
+               <ion-col size="9">
+                    <ion-card-subtitle class="text1">Subtotal:</ion-card-subtitle>
+               </ion-col>
+               <ion-col size="3" >
+                    <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
+                    <p class="text2" align="right">RM 11.50</p>
+               </ion-col>
+          </ion-row>
+          <!---Tax --------------------------------------------------------------------------->
+          <ion-row>
+               <ion-col size="9">
+                    <ion-card-subtitle class="text1">Tax (6%):</ion-card-subtitle>
+               </ion-col>
+               <ion-col size="3" >
+                    <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
+                    <p class="text2" align="right">RM 1.05</p>
+               </ion-col>
+          </ion-row>
+          <!---Deli Fee --------------------------------------------------------------------------->
+          <ion-row>
+               <ion-col size="9">
+                    <ion-card-subtitle class="text1">Delivery Fee:</ion-card-subtitle>
+               </ion-col>
+               <ion-col size="3" >
+                    <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
+                    <p class="text2" align="right">RM 0.00</p>
+               </ion-col>
+          </ion-row>
+
+          <hr class="divider">
+
+          <ion-row>
+               <ion-col size="9">
+                    <ion-card-title class="titleheader">Total Price</ion-card-title>
+               </ion-col>
+               <ion-col size="3" >
+                    <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
+                    <p class="text1" align="right" style="margin-top: 5px">RM 12.55</p>
+               </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+    </ion-card>   
+
+	<!--ion-card  style="background-color: #d1d9f5;">
       	<ion-card-header>
           <ion-card-title class="titleheader">My Order</ion-card-title>
           <ion-card-subtitle>22 MAY 2021 12:30A.M</ion-card-subtitle>
@@ -49,7 +154,7 @@
           		<p align="right">x3</p>
           	</ion-col>
           </ion-row>
-          <!-- 2nd order--------------------------------------------------------------->
+          <!-- 2nd order-------------------------------------------------------------- ->
           <ion-row>
           	<ion-col size="3">
           		<img class="gambor" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
@@ -64,38 +169,38 @@
           		<p align="right">x1</p>
           	</ion-col>
           </ion-row>
-          <!---blank --------------------------------------------------------------------------->
+          <!---blank -------------------------------------------------------------------------- ->
           <ion-row style="height: 50px">
           </ion-row>
           <hr class="divider">
           <!---receipt --------------------------------------------------------------------------->
-          <!---sub total --------------------------------------------------------------------------->
+          <!---sub total -------------------------------------------------------------------------- ->
           <ion-row>
           	<ion-col size="9">
           		<ion-card-subtitle class="text1">Subtotal:</ion-card-subtitle>
           	</ion-col>
           	<ion-col size="3" >
-          		<!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
+          		<!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle- ->
           		<p class="text2" align="right">RM 11.50</p>
           	</ion-col>
           </ion-row>
-          <!---Tax --------------------------------------------------------------------------->
+          <!---Tax -------------------------------------------------------------------------- ->
           <ion-row>
           	<ion-col size="9">
           		<ion-card-subtitle class="text1">Tax (6%):</ion-card-subtitle>
           	</ion-col>
           	<ion-col size="3" >
-          		<!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
+          		<!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle- ->
           		<p class="text2" align="right">RM 1.05</p>
           	</ion-col>
           </ion-row>
-          <!---Deli Fee --------------------------------------------------------------------------->
+          <!---Deli Fee -------------------------------------------------------------------------- ->
           <ion-row>
           	<ion-col size="9">
           		<ion-card-subtitle class="text1">Delivery Fee:</ion-card-subtitle>
           	</ion-col>
           	<ion-col size="3" >
-          		<!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
+          		<!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle- ->
           		<p class="text2" align="right">RM 0.00</p>
           	</ion-col>
           </ion-row>
@@ -107,13 +212,13 @@
           		<ion-card-title class="titleheader">Total Price</ion-card-title>
           	</ion-col>
           	<ion-col size="3" >
-          		<!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
+          		<!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle- ->
           		<p class="text1" align="right" style="margin-top: 5px">RM 12.55</p>
           	</ion-col>
           </ion-row>
 
         </ion-card-content>
-    </ion-card>
+    </ion-card-->
     <ion-button (click)="orderhistory()" expand="block" color="tertiary" style="margin:15px;">Back</ion-button>
     <br>
 

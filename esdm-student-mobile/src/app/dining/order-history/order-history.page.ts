@@ -36,9 +36,6 @@ export class OrderHistoryPage implements OnInit {
   	  this.router.navigate(['dining/personal-info'])
   }
 
-  orderpage(){
-      this.router.navigate(['dining/order'])
-  }
 
   checkOrder(index){
     this.router.navigate(['dining/order'],{queryParams:{order_id:index}})
