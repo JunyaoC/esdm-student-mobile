@@ -49,11 +49,7 @@
           </ng-container>
         </div> -->
         
-        <ion-item>
-          <ion-label position="floating">Apply Date</ion-label>
-          <!-- <ion-input inputmode="date" formControlName="applydate" placeholder="Select date"></ion-input> -->
-          <ion-datetime displayFormat="YYYY-MM-DD" display-timezone="utc" [(ngModel)]="applydate"></ion-datetime>
-        </ion-item>
+        
         <!-- <div *ngFor="let error of errorMessages.vcolor">
           <ng-container *ngIf="vcolor.hasError(error.type) && (vcolor.dirty || vcolor.touched)">
             <small class="error-message">{{error.message}}</small>
@@ -77,7 +73,7 @@
         <ion-item>
           <ion-label position="floating">Application Status</ion-label>
           <ion-select [(ngModel)]="sstatus" placeholder="Select Status">
-            <ion-select-option value="Received" checked="true">Received</ion-select-option>
+            <ion-select-option value="Received" checked="true">Pending</ion-select-option>
           </ion-select>
         </ion-item>
         <!-- <div *ngFor="let error of errorMessages.vtype">
