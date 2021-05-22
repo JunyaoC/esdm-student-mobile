@@ -13,12 +13,11 @@ export class PaymentPage implements OnInit {
   server: string = "http://localhost/php-folder/";
   constructor(private router: Router, public toastController: ToastController, public userService: UserServiceService) { }
   platenumber: any = "QM4666";
-  vmodel: any = "Toyota";
-  vcolor: any = "Red";
-  vtype: any = "Car";
-  filename: any = "name";
+  filename: any = "";
   stickerid: any= "";
   paymentid: any="";
+  pstatus: any="";
+  payment: any="";
  
 
 
@@ -37,12 +36,12 @@ export class PaymentPage implements OnInit {
     //  paymentID: this.paymentid,
       stickerID: this.stickerid,
       vehicleID: this.platenumber,
-      vehicleModel: this.vmodel,
-      vehicleColor: this.vcolor,
-      vehicleType: this.vtype,
+      paymentStatus: this.pstatus,
+      paymentAmount: this.payment,
+      paymentProve:this.filename,
       stuACID: this.userService.currentUserData.student.student_matric
     }
-
+console.log(body);
     axios.post(this.server + 'vehicle/makepayment.php', JSON.stringify(body)).then((res: any) => {
       console.log(res);
       if (res.data.success) {
