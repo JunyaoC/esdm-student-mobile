@@ -51,7 +51,7 @@ export class DetailsPage implements OnInit {
     })
 
   }
-
+  
   fetchSectionlist(event){
     let body = {
       action:'list_section',
@@ -70,11 +70,11 @@ export class DetailsPage implements OnInit {
 
   }
 
-  async presentAlertMultipleButtons(section) {
+  async presentAlertMultipleButtons(section,i) {
 
     const alert = await this.alertController.create({
-      header: this.procourse_list.procourse_code,
-      message: 'Date : 30/5/2021<br>Location : UTM P20<br>Facilitator : ASSOC. PROF. DR ABDUL RASHID BIN HUSAIN',
+      header: `Section : ${i+1}`,
+      message: `Date : ${section.courseSec_date}<br>Location : ${section.courseSec_loc}<br>Facilitator : ${section.fac_name}`,
       buttons: [
         {
           text: 'Cancel',

@@ -38,7 +38,7 @@
 
 <ion-card>
 
-  <ion-item *ngFor="let section of section_list;let i=index" (click)="presentAlertMultipleButtons(section)">
+  <ion-item *ngFor="let section of section_list;let i=index" (click)="presentAlertMultipleButtons(section,i)">
     <ion-icon name="information-circle-outline"></ion-icon>&nbsp;&nbsp;&nbsp;
     <ion-label>Section {{i+1}}</ion-label>
     
