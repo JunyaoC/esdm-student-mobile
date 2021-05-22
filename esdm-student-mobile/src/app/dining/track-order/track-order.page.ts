@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import axios from 'axios';
 
 
 @Component({
@@ -24,5 +25,21 @@ export class TrackOrderPage implements OnInit {
 
   personal(){
   	  this.router.navigate(['dining/personal-info'])
+  }
+
+  fetchRestaurant(event){
+    let body = {
+      action:'list_restaurant',
+    }
+
+    axios.post(this.server + 'dining/restaurant.php', JSON.stringify(body)).then((res:any) => {
+      this.restaurant_records = [...res.data.restaurant]
+
+      console.log(res);
+
+      if(event != 0){
+        event.target.complete();
+      }
+    })
   }
 }
