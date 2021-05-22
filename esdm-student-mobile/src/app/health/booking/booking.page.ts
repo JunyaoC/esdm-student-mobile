@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 import * as moment from 'moment';
-import { UserServiceService } from '../user-service.service';
+import { UserServiceService } from '../../user-service.service';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -28,7 +28,6 @@ export class BookingPage implements OnInit {
   	this.route.queryParamMap.subscribe(params => {
       let data = JSON.parse(params.get("slot"));
       this.slot = data;
-      console.log(data)
     });
 
   }

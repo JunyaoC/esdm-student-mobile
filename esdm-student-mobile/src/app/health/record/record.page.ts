@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserServiceService } from '../user-service.service';
+import { UserServiceService } from '../../user-service.service';
 import axios from 'axios';
 import * as moment from 'moment';
 
@@ -52,8 +52,6 @@ export class RecordPage implements OnInit {
 
       this.noPast = [...this.slots.filter(_s => !_s.active)].length == 0 ? true : false;
       this.noActive = [...this.slots.filter(_s => _s.active)].length == 0 ? true : false;
-
-      console.log(this.slots)
 
     })
   }

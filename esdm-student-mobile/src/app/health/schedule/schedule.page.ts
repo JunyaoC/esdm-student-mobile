@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserServiceService } from '../user-service.service';
+import { UserServiceService } from '../../user-service.service';
 
 @Component({
   selector: 'app-schedule',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserServiceService } from '../user-service.service';
+import { UserServiceService } from '../../user-service.service';
 import axios from 'axios';
 import * as moment from 'moment';
 
@@ -38,7 +38,6 @@ export class AppointmentPage implements OnInit {
     }
 
     axios.post(this.server + '/health/health-student.php', JSON.stringify(body)).then((res:any) => {
-    	console.log(res.data)
       this.slots = [...res.data.slots].filter( _x => {
         if(moment(_x.slot_datetime).format('x') >= moment().format('x')){
           return _x
