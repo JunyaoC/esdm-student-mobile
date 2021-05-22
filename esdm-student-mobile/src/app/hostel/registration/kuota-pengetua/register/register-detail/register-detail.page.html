@@ -21,28 +21,22 @@
             <ion-row color="primary" justify-content-center>
               <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
                 <div padding>
-                  <ion-item>
-                    <ion-label>Full Name</ion-label>
-                    <ion-input  name="name" type="text" ngModel required></ion-input>
-                  </ion-item>
+
                   <ion-item>
                     <ion-label>Matric Number</ion-label>
-                    <ion-input  name="matric" type="text" ngModel required></ion-input>
+                    <ion-input  name="matric" type="text" placeholder="Enter matric number"ngModel required></ion-input>
                   </ion-item>
+
+                  <br><br>
+
+                  <ion-label>Activity in Campus</ion-label><br>
                   <ion-item>
-                    <ion-label>Gender</ion-label>
-                    <ion-select>
-                      <ion-select-option value="f">Female</ion-select-option>
-                      <ion-select-option value="m">Male</ion-select-option>
-                    </ion-select>
+                    <ion-textarea name="text" placeholder="List activities you've joined in this university" ngModel required></ion-textarea>
                   </ion-item>
+                  <br><br>
+                  <ion-label>Reason Applying</ion-label><br>
                   <ion-item>
-                    <ion-label>Email</ion-label>
-                    <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
-                  </ion-item>
-                  <ion-item>
-                    <ion-label>Phone number</ion-label>
-                    <ion-input name="text" type="text" placeholder="000-0000000" ngModel required></ion-input>
+                    <ion-textarea name="text" placeholder="Why you choose this hostel?" ngModel required></ion-textarea>
                   </ion-item>
 
                <!--    <ion-item>
@@ -51,7 +45,7 @@
                 </div>
                 <br>
                 <div padding>
-                  <ion-button (click)="registerReason()" expand="block">Next</ion-button>
+                  <ion-button (click)="presentAlertConfirm()" expand="block">Submit</ion-button>
                 </div>
               </ion-col>
             </ion-row>

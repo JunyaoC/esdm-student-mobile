@@ -22,12 +22,10 @@
                 <br/>
                 <p>Choose your preferred accommodation: </p><br>
                 <ion-item>
-                  <ion-label>Hostel</ion-label>
-                  <ion-select placeholder="Select One" cancelText="Cancel" okText="Okay!" required>
-                    <ion-select-option value="KTDI">Kolej Tun Dr Ismail</ion-select-option>
-                    <ion-select-option value="KTHO">Kolej Tun Hussien Onn</ion-select-option>
-                    <ion-select-option value="KTF">Kolej Tun Fatimah</ion-select-option>
-                  </ion-select>
+                  <ion-label (click)="fetchCollege()">Hostel</ion-label>
+                      <ion-select [(ngModel)]="selectedOption">
+                  <ion-select-option *ngFor="let option of college_records" [value]="option">{{option.kolej_name}}</ion-select-option>
+                </ion-select>
                 </ion-item>
 
               </ion-list>
