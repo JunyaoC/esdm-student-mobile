@@ -17,9 +17,9 @@
 <ion-item>
 	<ion-label (click)="fetchCollege()">College List</ion-label>
 <ion-select [(ngModel)]="selectedOption">
-	<ion-select-option *ngFor="let option of college_records" [value]="option.kolej_id">{{option.kolej_name}}</ion-select-option>
+	<ion-select-option *ngFor="let option of college_records" [value]="option">{{option.kolej_name}}</ion-select-option>
 </ion-select>
 </ion-item>
 </ion-list>
-<ion-button >Done</ion-button>
+<ion-button (click)="submitCollege()">Done</ion-button>
 </ion-content>

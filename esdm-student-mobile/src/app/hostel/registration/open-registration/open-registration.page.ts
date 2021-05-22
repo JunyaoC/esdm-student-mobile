@@ -11,6 +11,7 @@ export class OpenRegistrationPage implements OnInit {
 
   server : string = 'http://localhost/php-folder/';
   college_records:any = [];
+  selectedOption:any
 
   constructor(private router:Router) { }
 
@@ -24,13 +25,25 @@ export class OpenRegistrationPage implements OnInit {
     }
 
     axios.post(this.server + 'hostel/open-registration.php', JSON.stringify(body)).then((res:any) => {
-      
+
       this.college_records = [...res.data.colleges]
 
-      console.log(this.college_records);
+      // console.log(this.college_records);
 
     })
 
+  }
+  submitCollege(){
+    let body = {
+      
+      kolej_id : this.selectedOption.kolej_id,
+      action:'select_college',
+    }
+    axios.post(this.server + 'hostel/open-registration.php', JSON.stringify(body)).then((res:any) => {
+
+     console.log(res);
+
+    })
   }
 
 
