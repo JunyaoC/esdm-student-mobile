@@ -1,5 +1,5 @@
 .wrapper{
-  padding: 1rem;
+  padding-top:15px;
 }
 
 .headBar{
@@ -12,13 +12,18 @@
   justify-content: flex-start;
   align-items: center;
 
+  .brand{
+    font-weight: 700;
+  }
 
-}
-.card-horizontal {
+  .userIcon{
+    font-size: 2rem;
     display: flex;
-    flex: 1 1 auto;
-}
+    justify-content: center;
+    align-items: center;
+  }
 
+}
 
 ion-card {
   width:98%;

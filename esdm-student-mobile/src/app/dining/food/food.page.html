@@ -1,13 +1,18 @@
+<ion-content>
+
 <div class="headBar">
-	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
-		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-		<span class="brand"></span>
-	</div>
-	<p>UTMSmart Dining Modules</p> 
+  <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand">Back to home</span>
+  </div>
+  
 </div>
 
 
-<ion-content>
+<div class="wrapper">
+  <h1 style="text-align: center;">Food List</h1>
+</div>
+
     
   <ion-refresher slot="fixed" (ionRefresh)="fetchFoodList($event)">
     <ion-refresher-content></ion-refresher-content>
@@ -39,8 +44,7 @@
   </div>
      
 </ion-content>
-
-<ion-content>
+<ion-toolbar>
 
   <ion-tabs>
     <!-- Tab bar -->
@@ -60,4 +64,4 @@
     </ion-tab-bar>
   </ion-tabs>
   
-</ion-content>
+</ion-toolbar>
