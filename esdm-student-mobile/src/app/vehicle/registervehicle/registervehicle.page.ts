@@ -91,28 +91,24 @@ export class RegistervehiclePage implements OnInit {
 
     // this.userService.currentUserData
 
-    axios.post('http://localhost/php-folder/get_student.php', JSON.stringify({ u_id: this.userService.currentUserData.u_id })).then(res => {
+    let body = {
+      action: 'addvehicle',
+      vehicleID: this.platenumber,
+      vehicleModel: this.vmodel,
+      vehicleColor: this.vcolor,
+      vehicleType: this.vtype,
+      stuACID: this.userService.currentUserData.student.student_matric
+    }
+    axios.post(this.server + 'vehicle/registervehicles.php', JSON.stringify(body)).then((res: any) => {
+      console.log(res);
       if (res.data.success) {
-        let body = {
-          action: 'addvehicle',
-          vehicleID: this.platenumber,
-          vehicleModel: this.vmodel,
-          vehicleColor: this.vcolor,
-          vehicleType: this.vtype,
-          stuACID: res.data.student[0].student_matric
-        }
-        axios.post(this.server + 'vehicle/registervehicles.php', JSON.stringify(body)).then((res: any) => {
-          console.log(res);
-          if (res.data.success) {
-            this.presentToast('Vehicle Added!', 'success');
-            //this.router.navigate(['./vehicle/registersticker'])
-          } else {
-            this.presentToast(res.data.msg, 'danger');
-          }
-
-          //console.log(this.vehicle_records);
-        })
+        this.presentToast('Vehicle Added!', 'success');
+        this.router.navigate(['./vehicle/registersticker'])
+      } else {
+        this.presentToast(res.data.msg, 'danger');
       }
+
+      //console.log(this.vehicle_records);
     })
 
 

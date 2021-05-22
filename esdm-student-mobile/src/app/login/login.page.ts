@@ -45,6 +45,7 @@ export class LoginPage implements OnInit {
 
 				if(res.data.success) {
 					this.us.currentUserData = res.data.user_data[0];
+					this.us.getStudentData();
 					this.us.currentRole = res.data.user_data[0].u_role;
 
 					this.storage.create()
