@@ -18,83 +18,70 @@
           <ion-refresher-content></ion-refresher-content>
      </ion-refresher>
 
-     <ion-card  style="background-color: #d1d9f5;" *ngFor="let record of order_list">
+     <ion-card  style="background-color: #d1d9f5;" *ngFor="let record of order_list2">
           <ion-card-header>
           <ion-card-title class="titleheader">My Order</ion-card-title>
           <ion-card-subtitle>{{record.order_date}}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          <ion-row>
+          <ion-row >
                <ion-col size="6">
                     <ion-card-subtitle class="text1">Name</ion-card-subtitle>
-                    <p>{{record.order_date}}</p>
+                    <p>{{record.student_name}}</p>
                </ion-col>
                <ion-col size="6">
-                    <ion-card-subtitle class="text1">Contact No.</ion-card-subtitle>
-                    <p>012-3456789</p>
+                    <ion-card-subtitle class="text1">Matric No.</ion-card-subtitle>
+                    <p>{{record.student_matric}}</p>
                </ion-col>
                <ion-col size="12">
                     <ion-card-subtitle class="text1">Email</ion-card-subtitle>
-                    <p>kasimselamat@utm.my</p>
+                    <p>{{record.student_email}}</p>
                </ion-col>
           </ion-row>
           <br>
-          <ion-row>
-               <ion-col size="3">
-                    <img class="gambor" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
-               </ion-col>
-               <ion-col size="6">
-                    <ion-card-subtitle class="text1">Nasi Lemak Ayam</ion-card-subtitle>
-                    <p class="text2">Mak Ngah Buncit</p>
-                    <p class="text2">RM3.00</p>
-               </ion-col>
-               <ion-col size="3" >
-                    <ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle>
-                    <p align="right">x3</p>
-               </ion-col>
-          </ion-row>
-          <!-- 2nd order--------------------------------------------------------------->
-          <ion-row>
-               <ion-col size="3">
-                    <img class="gambor" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
-               </ion-col>
-               <ion-col size="6">
-                    <ion-card-subtitle class="text1">Burger Ayam</ion-card-subtitle>
-                    <p class="text2">Mak Ngah Buncit</p>
-                    <p class="text2">RM2.50</p>
-               </ion-col>
-               <ion-col size="3" >
-                    <ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle>
-                    <p align="right">x1</p>
-               </ion-col>
-          </ion-row>
-          <!---blank --------------------------------------------------------------------------->
+          <div *ngFor="let record2 of order_list" >
+               <ion-row>
+                    <ion-col size="3">
+                         <img class="gambor" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
+                    </ion-col>
+                    <ion-col size="6">
+                         <ion-card-subtitle class="text1">{{record2.food_name}}</ion-card-subtitle>
+                         <p class="text2">{{record.restaurant_name}}</p>
+                         <p class="text2">RM{{record2.food_price}}</p>
+                    </ion-col>
+                    <ion-col size="3" >
+                         <ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle>
+                         <p align="right">x{{record2.item_quantity}}</p>
 
-          <ion-row style="height: 50px">
-          </ion-row>
-          <hr class="divider">
-          <!---receipt --------------------------------------------------------------------------->
-          <!---sub total --------------------------------------------------------------------------->
-          <ion-row>
-               <ion-col size="9">
-                    <ion-card-subtitle class="text1">Subtotal:</ion-card-subtitle>
-               </ion-col>
-               <ion-col size="3" >
-                    <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
-                    <p class="text2" align="right">RM 11.50</p>
-               </ion-col>
-          </ion-row>
-          <!---Tax --------------------------------------------------------------------------->
-          <ion-row>
-               <ion-col size="9">
-                    <ion-card-subtitle class="text1">Tax (6%):</ion-card-subtitle>
-               </ion-col>
-               <ion-col size="3" >
-                    <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
-                    <p class="text2" align="right">RM 1.05</p>
-               </ion-col>
-          </ion-row>
+                    </ion-col>
+               </ion-row>
+               
+   
+          <!---blank --------------------------------------------------------------------------->
+          </div>
           <!---Deli Fee --------------------------------------------------------------------------->
+          <hr class="divider">
+               <!---receipt --------------------------------------------------------------------------->
+               <!---sub total --------------------------------------------------------------------------->
+               <ion-row>
+                    <ion-col size="9">
+                         <ion-card-subtitle class="text1">Subtotal:</ion-card-subtitle>
+                    </ion-col>
+                    <ion-col size="3" >
+                         <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
+                         <p class="text2" align="right">RM {{(record.order_price-(record.order_price*0.06)).toFixed(2)}}</p>
+                    </ion-col>
+               </ion-row>
+               <!---Tax --------------------------------------------------------------------------->
+               <ion-row>
+                    <ion-col size="9">
+                         <ion-card-subtitle class="text1">Tax (6%):</ion-card-subtitle>
+                    </ion-col>
+                    <ion-col size="3" >
+                         <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
+                         <p class="text2" align="right">RM {{record.order_price*0.06}}</p>
+                    </ion-col>
+               </ion-row>
           <ion-row>
                <ion-col size="9">
                     <ion-card-subtitle class="text1">Delivery Fee:</ion-card-subtitle>
@@ -113,7 +100,7 @@
                </ion-col>
                <ion-col size="3" >
                     <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
-                    <p class="text1" align="right" style="margin-top: 5px">RM 12.55</p>
+                    <p class="text1" align="right" style="margin-top: 5px">RM {{record.order_price}}</p>
                </ion-col>
           </ion-row>
 

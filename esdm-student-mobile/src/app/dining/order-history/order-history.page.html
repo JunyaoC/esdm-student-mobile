@@ -29,8 +29,8 @@
 		          		<p>RM {{record.order_price}}</p>
 		          	</ion-col>
 		          	<!-- <ng-template  #processingBlock> -->
-			          	<ion-col *ngIf="record.order_status=='Processing'">
-			          		<ion-button size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="time-outline"></ion-icon>Processing</ion-button>
+			          	<ion-col *ngIf="record.order_status=='Preparing'">
+			          		<ion-button size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="time-outline"></ion-icon>Preparing</ion-button>
 
 			          		<ion-button size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px" (click)="trackOrder($event,record.order_id)"><ion-icon name="location-outline"></ion-icon>Track it</ion-button>
 			          	</ion-col>
