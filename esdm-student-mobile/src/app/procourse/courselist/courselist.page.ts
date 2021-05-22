@@ -22,9 +22,11 @@ export class CourselistPage implements OnInit {
   backProcourse(){
   	this.router.navigate(['./procourse'])
   }
-  viewDetails()
+  viewDetails(index)
   {
-    this.router.navigate(['./procourse/courselist/details'])
+    console.log(index);
+
+    this.router.navigate(['./procourse/courselist/details'],{queryParams:{procourse_code:index}})
   }
 
   fetchCourselist(event){

@@ -24,9 +24,8 @@
 
 			<!-- List of Text Items -->
       <ion-list>
-        <div *ngFor="let course of procourse_list" >
-      <button (click)="viewDetails()">
-        <ion-item >
+        <div *ngFor="let course of procourse_list">
+        <ion-item  (click)="viewDetails(course.procourse_code)" >
           <ion-label class="ion-text-wrap">
             <h2>{{course.procourse_name}}</h2>
             <h3 style="color: #493bff;">{{course.procourse_code}}</h3>
@@ -35,7 +34,6 @@
             <br><span>{{course.procourse_type}}</span>
           </ion-note><br>
         </ion-item>
-      </button>
     </div>
     
       </ion-list>

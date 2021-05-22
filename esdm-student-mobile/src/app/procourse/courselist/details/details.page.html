@@ -16,30 +16,31 @@
 <ion-content>
 
   <ion-content fullscreen>
+    <div *ngFor="let code of procourse_list">
     <ion-card>
       <img src="assets/icon/design-thinking.png" />
       <ion-card-header>
-    <ion-card-subtitle>GLRB0010</ion-card-subtitle>
-    <ion-card-title>Design Thinking For Enterpreneur</ion-card-title>
+    <ion-card-subtitle>{{code.procourse_code}}</ion-card-subtitle>
+    <ion-card-title>{{code.procourse_name}}</ion-card-title>
   </ion-card-header>
   
   <ion-card-content>
     <span style="color:black"><strong>Objectives</strong></span><br>
-    To immerse students into the world of innovation as a systematic process of tackling
-    relevant business and/or social problems.
+    {{code.procourse_objective}}
   </ion-card-content>
   <ion-card-content>
     <span style="color:black"><strong>Learning Outcome</strong></span><br>
-    At the end of this course, the student will be able to:
-    <ul>
+    <!-- At the end of this course, the student will be able to: -->
+    {{code.procourse_learningOut}}
+    <!-- <ul>
       <li>Understand the concepts of design thinking approaches</li>
       <li>Create design thinking teams and conduct design thinking sessions</li>
       <li>Apply both critical thinking and design thinking in parallel to solve problems</li>
-    </ul>
-    <ion-card-subtitle style="color:red;text-align:right">COMPULSORY</ion-card-subtitle>
+    </ul> -->
+    <ion-card-subtitle style="color:red;text-align:right">{{code.procourse_type}}</ion-card-subtitle>
   </ion-card-content>
 </ion-card>
-
+</div>
 
 <ion-card>
   <ion-alert-controller></ion-alert-controller>

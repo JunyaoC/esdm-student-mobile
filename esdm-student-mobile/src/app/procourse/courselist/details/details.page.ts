@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import {ActivatedRoute} from '@angular/router';
+import axios from 'axios';
 
 @Component({
   selector: 'app-details',
@@ -9,10 +11,21 @@ import { AlertController } from '@ionic/angular';
 })
 export class DetailsPage implements OnInit {
 
-  constructor(private router:Router,public alertController: AlertController) { }
+  server : string = 'http://localhost/php-folder/';
+  procourse_list:any = [];
 
+  constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute) { }
+ 
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe(params => {
+      let procourse_code = params['procourse_code'];
+      
+      console.log(procourse_code);
+      this.fetchCourselist(1);
+    });
+ 
+    
   }
 
   backCourse(){
@@ -28,6 +41,22 @@ export class DetailsPage implements OnInit {
 
     await alert.present();
     
+  }
+  fetchCourselist(event){
+    let body = {
+      action:'list_procourse',
+    }
+
+    axios.post(this.server + 'procourse/coursedetails.php', JSON.stringify(body)).then((res:any) => {
+      this.procourse_list = [...res.data.procourse]
+
+      console.log(res);
+
+      if(event != 0){
+        event.target.complete();
+      }
+    })
+
   }
   
 }
