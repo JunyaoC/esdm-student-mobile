@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>open-registration</ion-title>
+    <ion-title>Open-registration</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-card  type="button" (click)="checkMenu()" *ngFor="let record of restaurant_records">
-	<div class="card-title" (click)="checkMenu()">{{record.restaurant_name}}</div>
-    <div class="card-subtitle">{{record.restaurant_name}}</div>
-</ion-card>
+<ion-button (click)="fetchCollege">College List</ion-button>
+<ion-select>
+	<ion-select-option *ngFor="let option of college_records">{{option.kolej_name}}</ion-select-option>
+</ion-select>
 </ion-content>

@@ -15,21 +15,16 @@ export class OpenRegistrationPage implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
-  	this.fetchCollege(0);
   }
-  fetchCollege(event){
+  fetchCollege(){
     let body = {
       action:'list_college',
     }
 
     axios.post(this.server + 'hostel/open-registration.php', JSON.stringify(body)).then((res:any) => {
-      this.college_records = [...res.data.college]
+      
+      this.college_records = res.data.colleges;
 
-      console.log(res);
-
-      if(event != 0){
-        event.target.complete();
-      }
     })
 
   }
