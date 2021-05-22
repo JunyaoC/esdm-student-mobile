@@ -12,6 +12,7 @@ export class DiningPage implements OnInit {
 
   server : string = 'http://localhost/php-folder/';
   restaurant_records:any = [];
+  restaurant_id : string ;
 
   constructor(private router:Router) { }
 
@@ -25,8 +26,8 @@ export class DiningPage implements OnInit {
   	this.router.navigate(['./home'])
   }
 
-  checkMenu(){
-    this.router.navigate(['dining/food'])
+  checkMenu(index){
+    this.router.navigate(['dining/food'],{queryParams:{restaurant_id:index}})
   }
 
   fetchRestaurant(event){
