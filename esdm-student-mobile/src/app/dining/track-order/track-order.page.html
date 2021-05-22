@@ -70,16 +70,20 @@
 
 			<ion-item>
 				<ion-label>Received</ion-label>
-				<ion-icon name="checkmark-circle" style="color: green;"></ion-icon>
+				<ion-icon name="checkmark-circle" *ngIf="record.order_status === 'Received' || record.order_status === 'Preparing' || record.order_status === 'Ready' || record.order_status === 'Pick Up'"   style="color: green;"  ></ion-icon>
 			</ion-item>
 			<ion-item>
 				<ion-label>Preparing</ion-label>
+				<ion-icon name="checkmark-circle" *ngIf="record.order_status === 'Preparing' || record.order_status === 'Ready' || record.order_status === 'Pick Up'"   style="color: green;"  ></ion-icon>
+	
 			</ion-item>
 			<ion-item>
 				<ion-label>Ready</ion-label>
+				<ion-icon name="checkmark-circle" *ngIf="record.order_status === 'Ready' || record.order_status === 'Pick Up'"   style="color: green;"  ></ion-icon>
 			</ion-item>
 			<ion-item >
 				<ion-label>Picked Up</ion-label>
+				<ion-icon name="checkmark-circle" *ngIf="record.order_status === 'Pick Up'"   style="color: green;"  ></ion-icon>
 			</ion-item>
 		  </ion-list>	
 
