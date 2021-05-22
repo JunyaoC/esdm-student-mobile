@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
+import axios from 'axios';
+
 
 @Component({
   selector: 'app-order-history',
@@ -8,9 +10,15 @@ import { Router } from '@angular/router';
 })
 export class OrderHistoryPage implements OnInit {
 
+  server : string = 'http://localhost/php-folder/';
+  orderhistory_records:any = [];
+  order_id : string ;
+
+
   constructor(private router:Router) { }
 
   ngOnInit() {
+    this.fetchOrderHistory(0);
   }
   home(){
   	  this.router.navigate(['dining'])
@@ -32,5 +40,24 @@ export class OrderHistoryPage implements OnInit {
       this.router.navigate(['dining/order'])
   }
 
+  checkOrder(index){
+    this.router.navigate(['dining/order'],{queryParams:{order_id:index}})
+  }
+
+  fetchOrderHistory(event){
+    let body = {
+      action:'list_orderhistory',
+    }
+
+    axios.post(this.server + 'dining/order-history.php', JSON.stringify(body)).then((res:any) => {
+      this.orderhistory_records = [...res.data.orderhistory]
+
+      console.log(res);
+
+      if(event != 0){
+        event.target.complete();
+      }
+    })
+  }
 
 }
