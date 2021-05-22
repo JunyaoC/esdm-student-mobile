@@ -1,5 +1,5 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 import axios from 'axios';
 
 @Component({
@@ -11,14 +11,14 @@ export class OpenRegistrationPage implements OnInit {
 
   server : string = 'http://localhost/php-folder/';
   college_records:any = [];
-  selectedOption:any
+  selectedOption;
 
   constructor(private router:Router) { }
 
   ngOnInit() {
     this.fetchCollege();
   }
-  
+
   fetchCollege(){
     let body = {
       action:'list_college',
@@ -35,7 +35,6 @@ export class OpenRegistrationPage implements OnInit {
   }
   submitCollege(){
     let body = {
-      
       kolej_id : this.selectedOption.kolej_id,
       action:'select_college',
     }
