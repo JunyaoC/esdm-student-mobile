@@ -16,26 +16,27 @@
 <ion-content>
 
   <ion-content fullscreen>
+    <div *ngFor="let history of section_list">
     <ion-card>
-      <img src="assets/icon/design-thinking.png" />
+      <img src="assets/icon/{{history.procourse_code}}.png" />
       <ion-card-header>
-        <ion-card-subtitle>GLRB0010</ion-card-subtitle>
-        <ion-card-title>Design Thinking For Enterpreneur</ion-card-title>
+        <ion-card-subtitle>{{history.procourse_code}}</ion-card-subtitle>
+        <ion-card-title>{{history.procourse_name}}</ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
-        <span style="color:black"><strong>SECTION&nbsp;01</strong></span><br><br>
+        <span style="color:black"><strong>SECTION&nbsp;{{history.section_no}}</strong></span><br><br>
 
         <span style="color:black"><strong>Appointment Details:</strong></span><br>
         <ul>
-          <li><strong>Date : 30/5/2021</strong></li>
-          <li><strong>Location : UTM P20</strong></li>
-          <li><strong>Facilitator : ASSOC. PROF. DR ABDUL RASHID BIN HUSAIN</strong></li>
+          <li><strong>Date : {{history.courseSec_date}}</strong></li>
+          <li><strong>Location : {{history.courseSec_loc}}</strong></li>
+          <li><strong>Facilitator : {{history.fac_name}}</strong></li>
         </ul><br>
-        <ion-card-subtitle style="color:red;text-align:right">COMPULSORY</ion-card-subtitle>
+        <ion-card-subtitle style="color:red;text-align:right">{{history.procourse_type}}</ion-card-subtitle>
       </ion-card-content>
     </ion-card>
-
+</div>
     <ion-grid>
       <ion-row>
         <ion-col>

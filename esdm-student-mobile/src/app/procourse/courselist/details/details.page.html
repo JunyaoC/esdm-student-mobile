@@ -38,9 +38,9 @@
 
 <ion-card>
 
-  <ion-item *ngFor="let section of section_list;let i=index" (click)="presentAlertMultipleButtons(section,i)">
+  <ion-item *ngFor="let section of section_list;let i=index" (click)="presentAlertMultipleButtons(section)">
     <ion-icon name="information-circle-outline"></ion-icon>&nbsp;&nbsp;&nbsp;
-    <ion-label>Section {{i+1}}</ion-label>
+    <ion-label>Section {{section.section_no}}</ion-label>
     
     <ion-badge *ngIf="section.courseSec_seat < (section.courseSec_maxseat / 2)" color="warning">{{section.courseSec_seat}} / {{section.courseSec_maxseat}}</ion-badge>
     <ion-badge *ngIf="section.courseSec_seat >= (section.courseSec_maxseat / 2) && section.courseSec_seat != section.courseSec_maxseat">{{section.courseSec_seat}} / {{section.courseSec_maxseat}}</ion-badge>

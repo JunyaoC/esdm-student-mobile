@@ -24,7 +24,7 @@ export class CourselistPage implements OnInit {
   }
   viewDetails(index)
   {
-    console.log(index);
+    
     this.router.navigate(['./procourse/courselist/details'],{queryParams:{procourse_code:index}})
 
   }

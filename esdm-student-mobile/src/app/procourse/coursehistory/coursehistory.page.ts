@@ -22,11 +22,12 @@ export class CoursehistoryPage implements OnInit {
   backProcourse(){
   	this.router.navigate(['./procourse'])
   }
-
-  viewDetails()
+  viewDetails(index)
   {
-    this.router.navigate(['./procourse/coursehistory/details'])
+    this.router.navigate(['./procourse/coursehistory/details'],{queryParams:{procourse_sec:index}})
+
   }
+
   
   fetchHistorylist(event){
     let body = {

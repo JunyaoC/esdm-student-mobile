@@ -70,10 +70,10 @@ export class DetailsPage implements OnInit {
 
   }
 
-  async presentAlertMultipleButtons(section,i) {
+  async presentAlertMultipleButtons(section) {
 
     const alert = await this.alertController.create({
-      header: `Section : ${i+1}`,
+      header: `Section ${section.section_no}`,
       message: `Date : ${section.courseSec_date}<br>Location : ${section.courseSec_loc}<br>Facilitator : ${section.fac_name}`,
       buttons: [
         {
