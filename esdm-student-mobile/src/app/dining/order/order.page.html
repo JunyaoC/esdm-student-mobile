@@ -1,24 +1,26 @@
-<ion-header>
-	<ion-toolbar>
-		<ion-title style='font-weight: bold'>Order Details</ion-title>
-		  	<div class="headBar">
-				<div style="display: flex;justify-content: left;align-items: left;color: #493bff;" (click)="backHome()">
-					<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-					<span class="brand"></span>
-					<!--p style="align-content: left; color:black; font-weight: bold;">Order History</p--> 
-				</div>
-				
-			</div>
-	</ion-toolbar>
-</ion-header>
+<ion-content>
+
+<div class="headBar">
+     <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="history()">
+          <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+          <span class="brand">Back</span>
+     </div>
+     
+</div>
+
+<div class="wrapper">
+     <h1 style="text-align: center;">Order Details</h1>
+</div>
 
 <ion-content>
+
+
 	
      <ion-refresher slot="fixed" (ionRefresh)="fetchOrderList($event)">
           <ion-refresher-content></ion-refresher-content>
      </ion-refresher>
 
-     <ion-card  style="background-color: #d1d9f5;" *ngFor="let record of order_list2">
+     <ion-card  style="background-color: #d1d9f5;" *ngFor="let record of order_list2| slice:0:1;">
           <ion-card-header>
           <ion-card-title class="titleheader">My Order</ion-card-title>
           <ion-card-subtitle>{{record.order_date}}</ion-card-subtitle>
