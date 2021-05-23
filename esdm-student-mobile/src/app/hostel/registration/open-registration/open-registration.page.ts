@@ -26,7 +26,7 @@ export class OpenRegistrationPage implements OnInit {
       action:'list_college',
     }
 
-    axios.post(this.server + 'hostel/kuota-pengetua.php', JSON.stringify(body)).then((res:any) => {
+    axios.post(this.server + 'hostel/open-registration.php', JSON.stringify(body)).then((res:any) => {
 
       this.college_records = [...res.data.colleges]
 
