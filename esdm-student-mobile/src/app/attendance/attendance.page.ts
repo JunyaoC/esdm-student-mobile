@@ -16,7 +16,6 @@ import { ToastController } from '@ionic/angular';
 })
 export class AttendancePage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
   attendance_records:any = []
 
   constructor(
@@ -55,7 +54,7 @@ export class AttendancePage implements OnInit {
       action:'list_attendance',
     }
 
-    axios.post(this.server + '/attendance/attendance-student.php', JSON.stringify(body)).then((res:any) => {
+    axios.post(this.userService.server + '/attendance/attendance-student.php', JSON.stringify(body)).then((res:any) => {
       this.attendance_records = [...res.data.attendance]
       this.attendance_records.forEach( _r => {
         _r.attendance_timestamp = moment(_r.attendance_timestamp).add(8,'hours')
@@ -132,7 +131,7 @@ export class AttendancePage implements OnInit {
 
     if(data){
 
-      let parsedData = JSON.parse(data)
+      // let parsedData = JSON.parse(data)
 
       const loading = await this.loadingController.create({
         cssClass: 'my-custom-class',
@@ -146,11 +145,14 @@ export class AttendancePage implements OnInit {
       let body = {
         action:'sign_attendance',
         u_id: '2',
-        class_id: parsedData.class_id,
+        class_id: data,
       }
 
 
-      axios.post(this.server + '/attendance/attendance-student.php', JSON.stringify(body)).then((res:any) => {
+      axios.post(this.userService.server + '/attendance/attendance-student.php', JSON.stringify(body)).then((res:any) => {
+
+        console.log(res);
+
         if(res.data.success){
           this.presentToast(res.data.msg,"success")
         }else{

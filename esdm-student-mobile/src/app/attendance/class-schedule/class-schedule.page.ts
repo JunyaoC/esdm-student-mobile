@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 import * as moment from 'moment';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { UserServiceService } from '../../user-service.service';
 
 @Component({
   selector: 'app-class-schedule',
@@ -12,9 +13,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 export class ClassSchedulePage implements OnInit {
 
 	classes
-	server : string = 'http://localhost/php-folder/';
+	// server : string = 'http://localhost/php-folder/';
 
-  constructor(private router:Router,private localNotifications: LocalNotifications) { }
+  constructor(private router:Router,private localNotifications: LocalNotifications, public us:UserServiceService) { }
 
   ngOnInit() {
   	this.fetchUpcoming(0);
@@ -34,7 +35,7 @@ export class ClassSchedulePage implements OnInit {
       action:'fetch_upcoming_class',
     }
 
-    axios.post(this.server + '/attendance/attendance-student.php', JSON.stringify(body)).then((res:any) => {
+    axios.post(this.us.server + '/attendance/attendance-student.php', JSON.stringify(body)).then((res:any) => {
       this.classes = [...res.data.upcoming]
       this.classes.forEach( async _r => {
         _r.class_time = moment(_r.class_time)

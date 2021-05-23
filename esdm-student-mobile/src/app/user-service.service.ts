@@ -9,6 +9,9 @@ export class UserServiceService {
 	currentUserData:any
 	currentRole:any
 
+	server = 'http://185.185.40.33:14896/esdm-php/php-folder/'
+	// server = 'http://localhost:4896/php-folder/'
+
 	constructor() { }
 
 	getStudentData(){

@@ -23,34 +23,23 @@ export class AppComponent {
 		) {
 
 		this.storage.create();
-		// this.storage.get('storage_xxx').then((res:any) => {
 
-		// 	if(res == null) {
-		// 		this.navCtrl.navigateRoot('/login');
-		// 	} else {
-		// 		this.us.currentRole = res;
-		// 		// this.navCtrl.navigateRoot('/home');
-		// 	}
-		// })
 
 		this.platform.ready().then(() => {
-      this.deeplinks.route({
-        '/attendance': '/attendance',
-      }).subscribe((match) => {
-        // match.$route - the route we matched, which is the matched entry from the arguments to route()
-        // match.$args - the args passed in the link
-        // match.$link - the full link data
-        console.log('Successfully matched route', match);
-        this.zone.run(() => {
-      this.router.navigate([match.$route],{queryParams:{...match.$args}})
-    });
-        
-      },
-      (nomatch) => {
-        // nomatch.$link - the full link data
-        console.error('Got a deeplink that didn\'t match', nomatch);
-      });
-    });
+			this.deeplinks.route({
+				'/attendance': '/attendance',
+			}).subscribe((match) => {
+				console.log('Successfully matched route', match);
+				this.zone.run(() => {
+					this.router.navigate([match.$route],{queryParams:{...match.$args}})
+				});
+
+			},
+			(nomatch) => {
+				// nomatch.$link - the full link data
+				console.error('Got a deeplink that didn\'t match', nomatch);
+			});
+		});
 
 
 	}
