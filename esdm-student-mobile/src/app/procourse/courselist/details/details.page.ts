@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import {ActivatedRoute} from '@angular/router';
 import axios from 'axios';
+import { UserServiceService } from '../../../user-service.service';
 import { ThisReceiver } from '@angular/compiler';
 
 @Component({
@@ -18,7 +19,7 @@ export class DetailsPage implements OnInit {
   section_list = [];
 
 
-  constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute) { }
+  constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute,public us:UserServiceService) { }
  
 
   ngOnInit() {
@@ -104,7 +105,7 @@ export class DetailsPage implements OnInit {
     let body = {
       course_section: section.courseSec_id,
       // need to change
-      student: 'A18CS1234',
+      student: this.us.currentUserData.student.student_matric,
       seat: section.courseSec_seat-1,
       action: 'register',
     }
