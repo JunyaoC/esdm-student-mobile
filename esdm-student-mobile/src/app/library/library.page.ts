@@ -6,6 +6,7 @@ import { UserServiceService } from '../user-service.service';
 import { ToastController } from '@ionic/angular';
 import { Clipboard } from "@angular/cdk/clipboard"
 import { Router } from '@angular/router';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
 	selector: 'app-library',
@@ -16,7 +17,7 @@ export class LibraryPage implements OnInit {
 
 	server : string = 'http://localhost/php-folder/';
 
-	resourceArray : any;
+	resourceArray : any = [];
 
 	searchKeyword : any = '';
 	selectedCategory : any = '';
@@ -24,7 +25,10 @@ export class LibraryPage implements OnInit {
 
 	wishlistArray : any = [];
 
-	constructor(private _ngSearchFilterService: NgSearchFilterService, public sanitizer: DomSanitizer, public us:UserServiceService, private toastController:ToastController, private clipboard: Clipboard, private router:Router) {
+	order : any = 1;
+	column : any = '';
+
+	constructor(private _ngSearchFilterService: NgSearchFilterService, public sanitizer: DomSanitizer, public us:UserServiceService, private toastController:ToastController, private clipboard: Clipboard, private router:Router, public actionSheetController: ActionSheetController) {
 		this._ngSearchFilterService.setDefaultLang('en');
 	}
 
@@ -195,6 +199,46 @@ export class LibraryPage implements OnInit {
 			duration: 2000
 		});
 		toast.present();
+	}
+
+	async presentActionSheet() {
+		const actionSheet = await this.actionSheetController.create({
+			header: 'Sort',
+			cssClass: 'my-custom-class',
+			buttons: [{
+				text: 'Title',
+				handler: () => {
+					console.log('Share clicked');
+					this.column = 'r_title'
+					this.order = 1
+				}
+			}, {
+				text: 'Author',
+				handler: () => {
+					console.log('Play clicked');
+					this.column = 'r_author'
+					this.order = 1
+				}
+			}, {
+				text: 'Published Date',
+				handler: () => {
+					console.log('Favorite clicked');
+					this.column = 'r_date'
+					this.order = 1
+				}
+			}, {
+				text: 'Cancel',
+				icon: 'close',
+				role: 'cancel',
+				handler: () => {
+					console.log('Cancel clicked');
+				}
+			}]
+		});
+		await actionSheet.present();
+
+		const { role } = await actionSheet.onDidDismiss();
+		console.log('onDidDismiss resolved with role', role);
 	}
 
 }

@@ -26,15 +26,19 @@
 
 	</ion-toolbar>
 
-	<ion-searchbar showCancelButton="focus" [(ngModel)]="searchKeyword"></ion-searchbar>
+	<div style="display: flex; flex-direction: row; width: 100%; align-items: center;">
+		<ion-searchbar showCancelButton="focus" [(ngModel)]="searchKeyword"></ion-searchbar>
+		<ion-icon name="funnel-outline" style="font-size: 1.5rem; padding-right: 1rem;" (click)="presentActionSheet()"></ion-icon>
+	</div>
+	
 
 
 </ion-header>
 
-<ion-content>
+<ion-content style="background-color: #f1f1f1;">
 
 
-	<ion-card *ngFor="let resource of resourceArray | libraryCategoryFilter:selectedCategory | filter:searchKeyword | libraryWishlistFilter:viewWishlistOnly; let i=index">
+	<ion-card *ngFor="let resource of resourceArray | libraryCategoryFilter:selectedCategory | filter:searchKeyword | libraryWishlistFilter:viewWishlistOnly | librarySort: {property: column, order: order} ; let i=index">
 		<ion-card-header>
 			<ion-card-subtitle>{{resource.r_category}}</ion-card-subtitle>
 			<ion-card-title *ngIf="resource.r_title.length > 39" style="font-size: 1.2rem;">{{resource.r_title.slice(0, 45).concat('...')}}</ion-card-title>
@@ -45,7 +49,7 @@
 
 			<iframe style="pointer-events:none; border:0; width: 100%;" [src]="openURL(resource.r_file)" allowfullscreen></iframe>
 			<p>Author : {{resource.r_author}}</p>
-			<p>Publish Date : {{resource.r_date}}</p>
+			<p>Published Date : {{resource.r_date}}</p>
 
 			<div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; padding-top: 1rem;">
 
