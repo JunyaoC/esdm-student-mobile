@@ -21,7 +21,8 @@
 				<ion-label>
 					<h1>{{class.subject_name}}</h1>
 					<h3>{{class.subject_code}} Section {{class.section_number}}</h3>
-					<span>{{class.class_time | date : 'shortTime'}} {{class.class_time | date : 'EEE dd MMM yyyy'}}</span>
+					<span>{{class.class_time | date : 'shortTime'}}</span><br>
+					<span>{{class.class_time | date : 'EEE dd MMM yyyy'}}</span>
 				</ion-label>
 
 				<ion-button *ngIf="!class.notification_scheduled" slot="end" (click)="scheduleNotification(class)">

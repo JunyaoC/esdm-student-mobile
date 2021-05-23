@@ -31,7 +31,7 @@ export class ClassSchedulePage implements OnInit {
 
   fetchUpcoming(event){
   	let body = {
-      u_id: '2',
+      u_id: this.us.currentUserData.u_id,
       action:'fetch_upcoming_class',
     }
 

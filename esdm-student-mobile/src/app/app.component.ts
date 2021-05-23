@@ -24,6 +24,24 @@ export class AppComponent {
 
 		this.storage.create();
 
+		this.storage.create();
+		this.storage.get('storage_xxx').then((res:any) => {
+
+			if(res == null) {
+				this.navCtrl.navigateRoot('/login');
+			} else {
+				this.us.currentRole = res;
+				// this.navCtrl.navigateRoot('/home');
+			}
+		})
+
+		this.storage.get('user_data').then( res => {
+
+			if(res){
+				this.us.currentUserData = res;
+			}
+
+		})
 
 		this.platform.ready().then(() => {
 			this.deeplinks.route({

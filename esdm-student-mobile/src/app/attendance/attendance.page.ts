@@ -50,7 +50,7 @@ export class AttendancePage implements OnInit {
 
   fetchAttendance(event){
     let body = {
-      u_id: '2',
+      u_id: this.userService.currentUserData.u_id,
       action:'list_attendance',
     }
 
@@ -144,7 +144,7 @@ export class AttendancePage implements OnInit {
 
       let body = {
         action:'sign_attendance',
-        u_id: '2',
+        u_id: this.userService.currentUserData.u_id,
         class_id: data,
       }
 
