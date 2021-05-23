@@ -51,8 +51,9 @@ export class FoodPage implements OnInit {
     let body = {
       action:'list_food',
       id:this.restaurant_id,
-    }
 
+    }
+          console.log(this.restaurant_id);
     axios.post(this.server + 'dining/foodList.php', JSON.stringify(body)).then((res:any) => {
       this.food_list = [...res.data.food]
 
