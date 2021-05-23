@@ -20,10 +20,11 @@ export class ComplaintFormPage implements OnInit {
   constructor(private route: Router, private toastController: ToastController) { }
 
   ngOnInit() {
-    this.fetchStatus();
+    //this.fetchStatus();
+    this.submitComplaint();
   }
 
-  fetchStatus() {
+  /*fetchStatus() {
     let body = {
       action: 'list_status',
     }
@@ -35,10 +36,10 @@ export class ComplaintFormPage implements OnInit {
       // console.log(this.status_records);
   })
 
-  }
+  }*/
   submitComplaint() {
     let body = {
-      status_id: this.selectedOption.status_id,
+      permissions: this.selectedOption,
       matric: this.matricNo,
       reason: this.reasonComplaint,
       action: 'select_status',
@@ -46,9 +47,10 @@ export class ComplaintFormPage implements OnInit {
     axios.post(this.server + 'hostel/complaint-form.php', JSON.stringify(body)).then((res: any) => {
 
       console.log(res);
-      this.route.navigate(['hostel/complaint']);
-      this.presentToast('Submit complaint successfully !', 'success');
+      //this.route.navigate(['hostel/complaint']);
+    //this.presentToast('Submit complaint successfully !', 'success');
     })
+    
   }
 
   async presentToast(message: any, color: any) {

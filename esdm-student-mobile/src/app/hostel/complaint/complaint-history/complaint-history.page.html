@@ -25,8 +25,8 @@
                     <ion-label>
                       <h1 >{{status.complaint_date}}</h1>
                       <h2 >{{status.complaint_reason}}</h2>
-                      <h3 *ngIf=" status.permission == 0">-The technician is NOT PERMITTED to enter the room.</h3>
-                      <h3 *ngIf=" status.permission == 1">-The technician is PERMITTED to enter the room.</h3>
+                      <h3 *ngIf=" status.permission == 0">-The technician is <strong>NOT PERMITTED</strong> to enter the room.</h3>
+                      <h3 *ngIf=" status.permission == 1">-The technician is <strong>PERMITTED</strong> to enter the room.</h3>
                     </ion-label>
 
                     <ion-note style="text-align: right;">
