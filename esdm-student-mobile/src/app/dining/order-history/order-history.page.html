@@ -23,10 +23,10 @@
 			        	<img class="gambor" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
 		          	</ion-col>
 		          	<ion-col size="9">
-		          		<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>{{record.restaurant_name}}</ion-card-title>
-		          		<ion-card-subtitle> {{record.order_date}}
+		          		<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>{{record.order_date}}</ion-card-title>
+		          		<ion-card-subtitle> Price: 
 		          		</ion-card-subtitle>
-		          		<p>RM {{record.order_price}}</p>
+		          		<p>RM {{(record.order_price*1).toFixed(2)}}</p>
 		          	</ion-col>
 		          	<!-- <ng-template  #processingBlock> -->
 			          	<ion-col *ngIf="record.order_status=='Preparing'">

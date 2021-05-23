@@ -69,7 +69,7 @@
                     </ion-col>
                     <ion-col size="3" >
                          <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
-                         <p class="text2" align="right">RM {{(record.order_price-(record.order_price*0.06)).toFixed(2)}}</p>
+                         <p class="text2" align="right">RM {{((record.order_price-(record.order_price*0.06))*1).toFixed(2)}}</p>
                     </ion-col>
                </ion-row>
                <!---Tax --------------------------------------------------------------------------->
@@ -79,7 +79,7 @@
                     </ion-col>
                     <ion-col size="3" >
                          <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
-                         <p class="text2" align="right">RM {{record.order_price*0.06}}</p>
+                         <p class="text2" align="right">RM {{(record.order_price*0.06*1).toFixed(2)}}</p>
                     </ion-col>
                </ion-row>
           <ion-row>
@@ -100,7 +100,7 @@
                </ion-col>
                <ion-col size="3" >
                     <!--ion-card-subtitle class="text1" align="right">Amount</ion-card-subtitle-->
-                    <p class="text1" align="right" style="margin-top: 5px">RM {{record.order_price}}</p>
+                    <p class="text1" align="right" style="margin-top: 5px">RM {{(record.order_price*1).toFixed(2)}}</p>
                </ion-col>
           </ion-row>
 
