@@ -8,8 +8,6 @@ export class LibrarySortPipe implements PipeTransform {
 
 	transform(array: Array<string>, args?: any): Array<string> {
 
-		console.log('args', args);
-
 		return array.sort(function(a, b){
 			if(a[args.property] < b[args.property]){
 				return -1 * args.order;
