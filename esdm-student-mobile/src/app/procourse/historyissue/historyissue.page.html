@@ -23,26 +23,38 @@
   <div style="align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%;">
 
     <!-- List of Text Items -->
-    <ion-card *ngFor="let issue of list_issue">
-      
+    <div *ngFor="let issue of list_issue">
+    <ion-card (click)="delete(issue.issue_id)" *ngIf="issue.issue_status ==0" > 
       <ion-card-header>
         <ion-card-subtitle *ngIf="issue.issue_status ==0" style="color: red;">Haven Answer</ion-card-subtitle>
-        <ion-card-subtitle *ngIf="issue.issue_status ==1" style="color: green;">Answered</ion-card-subtitle>
         <ion-card-title style="font-size: 20px;">{{issue.issue_title}}</ion-card-title>
-        
-
       </ion-card-header>
-
       <ion-card-content>
         {{issue.issue_details}}
       </ion-card-content>
       <ion-item>
-          <ion-button (click)="details(issue)" *ngIf="issue.issue_status ==1" fill="outline" slot="end">Details</ion-button>
-          <ion-button (click)="edit(issue.issue_id)" *ngIf="issue.issue_status ==0" fill="outline" slot="end" color="warning">Edit</ion-button>
+          <ion-button fill="outline" slot="end" color="danger">Delete</ion-button>
         </ion-item>
     </ion-card>
+ </div>
 
- 
+
+  <div *ngFor="let issue of list_issue">
+    <ion-card (click)="details(issue)" *ngIf="issue.issue_status ==1" >
+      <ion-card-header>
+        <ion-card-subtitle style="color: green;">Answered</ion-card-subtitle>
+        <ion-card-title style="font-size: 20px;">{{issue.issue_title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{issue.issue_details}}
+      </ion-card-content>
+      <ion-item>
+          <ion-button fill="outline" slot="end">Details</ion-button>
+        </ion-item>
+    </ion-card>
+  </div>
+
+
 
 
 

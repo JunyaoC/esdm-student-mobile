@@ -78,10 +78,7 @@ export class IssuedetailsPage implements OnInit {
       message: 'Report Edited. We will review your report and take action',
       buttons: ['Done']
     });
-    this.router.navigate(['./procourse/historyissue'])
-  .then(() => {
-    this.ngOnInit();
-  });
+    this.router.navigate(['./procourse/historyissue']);
     await alert.present();
 
     const { role } = await alert.onDidDismiss();

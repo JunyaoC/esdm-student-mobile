@@ -25,34 +25,18 @@
         <ion-label position="stacked">Matric Number</ion-label>
         <ion-input autocapitalize="on" maxlength='9' required="true">{{issue.stu_matric}}</ion-input>
       </ion-item>
-      <div style="width: 100%;padding: 1rem;"
-          class="alert alert-danger">
-          <!-- <div *ngIf="loginForm.controls['matric'].errors.required" style="text-align: left;font-size:13px;color: red;">
-            Matric is required.
-          </div> -->
-        </div>
 
         <ion-item>
           <ion-label position="stacked">Name</ion-label>
           <ion-input required="true">{{issue.student_name}}</ion-input>
         </ion-item>
-        <div style="width: 100%;padding: 1rem;"
-            class="alert alert-danger">
-            <!-- <div *ngIf="loginForm.controls['name'].errors.required" style="text-align: left;font-size:13px;color: red;">
-              Your name is required.
-            </div> -->
-          </div>
+
 
       <ion-item>
         <ion-label position="stacked">Issue Title</ion-label>
-        <ion-input  [(ngModel)]="issueTitleInput" required="true"></ion-input>
+        <!-- <ion-input  [(ngModel)]="issueTitleInput" required="true"></ion-input> -->
       </ion-item>
-      <div style="width: 100%;padding: 1rem;"
-          class="alert alert-danger">
-          <!-- <div *ngIf="loginForm.controls['title'].errors.required" style="text-align: left;font-size:13px;color: red;">
-            Issue Title is required.
-          </div> -->
-        </div>
+
 
       
       <ion-item>

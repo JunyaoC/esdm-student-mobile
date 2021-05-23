@@ -11,7 +11,7 @@ import { UserServiceService } from '../../user-service.service';
 })
 export class HistoryissuePage implements OnInit {
 
-
+  
   constructor(private router:Router,public alertController: AlertController,public us:UserServiceService) { }
   server : string = 'http://localhost/php-folder/';
   list_issue:any = [];
@@ -54,6 +54,7 @@ export class HistoryissuePage implements OnInit {
     })
 
   }
+
 
   async details(issue){
 
