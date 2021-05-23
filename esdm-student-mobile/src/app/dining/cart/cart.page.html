@@ -16,24 +16,24 @@
 	<h1 style="text-align: center;">My Cart</h1>
 </div>
 
-    <ion-card style="padding: 0%;background-color: #d1d9f5;"  *ngFor="let record of cart_list">
-      <ion-card-content>
+    <ion-card class="ion-card"  *ngFor="let record of cart_list">
+      <ion-card-content class="ion-card">
       	<ion-grid>
-	      <ion-row class="item-bar">
-	      <ion-col size="1">
-	      	{{record.item_quantity}}x
-	      </ion-col>
-	      <ion-col size="6">
-	      	<p>{{record.food_name}}</p>
-	      	{{record.restaurant_name}}
-	      </ion-col>
-	      <ion-col size="2" >
-	      	RM {{record.food_price| number:'1.2-2'}}
-	      	
-	      </ion-col>
-	      <ion-col size="1">
-	      	<ion-icon name="trash-sharp" style="color:red;" (click)="deleteItem(record.itemorder_id)"></ion-icon>
-	      </ion-col>
+	      <ion-row>
+				<ion-col size="2" class="item-bar ion-padding-top">
+					{{record.item_quantity}}x
+				</ion-col>
+				<ion-col size="6" class="item-bar">
+					<p class="food">{{record.food_name}}</p>
+					<p class="restaurant">{{record.restaurant_name}}</p>
+				</ion-col>
+				<ion-col size="3" class="item-bar ion-padding-top">
+					RM {{record.food_price| number:'1.2-2'}}
+					
+				</ion-col>
+				<ion-col size="1" class="item-bar ion-padding-top">
+					<ion-icon name="trash-sharp" class="del-button" (click)="deleteItem(record.itemorder_id)"></ion-icon>
+				</ion-col>
 
 	  	</ion-row>
 	  </ion-grid>
@@ -60,9 +60,23 @@
 
 	  </ion-grid>
 
+	<div class="center" style="margin-top: 10px;">
 
-	<ion-button expand="block" (click)="checkout()">Checkout</ion-button>
-	<ion-button expand="block" (click)="home()">Order More</ion-button>
+		<ion-button class="sp-btn" expand="block" (click)="checkout()">Checkout</ion-button>
+	</div>
+
+
+	<div class="center">
+		<ion-button class="sp-btn" expand="block" (click)="home()">Order More</ion-button>
+	</div>
+
+
+
+
+
+
+
+
 
 </ion-content>
 
