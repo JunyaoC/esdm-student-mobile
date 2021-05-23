@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
 import axios from 'axios';
-
+import { UserServiceService } from '../../user-service.service';
 
 @Component({
   selector: 'app-order-history',
@@ -15,7 +15,7 @@ export class OrderHistoryPage implements OnInit {
   order_id : string ;
 
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,public us:UserServiceService) { }
 
   ngOnInit() {
     this.fetchOrderHistory(0);
@@ -53,6 +53,7 @@ export class OrderHistoryPage implements OnInit {
   fetchOrderHistory(event){
     let body = {
       action:'list_orderhistory',
+      student_id : this.us.currentUserData.u_id,
     }
 
     axios.post(this.server + 'dining/order-history.php', JSON.stringify(body)).then((res:any) => {

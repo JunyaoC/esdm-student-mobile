@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import axios from 'axios';
+import { UserServiceService } from '../../user-service.service';
 
 @Component({
   selector: 'app-cart',
@@ -17,8 +18,8 @@ export class CartPage implements OnInit {
   // user_id:string;
 
   total = 0;
-
-  constructor(private router:Router,public alertController: AlertController) { }
+  
+  constructor(private router:Router,public alertController: AlertController,public us:UserServiceService) { }
 
   ngOnInit() {
     this.fetchCartList(0);
@@ -36,6 +37,7 @@ export class CartPage implements OnInit {
     }).then(res => {
 
       res.present();
+
     });
 
   }
@@ -49,7 +51,8 @@ export class CartPage implements OnInit {
   checkout(){
     let body = {
       action:'checkout',
-      totalPrice:this.total + (this.total*0.06),
+      totalPrice:this.total,
+      student_id : this.us.currentUserData.u_id,
     }
 
     axios.post(this.server + 'dining/checkout.php', JSON.stringify(body)).then((res:any) => {
@@ -63,6 +66,12 @@ export class CartPage implements OnInit {
 
   	  this.router.navigate(['./dining'])
   }
+
+  cart(){
+
+      this.router.navigate(['dining/cart'])
+  }
+
 
   history(){
  

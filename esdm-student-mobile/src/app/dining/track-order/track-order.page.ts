@@ -35,6 +35,10 @@ export class TrackOrderPage implements OnInit {
   	  this.router.navigate(['dining/order-history'])
   }
 
+  cart(){
+      this.router.navigate(['dining/cart'])
+  }
+
   personal(){
   	  this.router.navigate(['dining/personal-info'])
   }

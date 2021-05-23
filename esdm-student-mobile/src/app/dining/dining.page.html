@@ -11,6 +11,9 @@
 	<h1 style="text-align: center;">Restaurant</h1>
 </div>
 
+  <ion-refresher slot="fixed" (ionRefresh)="fetchRestaurant($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
 
 <ion-card  type="button" *ngFor="let record of restaurant_records">

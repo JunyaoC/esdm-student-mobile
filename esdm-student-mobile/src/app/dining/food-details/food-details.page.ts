@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import axios from 'axios';
+import { UserServiceService } from '../../user-service.service';
+
 
 @Component({
   selector: 'app-food-details',
@@ -14,10 +16,10 @@ export class FoodDetailsPage implements OnInit {
   server : string = 'http://localhost/php-folder/';
   food_list:any = [];
   food_id:string;
-  currentNumber = 0;
-  total = 0;
+  currentNumber = 1;
+  total = 0 ;
 
-  constructor(private router:Router,private activatedRoute: ActivatedRoute,public alertController: AlertController) { }
+  constructor(private router:Router,private activatedRoute: ActivatedRoute,public alertController: AlertController,public us:UserServiceService) { }
 
   ngOnInit() {
 
@@ -41,6 +43,7 @@ export class FoodDetailsPage implements OnInit {
     }).then(res => {
 
       res.present();
+      this.cart();
     });
 
   }
@@ -51,7 +54,7 @@ export class FoodDetailsPage implements OnInit {
   }
 
   decrement(price) {
-   if(this.currentNumber>0){
+   if(this.currentNumber>1){
      this.currentNumber--;
    this.total = price*this.currentNumber;}
   }
@@ -62,6 +65,7 @@ export class FoodDetailsPage implements OnInit {
       id:food_id,
       total:total_price,
       item_quantity:item_qty,
+      student_id : this.us.currentUserData.u_id,
     }
 
     axios.post(this.server + 'dining/add-cart.php', JSON.stringify(body)).then((res:any) => {
@@ -97,6 +101,12 @@ export class FoodDetailsPage implements OnInit {
 
     axios.post(this.server + 'dining/food-details.php', JSON.stringify(body)).then((res:any) => {
      this.food_list = [...res.data.food]
+
+     this.food_list.forEach( _item => {
+        _item['food_price'] = Number(_item['food_price'])
+        this.total = _item['food_price']
+      })
+
 
       console.log(res);
 

@@ -1,16 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-	<ion-buttons slot="start">
-		<ion-back-button defaultHref="#" text="" icon="arrow-back-outline"></ion-back-button>
-	  </ion-buttons>
-    <ion-title>track-order</ion-title>
-  </ion-toolbar>
-</ion-header>
+	<div class="headBar">
+	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="history()">
+		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+		<span class="brand">Back</span>
+	</div>
+	</div>
 
 <ion-content>
 
+
+<div class="wrapper">
+	<h1 style="text-align: center;">Restaurant</h1>
+</div>
+
+
 	<div style="width: 95%;margin-left:13px;margin-bottom: 10px;">
-      <ion-card class="ion-card" style="background-color: #d1d9f5;" *ngFor="let record of order_records">
+      <ion-card class="ion-card" style="background-color: #d1d9f5;" *ngFor="let record of order_records| slice:0:1;">
       <ion-grid>
 		<ion-row>
 			<ion-col size="5">
@@ -21,7 +25,7 @@
 				<p class="card-title">{{record.restaurant_name}}</p>
 				<p class="card-details">{{record.order_date}}</p>
 				<br/>
-				<p class="price">RM {{record.food_totalprice}}</p>
+				<p class="price">RM {{record.food_totalprice| number:'1.2-2'}}</p>
 			</ion-col>
 		</ion-row>
       </ion-grid>
@@ -29,7 +33,7 @@
   	</div>
 
 
-	<ion-card style="overflow: visible; background-color: #ffffff;" *ngFor="let record of order_records">
+	<ion-card style="overflow: visible; background-color: #ffffff;" *ngFor="let record of order_records| slice:0:1">
 		<ion-grid>
 			<ion-row style="height: 30px;">
 				<ion-col size="6" class="item-bar">
@@ -55,7 +59,7 @@
 					<p class="title">Total Cost</p>
 				</ion-col>
 				<ion-col size="6">
-					<p class="output">RM{{record.food_totalprice}}</p>
+					<p class="output">RM{{record.food_totalprice| number:'1.2-2'}}</p>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
@@ -97,11 +101,11 @@
 	    <ion-tab-button (click)="home()">
 	      <ion-icon name="home"></ion-icon>
 	    </ion-tab-button>
-	    <ion-tab-button>
+	    <ion-tab-button (click)="cart()">
 	      <ion-icon name="cart"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button (click)="history()">
-	      <ion-icon name="reorder-four-outline"></ion-icon>
+	      <ion-icon color="primary" name="reorder-four-outline"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button (click)="personal()">
 	      <ion-icon name="person-circle-outline"></ion-icon>
