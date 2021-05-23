@@ -8,13 +8,13 @@
 	
 </div>
 
+  <ion-refresher slot="fixed" (ionRefresh)="fetchCartList($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
 <div class="wrapper">
 	<h1 style="text-align: center;">My Cart</h1>
 </div>
-
-  <ion-refresher slot="fixed" (ionRefresh)="fetchCartList($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>   
 
     <ion-card style="padding: 0%;background-color: #d1d9f5;"  *ngFor="let record of cart_list">
       <ion-card-content>
@@ -29,10 +29,10 @@
 	      </ion-col>
 	      <ion-col size="2" >
 	      	RM {{record.food_price| number:'1.2-2'}}
-	      	{{addPrice(record.food_price,record.item_quantity)}}
+	      	
 	      </ion-col>
 	      <ion-col size="1">
-	      	<ion-icon name="trash-sharp" style="color:red;"></ion-icon>
+	      	<ion-icon name="trash-sharp" style="color:red;" (click)="deleteItem(record.itemorder_id)"></ion-icon>
 	      </ion-col>
 
 	  	</ion-row>

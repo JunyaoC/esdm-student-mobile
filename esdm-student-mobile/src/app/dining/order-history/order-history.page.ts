@@ -36,6 +36,10 @@ export class OrderHistoryPage implements OnInit {
   	  this.router.navigate(['dining/personal-info'])
   }
 
+   cart(){
+      this.router.navigate(['dining/cart'])
+  }
+
   trackOrder(event,index){
      this.router.navigate(['dining/track-order'],{queryParams:{order_id:index}})
      event.stopPropagation();

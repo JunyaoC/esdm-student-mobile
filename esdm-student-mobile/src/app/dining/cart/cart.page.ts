@@ -40,10 +40,8 @@ export class CartPage implements OnInit {
 
   }
 
-  addPrice(price,qty){
+  addPrice(price){
     var current_price = Number(price);
-    var current_qty = Number(qty);
-    current_price = current_price * current_qty;
     this.total = current_price + this.total;
     console.log(this.total);
   }
@@ -62,21 +60,40 @@ export class CartPage implements OnInit {
   }
 
   home(){
-      this.total=0;
+
   	  this.router.navigate(['./dining'])
   }
 
   history(){
-      this.total=0;
+ 
   	  this.router.navigate(['dining/order-history'])
   }
-  
+
   personal(){
-      this.total=0;
+
   	  this.router.navigate(['dining/personal-info'])
   }
 
+  deleteItem(itemorder_id){
+    
+
+    let body = {
+      action:'delete',
+       id:itemorder_id,
+    }
+
+    axios.post(this.server + 'dining/delete-item.php', JSON.stringify(body)).then((res:any) => {
+      this.cart_list = [...res.data.cart]
+    })
+
+  }
+
+
+
   fetchCartList(event){
+    
+    this.total=0;
+
     let body = {
       action:'list_cart',
       // id:this.user_id,
@@ -85,7 +102,15 @@ export class CartPage implements OnInit {
     axios.post(this.server + 'dining/cart-list.php', JSON.stringify(body)).then((res:any) => {
       this.cart_list = [...res.data.cart]
 
-      console.log(res);
+      this.total = 0;
+
+      this.cart_list.forEach( _item => {
+        _item['food_price'] = Number(_item['food_price'])
+        _item['item_quantity'] = Number(_item['item_quantity'])
+        this.total += _item['food_price']
+      })
+
+      console.log(this.cart_list,this.total);
 
       if(event != 0){
         event.target.complete();
