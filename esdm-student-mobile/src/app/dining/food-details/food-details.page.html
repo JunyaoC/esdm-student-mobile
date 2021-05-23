@@ -22,53 +22,52 @@
 		</div>
 	  </ion-card-content>
 
-	   <ion-grid style="padding-top:20px;padding-left:10px;">
+	   <ion-grid style="padding-top:1px;padding-left:30px;padding-right:30px;">
 	      <ion-row>
 	      <ion-col size="6">
-	      	Restaurant
+	      	<ion-text>Restaurant</ion-text>
 	      </ion-col>
 	      <ion-col size="6" style="text-align: right;">
-	      	Delivery Mode
+	      	<ion-text>Delivery Mode</ion-text>
 	      </ion-col>
 	  	</ion-row>
 	      <ion-row>
 	      <ion-col size="6">
-	      	Total
+	      	<ion-text><p style="font-weight: bold;padding: 0px; margin: 0px; font-size:14px;color:black;">{{record.restaurant_name}}</p></ion-text>
 	      </ion-col>
 	      <ion-col size="6" style="text-align: right;">
-	      	Self Pickup
+	      	<ion-text><p style="font-weight: bold;padding: 0px; margin: 0px; font-size:14px;color:black;">Self Pickup</p></ion-text>
 	      </ion-col>
 	  	</ion-row>
 
 	  </ion-grid>
 
+	 <ion-grid style="padding-left:20px;">
+	      <ion-row>
+	      <ion-col size="6">
+
+					<ion-col size="3"  ><ion-button  class="round" (click)="decrement(record.food_price)"> - </ion-button>
+					</ion-col >
+					<ion-text style="font-size: 15px;position:flex;">{{currentNumber}}</ion-text>
+					<ion-col size="3"  > <ion-button  class="round"(click)="increment(record.food_price)"> + </ion-button>
+					</ion-col>
 
 
-	  <div class="">
-    		<ion-col size="12" class="ion-text-center">
-    			<ion-icon name="remove-circle-outline" style="font-size:30px;" (click)="decrement(record.food_price)" ></ion-icon>
-				{{currentNumber}}
-				<ion-icon name="add-circle-outline" style="font-size:30px;" (click)="increment(record.food_price)"></ion-icon>
- 			</ion-col>
+	      </ion-col>
+	      <ion-col size="6" style="text-align: right;">
+	      	<ion-text><p style="font-weight: bold;padding: 0px; padding-right:25px;margin: 0px; font-size:25px;color:black;">RM {{total| number:'1.2-2'}}</p></ion-text>
+	      </ion-col>
+	  	</ion-row>
 
- 			<ion-col size="12" class="ion-text-center">
-		       	<ion-button size="big"  item-content >RM {{total| number:'1.2-2'}}</ion-button>
- 			</ion-col>
- 	  </div>
-
-
-
-	  	<ion-row class="ion-align-items-center">
-    		
-    	</ion-row>
-
-	  	<ion-row class="ion-align-items-center">
-    		<ion-col size="12" class="ion-text-center">
-		       	<ion-button size="big"  (click)="addCart(total,record.food_id,currentNumber)" item-content >Add To Cart</ion-button>
- 			</ion-col>
-    	</ion-row> 	    			
+	  </ion-grid>
+	    			
 
 	</ion-card>
+
+
+	<div class="center">
+		<ion-button class="sp-btn" expand="block" (click)="addCart(total,record.food_id,currentNumber)">Add to Cart</ion-button>
+	</div>
 
 </ion-content>
 

@@ -49,7 +49,7 @@ export class CartPage implements OnInit {
   checkout(){
     let body = {
       action:'checkout',
-      totalPrice:this.total,
+      totalPrice:this.total + (this.total*0.06),
     }
 
     axios.post(this.server + 'dining/checkout.php', JSON.stringify(body)).then((res:any) => {
