@@ -13,7 +13,9 @@
   <h1 style="text-align: center;padding-bottom: 10px;">Order History</h1>
 </div>
 
-
+  <ion-refresher slot="fixed" (ionRefresh)="fetchOrderHistory($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
 
 
