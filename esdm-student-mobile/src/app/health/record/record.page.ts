@@ -34,7 +34,7 @@ export class RecordPage implements OnInit {
 
     let body = {
       action:'list_student_slot',
-      u_id:'2'
+      u_id:this.us.currentUserData.u_id
     }
 
     axios.post(this.server + '/health/health-student.php', JSON.stringify(body)).then((res:any) => {
@@ -49,6 +49,8 @@ export class RecordPage implements OnInit {
           _slot.active = true;
         }
       })
+
+      this.slots.sort((a, b) => (a.slot_datetime > b.slot_datetime) ? 1 : -1)
 
       this.noPast = [...this.slots.filter(_s => !_s.active)].length == 0 ? true : false;
       this.noActive = [...this.slots.filter(_s => _s.active)].length == 0 ? true : false;

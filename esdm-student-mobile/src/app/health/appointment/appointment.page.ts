@@ -20,9 +20,14 @@ export class AppointmentPage implements OnInit {
   constructor(private router:Router, public us:UserServiceService) { }
 
   ngOnInit() {
-  	this.todayDate = moment().format('YYYY-MM-DD');
-  	this.selectedDate = moment().format('YYYY-MM-DD');
-  	this.fetchSlots();
+  	
+  }
+
+  ionViewDidEnter(){
+    this.todayDate = moment().format('YYYY-MM-DD');
+    this.selectedDate = moment().format('YYYY-MM-DD');
+    this.fetchSlots();
+    this.slots = [];
   }
 
   backHealth(){
@@ -38,6 +43,7 @@ export class AppointmentPage implements OnInit {
     }
 
     axios.post(this.server + '/health/health-student.php', JSON.stringify(body)).then((res:any) => {
+      console.log(res.data);
       this.slots = [...res.data.slots].filter( _x => {
         if(moment(_x.slot_datetime).format('x') >= moment().format('x')){
           return _x

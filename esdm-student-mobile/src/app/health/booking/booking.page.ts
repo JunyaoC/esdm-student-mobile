@@ -37,7 +37,7 @@ export class BookingPage implements OnInit {
   	
   	let body = {
   		action:'book_slot',
-  		u_id:'2',
+  		u_id:this.userService.currentUserData.u_id,
   		slot_id: this.slot.slot_id
   	}
 
