@@ -6,7 +6,10 @@
 	</div>
 	
 </div>
-
+     <ion-refresher slot="fixed" (ionRefresh)="fetchUser($event)">
+          <ion-refresher-content></ion-refresher-content>
+     </ion-refresher>
+     
 <div class="wrapper">
 	<h1 style="text-align: center;">Account Information</h1>
 </div>
