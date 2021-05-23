@@ -21,6 +21,9 @@
           Ticket ID
         </ion-col>
         <ion-col col-3>
+          Plate Number
+        </ion-col>
+        <ion-col col-3>
           Description
         </ion-col>
         <ion-col col-3>
@@ -31,6 +34,9 @@
       <ion-row style="border-bottom: groove;" *ngFor="let record of ticket_records">
         <ion-col col-3>
         <ion-label >{{record.id}}</ion-label>
+      </ion-col>
+      <ion-col col-3>
+        <ion-label >{{record.vehiclePlateNo}}</ion-label>
       </ion-col>
       <ion-col col-3>
         <ion-label >{{record.ticketDesc}}</ion-label>
