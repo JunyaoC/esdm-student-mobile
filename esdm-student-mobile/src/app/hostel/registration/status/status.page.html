@@ -24,10 +24,10 @@
                   <ion-item>
                     <ion-label>
                       <h1 >{{status.reg_date}}</h1>
-                      <h2 *ngIf=" status.reg_phase == 1">Kuota Pengetua</h2>
-                      <h2 *ngIf=" status.reg_phase == 2">Open Registration</h2>
-                      <h2 *ngIf=" status.reg_phase == 3">Hostel Admendment</h2>
-                      <h3>{{status.kolej_name}}</h3>
+                      <h2 *ngIf=" status.reg_phase == 1">Kuota Pengetua </h2>
+                      <h2 *ngIf=" status.reg_phase == 2">Open Registration </h2>
+                      <h2 *ngIf=" status.reg_phase == 3">Hostel Amendment </h2>
+                      <h3>{{status.kolej_name}} ({{status.block_name}} , {{status.room_no}})</h3>
                     </ion-label>
 
                     <ion-note style="text-align: right;">

@@ -15,13 +15,13 @@ export class ComplaintFormPage implements OnInit {
   reasonComplaint;
   status_records: any = [];
   selectedOption;
-  
+
 
   constructor(private route: Router, private toastController: ToastController) { }
 
   ngOnInit() {
     //this.fetchStatus();
-    this.submitComplaint();
+    //this.submitComplaint();
   }
 
   /*fetchStatus() {
@@ -46,11 +46,11 @@ export class ComplaintFormPage implements OnInit {
     }
     axios.post(this.server + 'hostel/complaint-form.php', JSON.stringify(body)).then((res: any) => {
 
-      console.log(res);
-      //this.route.navigate(['hostel/complaint']);
-    //this.presentToast('Submit complaint successfully !', 'success');
+      console.log(body);
+      this.route.navigate(['hostel/complaint']);
+     this.presentToast('Submit complaint successfully !', 'success');
     })
-    
+
   }
 
   async presentToast(message: any, color: any) {
