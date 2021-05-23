@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content  *ngFor="let record of food_list">
 <div class="headBar">
   <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
     <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
@@ -8,45 +8,66 @@
 </div>
 
 <div class="wrapper">
-  <h1 style="text-align: center;">Food Details</h1>
+  <h1 style="text-align: center;">{{record.food_name}} Details</h1>
 </div>
 
-	<ion-card *ngFor="let record of food_list">
+	<ion-card style="background-color: #d1d9f5;">
 	  <ion-card-header>
 	    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Nasi_Lemak%2C_Mamak%2C_Sydney.jpg">
 	  </ion-card-header>
 
 	  <ion-card-content>
 	  	<div style="text-align: center;">
-	  	<p style="font-size: 25px;">{{record.food_name}}</p>
-	    <p style="font-size: 18px;">{{record.food_description}}</p>
+	    <p style="font-size: 18px;color:black;padding: 0px; margin: 0px; ">{{record.food_description}}</p>
 		</div>
 	  </ion-card-content>
 
-	  	<ion-grid>
-	  	<ion-row class="ion-align-items-center">
+	   <ion-grid style="padding-top:20px;padding-left:10px;">
+	      <ion-row>
+	      <ion-col size="6">
+	      	Restaurant
+	      </ion-col>
+	      <ion-col size="6" style="text-align: right;">
+	      	Delivery Mode
+	      </ion-col>
+	  	</ion-row>
+	      <ion-row>
+	      <ion-col size="6">
+	      	Total
+	      </ion-col>
+	      <ion-col size="6" style="text-align: right;">
+	      	Self Pickup
+	      </ion-col>
+	  	</ion-row>
+
+	  </ion-grid>
+
+
+
+	  <div class="">
     		<ion-col size="12" class="ion-text-center">
     			<ion-icon name="remove-circle-outline" style="font-size:30px;" (click)="decrement(record.food_price)" ></ion-icon>
 				{{currentNumber}}
 				<ion-icon name="add-circle-outline" style="font-size:30px;" (click)="increment(record.food_price)"></ion-icon>
  			</ion-col>
-    	</ion-row>
 
-	  	<ion-row class="ion-align-items-center">
-    		<ion-col size="12" class="ion-text-center">
+ 			<ion-col size="12" class="ion-text-center">
 		       	<ion-button size="big"  item-content >RM {{total| number:'1.2-2'}}</ion-button>
  			</ion-col>
+ 	  </div>
+
+
+
+	  	<ion-row class="ion-align-items-center">
+    		
     	</ion-row>
 
 	  	<ion-row class="ion-align-items-center">
     		<ion-col size="12" class="ion-text-center">
 		       	<ion-button size="big"  (click)="addCart(total,record.food_id,currentNumber)" item-content >Add To Cart</ion-button>
  			</ion-col>
-    	</ion-row>
-<!-- addCart(total,record.food_id,currentNumber) -->
-    	    			
+    	</ion-row> 	    			
 
-    	</ion-grid>
 	</ion-card>
 
 </ion-content>
