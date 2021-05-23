@@ -13,15 +13,9 @@ export class UserServiceService {
 
 	constructor() { }
 
-	fetchStudent(){
-		let body = {
-	      u_id:'2',
-	    }
-
-	    axios.post(this.server + 'student-data.php', JSON.stringify(body)).then((res:any) => {
-	    	console.log(res.data)
-	    	// this.currentUserData.student = res.data.student
-	    })
-
+	getStudentData(){
+		axios.post('http://localhost/php-folder/get_student.php',JSON.stringify({u_id:this.currentUserData.u_id})).then(res => {
+			this.currentUserData.student = res.data.student[0]
+		})
 	}
 }
