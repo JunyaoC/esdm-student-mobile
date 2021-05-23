@@ -10,16 +10,16 @@
 <ion-content>
 
 	<div style="width: 95%;margin-left:13px;margin-bottom: 10px;">
-      <ion-card style="background-color: #d1d9f5;" *ngFor="let record of order_records">
+      <ion-card class="ion-card" style="background-color: #d1d9f5;" *ngFor="let record of order_records">
       <ion-grid>
       <ion-row>
-      <ion-col>
+      <ion-col size="5">
         <img src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg">
       </ion-col>
       
-      <ion-col>
-        <p style="font-size: 15px; font-weight: bold;color:black;">{{record.restaurant_name}}</p>
-        <p style="font-size: 12px;">{{record.order_date}}</p>
+      <ion-col size="7" class="ion-no-padding">
+        <p class="card-title">{{record.restaurant_name}}</p>
+        <p class="card-details">{{record.order_date}}</p>
         <div class="row">
           <div class="column">
             <p style="font-size: 20px;position: absolute;bottom:1px;font-weight: bold;color:black;">RM {{record.food_totalprice}}</p>
