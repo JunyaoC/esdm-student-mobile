@@ -21,26 +21,26 @@
       <ion-card style="background-color: #d1d9f5;" *ngFor="let record of orderhistory_records" (click)="checkOrder(record.order_id)">
       <ion-grid>
       <ion-row>
-      <ion-col>
-        <img class="img" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg">
-      </ion-col>
+		<ion-col size="5">
+			<img src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg">
+		</ion-col>
       
-      <ion-col>
-        <p style="font-size: 15px; font-weight: bold;color:black;padding: 0px; margin: 0px; ">Order Id: #{{record.order_id}}</p>
-        <p style="font-size: 12px;padding-bottom:1px;">Date: {{record.order_date}}</p>
-        <div class="row">
-       		<ion-button *ngIf="record.order_status=='Completed'" size="small" color="success" style="max-width: 100%;font-weight: bold; font-size:12px"><ion-icon name="checkmark-circle-outline"></ion-icon>Completed</ion-button>
-			<ion-button *ngIf="record.order_status=='Cancelled'" size="small" color="danger" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="close-circle-outline"></ion-icon>Cancelled</ion-button>
-			<ion-button *ngIf="record.order_status=='Pick Up'" size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="Bag-outline"></ion-icon>Pick Up Now</ion-button>
-		
+		<ion-col size="7">
+			<p style="font-size: 15px; font-weight: bold;color:black;padding: 0px; margin: 0px; ">Order Id: #{{record.order_id}}</p>
+			<p style="font-size: 12px;padding-bottom:1px;">Date: {{record.order_date}}</p>
+			<div class="row">
+				<ion-button *ngIf="record.order_status=='Completed'" size="small" color="success" style="max-width: 100%;font-weight: bold; font-size:12px"><ion-icon name="checkmark-circle-outline"></ion-icon>Completed</ion-button>
+				<ion-button *ngIf="record.order_status=='Cancelled'" size="small" color="danger" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="close-circle-outline"></ion-icon>Cancelled</ion-button>
+				<ion-button *ngIf="record.order_status=='Pick Up'" size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="Bag-outline"></ion-icon>Pick Up Now</ion-button>
+			
 
 
 
 				<div class="row">
-					<div class="column" style="margin-right:10px;  width: 50%;">
+					<div class="column" style="margin-right:5px;  width: 40%;">
 			    		<ion-button *ngIf="record.order_status=='Preparing'" size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="time-outline"></ion-icon>Preparing</ion-button>
 					</div>
-					<div class="column" style="width: 44%;">
+					<div class="column" style="width: 40%;">
 						<ion-button *ngIf="record.order_status=='Preparing'" size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px" (click)="trackOrder($event,record.order_id)"><ion-icon name="location-outline"></ion-icon>Track it</ion-button>
 					</div>
 				</div>
@@ -50,6 +50,7 @@
 		
 
         </div>
+		<br><br>
 
         <div class="row" >
           <div class="column">
