@@ -84,6 +84,10 @@ export class FoodDetailsPage implements OnInit {
   	  this.router.navigate(['dining/personal-info'])
   }
 
+  cart(){
+    this.router.navigate(['dining/cart'])
+  }
+
   fetchFood(event){
     let body = {
       action:'list_food',

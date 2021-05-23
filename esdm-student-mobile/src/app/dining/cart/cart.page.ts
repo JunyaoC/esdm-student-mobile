@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
 import {ActivatedRoute} from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import axios from 'axios';
 
 @Component({
@@ -14,10 +15,38 @@ export class CartPage implements OnInit {
   cart_list :any = [];
   // user_id:string;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,public alertController: AlertController) { }
 
   ngOnInit() {
     this.fetchCartList(0);
+  }
+
+
+  showAlert() {
+
+    this.alertController.create({
+      header: 'Thank you!',
+      subHeader: '',
+      message: 'We have received your order!',
+      buttons: ['OK']
+    }).then(res => {
+
+      res.present();
+    });
+
+  }
+
+  checkout(){
+    let body = {
+      action:'checkout',
+      // id:this.user_id,
+    }
+
+    axios.post(this.server + 'dining/checkout.php', JSON.stringify(body)).then((res:any) => {
+      console.log(res);
+    })
+    this.showAlert();
+    this.router.navigate(['dining/order-history'])
   }
 
   home(){
