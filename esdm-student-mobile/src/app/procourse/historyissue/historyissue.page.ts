@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import axios from 'axios';
-
+import { UserServiceService } from '../../user-service.service';
 
 @Component({
   selector: 'app-historyissue',
@@ -12,18 +12,19 @@ import axios from 'axios';
 export class HistoryissuePage implements OnInit {
 
 
-  constructor(private router:Router,public alertController: AlertController) { }
+  constructor(private router:Router,public alertController: AlertController,public us:UserServiceService) { }
   server : string = 'http://localhost/php-folder/';
   list_issue:any = [];
   id:any ="";
 
-   doRefresh(event) {
+   async doRefresh(event) {
     console.log('Begin async operation');
 
     setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
+    this.fetchIssuelist(0);
   }
 
 
@@ -39,6 +40,7 @@ export class HistoryissuePage implements OnInit {
   fetchIssuelist(event){
     let body = {
       action:'list_issue',
+      student: this.us.currentUserData.student.student_matric,
     }
 
     axios.post(this.server + 'procourse/reportissue.php', JSON.stringify(body)).then((res:any) => {

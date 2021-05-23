@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import {ActivatedRoute} from '@angular/router';
 import axios from 'axios';
+import { UserServiceService } from '../../../user-service.service';
 import { ThisReceiver } from '@angular/compiler';
 
 @Component({
@@ -13,7 +14,7 @@ import { ThisReceiver } from '@angular/compiler';
 export class IssuedetailsPage implements OnInit {
 
 
-  constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute) { }
+  constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute,public us:UserServiceService) { }
 
   server : string = 'http://localhost/php-folder/';
   matricInput;
@@ -31,7 +32,7 @@ export class IssuedetailsPage implements OnInit {
     });
   }
 
-   backCourse(){
+  backIssue(){
   	this.router.navigate(['./procourse/historyissue'])
   }
 
@@ -54,11 +55,12 @@ export class IssuedetailsPage implements OnInit {
   async presentAlert(index) {
 
     let body = {
-      name: this.nameInput,
+      // name: this.us.currentUserData.student.student_matric,
       title: this.issueTitleInput,
-      matric: this.matricInput,
+      matric: this.us.currentUserData.student.student_matric,
       content: this.contentInput,
       sid:index,
+      // student: this.us.currentUserData.student.student_matric,
       action: 'edit_issue',
     }
 
@@ -76,7 +78,10 @@ export class IssuedetailsPage implements OnInit {
       message: 'Report Edited. We will review your report and take action',
       buttons: ['Done']
     });
-    this.router.navigate(['./procourse/historyissue']);
+    this.router.navigate(['./procourse/historyissue'])
+  .then(() => {
+    this.ngOnInit();
+  });
     await alert.present();
 
     const { role } = await alert.onDidDismiss();

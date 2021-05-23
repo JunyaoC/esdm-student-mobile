@@ -16,17 +16,22 @@ export class CoursehistoryPage implements OnInit {
   constructor(private router:Router,public us:UserServiceService) { }
 
 
-  ngOnInit() {
-    this.fetchHistorylist(0);
-  }
+  
 
-  doRefresh(event) {
+  async doRefresh(event) {
     console.log('Begin async operation');
 
     setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
+    this.fetchHistorylist(0);
+  }
+
+  ngOnInit() {
+    this.doRefresh(0);
+    this.fetchHistorylist(0);
+
   }
 
   backProcourse(){
