@@ -18,6 +18,8 @@ export class HistoryissuePage implements OnInit {
   id:any ="";
 
 
+
+
   ngOnInit() {
   this.fetchIssuelist(0);
   }
@@ -58,6 +60,50 @@ export class HistoryissuePage implements OnInit {
   {
     
     this.router.navigate(['./procourse/historyissue/issuedetails'],{queryParams:{issue_id:index}})
+
+  }
+  async delete(index)
+  {
+    
+    let body = {
+      id: index,
+      action: 'issue_delete',
+    }
+
+    
+    axios.post(this.server + 'procourse/reportissue.php', JSON.stringify(body)).then((res:any) => {
+
+      console.log(res);
+
+    })
+
+
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirm!',
+      message: 'Are you sure to <strong>delete</strong>!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: Cancel');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    
+    await alert.present();
+    
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
 
   }
 

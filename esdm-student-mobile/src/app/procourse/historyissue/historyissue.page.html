@@ -35,7 +35,7 @@
       </ion-card-content>
       <ion-item>
           <ion-button (click)="details(issue)" *ngIf="issue.issue_status ==1" fill="outline" slot="end">Details</ion-button>
-          <ion-button (click)="edit(issue.issue_id)" *ngIf="issue.issue_status ==0" fill="outline" slot="end" color="warning">Edit</ion-button>
+          <ion-button (click)="edit(issue.issue_id)" *ngIf="issue.issue_status ==0" fill="outline" slot="end" color="warning">Delete</ion-button>
         </ion-item>
     </ion-card>
 
