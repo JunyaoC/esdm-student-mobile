@@ -22,42 +22,61 @@
               <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
                 <div padding>
                 	<ion-item>
-						<ion-label>
-							<h2>Items</h2>
-						</ion-label>
-						<ion-note style="text-align: right;">
-							<span>Price</span>
-						</ion-note>
-					</ion-item>
-	                  <ion-item>
+                      <ion-label>
+                        <h2>Items</h2>
+                      </ion-label>
+                      <ion-note style="text-align: right; margin-right:80px;">
+                        <span>Quantity</span>
+                      </ion-note>
+                      <ion-note style="text-align: right;">
+                        <span>Price (RM)</span>
+                      </ion-note>
+                    </ion-item>
+	                  <ion-item class="fetchAppliances()" *ngFor = "let option of electric">
 	                  	<ion-label>
-	                  		<h2><strong>Iron</strong></h2>
-	                  		<h2><strong>Water Heater/Electric Kettle</strong></h2>
-	                  		<h2><strong>Laptop/Handphone Charger</strong></h2>
-	                  		<h2><strong>Toaster</strong></h2>
-	                  		<h2><strong>Radio</strong></h2>
+	                  		<h2><strong>{{option.item_name}}</strong></h2>
 	                  	</ion-label>
-	                  	<ion-note style="text-align: right;">
-							<span>10<br>10<br>0<br>10<br>5</span>
-						</ion-note>
+
+
+
+                      <ion-note style="text-align: right; margin-right:180px;" >
+							           {{option.item_price}}
+						          </ion-note>
+                      <ion-note style="text-align:right; ">
+                        <h2 *ngIf=" option.item_name == 'Iron'">{{this.qty_iron}}</h2>
+                        <h2 *ngIf=" option.item_name == 'Water Heater/Electric Kettle'">{{this.qty_heater}}</h2>
+                        <h2 *ngIf=" option.item_name == 'Laptop/Handphone Charger'">{{this.qty_charger}}</h2>
+                        <h2 *ngIf=" option.item_name == 'Toaster'">{{this.qty_toaster}}</h2>
+                        <h2 *ngIf=" option.item_name == 'Hair Dryer'">{{this.qty_dryer}}</h2>
+                        <h2 *ngIf=" option.item_name == 'Radio'">{{this.qty_radio}}</h2>
+                      </ion-note>
 	                  </ion-item>
+
+                    <br><br>
 	                  <ion-item>
 	                  	<ion-label>
 	                  		<h2>Total: <strong>RM </strong></h2>
 	                  	</ion-label>
-	                  	<ion-note style="text-align: right;">
-							<span>35</span>
-						</ion-note>
+	                  	<ion-note style="text-align: right;" class="totalPrice()" *ngFor = "let option of price">
+							          <span>{{option.total_price}}</span>
+						          </ion-note>
 	                  </ion-item>
 	                  <ion-item>
-	                  	<ion-label>
-							<h2>Upload Payment <br>Receipt: </h2>
-						</ion-label>
-						<ion-note style="text-align: right;">
-							<input type="file" name="file" class="form-control" required>
-						</ion-note>
-	                  </ion-item>
-	            	</div>
+	                 <!-- 	<ion-label>
+                        <h2>Upload Payment <br>Receipt: </h2>
+                      </ion-label>
+                      <ion-note style="text-align: right;">
+                        <input type="file" name="file" class="form-control" required>
+                      </ion-note> -->
+
+                      <ion-label>Payment Method</ion-label>
+                      <ion-select [(ngModel)]="selectedOption">
+                      <ion-select-option value='Cash'>Cash</ion-select-option>
+                      <ion-select-option value='Credit/Debit Card'>Credit/Debit Card</ion-select-option>
+                      <ion-select-option value='Online Bankinig'>Online Banking</ion-select-option>
+                      </ion-select>
+                      </ion-item>
+	            	  </div>
 	                <br>
 	                <div padding>
 	                  <ion-button (click)="electricHistory()" expand="block">Submit Payment</ion-button>

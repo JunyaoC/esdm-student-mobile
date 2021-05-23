@@ -5,7 +5,7 @@
 
   		</ion-buttons>
     <ion-title>Electric Appliance</ion-title>
-    
+
   </ion-toolbar>
 </ion-header>
 
@@ -14,11 +14,11 @@
 
 	<ion-card>
 	  <ion-card-header>
-	    <ion-card-subtitle>SEMESTER : 2020/2021-1</ion-card-subtitle>
 	    <ion-note style="text-align: right;">
-			<ion-button color="warning" (click)="electricHistory()"> Payment History <ion-icon slot="start" name="arrow-forward-circle-outline"></ion-icon></ion-button>
+        <ion-button color="warning" (click)="electricHistory()"> Payment History <ion-icon slot="start" name="arrow-forward-circle-outline"></ion-icon></ion-button>
 		</ion-note>
 	    <ion-card-title>Add Item</ion-card-title>
+
 	  </ion-card-header>
 	  <ion-card-content>
 	    Electrical Items To Declare & Charge :
@@ -31,14 +31,17 @@
 	    <img src="assets/img/iron.jpeg" width="120" height="120">
 	    <ion-label align="center"><strong>Iron</strong> <br>RM10 (per semester)</ion-label>
 	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
-	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	   <!--<ion-checkbox checked="true"></ion-checkbox> -->
+     <ion-icon name="remove-circle" (click)="decrement('iron')"></ion-icon>
+      <h5 name="iron" style="text-align:center;">{{qty_iron}}</h5>
+      <ion-icon name="add-circle" (click)="increment('iron')"></ion-icon>
 	  </ion-item>
-	  <ion-card-content>
+	 <!-- <ion-card-content>
 	    <ion-item>
 	    <ion-label>Qty :</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input placeholder="Enter the quantity"></ion-input>
 	  </ion-item>
-	  </ion-card-content>
+	  </ion-card-content> -->
 	</ion-card>
 
 	<ion-card>
@@ -47,14 +50,17 @@
 	    <!--<ion-icon name="pin" slot="start"></ion-icon>-->
 	    <ion-label align="center"><strong>Water Heater/Electric Kettle</strong> <br>RM10 (per semester)</ion-label>
 	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
-	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	    <!--<ion-checkbox checked="true"></ion-checkbox> Checked Checkbox -->
+      <ion-icon name="remove-circle" (click)="decrement('heater')"></ion-icon>
+      <h5 name="heater" style="text-align:center;">{{qty_heater}}</h5>
+      <ion-icon name="add-circle" (click)="increment('heater')"></ion-icon>
 	  </ion-item>
-	  <ion-card-content>
+	<!-- <ion-card-content>
 	    <ion-item>
-	    <ion-label>Qty : </ion-label>
-	    <ion-input></ion-input>
+	    <ion-label>Qty :</ion-label>
+	    <ion-input placeholder="Enter the quantity"></ion-input>
 	  </ion-item>
-	  </ion-card-content>
+	  </ion-card-content> -->
 	</ion-card>
 
 	<ion-card>
@@ -62,14 +68,17 @@
 	    <img src="assets/img/charger.jpeg" width="120" height="120">
 	    <ion-label align="center"><strong>Laptop/Handphone Charger</strong> <br>FREE (per semester)</ion-label>
 	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
-	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	    <!--<ion-checkbox checked="true"></ion-checkbox> Checked Checkbox -->
+      <ion-icon name="remove-circle" (click)="decrement('charger')"></ion-icon>
+      <h5 name="charger" style="text-align:center;">{{qty_charger}}</h5>
+      <ion-icon name="add-circle" (click)="increment('charger')"></ion-icon>
 	  </ion-item>
-	  <ion-card-content>
+	<!-- <ion-card-content>
 	    <ion-item>
 	    <ion-label>Qty :</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input placeholder="Enter the quantity"></ion-input>
 	  </ion-item>
-	  </ion-card-content>
+	  </ion-card-content> -->
 	</ion-card>
 
 	<ion-card>
@@ -77,14 +86,17 @@
 	    <img src="assets/img/toaster.jpeg" width="120" height="120">
 	    <ion-label align="center"><strong>Toaster</strong> <br>RM10 (per semester)</ion-label>
 	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
-	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	    <!--<ion-checkbox checked="true"></ion-checkbox> Checked Checkbox -->
+      <ion-icon name="remove-circle" (click)="decrement('toaster')"></ion-icon>
+      <h5 name="toaster" style="text-align:center;">{{qty_toaster}}</h5>
+      <ion-icon name="add-circle" (click)="increment('toaster')"></ion-icon>
 	  </ion-item>
-	  <ion-card-content>
+	<!-- <ion-card-content>
 	    <ion-item>
 	    <ion-label>Qty :</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input placeholder="Enter the quantity"></ion-input>
 	  </ion-item>
-	  </ion-card-content>
+	  </ion-card-content> -->
 	</ion-card>
 
 	<ion-card>
@@ -92,14 +104,17 @@
 	    <img src="assets/img/dryer.jpeg" width="120" height="120">
 	    <ion-label align="center"><strong>Hair Dryer</strong> <br>RM5 (per semester)</ion-label>
 	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
-	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	    <!--<ion-checkbox checked="true"></ion-checkbox> Checked Checkbox -->
+      <ion-icon name="remove-circle" (click)="decrement('dryer')"></ion-icon>
+      <h5 name="dryer" style="text-align:center;">{{qty_dryer}}</h5>
+      <ion-icon name="add-circle" (click)="increment('dryer')"></ion-icon>
 	  </ion-item>
-	  <ion-card-content>
+<!-- <ion-card-content>
 	    <ion-item>
 	    <ion-label>Qty :</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input placeholder="Enter the quantity"></ion-input>
 	  </ion-item>
-	  </ion-card-content>
+	  </ion-card-content> -->
 	</ion-card>
 
 	<ion-card>
@@ -107,14 +122,17 @@
 	    <img src="assets/img/radio.jpeg" width="130" height="120">
 	    <ion-label align="center"><strong>Radio</strong> <br>RM5 (per semester)</ion-label>
 	    <!--<ion-button fill="outline" slot="end">Add</ion-button>-->
-	    <ion-checkbox checked="true"></ion-checkbox><!-- Checked Checkbox -->
+	    <!--<ion-checkbox checked="true"></ion-checkbox> Checked Checkbox -->
+      <ion-icon name="remove-circle" (click)="decrement('radio')"></ion-icon>
+        <h5 name="radio" style="text-align:center;">{{qty_radio}}</h5>
+      <ion-icon name="add-circle" (click)="increment('radio')"></ion-icon>
 	  </ion-item>
-	  <ion-card-content>
+	<!-- <ion-card-content>
 	    <ion-item>
 	    <ion-label>Qty :</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input placeholder="Enter the quantity"></ion-input>
 	  </ion-item>
-	  </ion-card-content>
+	  </ion-card-content> -->
 	</ion-card>
 	<!--<ion-button border-width="30" text-align="right">Payment<ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon></ion-button>-->
 

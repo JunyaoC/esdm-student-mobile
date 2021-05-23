@@ -33,8 +33,6 @@ export class RegisterDetailPage implements OnInit {
     );
   }
 
-
-
   submitForm() {
     let body = {
       kolej_id:this.kolej_id,
