@@ -14,11 +14,11 @@ export class RenewPage implements OnInit {
   server : string = "http://localhost/php-folder/";
   constructor(private router: Router, public toastController: ToastController, public userService: UserServiceService) { }
   
-  stickerid: any= "6";
-  platenumber: any = "QM0";
-  payment: any=5;
-  filename: any = "link_QM0";
-  pstatus: any = "Received";
+  stickerid: any= "";
+  platenumber: any = "";
+  payment: any="";
+  filename: any = "";
+  pstatus: any = "";
 
   ngOnInit() {
   }
