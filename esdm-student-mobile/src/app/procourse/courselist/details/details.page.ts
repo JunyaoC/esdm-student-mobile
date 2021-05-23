@@ -20,7 +20,8 @@ export class DetailsPage implements OnInit {
 
 
   constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute,public us:UserServiceService) { }
- 
+  
+
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -31,11 +32,20 @@ export class DetailsPage implements OnInit {
     });
     
   }
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 20);
+  }
 
   backCourse(){
   	this.router.navigate(['./procourse/courselist'])
   }
-  
+
+
   
   fetchCourselist(event){
     let body = {
