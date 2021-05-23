@@ -83,7 +83,7 @@ export class DetailsPage implements OnInit {
 
   async cancelReg(history){
     console.log(history);
-    this.remainSeat=parseInt(history.courseSec_seat, 10) +1;
+    this.remainSeat=parseInt(history.courseSec_seat, 10) -1;
     let body = {
       regHis_id: history.regHis_id,
       coursesec_id:history.procourse_sec,

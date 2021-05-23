@@ -5,6 +5,8 @@ import {ActivatedRoute} from '@angular/router';
 import axios from 'axios';
 import { UserServiceService } from '../../../user-service.service';
 import { ThisReceiver } from '@angular/compiler';
+import { ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-details',
@@ -17,9 +19,9 @@ export class DetailsPage implements OnInit {
   procourse_list:any = [];
   code:string;
   section_list = [];
+  occSeat;
 
-
-  constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute,public us:UserServiceService) { }
+  constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute,public us:UserServiceService, private toastController:ToastController,private storage: Storage) { }
   
 
 
@@ -82,8 +84,9 @@ export class DetailsPage implements OnInit {
   }
 
   async presentAlertMultipleButtons(section) {
-
-    const alert = await this.alertController.create({
+    if(section.courseSec_maxseat!=section.courseSec_seat)
+    {
+       const alert = await this.alertController.create({
       header: `${section.courseSec_courseID} - Section ${section.section_no}`,
       message: `Date : ${section.courseSec_date}<br>Location : ${section.courseSec_loc}<br>Facilitator : ${section.fac_name}`,
       buttons: [
@@ -103,42 +106,54 @@ export class DetailsPage implements OnInit {
         }
       ]
     });
-
     await alert.present();
+    }
+   
+
+    
     
   }
 
 
   async registerCourse(section){
     console.log(section)
-
+    this.occSeat=parseInt( section.courseSec_seat, 10) +1;
     let body = {
+      
       course_section: section.courseSec_id,
-      // need to change
+      procourse_code:section.courseSec_courseID,
       student: this.us.currentUserData.student.student_matric,
-      seat: section.courseSec_seat-1,
+      seat: this.occSeat,
       action: 'register',
     }
 
     
     axios.post(this.server + 'procourse/coursedetails.php', JSON.stringify(body)).then((res:any) => {
 
-      console.log(res);
+      console.log(res.data.success);
+
+      if(res.data.success==true) {
+        
+        this.presentToast('Successfully make an appointment.', 'success');
+        this.router.navigate(['./procourse/courselist'],{'replaceUrl':true});
+      
+      } else {
+        this.presentToast('You had registered in other section.', 'danger');
+        this.router.navigate(['./procourse/courselist']);
+      }
 
     })
 
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Thanks for making an appointment',
-      message: 'Remember to attend the course.',
-      buttons: ['Done']
-    });
-    this.router.navigate(['./procourse/courselist']);
-    await alert.present();
-
-    const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
+  
 
   }
+  async presentToast(message:any ,color:any) {
+		const toast = await this.toastController.create({
+			color: color,
+			message: message,
+			duration: 2000
+		});
+		toast.present();
+	}
   
 }

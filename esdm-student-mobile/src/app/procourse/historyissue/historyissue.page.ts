@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import axios from 'axios';
 import { UserServiceService } from '../../user-service.service';
+import { ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-historyissue',
@@ -12,7 +14,7 @@ import { UserServiceService } from '../../user-service.service';
 export class HistoryissuePage implements OnInit {
 
   
-  constructor(private router:Router,public alertController: AlertController,public us:UserServiceService) { }
+  constructor(private router:Router,public alertController: AlertController,public us:UserServiceService,private toastController:ToastController,private storage: Storage) { }
   server : string = 'http://localhost/php-folder/';
   list_issue:any = [];
   id:any ="";
@@ -73,26 +75,14 @@ export class HistoryissuePage implements OnInit {
     this.router.navigate(['./procourse/historyissue/issuedetails'],{queryParams:{issue_id:index}})
 
   }
+
+
   async delete(index)
   {
-    
-    let body = {
-      id: index,
-      action: 'issue_delete',
-    }
-
-    
-    axios.post(this.server + 'procourse/reportissue.php', JSON.stringify(body)).then((res:any) => {
-
-      console.log(res);
-
-    })
-
-
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Confirm!',
-      message: 'Are you sure to <strong>delete</strong>!!!',
+      header: 'Confirm?',
+      message: 'Once delete cannnot retrieve back your problem.',
       buttons: [
         {
           text: 'Cancel',
@@ -104,7 +94,7 @@ export class HistoryissuePage implements OnInit {
         }, {
           text: 'Okay',
           handler: () => {
-            console.log('Confirm Okay');
+            this.deleteissue(index);
           }
         }
       ]
@@ -117,6 +107,45 @@ export class HistoryissuePage implements OnInit {
     console.log('onDidDismiss resolved with role', role);
 
   }
+
+    async deleteissue(index)
+    {
+      let body = {
+        id: index,
+        action: 'issue_delete',
+      }
+
+      axios.post(this.server + 'procourse/reportissue.php', JSON.stringify(body)).then((res:any) => {
+
+        console.log(res);
+
+        if(res.data.success==true) {
+          
+          this.presentToast('Successfully delete the issue.', 'success');
+          this.router.navigate(['./procourse/issue']);
+        
+        } else {
+          this.presentToast('Cannot delete the issue', 'danger');
+          this.router.navigate(['./procourse/historyissue']);
+        }
+
+
+      })
+
+    }
+
+
+
+
+
+  async presentToast(message:any ,color:any) {
+		const toast = await this.toastController.create({
+			color: color,
+			message: message,
+			duration: 2000
+		});
+		toast.present();
+	}
 
 
 }

@@ -16,7 +16,14 @@ export class CoursehistoryPage implements OnInit {
   constructor(private router:Router,public us:UserServiceService) { }
 
 
-  
+
+
+  ngOnInit() {
+    // this.doRefresh(0);
+    this.fetchHistorylist(0);
+
+  }
+    
 
   async doRefresh(event) {
     console.log('Begin async operation');
@@ -26,12 +33,6 @@ export class CoursehistoryPage implements OnInit {
       event.target.complete();
     }, 2000);
     this.fetchHistorylist(0);
-  }
-
-  ngOnInit() {
-    this.doRefresh(0);
-    this.fetchHistorylist(0);
-
   }
 
   backProcourse(){

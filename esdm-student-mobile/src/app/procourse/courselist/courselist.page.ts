@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from 'axios';
+import { ToastController } from '@ionic/angular';
+import { UserServiceService } from '../../user-service.service';
 
 @Component({
   selector: 'app-courselist',
@@ -12,7 +14,7 @@ export class CourselistPage implements OnInit {
   server : string = 'http://localhost/php-folder/';
   procourse_list:any = [];
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private toastController:ToastController, public us:UserServiceService) { }
 
 
   ngOnInit() {
@@ -45,6 +47,15 @@ export class CourselistPage implements OnInit {
     })
 
   }
+
+  async presentToast(message:any ,color:any) {
+		const toast = await this.toastController.create({
+			color: color,
+			message: message,
+			duration: 2000
+		});
+		toast.present();
+	}
   
   
 
