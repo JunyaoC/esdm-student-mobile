@@ -1,5 +1,7 @@
 {
   "name": "esdm-student-mobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

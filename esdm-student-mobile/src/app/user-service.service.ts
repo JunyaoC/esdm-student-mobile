@@ -11,5 +11,9 @@ export class UserServiceService {
 
 	constructor(private storage: Storage) {
 		this.storage.create()
+		this.storage.get('user_data').then((res:any) => {
+			this.currentUserData = res;
+			console.log(res);
+		})
 	}
 }
