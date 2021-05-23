@@ -27,8 +27,9 @@
 	      	<p>{{record.food_name}}</p>
 	      	{{record.restaurant_name}}
 	      </ion-col>
-	      <ion-col size="2">
+	      <ion-col size="2" >
 	      	RM {{record.food_price| number:'1.2-2'}}
+	      	{{addPrice(record.food_price,record.item_quantity)}}
 	      </ion-col>
 	      <ion-col size="1">
 	      	<ion-icon name="trash-sharp" style="color:red;"></ion-icon>
@@ -53,7 +54,7 @@
 	      	Total
 	      </ion-col>
 	      <ion-col size="6" style="text-align: right;">
-	      	RM 15.00
+	      	RM {{total| number:'1.2-2'}}
 	      </ion-col>
 	  	</ion-row>
 
@@ -72,7 +73,7 @@
 	    <ion-tab-button (click)="home()">
 	      <ion-icon name="home"></ion-icon>
 	    </ion-tab-button>
-	    <ion-tab-button (click)="cart">
+	    <ion-tab-button >
 	      <ion-icon color="primary" name="cart"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button (click)="history()">

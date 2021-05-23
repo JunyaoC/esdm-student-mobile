@@ -9,16 +9,20 @@ import axios from 'axios';
   templateUrl: './cart.page.html',
   styleUrls: ['./cart.page.scss'],
 })
+
 export class CartPage implements OnInit {
 
   server : string = 'http://localhost/php-folder/';
   cart_list :any = [];
   // user_id:string;
 
+  total = 0;
+
   constructor(private router:Router,public alertController: AlertController) { }
 
   ngOnInit() {
     this.fetchCartList(0);
+    this.total = 0;
   }
 
 
@@ -36,10 +40,18 @@ export class CartPage implements OnInit {
 
   }
 
+  addPrice(price,qty){
+    var current_price = Number(price);
+    var current_qty = Number(qty);
+    current_price = current_price * current_qty;
+    this.total = current_price + this.total;
+    console.log(this.total);
+  }
+
   checkout(){
     let body = {
       action:'checkout',
-      // id:this.user_id,
+      totalPrice:this.total,
     }
 
     axios.post(this.server + 'dining/checkout.php', JSON.stringify(body)).then((res:any) => {
@@ -50,14 +62,17 @@ export class CartPage implements OnInit {
   }
 
   home(){
+      this.total=0;
   	  this.router.navigate(['./dining'])
   }
 
   history(){
+      this.total=0;
   	  this.router.navigate(['dining/order-history'])
   }
-
+  
   personal(){
+      this.total=0;
   	  this.router.navigate(['dining/personal-info'])
   }
 
