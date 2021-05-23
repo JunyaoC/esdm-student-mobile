@@ -51,7 +51,8 @@ export class FoodDetailsPage implements OnInit {
   }
 
   decrement(price) {
-   if(this.currentNumber>0){this.currentNumber--;
+   if(this.currentNumber>0){
+     this.currentNumber--;
    this.total = price*this.currentNumber;}
   }
 

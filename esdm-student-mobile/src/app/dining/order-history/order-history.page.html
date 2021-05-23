@@ -1,56 +1,91 @@
-<ion-header>
-	<ion-toolbar>
-		<ion-title style='font-weight: bold'>Order History</ion-title>
-		  	<div class="headBar">
-				<div style="display: flex;justify-content: left;align-items: left;color: #493bff;" (click)="backHome()">
-					<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-					<span class="brand"></span>
-					<!--p style="align-content: left; color:black; font-weight: bold;">Order History</p--> 
-				</div>
-				
-			</div>
-	</ion-toolbar>
-</ion-header>
-	<ion-content fullscreen>
-		<br>
-		<!---peding/track --------------------------------------------------------------------------->
-	    <ion-card style="overflow: visible; background-color: #d1d9f5;" 
-	    *ngFor="let record of orderhistory_records" (click)="checkOrder(record.order_id)"
-	    >
-	        <ion-card-content >
-	        	<ion-row >
-	        		<ion-col size="3">
-			        	<img class="gambor" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
-		          	</ion-col>
-		          	<ion-col size="9">
-		          		<ion-card-title style='color:black; overflow: visible; font-weight: bold; font-size: 18px'>{{record.order_date}}</ion-card-title>
-		          		<ion-card-subtitle> Price: 
-		          		</ion-card-subtitle>
-		          		<p>RM {{(record.order_price*1).toFixed(2)}}</p>
-		          	</ion-col>
-		          	<!-- <ng-template  #processingBlock> -->
-			          	<ion-col *ngIf="record.order_status=='Preparing'">
-			          		<ion-button size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="time-outline"></ion-icon>Preparing</ion-button>
+<ion-content fullscreen>
 
-			          		<ion-button size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px" (click)="trackOrder($event,record.order_id)"><ion-icon name="location-outline"></ion-icon>Track it</ion-button>
-			          	</ion-col>
+
+<div class="headBar">
+  <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand">Back to home</span>
+  </div>
+  
+</div>
+
+<div class="wrapper">
+  <h1 style="text-align: center;padding-bottom: 10px;">Order History</h1>
+</div>
+
+
+
+
+
+  <div style="width: 95%;margin-left:13px;margin-bottom: 10px;">
+      <ion-card style="background-color: #d1d9f5;" *ngFor="let record of orderhistory_records" (click)="checkOrder(record.order_id)">
+      <ion-grid>
+      <ion-row>
+      <ion-col>
+        <img class="img" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg">
+      </ion-col>
+      
+      <ion-col>
+        <p style="font-size: 15px; font-weight: bold;color:black;padding: 0px; margin: 0px; ">Order Id: #{{record.order_id}}</p>
+        <p style="font-size: 12px;padding-bottom:1px;">Date: {{record.order_date}}</p>
+        <div class="row">
+       		<ion-button *ngIf="record.order_status=='Completed'" size="small" color="success" style="max-width: 100%;font-weight: bold; font-size:12px"><ion-icon name="checkmark-circle-outline"></ion-icon>Completed</ion-button>
+			<ion-button *ngIf="record.order_status=='Cancelled'" size="small" color="danger" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="close-circle-outline"></ion-icon>Cancelled</ion-button>
+			<ion-button *ngIf="record.order_status=='Pick Up'" size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="Bag-outline"></ion-icon>Pick Up Now</ion-button>
+		
+
+
+
+				<div class="row">
+					<div class="column" style="margin-right:10px;  width: 50%;">
+			    		<ion-button *ngIf="record.order_status=='Preparing'" size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="time-outline"></ion-icon>Preparing</ion-button>
+					</div>
+					<div class="column" style="width: 44%;">
+						<ion-button *ngIf="record.order_status=='Preparing'" size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px" (click)="trackOrder($event,record.order_id)"><ion-icon name="location-outline"></ion-icon>Track it</ion-button>
+					</div>
+				</div>
+
+
+			    
+		
+
+        </div>
+
+        <div class="row" >
+          <div class="column">
+            <p style="font-size: 20px;position: absolute;bottom:-12px;font-weight: bold;color:black;">RM {{(record.order_price*1).toFixed(2)}}</p>
+          </div>
+        </div>
+
+       	<div class="row">
+          <div class="column">
+          	<div  id="button-div">
+
+
+
+			</div>
+          </div>
+       
+            		<!-- <ng-template  #processingBlock> -->
+
 		          	<!-- </ng-template> -->
 		          	<!-- <ng-template #completedBlock> -->
-		          		<ion-col  *ngIf="record.order_status=='Completed'">
-			          		<ion-button size="small" color="success" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="checkmark-circle-outline"></ion-icon>Completed</ion-button>
-			          	</ion-col>
+		          		
 		          	<!-- </ng-template> -->
 		          	<!-- <ng-template #cancelledBlock> -->
-		          		<ion-col  *ngIf="record.order_status=='Cancelled'" >
-			          		<ion-button size="small" color="danger" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="close-circle-outline"></ion-icon>Cancelled</ion-button>
-			          	</ion-col>
+
 		          	<!-- </ng-template> -->
-		          		<ion-col  *ngIf="record.order_status=='Pick Up'" >
-			          		<ion-button size="small" color="warning" style="max-width: 100%; font-weight: bold; font-size:12px"><ion-icon name="Bag-outline"></ion-icon>Pick Up Now</ion-button>
-			          	</ion-col>
-	          	</ion-row>
-	        </ion-card-content>
-	    </ion-card>
+
+
+        </div>
+      </ion-col>
+      </ion-row>
+      </ion-grid>
+       </ion-card>
+  </div>
+
+
+		<br>
 
 </ion-content>
 <ion-footer>
