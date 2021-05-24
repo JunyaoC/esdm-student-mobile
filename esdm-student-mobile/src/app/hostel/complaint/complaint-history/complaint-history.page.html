@@ -32,8 +32,8 @@
                     <ion-note style="text-align: right;">
                       <span>Status:</span><br>
                       <span *ngIf=" status.complaint_status == 'Pending'">{{status.complaint_status}}</span>
-                       <span *ngIf=" status.complaint_status == 'Processing'" style="color:red">{{status.complaint_status}}</span>
-                       <span *ngIf=" status.complaint_status == 'Completed'" style="color:green">{{status.complaint_status}}</span>
+                       <span *ngIf=" status.complaint_status == 'Rejected'" style="color:red">{{status.complaint_status}}</span>
+                       <span *ngIf=" status.complaint_status == 'Accepted'" style="color:green">{{status.complaint_status}}</span>
                     </ion-note>
                   </ion-item>
                 </div>
