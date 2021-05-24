@@ -9,9 +9,12 @@
 
 <ion-content class="background">
 <div class="MenuPosition">
-<ion-button (click)="kuotaPage()" color=light expand="full">Kuota Pengetua</ion-button>
-<ion-button (click)="openPage()" color=light expand="full">Online Registration</ion-button>
-<ion-button (click)="amendPage()" color=light expand="full">Hostel Amendment</ion-button>
+<i>This phase will only open for registration within a specific period</i>
+<div class="CheckPhase()" *ngFor = "let date of phase_info">
+<ion-button *ngIf="(date.phase_name == 'Kuota Pengetua') && (date.today >= date.start_date) && (date.today <= date.end_date)" (click)="kuotaPage()" color=light expand="full">Kuota Pengetua<br><br>[ {{date.start_date}} - {{date.end_date}} ]</ion-button>
+<ion-button *ngIf="(date.phase_name == 'Open Registration') && (date.today >= date.start_date) && (date.today <= date.end_date)" (click)="openPage()" color=light expand="full">Open Registration<br><br>[ {{date.start_date}} - {{date.end_date}} ]</ion-button>
+<ion-button *ngIf="(date.phase_name == 'Hostel Amendment') && (date.today >= date.start_date) && (date.today <= date.end_date)" (click)="amendPage()" color=light expand="full">Hostel Amendment<br><br>[ {{date.start_date}} - {{date.end_date}} ]</ion-button>
+</div>
 <ion-button (click)="checkStatus()" color=light expand="full">Check Status</ion-button>
 </div>
 
