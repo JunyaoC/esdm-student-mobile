@@ -10,21 +10,21 @@
   <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
 <ion-content fullscreen class="ion-padding" scroll-y="false">
-      <ion-slides>
+      <ion-slides class="register" *ngFor ="let count of register_detail">
 
-        <ion-slide>
+        <ion-slide *ngIf = "count.registered == 0">
             <img src="assets/img/college-4.png" style="width:100%;height:auto;"/>
             <h2>Welcome</h2>
             <p><b>Kuota Pengetua</b> will be opened within these three weeks.</p>
         </ion-slide>
 
-        <ion-slide>
+        <ion-slide *ngIf = "count.registered == 0">
           <img src="assets/img/college-2.png"/>
           <h2>What is Kuota Pengetua?</h2>
           <p><b>Kuota Pengetua</b> is a way to book a room and opened for those who interest to have their pre-booking in the hostel they wish to stay.</p>
         </ion-slide>
 
-        <ion-slide>
+        <ion-slide *ngIf = "count.registered == 0">
           <img src="assets/img/college-3.png"/>
           <h2>How to Register?</h2>
           <p>First<b> select a hostel</b> from the hostel list.
@@ -32,10 +32,17 @@
           	<br/> <b>Click submit</b> once you have done.</p>
         </ion-slide>
 
-        <ion-slide>
+        <ion-slide *ngIf = "count.registered == 0">
           <img src="assets/img/college-1.png"/>
           <h2>Ready to Register?</h2>
           <ion-button (click)="KPregister()" fill="clear">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+        </ion-slide>
+
+        <ion-slide  *ngIf = "count.registered == 1">
+          <img src="assets/img/college-1.png"/>
+          <h2>You have registered ! </h2>
+          <p>Please wait patiently for the admin <br>
+            to review your application.</p>
         </ion-slide>
 
       </ion-slides>

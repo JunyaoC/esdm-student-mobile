@@ -14,11 +14,26 @@ export class OpenRegistrationPage implements OnInit {
   college_records:any = [];
   selectedOption;
   matricNo;
+  register_detail;
 
   constructor(private route:Router, private toastController:ToastController) { }
 
   ngOnInit() {
+    this.register();
     this.fetchCollege();
+  }
+
+  register(){
+    let body ={
+      action:'checking',
+    }
+
+    axios.post(this.server + 'hostel/control-register.php', JSON.stringify(body)).then((res:any) => {
+
+      this.register_detail = res.data.detail;
+      console.log(res);
+
+    })
   }
 
   fetchCollege(){
