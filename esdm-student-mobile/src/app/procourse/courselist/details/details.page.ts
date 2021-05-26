@@ -138,7 +138,7 @@ export class DetailsPage implements OnInit {
         this.router.navigate(['./procourse/courselist'],{'replaceUrl':true});
       
       } else {
-        this.presentToast('You had registered in other section.', 'danger');
+        this.presentToast('You had registered the procourse.', 'danger');
         this.router.navigate(['./procourse/courselist']);
       }
 
