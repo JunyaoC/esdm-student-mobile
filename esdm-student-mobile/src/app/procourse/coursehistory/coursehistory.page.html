@@ -27,11 +27,11 @@
       <div *ngFor="let history of history_list" >
       <ion-item (click)="viewDetails(history.regHis_id)">
         <ion-label class="ion-text-wrap">
-          <h2>{{history.procourse_name}}</h2>
-          <h3 style="color: #493bff;"><strong>{{history.procourse_code}}</strong></h3>
+          <h2>{{history.pro_name}}</h2>
+          <h3 style="color: #493bff;"><strong>{{history.pro_code}}</strong></h3>
         </ion-label>
         <ion-note style="text-align: right;">
-          <br><span>{{history.courseSec_date}}</span>
+          <br><span>{{history.course_date}}</span>
         </ion-note><br>
       </ion-item>
     </div>
