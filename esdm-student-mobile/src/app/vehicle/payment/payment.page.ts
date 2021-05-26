@@ -18,6 +18,7 @@ export class PaymentPage implements OnInit {
   paymentid: any="";
   pstatus: any="";
   payment: any="";
+  ptype: any="";
  
 
 
@@ -37,6 +38,7 @@ export class PaymentPage implements OnInit {
       stickerID: this.stickerid,
       vehicleID: this.platenumber,
       paymentStatus: this.pstatus,
+      paymentType: this.ptype,
       paymentAmount: this.payment,
       paymentProve:this.filename,
       stuACID: this.userService.currentUserData.student.student_matric

@@ -19,6 +19,7 @@ export class RenewPage implements OnInit {
   payment: any="";
   filename: any = "";
   pstatus: any = "";
+  ptype: any="";
 
   ngOnInit() {
   }
@@ -37,6 +38,7 @@ export class RenewPage implements OnInit {
       paymentAmount: this.payment,
       paymentProve:this.filename,
       paymentStatus: this.pstatus,
+      paymentType: this.ptype,
       stuACID: this.userService.currentUserData.student.student_matric
   }
 
