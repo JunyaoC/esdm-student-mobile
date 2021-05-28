@@ -10,6 +10,10 @@ const routes: Routes = [
   },  {
     path: 'payment',
     loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'electric-list',
+    loadChildren: () => import('./electric-list/electric-list.module').then( m => m.ElectricListPageModule)
   }
 
 ];

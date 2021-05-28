@@ -18,10 +18,27 @@ export class ElectricPage implements OnInit {
   private qty_dryer = 0;
   private qty_radio = 0;
   electric;
+  count;
+
 
   constructor(private route: Router, private toastController:ToastController) { }
 
   ngOnInit() {
+    this.controlRegistration();
+
+  }
+
+  controlRegistration(){
+    let body = {
+      action:"checkStudent",
+    }
+
+    axios.post(this.server + 'hostel/electric-page.php', JSON.stringify(body)).then((res:any) => {
+
+      this.count = res.data.detail;
+
+      //console.log(res);
+    })
   }
 
   private increment (electric) {

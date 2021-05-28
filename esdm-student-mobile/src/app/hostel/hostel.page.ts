@@ -16,7 +16,7 @@ export class HostelPage implements OnInit {
     this.route.navigate(['hostel/registration']);
   }
      electricPage() {
-    this.route.navigate(['hostel/electric']);
+    this.route.navigate(['hostel/electric/electric-list']);
   }
    complaintPage() {
     this.route.navigate(['hostel/complaint']);
