@@ -7,14 +7,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-	<ion-grid>
+<ion-content class="background">
+    <ion-card style="background-color: beige">
+    <ion-card-header>
+      <ion-card-title>History</ion-card-title>
+
+    </ion-card-header>
+    <ion-card-content>
+      Please claim your tickets at your college's office.
+    </ion-card-content>
+  </ion-card>
+	<ion-grid  style="margin-top:-35px">
     <ion-row>
       <ion-col size-md="10" offset-md="1">
         <ion-card>
-          <ion-card-header>
-            <ion-card-title>History</ion-card-title>
-          </ion-card-header>
           <ion-card-content>
             <ion-item class="CheckStatus()" *ngFor = "let status of status_info">
               <ion-label>

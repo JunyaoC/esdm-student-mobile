@@ -86,7 +86,7 @@ export class PaymentPage implements OnInit {
       axios.post(this.server + 'hostel/electric-page.php', JSON.stringify(body)).then((res:any) => {
 
         console.log(res);
-        this.route.navigate(['hostel']);
+        this.route.navigate(['hostel/electric/payment/payment-history']);
         this.presentToast('Register successfully !', 'success');
 
       })
