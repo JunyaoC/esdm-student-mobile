@@ -27,14 +27,14 @@
                   <h2 *ngIf="(item.item_name != 'Water Heater/Electric Kettle') && (item.item_name != 'Laptop/Handphone Charger')">{{item.item_quantity}} {{item.item_name}}</h2>
                  </ion-note>
                 </ion-label>
-                <ion-note style="text-align: right;">
-                  <h2>Total:</h2>
-                  <h2> RM {{status.paytotal}}.00</h2>
-                  <br>
-                  <h2>Paid by:</h2>
-                  <span *ngIf=" status.payMethod == ''">Haven't paid</span>
-                  <span *ngIf=" status.payMethod != ''"> {{status.payMethod}}</span>
+                <ion-note style="text-align: right;width:60%;">
+                  <h2>Paid:</h2>
+                  <span *ngIf=" status.payMethod == ''"><Strong>Haven't paid</Strong></span>
+                  <span *ngIf=" status.payMethod != ''"><strong>{{status.payMethod}}</strong> </span>
+                  <h2> (RM {{status.paytotal}}.00)</h2>
+
                   </ion-note>
+
                 </ion-item>
             </ion-card-content>
           </ion-card>
