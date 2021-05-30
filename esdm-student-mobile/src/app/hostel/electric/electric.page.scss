@@ -1,7 +1,21 @@
+ion-content.background{
+    --background: url(../../../assets/img/ktdi.jpg) 0 0/100% 100% no-repeat;
+ 
+}
 ion-card{
   padding-top:10px;
-  padding-bottom:10px;
+  padding-bottom:4px;
 }
+ion-label{
+	width:40px;
+}
+
+.item{
+	margin-top:-8px;
+	height: 110px;
+	margin-bottom:-15px;
+}
+
 ion-icon{
   margin-left: 10px;
   margin-right:10px;

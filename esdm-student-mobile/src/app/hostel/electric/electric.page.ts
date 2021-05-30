@@ -115,7 +115,6 @@ export class ElectricPage implements OnInit {
       qty_toaster : this.qty_toaster,
       qty_dryer : this.qty_dryer,
       qty_radio : this.qty_radio } });
-     this.presentToast('Added successfully !', 'success');
     })
 
   }
