@@ -10,11 +10,13 @@ export class PaymentHistoryPage implements OnInit {
 
   server : string = 'http://localhost/php-folder/';
 	status_info:any = [];
+  appliance_info:any =[];
 
   constructor() { }
 
   ngOnInit() {
     this.checkStatus();
+    this.checkAppliance();
   }
 
   checkStatus(){
@@ -28,6 +30,19 @@ export class PaymentHistoryPage implements OnInit {
       console.log(res);
 
     })
-}
+  }
+
+  checkAppliance(){
+    let body = {
+      action:'check_appliance',
+    }
+
+    axios.post(this.server + 'hostel/electric-page.php', JSON.stringify(body)).then((res:any) => {
+
+      this.appliance_info = [...res.data.detail]
+      console.log(res);
+
+    })
+  }
 
 }

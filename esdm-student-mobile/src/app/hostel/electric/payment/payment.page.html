@@ -25,7 +25,7 @@
                       <ion-label>
                         <h2>Items</h2>
                       </ion-label>
-                      <ion-note style="text-align: right; margin-right:80px;">
+                      <ion-note style="text-align: right; margin-right:30px;">
                         <span>Quantity</span>
                       </ion-note>
                       <ion-note style="text-align: right;">
@@ -34,12 +34,14 @@
                     </ion-item>
 	                  <ion-item class="fetchAppliances()" *ngFor = "let option of electric">
 	                  	<ion-label>
-	                  		<h2><strong>{{option.item_name}}</strong></h2>
+                        <h2 *ngIf="option.item_name == 'Water Heater/Electric Kettle' "><strong>Kettle</strong></h2>
+                        <h2 *ngIf="option.item_name == 'Laptop/Handphone Charger'"><strong>Charger</strong></h2>
+	                  		<h2 *ngIf="(option.item_name != 'Water Heater/Electric Kettle') && (option.item_name != 'Laptop/Handphone Charger')"><strong>{{option.item_name}}</strong></h2>
 	                  	</ion-label>
 
 
 
-                      <ion-note style="text-align: right; margin-right:180px;" >
+                      <ion-note style="text-align: right; margin-right:100px;" >
 							           {{option.item_price}}
 						          </ion-note>
                       <ion-note style="text-align:right; ">
@@ -55,10 +57,10 @@
                     <br><br>
 	                  <ion-item>
 	                  	<ion-label>
-	                  		<h2>Total: <strong>RM </strong></h2>
+	                  		<h2>Total: </h2>
 	                  	</ion-label>
 	                  	<ion-note style="text-align: right;" class="totalPrice()" *ngFor = "let option of price">
-							          <span>{{option.total_price}}</span>
+							          <span><strong>RM </strong>{{option.total_price}}</span>
 						          </ion-note>
 	                  </ion-item>
 	                  <ion-item>
@@ -70,7 +72,7 @@
                       </ion-note> -->
 
                       <ion-label>Payment Method</ion-label>
-                      <ion-select [(ngModel)]="selectedOption" required>
+                      <ion-select [(ngModel)]="selectedOption" placeholder="Select one" required>
                       <ion-select-option value='Cash'>Cash</ion-select-option>
                       <ion-select-option value='Credit/Debit Card'>Credit/Debit Card</ion-select-option>
                       <ion-select-option value='Online Bankinig'>Online Banking</ion-select-option>
