@@ -3,53 +3,39 @@
   	<ion-buttons slot="start">
   	<ion-back-button defaultHref="/hostel"></ion-back-button>
     </ion-buttons>
-    <ion-title>Registered Electric Appliances</ion-title>
+    <ion-title>Payment History</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 	<ion-grid>
     <ion-row>
-      <ion-col size-md="8" offset-md="2">
+      <ion-col size-md="10" offset-md="1">
         <ion-card>
           <ion-card-header>
             <ion-card-title>History</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-         <!--   <form  #form="ngForm" (ngSubmit)="register(form)">-->
-              <ion-grid>
-                <ion-row class="CheckStatus()" *ngFor = "let status of status_info" color="primary" justify-content-center>
-                  <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
-                    <div padding>
-                      <ion-item>
-                        <ion-label>
-                          <h1 *ngIf=" status.paydate == ''">Outstanding</h1>
-                          <h1 *ngIf=" status.paydate != ''"> {{status.paydate}}</h1>
+            <ion-item class="CheckStatus()" *ngFor = "let status of status_info">
+              <ion-label>
+                <h2 *ngIf=" status.paydate == ''"><b>Outstanding</b></h2>
+                <h2 *ngIf=" status.paydate != ''"><b> {{status.paydate}}</b></h2>
+                <ion-note class="CheckAppliance()" *ngFor = "let item of appliance_info">
+                  <h2 *ngIf=" item.item_name == 'Water Heater/Electric Kettle'">{{item.item_quantity}} Kettle</h2>
+                  <h2 *ngIf=" item.item_name == 'Laptop/Handphone Charger'">{{item.item_quantity}} Charger</h2>
 
-                          <h2 *ngIf=" status.dryer > 0">{{status.dryer}} Dryer</h2>
-                          <h2 *ngIf=" status.iron > 0">{{status.iron}} Iron</h2>
-                          <h2 *ngIf=" status.charger > 0">{{status.charger}} Charger</h2>
-                          <h2 *ngIf=" status.toaster > 0">{{status.toaster}} Toaster</h2>
-                          <h2 *ngIf=" status.kettle > 0">{{status.kettle}} Kettle</h2>
-                          <h2 *ngIf=" status.radio > 0">{{status.radio}} Radio</h2>
-
-                        </ion-label>
-
-                        <ion-note style="text-align: right;">
-
-                          <h2>Total:</h2>
-                          <h2> RM {{status.paytotal}}.00</h2>
-                          <br>
-                          <span>Paid by:</span><br>
-                          <span *ngIf=" status.payMethod == ''">Haven't paid</span>
-                          <span *ngIf=" status.payMethod != ''"> {{status.payMethod}}</span>
-                        </ion-note>
-                      </ion-item>
-                    </div>
-                    <br>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
+                  <h2 *ngIf="(item.item_name != 'Water Heater/Electric Kettle') && (item.item_name != 'Laptop/Handphone Charger')">{{item.item_quantity}} {{item.item_name}}</h2>
+                 </ion-note>
+                </ion-label>
+                <ion-note style="text-align: right;">
+                  <h2>Total:</h2>
+                  <h2> RM {{status.paytotal}}.00</h2>
+                  <br>
+                  <h2>Paid by:</h2>
+                  <span *ngIf=" status.payMethod == ''">Haven't paid</span>
+                  <span *ngIf=" status.payMethod != ''"> {{status.payMethod}}</span>
+                  </ion-note>
+                </ion-item>
             </ion-card-content>
           </ion-card>
         </ion-col>
