@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen class="ion-padding register()" *ngFor = "let count of register_detail">
-    <ion-list *ngIf = "count.status == 'Rejected'">
+<ion-content fullscreen class="ion-padding">
+    <ion-list>
       <ion-list-header>
             <ion-label>
             Hi there! <ion-icon name="happy-outline"></ion-icon>
@@ -27,21 +27,21 @@
         </ion-select>
       </ion-item>
     </ion-list><br>
-    <ion-button expand="block" (click)="submitCollege()" *ngIf = "count.status == 'Rejected'">Done</ion-button>
+    <ion-button expand="block" (click)="submitCollege()">Done</ion-button>
 
-    <!--Notice of asking student to wait for kuota pengetua-->
-    <ion-list  *ngIf = "count.status == 'Pending'" style="text-align:center;">
+    <!--Notice of asking student to wait for kuota pengetua
+    <ion-list style="text-align:center;">
       <img src="assets/img/college-1.png"/>
       <h2> Unable to register ! </h2><br>
       <p>Please <b>check your status</b> of the application (Kuota Pengetua) first.<br>
         Please wait patiently for the admin to review your application.</p>
-    </ion-list>
+    </ion-list>-->
 
-    <!--Notify student about the accepted application-->
-    <ion-list  *ngIf = "count.status == 'Accepted'" style="text-align:center;">
+    <!--Notify student about the accepted application
+    <ion-list style="text-align:center;">
       <img src="assets/img/college-1.png"/><br>
       <h2> Unable to register ! </h2><br>
       <p>You have<b> registered successfully</b> for the application (kuota pengetua).</p>
-    </ion-list>
+    </ion-list>-->
 
 </ion-content>

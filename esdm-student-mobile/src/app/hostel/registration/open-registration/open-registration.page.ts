@@ -19,7 +19,7 @@ export class OpenRegistrationPage implements OnInit {
   constructor(private route:Router, private toastController:ToastController) { }
 
   ngOnInit() {
-    this.register();
+    //this.register();
     this.fetchCollege();
   }
 
