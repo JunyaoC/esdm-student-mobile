@@ -19,7 +19,7 @@
   <h1 style="text-align: center;">Reported Issue History</h1>
 </div>
 
-<div style="width: 100%;padding: 1rem;">
+<div style="width: 100%;padding: 1rem;" *ngIf="list_issue.length != 0">
   <div style="align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%; height: 500px;overflow: scroll;">
 
     <!-- List of Text Items -->
@@ -61,7 +61,10 @@
     
   </div>
 </div>
-
+<div *ngIf="list_issue.length == 0">
+    <h3 style="text-align: center; font-weight: bold;">No reported issue history</h3>
+    <h6 style="text-align: center;">You did not report any issue yet</h6>
+</div>
 
 
 </ion-content>

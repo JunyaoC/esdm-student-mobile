@@ -63,6 +63,10 @@
 	    {{record.an_detail}}
 	  </ion-card-content>
 	 </div>
+	 <div *ngIf="announcement_records.length == 0">
+	 	<br>
+    <h3 style="text-align: center; font-weight: bold;">No Announcement</h3>
+</div>
 	</div>
 	
 	</ion-card>
