@@ -31,6 +31,16 @@ export class CourselistPage implements OnInit {
 
   }
 
+    async doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+    this.fetchCourselist(0);
+  }
+
   fetchCourselist(event){
     let body = {
       action:'list_procourse',
