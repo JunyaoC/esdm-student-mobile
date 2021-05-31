@@ -19,9 +19,9 @@
          <!--   <form  #form="ngForm" (ngSubmit)="register(form)">-->
           <ion-grid>
             <ion-row color="primary" justify-content-center>
-              <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
+              <ion-col align-self-center size-lg="12" size-md="12" size-xs="12">
                 <div padding>
-                	<ion-item>
+                	<ion-item style="margin-left:-25px">
                       <ion-label>
                         <h2>Items</h2>
                       </ion-label>
@@ -32,7 +32,7 @@
                         <span>Price (RM)</span>
                       </ion-note>
                     </ion-item>
-	                  <ion-item class="fetchAppliances()" *ngFor = "let option of electric">
+	                  <ion-item class="fetchAppliances()" *ngFor = "let option of electric" style="margin-left:-25px">
 	                  	<ion-label>
                         <h2 *ngIf="option.item_name == 'Water Heater/Electric Kettle' "><strong>Kettle</strong></h2>
                         <h2 *ngIf="option.item_name == 'Laptop/Handphone Charger'"><strong>Charger</strong></h2>
@@ -54,16 +54,16 @@
                       </ion-note>
 	                  </ion-item>
 
-                    <br><br>
-	                  <ion-item>
+                    <br>
+	                  <ion-item style="margin-left:-25px">
 	                  	<ion-label>
 	                  		<h2>Total: </h2>
 	                  	</ion-label>
 	                  	<ion-note><strong>RM </strong>
-							          <span style="text-align: right;" class="totalPrice()" *ngFor = "let option of price">{{option.total_price}}</span>
+							          <span style="text-align: right; font-size: 1.5rem" class="totalPrice()" *ngFor = "let option of price">{{option.total_price}}</span>
 						          </ion-note>
 	                  </ion-item>
-	                  <ion-item>
+	                  <ion-item style="margin-left:-25px">
 	                 <!-- 	<ion-label>
                         <h2>Upload Payment <br>Receipt: </h2>
                       </ion-label>
@@ -72,7 +72,7 @@
                       </ion-note> -->
 
                       <ion-label>Payment Method</ion-label>
-                      <ion-select [(ngModel)]="selectedOption" placeholder="Select one" required>
+                      <ion-select [(ngModel)]="selectedOption" placeholder="Select one" required style="margin-right: -5px">
                       <ion-select-option value='Cash'>Cash</ion-select-option>
                       <ion-select-option value='Credit/Debit Card'>Credit/Debit Card</ion-select-option>
                       <ion-select-option value='Online Bankinig'>Online Banking</ion-select-option>
