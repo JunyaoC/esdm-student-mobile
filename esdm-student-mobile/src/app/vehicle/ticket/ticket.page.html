@@ -17,32 +17,38 @@
   <div class="ion-padding">
     <ion-grid>
       <ion-row>
-        <ion-col col-3>
+        <ion-col col-4>
           Ticket ID
         </ion-col>
-        <ion-col col-3>
+        <ion-col col-4>
           Plate Number
         </ion-col>
-        <ion-col col-3>
+        <ion-col col-4>
           Description
         </ion-col>
-        <ion-col col-3>
+        <ion-col col-4>
           Amount
+        </ion-col>
+        <ion-col col-4>
+          Status
         </ion-col>
       </ion-row>
 
       <ion-row style="border-bottom: groove;" *ngFor="let record of ticket_records">
-        <ion-col col-3>
+        <ion-col col-4>
         <ion-label >{{record.id}}</ion-label>
       </ion-col>
-      <ion-col col-3>
+      <ion-col col-4>
         <ion-label >{{record.vehiclePlateNo}}</ion-label>
       </ion-col>
-      <ion-col col-3>
+      <ion-col col-4>
         <ion-label >{{record.ticketDesc}}</ion-label>
       </ion-col>
-        <ion-col col-3>
+        <ion-col col-4>
         <ion-label >{{record.ticketAmount}}</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >{{record.ticketStatus}}</ion-label>
       </ion-col>
     </ion-row>
     </ion-grid>
