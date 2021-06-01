@@ -39,10 +39,26 @@
         </ion-slide>
 
         <ion-slide  *ngIf = "count.registered == 1">
-          <img src="assets/img/college-1.png"/>
-          <h2>You have registered ! </h2>
-          <p>Please wait patiently for the admin <br>
-            to review your application.</p>
+          <ion-list class="verify" *ngFor= "let cnt of status">
+            <ion-slide *ngIf = "cnt.status == 'Pending'">
+              <img src="assets/img/college-1.png"/>
+              <h2> Pending ! </h2>
+              <p><b>Please wait patiently</b>.<br>
+              Admin is reviewing your application.</p>
+            </ion-slide>
+
+            <ion-slide *ngIf = "cnt.status == 'Accepted'">
+              <img src="assets/img/college-1.png"/>
+              <h2><b>Success!</b> </h2>
+              <p>You have registered successfully.</p>
+            </ion-slide>
+
+            <ion-slide *ngIf = "cnt.status == 'Rejected'">
+              <img src="assets/img/college-1.png"/>
+              <h2><b>Failed to Register!</b>! </h2>
+              <p>Your application is rejected. <br/> Please register your room via the phase<br/> <b>Open Registration</b></p>
+            </ion-slide>
+          </ion-list>
         </ion-slide>
 
       </ion-slides>

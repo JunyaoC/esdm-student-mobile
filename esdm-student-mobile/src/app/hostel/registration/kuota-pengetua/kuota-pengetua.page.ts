@@ -11,11 +11,13 @@ export class KuotaPengetuaPage implements OnInit {
 
   server : string = 'http://localhost/php-folder/';
   register_detail;
+  status;
 
   constructor(private route: Router) { }
 
   ngOnInit() {
     this.register();
+    this.verify();
   }
 
   register(){
@@ -26,6 +28,19 @@ export class KuotaPengetuaPage implements OnInit {
     axios.post(this.server + 'hostel/control-register.php', JSON.stringify(body)).then((res:any) => {
 
       this.register_detail = res.data.detail;
+      console.log(res);
+
+    })
+  }
+
+  verify(){
+    let body ={
+      action:'check_kpstatus',
+    }
+
+    axios.post(this.server + 'hostel/control-register.php', JSON.stringify(body)).then((res:any) => {
+
+      this.status = res.data.detail;
       console.log(res);
 
     })

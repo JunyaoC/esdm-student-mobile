@@ -15,14 +15,48 @@ export class OpenRegistrationPage implements OnInit {
   selectedOption;
   matricNo;
   register_detail;
+  check_kp;
+  check_op;
 
   constructor(private route:Router, private toastController:ToastController) { }
 
   ngOnInit() {
-    //this.register();
+    //this.verify();
+    this.check();
+    this.register();
     this.fetchCollege();
+
+
   }
 
+  // Check the user ald registered the open registration or not
+  check(){
+    let body ={
+      action:'check_op',
+    }
+
+    axios.post(this.server + 'hostel/control-register.php', JSON.stringify(body)).then((res:any) => {
+
+      this.check_op = res.data.detail;
+      console.log(res);
+
+    })
+  }
+
+  //Check kuota-pengetua status
+ /* verify(){
+    let body ={
+      action:'check_kp',
+    }
+    axios.post(this.server + 'hostel/control-register.php', JSON.stringify(body)).then((res:any) => {
+
+      this.check_kp = res.data.detail;
+      console.log(res);
+
+    })
+  }*/
+
+  // Check open-registration status
   register(){
     let body ={
       action:'checking',
