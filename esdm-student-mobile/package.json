@@ -58,10 +58,7 @@
     "cordova-plugin-camera": "^5.0.2",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
-    "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
-    "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
@@ -120,11 +117,9 @@
         "DEEPLINK_5_HOST": " "
       },
       "cordova-plugin-local-notification": {}
-      "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
       "android"
     ]
   }
 }
-

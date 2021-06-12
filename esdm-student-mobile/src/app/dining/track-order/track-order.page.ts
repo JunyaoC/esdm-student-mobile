@@ -11,7 +11,7 @@ import axios from 'axios';
 })
 export class TrackOrderPage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   order_records :any = [];
   order_id:string;
   constructor(private router:Router,private activatedRoute: ActivatedRoute) { }

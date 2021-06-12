@@ -13,7 +13,7 @@ import { UserServiceService } from '../../user-service.service';
 })
 export class FoodDetailsPage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   food_list:any = [];
   food_id:string;
   currentNumber = 1;

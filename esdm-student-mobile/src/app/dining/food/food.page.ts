@@ -10,7 +10,7 @@ import axios from 'axios';
 })
 export class FoodPage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   food_list:any = [];
   restaurant_id:string;
   constructor(private router:Router,private activatedRoute: ActivatedRoute) { }

@@ -13,7 +13,7 @@ import { UserServiceService } from '../../user-service.service';
 
 export class CartPage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   cart_list :any = [];
   // user_id:string;
 

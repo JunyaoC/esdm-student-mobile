@@ -13,7 +13,6 @@ import { UserServiceService } from '../../user-service.service';
 export class ClassSchedulePage implements OnInit {
 
 	classes
-	// server : string = 'http://localhost/php-folder/';
 
   constructor(private router:Router,private localNotifications: LocalNotifications, public us:UserServiceService) { }
 

@@ -10,7 +10,7 @@ export class UserServiceService {
 	currentUserData:any
 	currentRole:any
 
-	server = 'http://185.185.40.33:14896/esdm-php/php-folder/'
+	server = 'https://esdm-php-divio.us.aldryn.io/php-folder/'
 	// server = 'http://localhost:4896/php-folder/'
 
 	constructor(private storage: Storage) {
@@ -22,7 +22,7 @@ export class UserServiceService {
 	}
 
 	getStudentData(){
-		axios.post('http://localhost/php-folder/get_student.php',JSON.stringify({u_id:this.currentUserData.u_id})).then(res => {
+		axios.post('https://esdm-php-divio.us.aldryn.io/php-folder/get_student.php',JSON.stringify({u_id:this.currentUserData.u_id})).then(res => {
 			this.currentUserData.student = res.data.student[0]
 		})
 	}

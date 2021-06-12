@@ -11,7 +11,7 @@ import axios from 'axios';
 })
 export class PersonalInfoPage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   user_list :any = [];
 
   constructor(private router:Router,public alertController: AlertController,public us:UserServiceService) { }
