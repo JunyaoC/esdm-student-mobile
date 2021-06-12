@@ -1,21 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-  	<ion-buttons slot="start">
-  	<ion-back-button defaultHref="/"></ion-back-button>
-              </ion-buttons>
-    <ion-title>Residential Colleges</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="headBar" style="margin-bottom: 1rem;">
+<ion-toolbar>
+	  	<ion-buttons slot="start">
+  	<ion-back-button style="font-size: 0.8rem;color:#81163F" icon="arrow-back" text="" defaultHref="/"></ion-back-button>
+     </ion-buttons>
+	<ion-title class="brand" style="color: #81163F;">RESIDENTIAL COLLEGES</ion-title>
+</ion-toolbar> 
+
+</div>
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
 <ion-content>
-	
+<div class="CheckPhase()" *ngFor = "let date of phase_info">
+<center><ion-chip *ngIf="(date.today >= date.start_date) && (date.today <= date.end_date)" style="width:90%;padding:1.5rem;margin-top: 2rem;line-height:1.3;background-color: #803654">
+  <ion-label  style="color: white"><strong>{{date.phase_name}}</strong> is currently available for register from <strong>{{date.start_date}} until {{date.end_date}}</strong></ion-label>
+  <ion-icon name="close" color=light></ion-icon>
+</ion-chip></center>
+</div>	
 <div class="MenuPosition">
-
-<ion-button (click)="registerPage()" color=light expand="full"><i class="material-icons">location_city&nbsp;</i>Hostel Registration</ion-button>
-<ion-button (click)="electricPage()" color=light expand="full"><i class="material-icons">lightbulb&nbsp;</i>Electric Appliance</ion-button>
-<ion-button (click)="complaintPage()" color=light expand="full"><i class="material-icons">build&nbsp;</i>Complaint</ion-button>
+<p style="font-size:1.1rem">What would you like to apply for?</p>
+<ion-button (click)="registerPage()" expand="block" fill="outline"><i class="material-icons">location_city&nbsp;</i>Hostel Registration</ion-button>
+<ion-button (click)="electricPage()" expand="block" fill="outline"><i class="material-icons">lightbulb&nbsp;</i>Electric Appliance</ion-button>
+<ion-button (click)="complaintPage()" expand="block" fill="outline"><i class="material-icons">build&nbsp;</i>Complaint</ion-button>
 </div>
 
 

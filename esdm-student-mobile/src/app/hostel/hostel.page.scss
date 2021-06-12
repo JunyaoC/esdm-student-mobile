@@ -1,10 +1,31 @@
 .MenuPosition{
-	padding-top: 10%;
 	padding-left: 7%;
 }
 ion-button {
 	border-radius: 10%;
-	color-hover: blue;
+	color:#81163F;
+	font-size: 1.3rem;
+	font-weight: 550;
+	--background-activated:#81163F;
+	--background-activated-opacity:0.3;
+	--border-color:grey;
 	width:90%;
-  height: 100px;
+  height: 6rem;
+  padding-bottom: 0.5rem;
+}
+
+.headBar{
+  width: 100%;
+  background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 5px;  
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .brand{
+    font-weight: 700;
+  }
+
 }

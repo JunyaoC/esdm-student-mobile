@@ -1,21 +1,58 @@
-<ion-header>
-  <ion-toolbar>
-  	  	<ion-buttons slot="start">
-  	<ion-back-button defaultHref="/"></ion-back-button>
-              </ion-buttons>
-    <ion-title>Hostel Registration</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="headBar" style="margin-bottom: 1rem;">
+<ion-toolbar>
+	  	<ion-buttons slot="start">
+  	<ion-back-button style="font-size: 0.8rem;color:#81163F" icon="arrow-back" text="" defaultHref="/"></ion-back-button>
+     </ion-buttons>
+	<ion-title class="brand" style="color: #81163F;">HOSTEL REGISTRATION</ion-title>
+</ion-toolbar> 
+
+</div>
 
 <ion-content>
-<div class="MenuPosition">
-<i>This phase will only open for registration within a specific period</i>
-<div class="CheckPhase()" *ngFor = "let date of phase_info">
-<ion-button *ngIf="(date.phase_name == 'Kuota Pengetua') && (date.today >= date.start_date) && (date.today <= date.end_date)" (click)="kuotaPage()" color=light expand="full">Kuota Pengetua<br><br>[ {{date.start_date}} - {{date.end_date}} ]</ion-button>
-<ion-button *ngIf="(date.phase_name == 'Open Registration') && (date.today >= date.start_date) && (date.today <= date.end_date)" (click)="openPage()" color=light expand="full">Open Registration<br><br>[ {{date.start_date}} - {{date.end_date}} ]</ion-button>
-<ion-button *ngIf="(date.phase_name == 'Hostel Amendment') && (date.today >= date.start_date) && (date.today <= date.end_date)" (click)="amendPage()" color=light expand="full">Hostel Amendment<br><br>[ {{date.start_date}} - {{date.end_date}} ]</ion-button>
-</div>
-<ion-button (click)="checkStatus()" color=light expand="full">Check Status</ion-button>
-</div>
 
+<ion-card class="CheckPhase()" *ngFor = "let date of phase_info"style="background-color:#783b52">
+<div *ngIf="(date.today >= date.start_date) && (date.today <= date.end_date)">
+	  <ion-card-header>
+    <ion-card-subtitle style="color: orange">apply your hostel by</ion-card-subtitle>
+    <ion-card-title style="color: #ede6e9">{{date.phase_name}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+    	<ion-row>
+    		<ion-column style="color: #ede6e9">
+    			Period of registration:<br>{{date.start_date}} - {{date.end_date}}
+    		</ion-column>
+    		<ion-column>
+    			<ion-button fill="outline" color="warning" *ngIf="date.phase_name == 'Kuota Pengetua'" (click)="kuotaPage()" size="small" style="height:90%;margin-left:50%"><strong>Register Now</strong></ion-button>
+    			<ion-button fill="outline" color="warning" *ngIf="date.phase_name == 'Open Registration'" (click)="openPage()" size="small" style="height:90%;margin-left:50%"><strong>Register Now</strong></ion-button>
+    			<ion-button fill="outline" color="warning" *ngIf="date.phase_name == 'Hostel Amendment'" (click)="amendPage()" size="small" style="height:90%;margin-left:50%"><strong>Register Now</strong></ion-button>
+    		</ion-column>
+    	</ion-row>
+    </ion-grid>
+  </ion-card-content>
+</div>
+</ion-card>
+
+	<div style="padding-left:1rem;padding-top:1rem">
+		<h3 style="color: #81163F;">Registration Status</h3>
+	</div>
+	<ion-list>
+		<ion-item class="CheckStatus()" *ngFor = "let status of status_info">
+                    <ion-label>
+                      <h1 >{{status.reg_date}}</h1>
+                      <h2 *ngIf=" status.reg_phase == 1">Kuota Pengetua </h2>
+                      <h2 *ngIf=" status.reg_phase == 2">Open Registration </h2>
+                      <h2 *ngIf=" status.reg_phase == 3">Hostel Amendment </h2>
+                      <h3>{{status.kolej_name}} </h3>
+                      <!--({{status.block_name}} , {{status.room_no}})-->
+                    </ion-label>
+
+                    <ion-note style="text-align: right;">
+                      <span>Status:</span><br>
+                       <span *ngIf=" status.reg_status == 'Pending'">{{status.reg_status}}</span>
+                       <span *ngIf=" status.reg_status == 'Rejected'" style="color:red">{{status.reg_status}}</span>
+                       <span *ngIf=" status.reg_status == 'Accepted'" style="color:green">{{status.reg_status}}</span>
+                    </ion-note>
+		</ion-item>
+	</ion-list>
 </ion-content>

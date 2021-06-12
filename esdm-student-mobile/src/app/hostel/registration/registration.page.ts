@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { UserServiceService } from '../../user-service.service';
 import axios from 'axios';
 
 @Component({
@@ -11,11 +13,13 @@ export class RegistrationPage implements OnInit {
 
   server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   phase_info:any = [];
+  status_info:any = [];
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private toastController:ToastController,public us:UserServiceService) { }
 
   ngOnInit() {
     this.CheckPhase();
+    this.checkStatus();
   }
   CheckPhase(){
     let body = {
@@ -30,6 +34,19 @@ export class RegistrationPage implements OnInit {
     })
 
   }
+   checkStatus(){
+    let body = {
+      action:'check_status',
+      student_id : this.us.currentUserData.u_id,
+    }
+
+    axios.post(this.server + 'hostel/registration-status.php', JSON.stringify(body)).then((res:any) => {
+
+      this.status_info = [...res.data.detail]
+      console.log(res);
+
+    })
+}
   kuotaPage() {
     this.route.navigate(['hostel/registration/kuota-pengetua']);
   }
@@ -40,8 +57,6 @@ export class RegistrationPage implements OnInit {
     this.route.navigate(['hostel/registration/amendment']);
   }
 
-  checkStatus() {
-    this.route.navigate(['hostel/registration/status']);
-  }
+
 
 }
