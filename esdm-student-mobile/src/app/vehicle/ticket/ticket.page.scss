@@ -29,7 +29,7 @@
     padding: 15px;  
   
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
   
     .brand{
@@ -95,7 +95,3 @@
     color: var(--ion-color-danger);
 }
 
-ion-col {
-    border: 1px solid grey;
-    text-align: center;
-  }

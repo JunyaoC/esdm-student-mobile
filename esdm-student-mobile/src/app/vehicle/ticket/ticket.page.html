@@ -1,36 +1,39 @@
 <ion-content>
 
-	<div class="headBar">
+	<div class="headBar" style="margin-bottom: 2rem;">
 
-		<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="govehicle()">
+		<div style="display: flex;justify-content: center;align-items: left;color: #81163F;" (click)="govehicle()">
 			<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-			<span class="brand">Back</span>
+			<span class="brand"></span>
 		</div>
-
+		<span class="brand" style="display: flex;justify-content: center;align-items: center;color: #81163F;">VIEW TICKET</span> 
+		<div style="display: flex;justify-content: center;align-items: left;color: #81163F;opacity: 0;">
+			<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+			<span class="brand"></span>
+		</div>
+	
 	</div>
 
 
-	<div class="wrapper">
-		<h1 style="text-align: center;">View ticket</h1>
-	</div>
 
-  <div class="ion-padding">
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-          Ticket ID
+
+ 
+    
+      <ion-row style="border-bottom: groove;">
+        <ion-col col-2>
+          <ion-label>Ticket ID</ion-label>
         </ion-col>
-        <ion-col col-4>
-          Plate Number
+        <ion-col col-2>
+          <ion-label>Plate Number</ion-label>
         </ion-col>
-        <ion-col col-4>
-          Description
+        <ion-col col-2>
+          <ion-label>Description</ion-label>
         </ion-col>
-        <ion-col col-4>
-          Amount
+        <ion-col col-2>
+          <ion-label>Amount</ion-label>
         </ion-col>
-        <ion-col col-4>
-          Status
+        <ion-col col-2>
+          <ion-label>Status</ion-label>
         </ion-col>
       </ion-row>
 
@@ -51,8 +54,8 @@
         <ion-label >{{record.ticketStatus}}</ion-label>
       </ion-col>
     </ion-row>
-    </ion-grid>
-  </div>
+    
+
 
 
 
