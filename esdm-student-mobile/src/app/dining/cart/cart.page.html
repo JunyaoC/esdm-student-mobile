@@ -1,11 +1,16 @@
 <ion-content>
 
-<div class="headBar">
-	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="home()">
-		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-		<span class="brand">Back to restaurant</span>
-	</div>
-	
+
+<div class="headBar" style="margin-bottom: 0.5rem;">
+  <div style="display: flex;justify-content: center;align-items: left;color: #81163F;" (click)="home()">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand"></span>
+  </div>
+  <span class="brand" style="display: flex;justify-content: center;align-items: center;color: #81163F;">Cart</span> 
+  <div style="display: flex;justify-content: center;align-items: left;color: #81163F;opacity: 0;">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand"></span>
+  </div>
 </div>
 
   <ion-refresher slot="fixed" (ionRefresh)="fetchCartList($event)">
@@ -88,7 +93,7 @@
 	      <ion-icon name="home"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button >
-	      <ion-icon color="primary" name="cart"></ion-icon>
+	      <ion-icon  [style.color]="'#81163f'" name="cart"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button (click)="history()">
 	      <ion-icon name="reorder-four-outline"></ion-icon>

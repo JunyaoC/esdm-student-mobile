@@ -1,24 +1,31 @@
-	<div class="headBar">
-	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="history()">
-		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-		<span class="brand">Back</span>
-	</div>
-	</div>
+ 
 
 <ion-content>
 
+<div class="headBar" style="margin-bottom: 2rem;">
+  <div style="display: flex;justify-content: center;align-items: left;color: #81163F;" (click)="history()">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand"></span>
+  </div>
+  <span class="brand" style="display: flex;justify-content: center;align-items: center;color: #81163F;">Track Order</span> 
+  <div style="display: flex;justify-content: center;align-items: left;color: #81163F;opacity: 0;">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand"></span>
+  </div>
+</div>
+
 
 <div class="wrapper">
-	<h1 style="text-align: center;">Restaurant</h1>
+	<h1 style="text-align: center;"> </h1>
 </div>
 
 
 	<div style="width: 95%;margin-left:13px;margin-bottom: 10px;">
-      <ion-card class="ion-card" style="background-color: #d1d9f5;" *ngFor="let record of order_records| slice:0:1;">
+      <ion-card class="ion-card" style="background-color: #ccbcc2;" *ngFor="let record of order_records| slice:0:1;">
       <ion-grid>
 		<ion-row>
 			<ion-col size="5">
-				<img src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg">
+				<img src="http://quansheng.org/ziliao/02.choosing%20page/02.ziliao/10.photo/data/utm/building/16.utm_arked.JPG">
 			</ion-col>
 			
 			<ion-col size="7" class="ion-no-padding">
@@ -105,7 +112,7 @@
 	      <ion-icon name="cart"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button (click)="history()">
-	      <ion-icon color="primary" name="reorder-four-outline"></ion-icon>
+	      <ion-icon [style.color]="'#81163f'"  name="reorder-four-outline"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button (click)="personal()">
 	      <ion-icon name="person-circle-outline"></ion-icon>

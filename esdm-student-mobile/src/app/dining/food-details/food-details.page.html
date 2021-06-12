@@ -1,17 +1,24 @@
 <ion-content  *ngFor="let record of food_list">
-<div class="headBar">
-  <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+ 
+
+<div class="headBar" style="margin-bottom: 0.5rem;">
+  <div style="display: flex;justify-content: center;align-items: left;color: #81163F;" (click)="backHome()">
     <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-    <span class="brand">Back to restaurant</span>
+    <span class="brand"></span>
   </div>
-  
+  <span class="brand" style="display: flex;justify-content: center;align-items: center;color: #81163F;">Food Details</span> 
+  <div style="display: flex;justify-content: center;align-items: left;color: #81163F;opacity: 0;">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand"></span>
+  </div>
 </div>
+
 
 <div class="wrapper">
   <h1 style="text-align: center;">{{record.food_name}} Details</h1>
 </div>
 
-	<ion-card style="background-color: #d1d9f5;">
+	<ion-card style="background-color: #ccbcc2;">
 	  <ion-card-header>
 	    <img style="height:200px;width:250px; max-width:500px;margin-left: auto;display: block;margin-right: auto;" src="assets/food-image/{{record.food_id}}.png" />
 	  </ion-card-header>
@@ -69,7 +76,7 @@
 
 
 	<div class="center">
-		<ion-button class="sp-btn" expand="block" (click)="addCart(total,record.food_id,currentNumber)">Add to Cart</ion-button>
+		<ion-button class="custom-button" expand="block" (click)="addCart(total,record.food_id,currentNumber)">Add to Cart</ion-button>
 	</div>
 
 </ion-content>
@@ -80,7 +87,7 @@
 	  <!-- Tab bar -->
 	  <ion-tab-bar slot="bottom">
 	    <ion-tab-button (click)="backHome()">
-	      <ion-icon color="primary"  name="home"></ion-icon>
+	      <ion-icon [style.color]="'#81163f'"  name="home"></ion-icon>
 	    </ion-tab-button>
 	    <ion-tab-button (click)="cart()">
 	      <ion-icon name="cart"></ion-icon>

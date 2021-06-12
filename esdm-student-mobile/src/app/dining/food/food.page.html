@@ -1,16 +1,16 @@
 <ion-content>
 
-<div class="headBar">
-  <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+
+<div class="headBar" style="margin-bottom: 2rem;">
+  <div style="display: flex;justify-content: center;align-items: left;color: #81163F;" (click)="backHome()">
     <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-    <span class="brand">Back to restaurant</span>
+    <span class="brand"></span>
   </div>
-  
-</div>
-
-
-<div class="wrapper">
-  <h1 style="text-align: center;">Food List</h1>
+  <span class="brand" style="display: flex;justify-content: center;align-items: center;color: #81163F;">Food List</span> 
+  <div style="display: flex;justify-content: center;align-items: left;color: #81163F;opacity: 0;">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand"></span>
+  </div>
 </div>
 
     
@@ -19,7 +19,7 @@
   </ion-refresher>   
 
   <div style="width: 95%;margin-left:13px;margin-bottom: 10px;">
-      <ion-card style="background-color: #d1d9f5;" *ngFor="let record of food_list">
+      <ion-card style="background-color: #ccbcc2;" *ngFor="let record of food_list">
       <ion-grid>
       <ion-row>
       <ion-col>
@@ -34,7 +34,7 @@
             <p style="font-size: 20px;position: absolute;bottom:1px;font-weight: bold;color:black;">RM {{record.food_price| number:'1.2-2'}}</p>
           </div>
           <div class="column">
-            <div  id="button-div"><ion-button size="small"  (click)="foodDetails(record.food_id)" item-content >View</ion-button></div>
+            <div  id="button-div" ><ion-button class="custom-button" size="small"  (click)="foodDetails(record.food_id)" item-content >View</ion-button></div>
           </div>
         </div>
       </ion-col>
@@ -50,7 +50,7 @@
     <!-- Tab bar -->
     <ion-tab-bar slot="bottom">
       <ion-tab-button (click)="backHome()">
-        <ion-icon color="primary"  name="home"></ion-icon>
+        <ion-icon  [style.color]="'#81163f'"  name="home"></ion-icon>
       </ion-tab-button>
       <ion-tab-button (click)="cart()">
         <ion-icon name="cart"></ion-icon>

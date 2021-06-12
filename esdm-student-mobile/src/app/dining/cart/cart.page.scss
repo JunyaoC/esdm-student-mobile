@@ -9,7 +9,7 @@
   padding: 15px;  
 
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 
   .brand{
@@ -32,7 +32,7 @@
 }
 
 .ion-card{
-  background-color: #d1d9f5;
+  background-color: #ccbcc2;
   padding:0;
   padding-right:3px;
 }
@@ -54,6 +54,7 @@
 
 .sp-btn {
   width:90%;
+    --background: #81163f;
 
 }
 
