@@ -2,19 +2,24 @@
 <ion-header>
 
 
-  <div class="headBar">
+    <div class="headBar" >
 
-    <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backIssue()">
-      <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
-      <span class="brand">Back</span>
-    </div>
-
+  <div style="display: flex;justify-content: center;align-items: left;color: #81163F;" (click)="backIssue()">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand"></span>
   </div>
+  <ion-title class="brand" style="display: flex;justify-content: center;align-items: center;color: #81163F;">ISSUE EDITOR</ion-title> 
+  <div style="display: flex;justify-content: center;align-items: left;color: #81163F;opacity: 0;">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand"></span>
+  </div>
+
+</div>
 
 </ion-header>
 <ion-content  *ngFor="let issue of issue_detail">
 <div class="wrapper">
-  <h1 style="text-align: center;">Edit Reported Issue {{issue.issue_id}}</h1>
+  <h1 style="text-align: center;">No. Issue: {{issue.issue_id}}</h1>
 </div>
 
 <div style="width: 100%;padding: 1rem;">
@@ -54,7 +59,7 @@
     </ion-col>
     <ion-col size="11">
 
-      <ion-button (click)="presentAlert(issue.issue_id)" expand="block" color="danger" clearInput>Report</ion-button>
+      <ion-button (click)="presentAlert(issue.issue_id)" style="--background:#81163F;" expand="block" color="danger" clearInput>Report</ion-button>
     </ion-col>
     <ion-col>
     </ion-col>
