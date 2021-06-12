@@ -45,23 +45,19 @@
 
 }
 
-.gridButton{
-  @include aspect-ratio(1, 1);
-  width: 22vw;
-  background: white;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border-radius: 1rem;
+.rounded{
+  display: flex;
+  border: 2px solid #81163F;
+  border-radius: 8px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
 
-  .content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+ion-item{
+  border-bottom: solid 1px rgba(0,0,0,0.5)!important;
+}
 
-    ion-icon {
-      font-size: 2.5rem;
-       margin-bottom: 5px;
-    }
 
-  }
+ion-item:last-of-type{
+  border-bottom: none!important;
 }

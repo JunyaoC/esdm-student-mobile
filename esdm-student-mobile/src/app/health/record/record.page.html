@@ -1,0 +1,60 @@
+<ion-content>
+
+<div class="headBar" style="margin-bottom: 2rem;">
+
+	<div style="display: flex;justify-content: center;align-items: left;color: #81163F;" (click)="backHealth()">
+		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+		<span class="brand"></span>
+	</div>
+	<span class="brand" style="display: flex;justify-content: center;align-items: center;color: #81163F;">APPOINTMENT DETAILS</span> 
+	<div style="display: flex;justify-content: center;align-items: left;color: #81163F;opacity: 0;">
+		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+		<span class="brand"></span>
+	</div>
+
+</div>
+
+<div style="margin:1rem;">
+	
+	<div style="display: flex; justify-content: space-around;align-items: center; width: 100%; margin-bottom: 2rem;">
+		<ion-button style="--background:#81163F; width:50%;" (click)="viewMode = true" >Active</ion-button>
+		<ion-button style="--background:#81163F; width:50%;" (click)="viewMode = false">Past</ion-button>
+	</div>
+
+	<span style="color: #81163F; font-weight: bold; font-size: 1.2rem;">Appointment Details</span>
+
+	<div  *ngFor="let slot of slots;">
+	<div class="rounded" *ngIf="slot.active == viewMode">
+
+		<ion-list style="width:100%;background:none;">
+
+			<ion-item color="transparent" lines="none">
+				<ion-label>Date</ion-label>
+				<ion-text style="text-align: right;">
+					<span>{{slot.slot_datetime | date : 'dd MMM YYYY'}}</span>
+				</ion-text>
+			</ion-item>
+			<ion-item color="transparent" lines="none">
+				<ion-label>Time</ion-label>
+				<ion-text style="text-align: right;">
+					<span>{{slot.slot_datetime | date : 'shortTime'}}</span>
+				</ion-text>
+			</ion-item>
+
+		</ion-list>
+
+	</div>
+
+	</div>
+
+	<div *ngIf="noActive && viewMode">
+		<p>No Active Records</p>
+	</div>
+
+	<div *ngIf="noPast && !viewMode">
+		<p>No Past Records</p>
+	</div>
+
+
+	
+</div>

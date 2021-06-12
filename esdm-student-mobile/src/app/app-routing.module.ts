@@ -50,7 +50,24 @@ const routes: Routes = [
     {
     path: 'procourse',
     loadChildren: () => import('./procourse/procourse.module').then( m => m.ProcoursePageModule)
-  }
+  },
+  {
+    path: 'appointment',
+    loadChildren: () => import('./health/appointment/appointment.module').then( m => m.AppointmentPageModule)
+  },
+  {
+    path: 'schedule',
+    loadChildren: () => import('./health/schedule/schedule.module').then( m => m.SchedulePageModule)
+  },
+  {
+    path: 'record',
+    loadChildren: () => import('./health/record/record.module').then( m => m.RecordPageModule)
+  },
+  {
+    path: 'booking',
+    loadChildren: () => import('./health/booking/booking.module').then( m => m.BookingPageModule)
+  },
+
 ];
 
 @NgModule({
