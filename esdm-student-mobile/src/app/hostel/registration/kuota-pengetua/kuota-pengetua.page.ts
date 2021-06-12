@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from 'axios';
+import { UserServiceService } from '../../../user-service.service';
 
 @Component({
   selector: 'app-kuota-pengetua',
@@ -13,7 +14,7 @@ export class KuotaPengetuaPage implements OnInit {
   register_detail;
   status;
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, public us:UserServiceService) { }
 
   ngOnInit() {
     this.register();
@@ -22,6 +23,7 @@ export class KuotaPengetuaPage implements OnInit {
 
   register(){
     let body ={
+      student_id : this.us.currentUserData.u_id,
       action:'check-register',
     }
 
@@ -35,6 +37,7 @@ export class KuotaPengetuaPage implements OnInit {
 
   verify(){
     let body ={
+      student_id : this.us.currentUserData.u_id,
       action:'check_kpstatus',
     }
 

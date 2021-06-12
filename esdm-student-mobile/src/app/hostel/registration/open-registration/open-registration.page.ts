@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import axios from 'axios';
+import { UserServiceService } from '../../../user-service.service';
 
 @Component({
   selector: 'app-open-registration',
@@ -18,7 +19,7 @@ export class OpenRegistrationPage implements OnInit {
   check_kp;
   check_op;
 
-  constructor(private route:Router, private toastController:ToastController) { }
+  constructor(private route:Router, private toastController:ToastController,public us:UserServiceService) { }
 
   ngOnInit() {
     //this.verify();
@@ -32,6 +33,7 @@ export class OpenRegistrationPage implements OnInit {
   // Check the user ald registered the open registration or not
   check(){
     let body ={
+      student_id : this.us.currentUserData.u_id,
       action:'check_op',
     }
 
@@ -59,6 +61,7 @@ export class OpenRegistrationPage implements OnInit {
   // Check open-registration status
   register(){
     let body ={
+      student_id : this.us.currentUserData.u_id,
       action:'checking',
     }
 
