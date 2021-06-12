@@ -20,10 +20,6 @@ const routes: Routes = [
     loadChildren: () => import('./attendance/attendance.module').then( m => m.AttendancePageModule)
   },
   {
-    path: 'attendance/:class_id',
-    loadChildren: () => import('./attendance/attendance.module').then( m => m.AttendancePageModule)
-  },
-  {
     path: 'library',
     loadChildren: () => import('./library/library.module').then( m => m.LibraryPageModule)
   },
@@ -35,6 +31,18 @@ const routes: Routes = [
     path: 'health',
     loadChildren: () => import('./health/health.module').then( m => m.HealthPageModule)
   },
+  {
+    path: 'vehicle',
+    loadChildren: () => import('./vehicle/vehicle.module').then( m => m.VehiclePageModule)
+  },
+  {
+    path: 'registervehicle',
+    loadChildren: () => import('./registervehicle/registervehicle.module').then( m => m.RegistervehiclePageModule)
+  },
+  {
+    path: 'attendance/:class_id',
+    loadChildren: () => import('./attendance/attendance.module').then( m => m.AttendancePageModule)
+  }
 
 ];
 

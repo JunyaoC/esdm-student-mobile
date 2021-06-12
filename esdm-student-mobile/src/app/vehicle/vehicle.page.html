@@ -1,0 +1,71 @@
+<ion-content>
+
+	<div class="headBar">
+
+		<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+			<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+			<span class="brand">Back</span>
+		</div>
+
+	</div>
+
+
+	<div class="wrapper">
+		<span style="color: #E91500;"><strong>* Please always check your history to see the sticker status.</strong></span>
+		<h1 style="text-align: center;">Vehicle Sticker Application</h1>
+	</div>
+
+	<div style="width: 100%;padding: 1rem;">
+		<div style="display: flex;justify-content: space-between;align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%;">
+
+			<div class="gridButton">
+				<div class="content" (click)="goregistervehicle()">
+					<ion-icon name="add"></ion-icon>
+					<span>Apply</span>
+				</div>
+			</div>
+
+			<div class="gridButton">
+				<div class="content" (click)="gorenew()">
+					<ion-icon name="add-circle"></ion-icon>
+					<span>Renew</span>
+				</div>
+			</div>
+
+			<div class="gridButton">
+				<div class="content" (click)="gohistory()">
+					<ion-icon name="document"></ion-icon>
+					<span>History</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+  <div class="wrapper">
+		<h1 style="text-align: center;">Traffic Ticket Management</h1>
+	</div>
+
+	<div style="width: 100%;padding: 1rem;">
+		<div style="display: flex;justify-content: space-between;align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%;">
+
+			<div class="gridButton1">
+				
+			</div>
+
+			<div class="gridButton">
+				<div class="content">
+					<ion-icon name="clipboard" (click)="goviewticket()"></ion-icon>
+					<span>View</span>
+				</div>
+			</div>
+
+			<div class="gridButton1">
+
+			</div>
+
+		</div>
+	</div>
+
+</ion-content>
+

@@ -1,0 +1,98 @@
+<ion-content>
+
+	<div class="headBar">
+
+		<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="govehicle()">
+			<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+			<span class="brand">Back</span>
+		</div>
+
+	</div>
+
+
+	<div class="wrapper">
+    <span style="color: #E91500; font-size:75%"><strong>* Please check the details before submit as it is UNMODIFIABLE action.</strong></span>
+		<h1 style="text-align: center;">Register Vehicle</h1>
+	</div>
+
+  <div class="ion-padding">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Vehicle Plate Number</ion-label>
+          <ion-input autocapitalize inputmode="text" [(ngModel)]="platenumber" placeholder="Key in plate number"></ion-input>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.platenumber">
+          <ng-container *ngIf="platenumber.hasError(error.type) && (platenumber.dirty || platenumber.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <!-- <ion-item>
+          <ion-label position="floating">Vehicle Model</ion-label>
+          <ion-input inputmode="text" formControlName="vmodel"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.vmodel">
+          <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <ion-item>
+          <ion-label position="floating">Vehicle Model</ion-label>
+          <ion-select [(ngModel)]="vmodel" placeholder="Select Vehicle Model">
+            <ion-select-option value="Perodua" checked="true">Perodua</ion-select-option>
+            <ion-select-option value="Toyota">Toyota</ion-select-option>
+            <ion-select-option value="Honda">Honda</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.vmodel">
+          <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        
+        <ion-item>
+          <ion-label position="floating">Vehicle Color</ion-label>
+          <ion-input inputmode="text" [(ngModel)]="vcolor" placeholder="Key in color"></ion-input>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.vcolor">
+          <ng-container *ngIf="vcolor.hasError(error.type) && (vcolor.dirty || vcolor.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <!-- <ion-item>
+          <ion-label position="floating">Vehicle Type</ion-label>
+          <ion-input inputmode="text" formControlName="vtype"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.vtype">
+          <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+
+        <ion-item>
+          <ion-label position="floating">Vehicle Type</ion-label>
+          <ion-select [(ngModel)]="vtype" placeholder="Select Vehicle Type">
+            <ion-select-option value="Car" checked="true">Car</ion-select-option>
+            <ion-select-option value="Motorcycle">Motorcycle</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.vtype">
+          <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+
+      </ion-list>
+
+      <ion-button (click)="submit()" expand="block">Submit <ion-icon slot="end"
+          name="submit">
+        </ion-icon>
+      </ion-button>
+  </div>
+
+
+
+
+
+</ion-content>
+
+

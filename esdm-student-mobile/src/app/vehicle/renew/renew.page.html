@@ -1,0 +1,107 @@
+<ion-content>
+
+	<div class="headBar">
+
+		<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="govehicle()">
+			<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+			<span class="brand">Back</span>
+		</div>
+
+	</div>
+
+
+	<div class="wrapper">
+    <span style="color: #E91500; font-size:75%"><strong>* Please check the details before submit as it is UNMODIFIABLE action.</strong></span>
+		<h1 style="text-align: center;">Renew Sticker</h1>
+	</div>
+
+  <div class="ion-padding">
+    <ion-list>
+        <ion-item>
+          <ion-label position="floating">Sticker ID</ion-label>
+          <ion-input autocapitalize inputmode="text" [(ngModel)]="stickerid" placeholder="Enter your vehicle sticker ID"></ion-input>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.platenumber">
+          <ng-container *ngIf="platenumber.hasError(error.type) && (platenumber.dirty || platenumber.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <!-- <ion-item>
+          <ion-label position="floating">Vehicle Model</ion-label>
+          <ion-input inputmode="text" formControlName="vmodel"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.vmodel">
+          <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <ion-item>
+          <ion-label position="floating">Plate Number</ion-label>
+          <ion-input autocapitalize inputmode="text" [(ngModel)]="platenumber" placeholder="Enter your vehicle plate number"></ion-input>
+        </ion-item>
+        <!--<ion-item>
+          <ion-label position="floating">Vehicle Model</ion-label>
+          <ion-input readonly autocapitalize inputmode="text" name="vmodel" [(ngModel)]="record.vehicleModel"></ion-input>
+        </ion-item>-->
+        <!-- <div *ngFor="let error of errorMessages.vmodel">
+          <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        
+        <!--<ion-item>
+          <ion-label position="floating">Vehicle Color</ion-label>
+          <ion-input readonly inputmode="text" name="vcolor" [(ngModel)]="record.vehicleColor"></ion-input>
+        </ion-item>-->
+        <!-- <div *ngFor="let error of errorMessages.vcolor">
+          <ng-container *ngIf="vcolor.hasError(error.type) && (vcolor.dirty || vcolor.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <ion-item>
+          <ion-label position="floating">Payment Amount</ion-label>
+          <ion-input inputmode="text" [(ngModel)]="payment" placeholder="Enter your payment amount"></ion-input>
+        </ion-item>
+        <!--<div *ngFor="let error of errorMessages.vtype">
+          <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+
+        <ion-item>
+          <ion-label position="floating">Payment Proof</ion-label>
+          <ion-input inputmode="text" [(ngModel)]="filename" placeholder="Put the Google Drive Link"></ion-input>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.vtype">
+          <ng-container *ngIf="vtype.hasError(error.type) && (vtype.dirty || vtype.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <ion-item>
+          <ion-label position="floating">Payment Status</ion-label>
+          <ion-select [(ngModel)]="pstatus" placeholder="Select Payment Status">
+            <ion-select-option value="Received" checked="true">Received</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Payment Type</ion-label>
+          <ion-select [(ngModel)]="ptype" placeholder="Select Payment Type">
+            <ion-select-option value="Renew" checked="true">Renew</ion-select-option>
+          </ion-select>
+        </ion-item>
+    </ion-list>
+
+      <ion-button (click)="submit()" expand="block">Submit <ion-icon slot="end"
+          name="create">
+        </ion-icon>
+      </ion-button>
+  </div>
+
+
+
+
+
+</ion-content>
+
+

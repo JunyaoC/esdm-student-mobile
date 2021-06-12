@@ -15,8 +15,10 @@ export class LoginPage implements OnInit {
 	username:string = ''
 	password:string = ''
 
-	// server : string = 'http://localhost/php-folder/';
-	// server : string = 'http://localhost:4896/php-folder/';
+
+	server : string = 'http://localhost/php-folder/';
+
+
 
   constructor(private router: Router, private toastController:ToastController, public us:UserServiceService,private storage: Storage,) { }
 
@@ -44,6 +46,7 @@ export class LoginPage implements OnInit {
 
 				if(res.data.success) {
 					this.us.currentUserData = res.data.user_data[0];
+					this.us.getStudentData();
 					this.us.currentRole = res.data.user_data[0].u_role;
 					this.us.currentUserData.student = this.us.getStudentData();
 					this.storage.create()

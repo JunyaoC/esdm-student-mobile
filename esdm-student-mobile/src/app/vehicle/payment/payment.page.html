@@ -1,0 +1,84 @@
+<ion-content>
+
+	<div class="headBar">
+
+		<!-- <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="govehicle()">
+			<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+			<span class="brand">Back</span>
+		</div> -->
+
+	</div>
+
+
+	<div class="wrapper">
+    <span style="color: #E91500; font-size:75%"><strong>* Please check the details before submit as it is UNMODIFIABLE action.</strong></span>
+		<h1 style="text-align: center;">Make Payment</h1>
+	</div>
+
+  <div class="ion-padding">
+
+      <ion-list>
+        <!-- <ion-item>
+          <ion-label position="floating">Sticker ID</ion-label>
+          <ion-input autocapitalize inputmode="text" name="stickerid" placeholder="Key in plate number"></ion-input>
+        </ion-item> -->
+        <!-- <div *ngFor="let error of errorMessages.platenumber">
+          <ng-container *ngIf="platenumber.hasError(error.type) && (platenumber.dirty || platenumber.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <!-- <ion-item>
+          <ion-label position="floating">Vehicle Model</ion-label>
+          <ion-input inputmode="text" formControlName="vmodel"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.vmodel">
+          <ng-container *ngIf="vmodel.hasError(error.type) && (vmodel.dirty || vmodel.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+        <ion-item>
+          <ion-label position="floating">Plate Number</ion-label>
+          <ion-input autocapitalize inputmode="text" [(ngModel)]="platenumber" placeholder="Key in plate number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Amount Payment</ion-label>
+          <ion-input inputmode="text" [(ngModel)]="payment" placeholder="Key in payment amount"></ion-input>
+        </ion-item>
+
+        <ion-item>
+        <ion-label position="floating">Payment Proof Link</ion-label>
+        <ion-input inputmode="text" [(ngModel)]="filename" placeholder="Put the Google Drive Link"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Payment Status</ion-label>
+        <ion-select [(ngModel)]="pstatus" placeholder="Select Payment Status">
+          <ion-select-option value="Received" checked="true">Received</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Payment Type</ion-label>
+        <ion-select [(ngModel)]="ptype" placeholder="Select Payment Type">
+          <ion-select-option value="Register" checked="true">Register</ion-select-option>
+        </ion-select>
+      </ion-item>
+        
+
+      </ion-list>
+<br>
+      <ion-button (click)="submit()" expand="block">Submit <ion-icon slot="end"
+          name="create">
+        </ion-icon>
+      </ion-button>
+
+  </div>
+
+
+
+
+
+</ion-content>
+
+

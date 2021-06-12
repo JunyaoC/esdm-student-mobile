@@ -39,6 +39,7 @@ export class AppComponent {
 
 			if(res){
 				this.us.currentUserData = res;
+				this.us.getStudentData();
 			}
 
 		})
