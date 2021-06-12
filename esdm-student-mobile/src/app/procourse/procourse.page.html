@@ -1,0 +1,75 @@
+<ion-header>
+
+
+	<div class="headBar">
+
+		<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+			<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+			<span class="brand">Back to home</span>
+		</div>
+
+	</div>
+
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+	<div class="wrapper">
+		<h1 style="text-align: center;position: sticky;">Pro Course</h1>
+	</div>
+
+	<div style="width: 100%;padding: 1rem; position: sticky;">
+		<div style="display: flex;justify-content: space-between;align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%;">
+
+			<div class="gridButton" (click)="visitService()">
+				<div class="content">
+          <ion-icon name="bookmarks"></ion-icon>
+					<span>Course</span>
+				</div>
+			</div>
+
+			<div class="gridButton" (click)="history()">
+				<div class="content">
+					<ion-icon name="list-circle"></ion-icon>
+					<span>History</span>
+				</div>
+			</div>
+
+			<div class="gridButton" (click)="report()">
+				<div class="content">
+					<ion-icon name="alert-circle"></ion-icon>
+					<span style="size: 15px;">Issue</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<br>
+	<br>
+
+	<ion-card color="danger">
+	 <ion-card-header>
+		<ion-card-subtitle><h4>Announcement</h4></ion-card-subtitle>
+	  </ion-card-header>
+	<div style="height: 200px;overflow: scroll;">
+	<div *ngFor="let record of announcement_records" >
+	  <ion-card-header>
+		<ion-card-title>{{record.an_title}}</ion-card-title>
+	  </ion-card-header>
+	  <ion-card-content>
+	    {{record.an_detail}}
+	  </ion-card-content>
+	 </div>
+	 <div *ngIf="announcement_records.length == 0">
+	 	<br>
+    <h3 style="text-align: center; font-weight: bold;">No Announcement</h3>
+</div>
+	</div>
+	
+	</ion-card>
+
+
+</ion-content>

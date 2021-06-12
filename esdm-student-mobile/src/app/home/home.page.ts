@@ -43,9 +43,9 @@ export class HomePage {
 		route:"hostel"
 	},
 	{
-		iconPath:"assets/icon/attendance.svg",
-		label:"Attendance",
-		route:"attendance"
+		iconPath:"assets/icon/course-manage.svg",
+		label:"ProCourse",
+		route:"procourse"
 	}
 
 	]

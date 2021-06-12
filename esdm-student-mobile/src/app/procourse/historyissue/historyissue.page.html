@@ -1,0 +1,70 @@
+<ion-header>
+
+
+  <div class="headBar">
+
+    <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backProcourse()">
+      <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+      <span class="brand">Back</span>
+    </div>
+
+  </div>
+
+</ion-header>
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+<div class="wrapper">
+  <h1 style="text-align: center;">Reported Issue History</h1>
+</div>
+
+<div style="width: 100%;padding: 1rem;" *ngIf="list_issue.length != 0">
+  <div style="align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%; height: 500px;overflow: scroll;">
+
+    <!-- List of Text Items -->
+    <div *ngFor="let issue of list_issue">
+    <ion-card (click)="delete(issue.issue_id)" *ngIf="issue.issue_status ==0" > 
+      <ion-card-header>
+        <ion-card-subtitle *ngIf="issue.issue_status ==0" style="color: red;">Haven Answer</ion-card-subtitle>
+        <ion-card-title style="font-size: 20px;">{{issue.issue_title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{issue.issue_details}}
+      </ion-card-content>
+      <ion-item>
+          <ion-button fill="outline" slot="end" color="danger">Delete</ion-button>
+        </ion-item>
+    </ion-card>
+ </div>
+
+
+  <div *ngFor="let issue of list_issue">
+    <ion-card (click)="details(issue)" *ngIf="issue.issue_status ==1" >
+      <ion-card-header>
+        <ion-card-subtitle style="color: green;">Answered</ion-card-subtitle>
+        <ion-card-title style="font-size: 20px;">{{issue.issue_title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{issue.issue_details}}
+      </ion-card-content>
+      <ion-item>
+          <ion-button fill="outline" slot="end">Details</ion-button>
+        </ion-item>
+    </ion-card>
+  </div>
+
+
+
+
+
+    
+  </div>
+</div>
+<div *ngIf="list_issue.length == 0">
+    <h3 style="text-align: center; font-weight: bold;">No reported issue history</h3>
+    <h6 style="text-align: center;">You did not report any issue yet</h6>
+</div>
+
+
+</ion-content>

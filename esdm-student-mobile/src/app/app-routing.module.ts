@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'hostel',
     loadChildren: () => import('./hostel/hostel.module').then( m => m.HostelPageModule)
   },
+    {
+    path: 'procourse',
+    loadChildren: () => import('./procourse/procourse.module').then( m => m.ProcoursePageModule)
+  }
 
 ];
 

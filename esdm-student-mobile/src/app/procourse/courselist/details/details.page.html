@@ -1,0 +1,56 @@
+<ion-header>
+
+
+  <div class="headBar">
+
+    <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backCourse()">
+      <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+      <span class="brand">Back</span>
+    </div>
+
+  </div>
+
+</ion-header>
+
+
+
+  <ion-content fullscreen>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content>
+      </ion-refresher-content>
+    </ion-refresher>
+    <div *ngFor="let code of procourse_list">
+    <ion-card>
+      <img src="assets/icon/{{code.procourse_type}}.png" />
+      <ion-card-header>
+    <ion-card-subtitle>{{code.procourse_code}}</ion-card-subtitle>
+    <ion-card-title >{{code.procourse_name}}</ion-card-title>
+  </ion-card-header>
+  
+  <ion-card-content>
+    <span style="color:black"><strong>Objectives</strong></span><br>
+    {{code.procourse_objective}}
+  </ion-card-content>
+  <ion-card-content>
+    <span style="color:black"><strong>Learning Outcome</strong></span><br>
+    {{code.procourse_learningOut}}
+    <ion-card-subtitle style="color:red;text-align:right">{{code.procourse_type}}</ion-card-subtitle>
+  </ion-card-content>
+</ion-card>
+</div>
+
+
+<ion-card >
+  <ion-item  *ngFor="let section of section_list;" (click)="presentAlertMultipleButtons(section)">
+    <ion-icon name="information-circle-outline"></ion-icon>&nbsp;&nbsp;&nbsp;
+    <ion-label>Section {{section.section_no}}</ion-label>
+    <ion-badge *ngIf="section.courseSec_seat == section.courseSec_maxseat && section.courseSec_seat!=0" color="danger" diasbled>FULL</ion-badge>
+    <ion-badge *ngIf="section.courseSec_seat >= (section.courseSec_maxseat / 2) && section.courseSec_seat != section.courseSec_maxseat" color="warning">{{section.courseSec_seat}} / {{section.courseSec_maxseat}}</ion-badge>
+    <ion-badge *ngIf="section.courseSec_seat < (section.courseSec_maxseat / 2) && section.courseSec_seat != section.courseSec_maxseat">{{section.courseSec_seat}} / {{section.courseSec_maxseat}}</ion-badge>
+
+  </ion-item>
+
+</ion-card>
+
+
+</ion-content>

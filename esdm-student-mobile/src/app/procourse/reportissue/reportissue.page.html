@@ -1,0 +1,79 @@
+
+<ion-header>
+
+
+  <div class="headBar">
+
+    <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backProcourse()">
+      <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+      <span class="brand">Back</span>
+    </div>
+
+  </div>
+
+</ion-header>
+<ion-content>
+<div class="wrapper">
+  <h1 style="text-align: center;">Report Issue</h1>
+</div>
+
+<div style="width: 100%;padding: 1rem;">
+  <div style="justify-content: space-between;align-items: center; padding: 1rem;background: #f2f2f2;border-radius: 1rem;width: 100%;">
+
+    <ion-list lines="full" class="ion-no-margin">
+      <ion-item>
+        <ion-label position="floating">Matric Number</ion-label>
+        <ion-input autocapitalize="on"  [(ngModel)]="matricInput" maxlength='9' required="true"></ion-input>
+      </ion-item>
+      <div style="width: 100%;padding: 1rem;"
+          class="alert alert-danger">
+          <!-- <div *ngIf="loginForm.controls['matric'].errors.required" style="text-align: left;font-size:13px;color: red;">
+            Matric is required.
+          </div> -->
+        </div>
+
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input [(ngModel)]="nameInput" required="true"></ion-input>
+        </ion-item>
+        <div style="width: 100%;padding: 1rem;"
+            class="alert alert-danger">
+            <!-- <div *ngIf="loginForm.controls['name'].errors.required" style="text-align: left;font-size:13px;color: red;">
+              Your name is required.
+            </div> -->
+          </div>
+
+      <ion-item>
+        <ion-label position="floating">Issue Title</ion-label>
+        <ion-input  [(ngModel)]="issueTitleInput" required="true"></ion-input>
+      </ion-item>
+      <div style="width: 100%;padding: 1rem;"
+          class="alert alert-danger">
+          <!-- <div *ngIf="loginForm.controls['title'].errors.required" style="text-align: left;font-size:13px;color: red;">
+            Issue Title is required.
+          </div> -->
+        </div>
+
+      
+      <ion-item>
+        <ion-textarea rows="6" cols="20" placeholder="Describe your issue..."   [(ngModel)]="contentInput" required="true"></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+  </div>
+</div>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+    </ion-col>
+    <ion-col size="11">
+
+      <ion-button (click)="presentAlert()" expand="block" color="danger" clearInput>Report</ion-button>
+    </ion-col>
+    <ion-col>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content>
