@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { UserServiceService } from '../../../user-service.service';
 import axios from 'axios';
 
 @Component({
@@ -14,7 +15,7 @@ export class StatusPage implements OnInit {
 	  status_info:any = [];
 
 
-  constructor(private route:Router, private toastController:ToastController) { }
+  constructor(private route:Router, private toastController:ToastController,public us:UserServiceService) { }
 
   ngOnInit() {
   	this.checkStatus();
@@ -22,6 +23,7 @@ export class StatusPage implements OnInit {
   checkStatus(){
   	let body = {
       action:'check_status',
+      student_id : this.us.currentUserData.u_id,
     }
 
     axios.post(this.server + 'hostel/registration-status.php', JSON.stringify(body)).then((res:any) => {
