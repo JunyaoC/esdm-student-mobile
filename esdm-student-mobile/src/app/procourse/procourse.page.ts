@@ -10,7 +10,7 @@ import axios from 'axios';
 })
 export class ProcoursePage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   announcement_records:any = [];
 
   constructor(private router:Router) { }

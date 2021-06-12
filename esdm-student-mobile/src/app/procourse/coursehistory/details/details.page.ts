@@ -15,7 +15,7 @@ export class DetailsPage implements OnInit {
  
   remainSeat
   regHis_id:string;
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   section_list = [];
 
   ngOnInit() {

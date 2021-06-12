@@ -11,7 +11,7 @@ import { UserServiceService } from '../../user-service.service';
   styleUrls: ['./registersticker.page.scss'],
 })
 export class RegisterstickerPage implements OnInit {
-  server: string = "http://localhost/php-folder/";
+  server: string = "https://esdm-php-divio.us.aldryn.io/php-folder/";
 
   stickerid: any = "";
   platenumber: any = "";

@@ -11,7 +11,7 @@ import { UserServiceService } from '../../../user-service.service';
 })
 export class OpenRegistrationPage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   college_records:any = [];
   selectedOption;
   matricNo;

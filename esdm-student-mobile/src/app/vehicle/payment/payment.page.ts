@@ -10,7 +10,7 @@ import { UserServiceService } from '../../user-service.service';
   styleUrls: ['./payment.page.scss'],
 })
 export class PaymentPage implements OnInit {
-  server: string = "http://localhost/php-folder/";
+  server: string = "https://esdm-php-divio.us.aldryn.io/php-folder/";
   constructor(private router: Router, public toastController: ToastController, public userService: UserServiceService) { }
   platenumber: any = "";
   filename: any = "";

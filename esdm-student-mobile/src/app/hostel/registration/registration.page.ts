@@ -9,7 +9,7 @@ import axios from 'axios';
 })
 export class RegistrationPage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   phase_info:any = [];
 
   constructor(private route: Router) { }

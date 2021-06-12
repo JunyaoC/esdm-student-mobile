@@ -15,7 +15,7 @@ export class HistoryissuePage implements OnInit {
 
   
   constructor(private router:Router,public alertController: AlertController,public us:UserServiceService,private toastController:ToastController,private storage: Storage) { }
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   list_issue:any = [];
   id:any ="";
 

@@ -12,7 +12,7 @@ import * as moment from 'moment';
 
 export class AppointmentPage implements OnInit {
 
-	server : string = 'http://localhost/php-folder/';
+	server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
 	slots = []
 	selectedDate:any
 	todayDate

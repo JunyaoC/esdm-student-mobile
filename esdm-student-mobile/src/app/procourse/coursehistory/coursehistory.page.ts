@@ -10,7 +10,7 @@ import { UserServiceService } from '../../user-service.service';
 })
 export class CoursehistoryPage implements OnInit {
   
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   history_list:any = [];
 
   constructor(private router:Router,public us:UserServiceService) { }

@@ -11,7 +11,7 @@ import { UserServiceService } from '../../user-service.service';
 })
 
 export class RenewPage implements OnInit {
-  server : string = "http://localhost/php-folder/";
+  server : string = "https://esdm-php-divio.us.aldryn.io/php-folder/";
   constructor(private router: Router, public toastController: ToastController, public userService: UserServiceService) { }
   
   stickerid: any= "";

@@ -15,7 +15,7 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class DetailsPage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   procourse_list:any = [];
   code:string;
   section_list = [];

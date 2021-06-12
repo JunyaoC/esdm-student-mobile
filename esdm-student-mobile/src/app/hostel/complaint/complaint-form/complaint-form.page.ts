@@ -10,7 +10,7 @@ import axios from 'axios';
 })
 export class ComplaintFormPage implements OnInit {
 
-  server: string = 'http://localhost/php-folder/';
+  server: string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   matricNo;
   reasonComplaint;
   status_records: any = [];

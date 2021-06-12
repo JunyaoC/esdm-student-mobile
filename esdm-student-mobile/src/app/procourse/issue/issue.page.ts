@@ -11,7 +11,7 @@ export class IssuePage implements OnInit {
 
   constructor(private router:Router) { }
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
 
   ngOnInit() {
   }

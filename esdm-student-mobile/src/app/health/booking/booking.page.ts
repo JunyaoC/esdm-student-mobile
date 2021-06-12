@@ -14,7 +14,7 @@ export class BookingPage implements OnInit {
 
 	slot:any
 	status:any = 'pending'
-	server : string = 'http://localhost/php-folder/';
+	server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
 
   constructor(
   	private router:Router,

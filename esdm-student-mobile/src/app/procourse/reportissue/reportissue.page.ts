@@ -20,7 +20,7 @@ export class ReportissuePage implements OnInit {
   issueTitleInput;
   contentInput;
 
-server = 'http://localhost/php-folder/'
+server = 'https://esdm-php-divio.us.aldryn.io/php-folder/'
 
   constructor(private fb: FormBuilder,private router:Router,public alertController: AlertController) { }
 

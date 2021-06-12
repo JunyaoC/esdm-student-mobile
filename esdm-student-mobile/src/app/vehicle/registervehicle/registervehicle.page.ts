@@ -15,7 +15,7 @@ import { UserServiceService } from '../../user-service.service';
   styleUrls: ['./registervehicle.page.scss'],
 })
 export class RegistervehiclePage implements OnInit {
-  server: string = "http://localhost/php-folder/";
+  server: string = "https://esdm-php-divio.us.aldryn.io/php-folder/";
   vehicle_records: any = [];
 
   platenumber: any = "";

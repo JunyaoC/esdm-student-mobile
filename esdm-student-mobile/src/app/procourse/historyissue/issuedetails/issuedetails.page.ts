@@ -16,7 +16,7 @@ export class IssuedetailsPage implements OnInit {
 
   constructor(private router:Router,public alertController: AlertController,private activatedRoute: ActivatedRoute,public us:UserServiceService) { }
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   matricInput;
   nameInput;
   issueTitleInput;

@@ -11,7 +11,7 @@ import { UserServiceService } from '../../user-service.service';
 })
 export class ElectricPage implements OnInit {
 
-  server : string = 'http://localhost/php-folder/';
+  server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   private qty_iron = 0;
   private qty_heater = 0;
   private qty_charger = 0;

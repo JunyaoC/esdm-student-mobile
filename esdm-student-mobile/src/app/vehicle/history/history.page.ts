@@ -8,7 +8,7 @@ import axios from 'axios';
   styleUrls: ['./history.page.scss'],
 })
 export class HistoryPage implements OnInit {
-server : string = "http://localhost/php-folder/";
+server : string = "https://esdm-php-divio.us.aldryn.io/php-folder/";
 sticker_records:any =[];
   constructor(private router: Router) { }
 

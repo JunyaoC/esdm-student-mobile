@@ -15,7 +15,7 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class LibraryPage implements OnInit {
 
-	server : string = 'http://localhost/php-folder/';
+	server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
 
 	resourceArray : any = [];
 

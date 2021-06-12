@@ -8,7 +8,7 @@ import axios from 'axios';
   styleUrls: ['./ticket.page.scss'],
 })
 export class TicketPage implements OnInit {
-  server : string = "http://localhost/php-folder/";
+  server : string = "https://esdm-php-divio.us.aldryn.io/php-folder/";
   ticket_records:any =[];
   constructor(private router: Router) { }
 
