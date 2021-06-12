@@ -30,7 +30,8 @@ const routes: Routes = [
   {
     path: 'health',
     loadChildren: () => import('./health/health.module').then( m => m.HealthPageModule)
-  },  {
+  },
+  {
     path: 'vehicle',
     loadChildren: () => import('./vehicle/vehicle.module').then( m => m.VehiclePageModule)
   },
@@ -38,7 +39,10 @@ const routes: Routes = [
     path: 'registervehicle',
     loadChildren: () => import('./registervehicle/registervehicle.module').then( m => m.RegistervehiclePageModule)
   },
-
+  {
+    path: 'attendance/:class_id',
+    loadChildren: () => import('./attendance/attendance.module').then( m => m.AttendancePageModule)
+  }
 
 ];
 

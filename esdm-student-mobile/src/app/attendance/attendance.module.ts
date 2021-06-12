@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { AttendancePageRoutingModule } from './attendance-routing.module';
 
 import { AttendancePage } from './attendance.page';
+import { Camera } from '@ionic-native/camera/ngx';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { AttendancePage } from './attendance.page';
     IonicModule,
     AttendancePageRoutingModule
   ],
-  declarations: [AttendancePage]
+  declarations: [AttendancePage],
+  providers:[Camera,BarcodeScanner]
 })
 export class AttendancePageModule {}

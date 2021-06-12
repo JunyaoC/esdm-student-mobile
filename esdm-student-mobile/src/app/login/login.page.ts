@@ -15,9 +15,10 @@ export class LoginPage implements OnInit {
 	username:string = ''
 	password:string = ''
 
+
 	server : string = 'http://localhost/php-folder/';
-	//server : string ='http://localhost/esdm-student-mobile-main/php-folder/';
-	//server : string ='http://localhost/esdm-student-mobile/php-folder/';
+
+
 
   constructor(private router: Router, private toastController:ToastController, public us:UserServiceService,private storage: Storage,) { }
 
@@ -32,7 +33,7 @@ export class LoginPage implements OnInit {
 			this.presentToast('Please key in your password.', 'danger');
 		} else {
 
-			console.log('login', this.username, this.password);
+			console.log(this.us.server);
 
 			let body = {
 				u_username: this.username,
@@ -40,14 +41,14 @@ export class LoginPage implements OnInit {
 				action: 'login_user'
 			}
 
-			axios.post(this.server + 'user-login.php', JSON.stringify(body)).then((res:any) => {
+			axios.post(this.us.server + 'user-login.php', JSON.stringify(body)).then((res:any) => {
 				console.log(res);
 
 				if(res.data.success) {
 					this.us.currentUserData = res.data.user_data[0];
 					this.us.getStudentData();
 					this.us.currentRole = res.data.user_data[0].u_role;
-
+					this.us.currentUserData.student = this.us.getStudentData();
 					this.storage.create()
 
 					this.storage.set('storage_xxx', this.us.currentRole);

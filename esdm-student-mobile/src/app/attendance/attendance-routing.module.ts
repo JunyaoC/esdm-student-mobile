@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: AttendancePage
+  },
+  {
+    path: 'class-schedule',
+    loadChildren: () => import('./class-schedule/class-schedule.module').then( m => m.ClassSchedulePageModule)
   }
 ];
 

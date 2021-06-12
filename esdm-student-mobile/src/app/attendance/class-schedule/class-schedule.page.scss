@@ -1,0 +1,67 @@
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    padding: 1rem;
+    overflow: hidden;      
+  }
+}
+
+.wrapper{
+	padding: 1rem;
+}
+
+.headBar{
+  width: 100%;
+  background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 15px;  
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .brand{
+    font-weight: 700;
+  }
+
+  .userIcon{
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+.gridButton{
+	@include aspect-ratio(1, 1);
+	width: 22vw;
+  background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 1rem;
+
+  .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    ion-icon {
+    	font-size: 2.5rem;
+     	 margin-bottom: 5px;
+    }
+
+  }
+}
