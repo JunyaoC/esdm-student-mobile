@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+  	<ion-back-button defaultHref="/hostel"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Payment History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card style="background-color: beige">
+    <ion-card-header>
+      <ion-card-title>History</ion-card-title>
+
+    </ion-card-header>
+    <ion-card-content>
+      Please claim your tickets at your college's office.
+    </ion-card-content>
+  </ion-card>
+	<ion-grid  style="margin-top:-35px">
+    <ion-row>
+      <ion-col size-md="10" offset-md="1">
+        <ion-card>
+          <ion-card-content>
+            <ion-item class="CheckStatus()" *ngFor = "let status of status_info">
+              <ion-label>
+                <h2 *ngIf=" status.paydate == ''"><b>Outstanding</b></h2>
+                <h2 *ngIf=" status.paydate != ''"><b> {{status.paydate}}</b></h2>
+                <ion-note class="CheckAppliance()" *ngFor = "let item of appliance_info">
+                  <h2 *ngIf=" item.item_name == 'Water Heater/Electric Kettle'">{{item.item_quantity}} Kettle</h2>
+                  <h2 *ngIf=" item.item_name == 'Laptop/Handphone Charger'">{{item.item_quantity}} Charger</h2>
+
+                  <h2 *ngIf="(item.item_name != 'Water Heater/Electric Kettle') && (item.item_name != 'Laptop/Handphone Charger')">{{item.item_quantity}} {{item.item_name}}</h2>
+                 </ion-note>
+                </ion-label>
+                <ion-note style="text-align: right;width:60%;">
+                  <h2>Paid:</h2>
+                  <span *ngIf=" status.payMethod == ''"><Strong>Haven't paid</Strong></span>
+                  <span *ngIf=" status.payMethod != ''"><strong>{{status.payMethod}}</strong> </span>
+                  <h2> (RM {{status.paytotal}}.00)</h2>
+
+                  </ion-note>
+
+                </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
+

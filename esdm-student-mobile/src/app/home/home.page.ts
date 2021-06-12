@@ -38,6 +38,11 @@ export class HomePage {
 		route:"vehicle"
 	},
 	{
+		iconPath:"assets/icon/hostel.svg",
+		label:"Residential Colleges",
+		route:"hostel"
+	},
+	{
 		iconPath:"assets/icon/attendance.svg",
 		label:"Attendance",
 		route:"attendance"

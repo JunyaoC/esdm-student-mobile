@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/hostel/registration"></ion-back-button>
+                </ion-buttons>
+    <ion-title>Open-registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <ion-list class="ion-padding check()" *ngFor ="let cnt of check_op">
+      <ion-list *ngIf = "(cnt.registered == 0)">
+        <ion-list-header>
+              <ion-label>
+              Hi there! <ion-icon name="happy-outline"></ion-icon>
+              </ion-label>
+        </ion-list-header>
+                    <br>
+                    <p>Choose your preferred college: </p><br>
+        <ion-item id="rounded" >
+          <ion-label fixed>Matric No.</ion-label>
+          <ion-input [(ngModel)]="matricNo" maxlength="9" required="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label (click)="fetchCollege()">College</ion-label>
+          <ion-select [(ngModel)]="selectedOption">
+            <ion-select-option *ngFor="let option of college_records" [value]="option">{{option.kolej_name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <br>
+        <ion-button expand="block" (click)="submitCollege()">Done</ion-button>
+      </ion-list>
+
+      <!--Check if apply the open registration-->
+      <!--Open registration: Notify student about the pending application-->
+      <ion-list *ngIf = "cnt.registered == 1">
+        <ion-list class="register()" *ngFor = "let count of register_detail">
+          <ion-list  *ngIf = "count.status == 'Pending'" style="text-align:center;">
+            <img src="assets/img/college-1.png"/>
+            <h2> Pending ! </h2><br>
+            <p><b>Please wait patiently</b>.<br>
+              Admin is reviewing your application.</p>
+          </ion-list>
+
+          <!--Open registration: Notify student about the rejected application-->
+          <ion-list  *ngIf = "count.status == 'Rejected'" style="text-align:center;">
+            <img src="assets/img/college-1.png"/>
+            <h2> Rejected ! </h2><br>
+            <p><b>Please contact the hostel management team</b>.<br>
+              Your application is not accepted.</p>
+          </ion-list>
+
+          <!--Open registration: Notify student about the accepted application-->
+          <ion-list  *ngIf = "count.status == 'Accepted'" style="text-align:center;">
+            <img src="assets/img/college-1.png"/><br>
+            <h2> Success ! </h2><br>
+            <p>You have<b> registered successfully</b> for the application.</p>
+          </ion-list>
+      </ion-list>
+    </ion-list>
+  </ion-list>
+</ion-content>
+

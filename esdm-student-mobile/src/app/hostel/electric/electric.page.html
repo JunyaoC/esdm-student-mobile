@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+  	  	<ion-buttons slot="start">
+  			<ion-back-button defaultHref="/hostel"></ion-back-button>
+
+  		</ion-buttons>
+    <ion-title>Electric Appliance</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="controlRegistration" *ngFor = "let cnt of count">
+
+	<ion-card *ngIf = "cnt.count == 0" style="background-color: beige">
+	  <ion-card-header>
+	    <ion-card-title>Add Item</ion-card-title>
+
+	  </ion-card-header>
+	  <ion-card-content>
+	    Electrical Items To Declare & Charge :
+	  </ion-card-content>
+	</ion-card>
+
+   <div *ngIf = "cnt.count == 0">
+	<ion-card class="item">
+	  <ion-item style="margin-left: -18px;">
+
+	    <img src="assets/img/iron.jpeg" width="80" height="80">
+	    <ion-label align="center"><strong>Iron</strong> <br>RM10</ion-label>
+
+     <ion-icon name="remove-circle" (click)="decrement('iron')"></ion-icon>
+     <h5 name="iron" style="text-align:center;">{{qty_iron}}</h5>
+     <ion-icon name="add-circle" (click)="increment('iron')"></ion-icon>
+   </ion-item>
+
+	</ion-card>
+
+	<ion-card class="item">
+	  <ion-item style="margin-left: -18px;">
+
+	  	<img src="assets/img/kettle.jpeg" width="80" height="80">
+	    <ion-label align="center"><strong>Water Heater</strong> <br>RM10</ion-label>
+
+      <ion-icon name="remove-circle" (click)="decrement('heater')"></ion-icon>
+      <h5 name="heater" style="text-align:center;">{{qty_heater}}</h5>
+      <ion-icon name="add-circle" (click)="increment('heater')"></ion-icon>
+	  </ion-item>
+
+	</ion-card>
+
+	<ion-card class="item">
+	  <ion-item style="margin-left: -18px;">
+
+	    <img src="assets/img/charger.jpeg" width="80" height="80">
+	    <ion-label align="center"><strong>Laptop/Charger</strong> <br>FREE</ion-label>
+
+      <ion-icon name="remove-circle" (click)="decrement('charger')"></ion-icon>
+      <h5 name="charger" style="text-align:center;">{{qty_charger}}</h5>
+      <ion-icon name="add-circle" (click)="increment('charger')"></ion-icon>
+	  </ion-item>
+	</ion-card>
+
+	<ion-card class="item">
+	  <ion-item style="margin-left: -18px;">
+
+	    <img src="assets/img/toaster.jpeg" width="80" height="80">
+	    <ion-label align="center"><strong>Toaster</strong> <br>RM10</ion-label>
+
+
+      <ion-icon name="remove-circle" (click)="decrement('toaster')"></ion-icon>
+      <h5 name="toaster" style="text-align:center;">{{qty_toaster}}</h5>
+      <ion-icon name="add-circle" (click)="increment('toaster')"></ion-icon>
+    </ion-item>
+	</ion-card>
+
+	<ion-card class="item">
+	  <ion-item style="margin-left: -18px;">
+
+	    <img src="assets/img/dryer.jpeg" width="80" height="80">
+	    <ion-label align="center"><strong>Hair Dryer</strong> <br>RM5</ion-label>
+
+      <ion-icon name="remove-circle" (click)="decrement('dryer')"></ion-icon>
+      <h5 name="dryer" style="text-align:center;">{{qty_dryer}}</h5>
+      <ion-icon name="add-circle" (click)="increment('dryer')"></ion-icon>
+	  </ion-item>
+
+	</ion-card>
+
+	<ion-card class="item">
+	  <ion-item style="margin-left: -18px;">
+
+	    <img src="assets/img/radio.jpeg" width="80" height="80">
+	    <ion-label align="center"><strong>Radio</strong> <br>RM5</ion-label>
+
+
+      <ion-icon name="remove-circle" (click)="decrement('radio')"></ion-icon>
+        <h5 name="radio" style="text-align:center;">{{qty_radio}}</h5>
+      <ion-icon name="add-circle" (click)="increment('radio')"></ion-icon>
+	  </ion-item>
+
+	</ion-card>
+	<!--<ion-button border-width="30" text-align="right">Payment<ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon></ion-button>-->
+
+	<div padding>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<ion-button (click)="paymentPage()" expand="block"> Submit <ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon></ion-button>
+	</div>
+   </div>
+
+   <ion-card  *ngIf = "cnt.count == 1">
+    <img src="assets/img/college-1.png"/>
+    <h2 style="text-align:center;">You have registered ! </h2>
+    <p style="text-align:center;">Please claim your stickers at the hostel office by showing the payment history. </p>
+  </ion-card>
+</ion-content>
+

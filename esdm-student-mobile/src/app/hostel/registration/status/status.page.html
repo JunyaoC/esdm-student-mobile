@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/hostel/registration"></ion-back-button>
+                </ion-buttons>
+    <ion-title>Application Status</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Status List</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+         <!--   <form  #form="ngForm" (ngSubmit)="register(form)">-->
+          <ion-grid>
+            <ion-row class="CheckStatus()" *ngFor = "let status of status_info" color="primary" justify-content-center>
+              <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
+                <div padding>
+                  <ion-item>
+                    <ion-label>
+                      <h1 >{{status.reg_date}}</h1>
+                      <h2 *ngIf=" status.reg_phase == 1">Kuota Pengetua </h2>
+                      <h2 *ngIf=" status.reg_phase == 2">Open Registration </h2>
+                      <h2 *ngIf=" status.reg_phase == 3">Hostel Amendment </h2>
+                      <h3>{{status.kolej_name}} </h3>
+                      <!--({{status.block_name}} , {{status.room_no}})-->
+                    </ion-label>
+
+                    <ion-note style="text-align: right;">
+                      <span>Status:</span><br>
+                       <span *ngIf=" status.reg_status == 'Pending'">{{status.reg_status}}</span>
+                       <span *ngIf=" status.reg_status == 'Rejected'" style="color:red">{{status.reg_status}}</span>
+                       <span *ngIf=" status.reg_status == 'Accepted'" style="color:green">{{status.reg_status}}</span>
+                    </ion-note>
+                  </ion-item>
+                </div>
+                <br>
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+    <!--    </form> -->
+          </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
