@@ -51,7 +51,6 @@ const routes: Routes = [
     path: 'procourse',
     loadChildren: () => import('./procourse/procourse.module').then( m => m.ProcoursePageModule)
   }
-
 ];
 
 @NgModule({
