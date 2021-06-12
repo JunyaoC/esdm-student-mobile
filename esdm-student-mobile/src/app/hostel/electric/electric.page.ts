@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import axios from 'axios';
+import { UserServiceService } from '../../user-service.service';
 
 @Component({
   selector: 'app-electric',
@@ -21,7 +22,7 @@ export class ElectricPage implements OnInit {
   count;
 
 
-  constructor(private route: Router, private toastController:ToastController) { }
+  constructor(private route: Router, private toastController:ToastController,public us:UserServiceService) { }
 
   ngOnInit() {
     this.controlRegistration();
@@ -30,6 +31,7 @@ export class ElectricPage implements OnInit {
 
   controlRegistration(){
     let body = {
+      student_id : this.us.currentUserData.u_id,
       action:"checkStudent",
     }
 
@@ -98,6 +100,7 @@ export class ElectricPage implements OnInit {
 
   paymentPage(){
     let body = {
+      student_id : this.us.currentUserData.u_id,
       qty_iron : this.qty_iron,
       qty_charger : this.qty_charger,
       qty_heater : this.qty_heater,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { UserServiceService } from '../../../../user-service.service';
 
 @Component({
   selector: 'app-payment-history',
@@ -12,7 +13,7 @@ export class PaymentHistoryPage implements OnInit {
 	status_info:any = [];
   appliance_info:any =[];
 
-  constructor() { }
+  constructor(public us:UserServiceService) { }
 
   ngOnInit() {
     this.checkStatus();
@@ -21,6 +22,7 @@ export class PaymentHistoryPage implements OnInit {
 
   checkStatus(){
   	let body = {
+      student_id : this.us.currentUserData.u_id,
       action:'check_status',
     }
 
@@ -34,6 +36,7 @@ export class PaymentHistoryPage implements OnInit {
 
   checkAppliance(){
     let body = {
+      student_id : this.us.currentUserData.u_id,
       action:'check_appliance',
     }
 

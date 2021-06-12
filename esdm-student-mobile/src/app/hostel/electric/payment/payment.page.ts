@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import axios from 'axios';
+import { UserServiceService } from '../../../user-service.service';
 
 @Component({
   selector: 'app-payment',
@@ -22,7 +23,7 @@ export class PaymentPage implements OnInit {
   price:any;
   selectedOption;
 
-  constructor(private route: Router, private aroute: ActivatedRoute, private toastController:ToastController) { }
+  constructor(private route: Router, private aroute: ActivatedRoute, private toastController:ToastController,public us:UserServiceService) { }
 
   ngOnInit() {
     this.fetchAppliances();
@@ -60,6 +61,7 @@ export class PaymentPage implements OnInit {
 
   totalPrice(){
     let body = {
+        student_id : this.us.currentUserData.u_id,
         qty_iron:this.qty_iron,
         qty_charger:this.qty_charger,
         qty_heater:this.qty_heater,
@@ -80,13 +82,14 @@ export class PaymentPage implements OnInit {
 
     electricHistory(){
       let body = {
+        student_id : this.us.currentUserData.u_id,
         method: this.selectedOption,
         action:'paymentMethod',
       }
       axios.post(this.server + 'hostel/electric-page.php', JSON.stringify(body)).then((res:any) => {
 
         console.log(res);
-        this.route.navigate(['hostel/electric/payment/payment-history']);
+        this.route.navigate(['hostel/electric/electric-list']);
         this.presentToast('Register successfully !', 'success');
 
       })
