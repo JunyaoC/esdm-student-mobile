@@ -1,9 +1,9 @@
 <ion-content [fullscreen]="true">
 
   <div class="headBar">
-    <span class="brand">TEAM ESDM SEC 1</span>
+    <span style="color:#81163f" class="brand">TEAM ESDM SEC 1</span>
 
-    <div class="userIcon" (click)="logout()">
+    <div style="color:#81163f;" class="userIcon" (click)="logout()">
       <ion-icon name="log-out"></ion-icon>
     </div>
 
@@ -12,28 +12,28 @@
   <div class="headDiv">
       <ion-slides pager="true" [options]="slideOpts">
         <ion-slide>
-          <h1>Slide 1</h1>
+          <img style= "max-width: 100%;height: 285px; object-fit: contain " src="https://media.glassdoor.com/l/a0/6e/5a/b7/main-gate-utm.jpg">
         </ion-slide>
         <ion-slide>
-          <h1>Slide 2</h1>
+          <img style="max-width: 100%;height: 285px; object-fit: contain " src="https://image.isu.pub/190417021944-deb7b0221e48357ca17ee6a2a9f44d6b/jpg/page_1.jpg">
         </ion-slide>
         <ion-slide>
-          <h1>Slide 3</h1>
+          <img style="max-width: 100%;height: 285px;  object-fit: contain "src="https://mma.prnasia.com/media2/1310639/utm_graduates.jpg">
         </ion-slide>
       </ion-slides>
   </div>
 
   <div class="serviceWrapper">
       
-    <h3>Services</h3>
+    <h3 style="color:#81163f">Services</h3>
 
     <div class="serviceGrid">
 
       <div class="serviceButton" *ngFor="let service of services" (click)="visitService(service.route)">
-        <div class="content">
+        <div style="color:#81163f" class="content">
           
           <img src="{{service.iconPath}}">
-          <span>{{service.label}}</span>  
+          <span style="color:#81163f">{{service.label}}</span>  
 
         </div>
       </div>
