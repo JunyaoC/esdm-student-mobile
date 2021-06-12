@@ -1,9 +1,74 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>library</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<div style="display: flex; flex-direction: row; justify-content: space-between; padding-left: 1rem; padding-right: 1rem;">
+
+			<ion-icon name="chevron-back-outline" (click)="back()" style="font-size: 1.5rem; padding-top: 0.5rem;"></ion-icon>
+
+
+			<ion-icon *ngIf="!viewWishlistOnly" name="bookmark-outline" (click)="viewWishlistOnly = !viewWishlistOnly" style="font-size: 1.5rem; padding-top: 0.5rem;"></ion-icon>
+			<ion-icon *ngIf="viewWishlistOnly" color="black" name="bookmark" (click)="viewWishlistOnly = !viewWishlistOnly" style="font-size: 1.5rem; padding-top: 0.5rem;"></ion-icon>
+			
+		</div>
+		
+	</ion-toolbar>
+
+
+	<ion-toolbar>
+
+		<ion-segment scrollable="true" mode="ios" (ionChange)="onCategoryChange($event)">
+			<ion-segment-button value="" style="min-width: auto;">
+				<ion-label style="font-size: 1rem;">All</ion-label>
+			</ion-segment-button>
+			<ion-segment-button *ngFor="let category of categoryArray" [value]="category.category_name" style="min-width: auto;">
+				<ion-label style="font-size: 1rem;">{{category.category_name}}</ion-label>
+			</ion-segment-button>
+		</ion-segment>
+
+	</ion-toolbar>
+
+	<div style="display: flex; flex-direction: row; width: 100%; align-items: center;">
+		<ion-searchbar showCancelButton="focus" [(ngModel)]="searchKeyword"></ion-searchbar>
+		<ion-icon name="funnel-outline" style="font-size: 1.5rem; padding-right: 1rem;" (click)="presentActionSheet()"></ion-icon>
+	</div>
+	
+
+
 </ion-header>
 
-<ion-content>
+<ion-content style="background-color: #f1f1f1;">
+
+
+	<ion-card *ngFor="let resource of resourceArray | libraryCategoryFilter:selectedCategory | filter:searchKeyword | libraryWishlistFilter:viewWishlistOnly | librarySort: {property: column, order: order} ; let i=index">
+		<ion-card-header>
+			<ion-card-subtitle>{{resource.r_category}}</ion-card-subtitle>
+			<ion-card-title *ngIf="resource.r_title.length > 39" style="font-size: 1.2rem;">{{resource.r_title.slice(0, 45).concat('...')}}</ion-card-title>
+			<ion-card-title *ngIf="resource.r_title.length <= 39" style="font-size: 1.2rem;">{{resource.r_title}}</ion-card-title>
+		</ion-card-header>
+
+		<ion-card-content>
+
+			<iframe style="pointer-events:none; border:0; width: 100%;" [src]="openURL(resource.r_file)" allowfullscreen></iframe>
+			<p>Author : {{resource.r_author}}</p>
+			<p>Published Date : {{resource.r_date}}</p>
+
+			<div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; padding-top: 1rem;">
+
+				<ion-icon *ngIf="!resource.addInWishlist" name="heart-outline" style="font-size: 1.5rem;" (click)="addToWishlist(resource)"></ion-icon>
+				<ion-icon *ngIf="resource.addInWishlist" color="danger" name="heart" style="font-size: 1.5rem;" (click)="removeFromWishlist(resource)"></ion-icon>
+
+				<ion-icon name="reader-outline" style="font-size: 1.5rem;" (click)="openResource(resource.r_file)"></ion-icon>
+
+				<ion-icon name="link-outline" style="font-size: 1.5rem;" (click)="copyURL(resource.r_file)"></ion-icon>
+
+			</div>
+		</ion-card-content>
+	</ion-card>
+
 
 </ion-content>
+
+
+
+
+
+
