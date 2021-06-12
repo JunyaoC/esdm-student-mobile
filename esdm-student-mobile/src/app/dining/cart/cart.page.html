@@ -1,0 +1,102 @@
+<ion-content>
+
+<div class="headBar">
+	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="home()">
+		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+		<span class="brand">Back to restaurant</span>
+	</div>
+	
+</div>
+
+  <ion-refresher slot="fixed" (ionRefresh)="fetchCartList($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+<div class="wrapper">
+	<h1 style="text-align: center;">My Cart</h1>
+</div>
+
+    <ion-card class="ion-card"  *ngFor="let record of cart_list">
+      <ion-card-content class="ion-card">
+      	<ion-grid>
+	      <ion-row>
+				<ion-col size="2" class="item-bar ion-padding-top">
+					{{record.item_quantity}}x
+				</ion-col>
+				<ion-col size="6" class="item-bar">
+					<p class="food">{{record.food_name}}</p>
+					<p class="restaurant">{{record.restaurant_name}}</p>
+				</ion-col>
+				<ion-col size="3" class="item-bar ion-padding-top">
+					RM {{record.food_price| number:'1.2-2'}}
+					
+				</ion-col>
+				<ion-col size="1" class="item-bar ion-padding-top">
+					<ion-icon name="trash-sharp" class="del-button" (click)="deleteItem(record.itemorder_id)"></ion-icon>
+				</ion-col>
+
+	  	</ion-row>
+	  </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+      	<ion-grid style="padding-top:20px;padding-left:10px;">
+	      <ion-row>
+	      <ion-col size="6">
+	      	Delivery
+	      </ion-col>
+	      <ion-col size="6" style="text-align: right;">
+	      	Self-Pickup
+	      </ion-col>
+	  	</ion-row>
+	      <ion-row>
+	      <ion-col size="6">
+	      	Total
+	      </ion-col>
+	      <ion-col size="6" style="text-align: right;">
+	      	RM {{total| number:'1.2-2'}}
+	      </ion-col>
+	  	</ion-row>
+
+	  </ion-grid>
+
+	<div class="center" style="margin-top: 10px;">
+
+		<ion-button class="sp-btn" expand="block" (click)="checkout()">Checkout</ion-button>
+	</div>
+
+
+	<div class="center">
+		<ion-button class="sp-btn" expand="block" (click)="home()">Order More</ion-button>
+	</div>
+
+
+
+
+
+
+
+
+
+</ion-content>
+
+  <ion-toolbar>
+	<ion-tabs>
+	  <!-- Tab bar -->
+	  <ion-tab-bar slot="bottom">
+	    <ion-tab-button (click)="home()">
+	      <ion-icon name="home"></ion-icon>
+	    </ion-tab-button>
+	    <ion-tab-button >
+	      <ion-icon color="primary" name="cart"></ion-icon>
+	    </ion-tab-button>
+	    <ion-tab-button (click)="history()">
+	      <ion-icon name="reorder-four-outline"></ion-icon>
+	    </ion-tab-button>
+	    <ion-tab-button (click)="personal()">
+	      <ion-icon name="person-circle-outline"></ion-icon>
+	    </ion-tab-button>
+	  </ion-tab-bar>
+	</ion-tabs>
+
+</ion-toolbar>

@@ -1,9 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>dining</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+<div class="headBar">
+	<div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+		<ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+		<span class="brand">Back to home</span>
+	</div>
+	
+</div>
 
+<div class="wrapper">
+	<h1 style="text-align: center;">Restaurant</h1>
+</div>
+
+  <ion-refresher slot="fixed" (ionRefresh)="fetchRestaurant($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+<ion-card  type="button" *ngFor="let record of restaurant_records">
+	<img class="card-image" src="https://people.utm.my/faizaljalal/files/2020/01/batch_IMG_6935-2.jpg" />
+	<div class="card-title" (click)="checkMenu(record.restaurant_id)">{{record.restaurant_name}}</div>
+    <div class="card-subtitle">{{record.restaurant_address}}</div>
+</ion-card>
 </ion-content>
+
+
+<ion-toolbar>
+
+	<ion-tabs>
+	  <ion-tab-bar slot="bottom">
+	    <ion-tab-button>
+	      <ion-icon color="primary" name="home"selected="true"></ion-icon>
+	    </ion-tab-button>
+	    <ion-tab-button tab="cart">
+	      <ion-icon name="cart"></ion-icon>
+	    </ion-tab-button>
+	    <ion-tab-button tab="order-history">
+	      <ion-icon name="reorder-four-outline"></ion-icon>
+	    </ion-tab-button>
+	    <ion-tab-button tab="personal-info">
+	      <ion-icon name="person-circle-outline"></ion-icon>
+	    </ion-tab-button>
+	  </ion-tab-bar>
+	</ion-tabs>
+
+</ion-toolbar>

@@ -1,0 +1,78 @@
+.wrapper{
+  padding-top:15px;
+}
+
+.headBar{
+  width: 100%;
+  background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 15px;  
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .brand{
+    font-weight: 700;
+  }
+
+  .userIcon{
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+.frame {
+  
+  overflow: visible;
+  background-image: url(/* batch_IMG_6935-2.jpg */);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.text1{
+	color: black;
+	font-weight: bold;
+}
+
+.titleheader{
+	font-size: 24px;
+}
+
+.gambor{
+	width: 70px;
+	height: 61px;
+	overflow: visible;
+	background-image: url(/* batch_IMG_6935-2.jpg */);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 10px;
+}
+
+.text2{
+	font-size:12px;
+}
+
+.divider{
+	margin-top:1rem;
+	margin-bottom:1rem;
+	border:0;
+	border-top:1px solid rgba(0,0,0,.1);
+}
+
+
+#footer {
+ width: 960px;
+ margin-top: auto;
+ margin-right: auto;
+ margin-left: auto;
+ text-align: center;
+ padding: 0px;
+ margin-bottom: 0px;
+}

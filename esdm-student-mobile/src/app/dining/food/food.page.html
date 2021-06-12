@@ -1,0 +1,67 @@
+<ion-content>
+
+<div class="headBar">
+  <div style="display: flex;justify-content: center;align-items: center;color: #493bff;" (click)="backHome()">
+    <ion-icon name="arrow-back" style="font-size: 1.5rem;margin-right: 0.5rem;" ></ion-icon>
+    <span class="brand">Back to restaurant</span>
+  </div>
+  
+</div>
+
+
+<div class="wrapper">
+  <h1 style="text-align: center;">Food List</h1>
+</div>
+
+    
+  <ion-refresher slot="fixed" (ionRefresh)="fetchFoodList($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>   
+
+  <div style="width: 95%;margin-left:13px;margin-bottom: 10px;">
+      <ion-card style="background-color: #d1d9f5;" *ngFor="let record of food_list">
+      <ion-grid>
+      <ion-row>
+      <ion-col>
+         <img style="height:130px;width:160px; max-width:500px;" src="assets/food-image/{{record.food_id}}.png" />
+      </ion-col>
+      
+      <ion-col>
+        <p style="font-size: 15px; font-weight: bold;color:black;">{{record.food_name}}</p>
+        <p style="font-size: 12px;">{{record.food_description}}</p>
+        <div class="row">
+          <div class="column">
+            <p style="font-size: 20px;position: absolute;bottom:1px;font-weight: bold;color:black;">RM {{record.food_price| number:'1.2-2'}}</p>
+          </div>
+          <div class="column">
+            <div  id="button-div"><ion-button size="small"  (click)="foodDetails(record.food_id)" item-content >View</ion-button></div>
+          </div>
+        </div>
+      </ion-col>
+      </ion-row>
+      </ion-grid>
+       </ion-card>
+  </div>
+     
+</ion-content>
+<ion-toolbar>
+
+  <ion-tabs>
+    <!-- Tab bar -->
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="backHome()">
+        <ion-icon color="primary"  name="home"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="cart()">
+        <ion-icon name="cart"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="history()">
+        <ion-icon name="reorder-four-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="personal()">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  
+</ion-toolbar>
