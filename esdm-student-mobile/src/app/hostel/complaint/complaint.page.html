@@ -1,15 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-  	  	<ion-buttons slot="start">
-  	<ion-back-button defaultHref="/"></ion-back-button>
-              </ion-buttons>
-    <ion-title>Complaint</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div>
+<ion-toolbar class="headBar" style="margin-bottom: 1rem;">
+      <ion-buttons slot="start">
+    <ion-back-button style="font-size: 0.8rem;color:#81163F" icon="arrow-back" text="" defaultHref="/"></ion-back-button>
+     </ion-buttons>
+  <ion-title class="brand" style="color: #81163F;">COMPLAINT</ion-title>
+</ion-toolbar> 
+
+</div>
 
 <ion-content>
   <div class="MenuPosition">
     <ion-button (click)="formPage()" color=light expand="full">Complaint Form</ion-button>
-    <ion-button (click)="historyPage()" color=light expand="full">Complaint History</ion-button>
   </div>
+      <div style="padding-left:1rem;padding-top:0.5rem">
+    <h3 style="color: #81163F;">Complaint History</h3>
+  </div>
+  <ion-list>
+       <ion-item class="viewComplaintHistory()" *ngFor = "let status of status_info">
+                    <ion-label>
+                      <h1 >{{status.complaint_date}}</h1>
+                      <h2 >{{status.complaint_reason}}</h2>
+                      <h3 *ngIf=" status.permission == 0">-The technician is <strong>NOT PERMITTED</strong> to enter the room.</h3>
+                      <h3 *ngIf=" status.permission == 1">-The technician is <strong>PERMITTED</strong> to enter the room.</h3>
+                    </ion-label>
+
+                    <ion-note style="text-align: right;">
+                      <span>Status:</span><br>
+                      <span *ngIf=" status.complaint_status == 'Pending'">{{status.complaint_status}}</span>
+                       <span *ngIf=" status.complaint_status == 'Rejected'" style="color:red">{{status.complaint_status}}</span>
+                       <span *ngIf=" status.complaint_status == 'Accepted'" style="color:green">{{status.complaint_status}}</span>
+                    </ion-note>
+        </ion-item>
+  </ion-list>
 </ion-content>

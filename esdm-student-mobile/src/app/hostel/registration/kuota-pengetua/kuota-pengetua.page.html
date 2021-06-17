@@ -1,11 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-  	<ion-buttons slot="start">
-  	<ion-back-button defaultHref="/hostel/registration"></ion-back-button>
-              </ion-buttons>
-    <ion-title>Kuota Pengetua</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="headBar" style="margin-bottom: 1rem;">
+<ion-toolbar>
+      <ion-buttons slot="start">
+    <ion-back-button style="font-size: 0.8rem;color:#81163F" icon="arrow-back" text="" defaultHref="/hostel/registration"></ion-back-button>
+     </ion-buttons>
+  <ion-title class="brand" style="color: #81163F;">KUOTA PENGETUA</ion-title>
+</ion-toolbar> 
+</div>
+
   <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
   <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
@@ -14,19 +15,19 @@
 
         <ion-slide *ngIf = "count.registered == 0">
             <img src="assets/img/college-4.png" style="width:100%;height:auto;"/>
-            <h2>Welcome</h2>
+            <h1 style="color: #81163F;">Welcome</h1>
             <p><b>Kuota Pengetua</b> will be opened within these three weeks.</p>
         </ion-slide>
 
         <ion-slide *ngIf = "count.registered == 0">
           <img src="assets/img/college-2.png"/>
-          <h2>What is Kuota Pengetua?</h2>
-          <p><b>Kuota Pengetua</b> is a way to book a room and opened for those who interest to have their pre-booking in the hostel they wish to stay.</p>
+          <h1 style="color: #81163F;">What is Kuota Pengetua?</h1>
+          <p><b>Kuota Pengetua</b> is one of the way  for those who wish to pre-book their desired room in certain hostel by showing proof on what hostel activities they joined before.</p>
         </ion-slide>
 
         <ion-slide *ngIf = "count.registered == 0">
           <img src="assets/img/college-3.png"/>
-          <h2>How to Register?</h2>
+          <h1 style="color: #81163F;">How to Register?</h1>
           <p>First<b> select a hostel</b> from the hostel list.
           	<br/> Then <b>fill in your details</b> according to the form.
           	<br/> <b>Click submit</b> once you have done.</p>
@@ -34,8 +35,8 @@
 
         <ion-slide *ngIf = "count.registered == 0">
           <img src="assets/img/college-1.png"/>
-          <h2>Ready to Register?</h2>
-          <ion-button (click)="KPregister()" fill="clear">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+          <h1 style="color: #81163F;"><strong>Ready to Register?</strong></h1>
+          <ion-button (click)="KPregister()" fill="clear" style="color:#b36c2e">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
         </ion-slide>
 
         <ion-slide  *ngIf = "count.registered == 1">

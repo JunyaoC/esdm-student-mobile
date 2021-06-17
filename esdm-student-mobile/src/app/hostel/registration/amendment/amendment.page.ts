@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { UserServiceService } from '../user-service.service';
+import { UserServiceService } from '../../../user-service.service';
 import { ToastController } from '@ionic/angular';
 import axios from 'axios';
 
@@ -13,7 +13,6 @@ import axios from 'axios';
 export class AmendmentPage implements OnInit {
   server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   college_records:any = [];
-  matricNo;
   reason;
   selectedOption;
 
@@ -57,7 +56,7 @@ export class AmendmentPage implements OnInit {
           handler: () => {
                 let body = {
                   reason:this.reason,
-                  matricNo: this.matricNo,
+                  student_id : this.us.currentUserData.u_id,
                   kolej_id : this.selectedOption.kolej_id,
                   action:'add_amend',
           }

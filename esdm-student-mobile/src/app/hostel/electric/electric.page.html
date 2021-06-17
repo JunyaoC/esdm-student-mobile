@@ -1,28 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-  	  	<ion-buttons slot="start">
-  			<ion-back-button defaultHref="/hostel"></ion-back-button>
+<div>
+<ion-toolbar class="headBar" style="margin-bottom: 1rem;">
+      <ion-buttons slot="start">
+    <ion-back-button style="font-size: 0.8rem;color:#81163F" icon="arrow-back" text="" defaultHref="/"></ion-back-button>
+     </ion-buttons>
+  <ion-title class="brand" style="color: #81163F;">ELECTRIC APPLIANCE</ion-title>
+</ion-toolbar> 
 
-  		</ion-buttons>
-    <ion-title>Electric Appliance</ion-title>
+</div>
 
-  </ion-toolbar>
-</ion-header>
+<ion-content>
 
-
-<ion-content class="controlRegistration" *ngFor = "let cnt of count">
-
-	<ion-card *ngIf = "cnt.count == 0" style="background-color: beige">
+	<ion-card style="--background:#783b52">
 	  <ion-card-header>
-	    <ion-card-title>Add Item</ion-card-title>
+	    <ion-card-title style="color:white">Electric Appliance Form</ion-card-title>
 
 	  </ion-card-header>
-	  <ion-card-content>
-	    Electrical Items To Declare & Charge :
+	  <ion-card-content style="color:orange">
+	    Select the electrical devices used in your hostel:
 	  </ion-card-content>
 	</ion-card>
 
-   <div *ngIf = "cnt.count == 0">
+   <div>
 	<ion-card class="item">
 	  <ion-item style="margin-left: -18px;">
 
@@ -102,16 +100,10 @@
 	</ion-card>
 	<!--<ion-button border-width="30" text-align="right">Payment<ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon></ion-button>-->
 
-	<div padding>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<ion-button (click)="paymentPage()" expand="block"> Submit <ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon></ion-button>
+	<div>
+	<ion-button style="margin-top:2rem;padding:0.2rem;--background:#81163F" (click)="paymentPage()" expand="block"> Submit <ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon></ion-button>
 	</div>
    </div>
 
-   <ion-card  *ngIf = "cnt.count == 1">
-    <img src="assets/img/college-1.png"/>
-    <h2 style="text-align:center;">You have registered ! </h2>
-    <p style="text-align:center;">Please claim your stickers at the hostel office by showing the payment history. </p>
-  </ion-card>
 </ion-content>
 

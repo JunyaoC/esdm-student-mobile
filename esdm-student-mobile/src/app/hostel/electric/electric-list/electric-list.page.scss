@@ -3,7 +3,26 @@ padding-top: 5%;
 padding-left: 7%;
 }
 ion-button{
-width:90%;
-height: 100px;
-color:light;
+  margin-left:5.6rem;
+  margin-top:1.5rem;
+  font-size:1.1rem;
+  color:white;
+  --background:#783b52;
+  --background-activated:#783b52;
+  --background-activated-opacity:0.2;
+}
+.headBar{
+  width: 100%;
+  background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 5px;  
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .brand{
+    font-weight: 700;
+  }
+
 }

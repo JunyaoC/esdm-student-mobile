@@ -14,7 +14,7 @@ export class OpenRegistrationPage implements OnInit {
   server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   college_records:any = [];
   selectedOption;
-  matricNo;
+  user_name = this.us.currentUserData.u_name; 
   register_detail;
   check_kp;
   check_op;
@@ -90,7 +90,7 @@ export class OpenRegistrationPage implements OnInit {
   submitCollege(){
     let body = {
       kolej_id : this.selectedOption.kolej_id,
-      matric:this.matricNo,
+      student_id:this.us.currentUserData.u_id,
       action:'select_college',
     }
     axios.post(this.server + 'hostel/open-registration.php', JSON.stringify(body)).then((res:any) => {

@@ -3,6 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { UserServiceService } from '../../../../../user-service.service';
 import { filter } from 'rxjs/operators';
 import axios from 'axios';
 
@@ -19,7 +20,7 @@ export class RegisterDetailPage implements OnInit {
   activity:any;
   reason:any;
 
-  constructor(public alertController: AlertController,private route: Router, private toastController:ToastController, private aroute: ActivatedRoute) { }
+  constructor(public alertController: AlertController,private route: Router,public us:UserServiceService, private toastController:ToastController, private aroute: ActivatedRoute) { }
 
   ngOnInit() {
     this.aroute.queryParams
@@ -36,13 +37,12 @@ export class RegisterDetailPage implements OnInit {
   submitForm() {
     let body = {
       kolej_id:this.kolej_id,
-      matric:this.matric,
+      student_id:this.us.currentUserData.u_id,
       activity:this.activity,
       reason:this.reason,
       action:'kuota-pengetua',
     }
     axios.post(this.server + 'hostel/kuota-pengetua.php', JSON.stringify(body)).then((res:any) => {
-
      console.log(res);
      this.route.navigate(['hostel/registration']);
      this.presentToast('Register successfully !', 'success');

@@ -20,6 +20,7 @@ export class ElectricPage implements OnInit {
   private qty_radio = 0;
   electric;
   count;
+  total;
 
 
   constructor(private route: Router, private toastController:ToastController,public us:UserServiceService) { }
@@ -110,14 +111,16 @@ export class ElectricPage implements OnInit {
       action:'add-item',
     }
     axios.post(this.server + 'hostel/electric-page.php', JSON.stringify(body)).then((res:any) => {
-
+        this.total = res.detail;
      console.log(res);
      this.route.navigate(['hostel/electric/payment'], {queryParams:{ qty_iron : this.qty_iron,
       qty_charger : this.qty_charger,
       qty_heater : this.qty_heater,
       qty_toaster : this.qty_toaster,
       qty_dryer : this.qty_dryer,
-      qty_radio : this.qty_radio } });
+      qty_radio : this.qty_radio,
+      total : this.total,
+    } });
     })
 
   }

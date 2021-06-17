@@ -19,14 +19,14 @@
   <ion-card-content>
     <ion-grid>
     	<ion-row>
-    		<ion-column style="color: #ede6e9">
+    		<div style="color: #ede6e9">
     			Period of registration:<br>{{date.start_date}} - {{date.end_date}}
-    		</ion-column>
-    		<ion-column>
+    		</div>
+    		<div>
     			<ion-button fill="outline" color="warning" *ngIf="date.phase_name == 'Kuota Pengetua'" (click)="kuotaPage()" size="small" style="height:90%;margin-left:50%"><strong>Register Now</strong></ion-button>
     			<ion-button fill="outline" color="warning" *ngIf="date.phase_name == 'Open Registration'" (click)="openPage()" size="small" style="height:90%;margin-left:50%"><strong>Register Now</strong></ion-button>
     			<ion-button fill="outline" color="warning" *ngIf="date.phase_name == 'Hostel Amendment'" (click)="amendPage()" size="small" style="height:90%;margin-left:50%"><strong>Register Now</strong></ion-button>
-    		</ion-column>
+    		</div>
     	</ion-row>
     </ion-grid>
   </ion-card-content>

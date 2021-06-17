@@ -5,3 +5,18 @@ ion-input{
 ion-label{
   color: black;
 }
+.headBar{
+  width: 100%;
+  background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 5px;  
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .brand{
+    font-weight: 700;
+  }
+
+}

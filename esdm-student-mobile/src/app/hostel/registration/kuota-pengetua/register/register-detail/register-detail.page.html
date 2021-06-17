@@ -1,11 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/hostel/registration"></ion-back-button>
-                </ion-buttons>
-    <ion-title>Registration Form</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div>
+<ion-toolbar class="headBar"  style="margin-bottom: 1rem;">
+      <ion-buttons slot="start">
+    <ion-back-button style="font-size: 0.8rem;color:#81163F" icon="arrow-back" text="" defaultHref="/hostel/registration"></ion-back-button>
+     </ion-buttons>
+  <ion-title class="brand" style="color: #81163F;">REGISTRATION FORM</ion-title>
+</ion-toolbar> 
+</div>
 
 <ion-content>
   <ion-grid>
@@ -13,7 +13,7 @@
       <ion-col size-md="6" offset-md="3">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Personal Information</ion-card-title>
+            <ion-card-title style="color: #81163F;">College Activity</ion-card-title>
           </ion-card-header>
           <ion-card-content>
          <!--   <form  #form="ngForm" (ngSubmit)="register(form)">-->
@@ -21,19 +21,13 @@
             <ion-row color="primary" justify-content-center>
               <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
                 <div padding>
-
-                  <ion-item>
-                    <ion-label>Matric Number</ion-label>
-                    <ion-input [(ngModel)]="matric" type="text" placeholder="Enter matric number" required></ion-input>
-                  </ion-item>
-
                   <br><br>
 
                   <ion-label>Activity in Campus</ion-label><br>
                   <ion-item>
-                    <ion-textarea [(ngModel)]="activity" placeholder="List activities you've joined in this university"  required></ion-textarea>
+                    <ion-textarea [(ngModel)]="activity" placeholder="List college activities you've joined in this university"  required></ion-textarea>
                   </ion-item>
-                  <br><br>
+                  <br>
                   <ion-label>Reason Applying</ion-label><br>
                   <ion-item>
                     <ion-textarea [(ngModel)]="reason" placeholder="Why you choose this hostel?"  required></ion-textarea>
@@ -45,7 +39,7 @@
                 </div>
                 <br>
                 <div padding>
-                  <ion-button (click)="submitForm()" expand="block">Submit</ion-button>
+                  <ion-button (click)="submitForm()" expand="block" style="--background: #81163F;">Submit</ion-button>
                 </div>
               </ion-col>
             </ion-row>

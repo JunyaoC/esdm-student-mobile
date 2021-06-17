@@ -21,6 +21,7 @@ export class PaymentPage implements OnInit {
   qty_dryer:any;
   qty_radio:any;
   price:any;
+  total:any;
   selectedOption;
 
   constructor(private route: Router, private aroute: ActivatedRoute, private toastController:ToastController,public us:UserServiceService) { }
@@ -38,7 +39,7 @@ export class PaymentPage implements OnInit {
         this.qty_toaster = params['qty_toaster'];
         this.qty_dryer = params['qty_dryer'];
         this.qty_radio = params['qty_radio'];
-
+        this.total = params['total'];
         console.log(this.qty_iron); // 1
       }
     );

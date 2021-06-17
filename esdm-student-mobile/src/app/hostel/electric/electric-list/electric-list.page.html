@@ -1,15 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-  	  	<ion-buttons slot="start">
-  	<ion-back-button defaultHref="/"></ion-back-button>
-              </ion-buttons>
-    <ion-title>Registration</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div >
+<ion-toolbar class="headBar" style="margin-bottom: 1rem;">
+      <ion-buttons slot="start">
+    <ion-back-button style="font-size: 0.8rem;color:#81163F" icon="arrow-back" text="" defaultHref="/"></ion-back-button>
+     </ion-buttons>
+  <ion-title class="brand" style="color: #81163F;">ELECTRIC APPLIANCE</ion-title>
+</ion-toolbar> 
 
+</div>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <ion-content>
-  <div class="MenuPosition">
-    <ion-button (click)="formPage()" color=light expand="full">Electric Appliance Registration</ion-button>
-    <ion-button (click)="historyPage()" color=light expand="full">Payment History</ion-button>
+    <ion-button size="small" (click)="formPage()"><i class="material-icons">add_circle_outline</i>&nbsp;Make New Registration</ion-button>
+
+    <div style="padding-left:1rem;padding-top:0.5rem">
+    <h3 style="color: #81163F;">Payment History</h3>
   </div>
+  <ion-list>
+    <ion-item class="CheckStatus()" *ngFor = "let status of status_info">
+                    <ion-label>
+                <h2 *ngIf=" status.paydate == ''"><b>Outstanding</b></h2>
+                <h2 *ngIf=" status.paydate != ''"><b> {{status.paydate}}</b></h2>
+                <ion-note class="CheckAppliance()" *ngFor = "let item of appliance_info">
+                  <h2 *ngIf=" item.item_name == 'Water Heater/Electric Kettle'">{{item.item_quantity}} Kettle</h2>
+                  <h2 *ngIf=" item.item_name == 'Laptop/Handphone Charger'">{{item.item_quantity}} Charger</h2>
+
+                  <h2 *ngIf="(item.item_name != 'Water Heater/Electric Kettle') && (item.item_name != 'Laptop/Handphone Charger')">{{item.item_quantity}} {{item.item_name}}</h2>
+                 </ion-note>
+                    </ion-label>
+
+                <ion-note style="text-align: right;">
+                  <h4>Paid:</h4>
+                  <span *ngIf=" status.payMethod == ''"><Strong>Haven't paid</Strong></span>
+                  <span *ngIf=" status.payMethod != ''"><strong>{{status.payMethod}}</strong> </span>
+                  <h3> (RM {{status.paytotal}}.00)</h3>
+
+                  </ion-note>
+    </ion-item>
+  </ion-list>
 </ion-content>

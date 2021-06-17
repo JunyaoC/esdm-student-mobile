@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserServiceService } from '../../../../user-service.service';
 import axios from 'axios';
 
 @Component({
@@ -11,9 +12,10 @@ export class RegisterPage implements OnInit {
 
   server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   college_records:any = [];
+  user_name=this.us.currentUserData.u_name;
   selectedOption;
 
-  constructor(private route: Router) { }
+  constructor(private route: Router,public us:UserServiceService) { }
 
   ngOnInit() {
     this.fetchCollege();
@@ -27,9 +29,7 @@ export class RegisterPage implements OnInit {
     axios.post(this.server + 'hostel/open-registration.php', JSON.stringify(body)).then((res:any) => {
 
       this.college_records = [...res.data.colleges]
-
       // console.log(this.college_records);
-
     })
 
   }

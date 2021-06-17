@@ -1,28 +1,27 @@
-<ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-back-button defaultHref="/hostel/registration"></ion-back-button>
-                      </ion-buttons>
-          <ion-title>Registration</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
+<div>
+<ion-toolbar class="headBar"  style="margin-bottom: 1rem;">
+      <ion-buttons slot="start">
+    <ion-back-button style="font-size: 0.8rem;color:#81163F" icon="arrow-back" text="" defaultHref="/hostel/registration"></ion-back-button>
+     </ion-buttons>
+  <ion-title class="brand" style="color: #81163F;">REGISTRATION</ion-title>
+</ion-toolbar> 
+</div>
 
       <ion-content fullscreen class="ion-padding">
         <ion-grid>
           <ion-row>
             <ion-col size-md="6" offset-md="3">
-              <ion-list>
+              <ion-list class="fetchCollege()">
                 <ion-list-header>
-                  <ion-label>
-                    Hi there! <ion-icon name="happy-outline"></ion-icon>
+                  <ion-label style="color: #81163F;font-size:1.5rem">
+                    Hi {{user_name}}! <ion-icon name="happy-outline"></ion-icon>
                   </ion-label>
 
                 </ion-list-header>
                 <br/>
                 <p>Choose your preferred accommodation: </p><br>
                 <ion-item>
-                  <ion-label (click)="fetchCollege()">Hostel</ion-label>
+                  <ion-label>Hostel</ion-label>
                       <ion-select [(ngModel)]="selectedOption">
                   <ion-select-option *ngFor="let option of college_records" [value]="option">{{option.kolej_name}}</ion-select-option>
                 </ion-select>
@@ -30,7 +29,7 @@
 
               </ion-list>
               <br>
-              <ion-button (click)="registerdetail()" expand="full">Confirm</ion-button>
+              <ion-button style="--background: #81163F;" (click)="registerdetail()" expand="full">Confirm</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>

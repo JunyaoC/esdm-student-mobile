@@ -1,11 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/hostel/registration"></ion-back-button>
-                </ion-buttons>
-    <ion-title>Hostel Amendment</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div>
+<ion-toolbar class="headBar"  style="margin-bottom: 1rem;">
+      <ion-buttons slot="start">
+    <ion-back-button style="font-size: 0.8rem;color:#81163F" icon="arrow-back" text="" defaultHref="/hostel/registration"></ion-back-button>
+     </ion-buttons>
+  <ion-title class="brand" style="color: #81163F;">HOSTEL AMENDMENT</ion-title>
+</ion-toolbar> 
+</div>
 
 <ion-content>
   <ion-grid>
@@ -13,7 +13,7 @@
       <ion-col size-md="6" offset-md="3">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Hostel Amendment</ion-card-title>
+            <ion-card-title style="color: #81163F;font-size:1.5rem">Hostel Amendment</ion-card-title>
           </ion-card-header>
           <ion-card-content>
          <!--   <form  #form="ngForm" (ngSubmit)="register(form)">-->
@@ -21,10 +21,7 @@
             <ion-row color="primary" justify-content-center>
               <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
                 <div padding>
-                  <ion-item>
-                  <ion-label fixed>Matric No.</ion-label>
-                  <ion-input [(ngModel)]="matricNo" maxlength="9" required="true"></ion-input>
-                  </ion-item><br>
+                <br>
 <!--                   <ion-label>Current hostel</ion-label> -->
 <!--                   <ion-item class="getStudentData()" *ngFor="let user of currentUserData">
                     <ion-label fixed>Matric No.</ion-label>
@@ -51,7 +48,7 @@
                 </div>
                 <br>
                 <div padding>
-                  <ion-button (click)="submitForm()" expand="block">Submit</ion-button>
+                  <ion-button style="--background: #81163F;" (click)="submitForm()" expand="block">Submit</ion-button>
                 </div>
               </ion-col>
             </ion-row>
