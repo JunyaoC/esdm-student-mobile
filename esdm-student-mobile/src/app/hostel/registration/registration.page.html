@@ -1,3 +1,7 @@
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 <div class="headBar" style="margin-bottom: 1rem;">
 <ion-toolbar>
 	  	<ion-buttons slot="start">
@@ -7,8 +11,6 @@
 </ion-toolbar> 
 
 </div>
-
-<ion-content>
 
 <ion-card class="CheckPhase()" *ngFor = "let date of phase_info"style="background-color:#783b52">
 <div *ngIf="(date.today >= date.start_date) && (date.today <= date.end_date)">
@@ -33,7 +35,7 @@
 </div>
 </ion-card>
 
-	<div style="padding-left:1rem;padding-top:1rem">
+	<div style="padding-left:1rem;padding-top:0.5rem">
 		<h3 style="color: #81163F;">Registration Status</h3>
 	</div>
 	<ion-list>
@@ -54,5 +56,6 @@
                        <span *ngIf=" status.reg_status == 'Accepted'" style="color:green">{{status.reg_status}}</span>
                     </ion-note>
 		</ion-item>
+    <div *ngIf="status_info.length === 0" style="text-align:center">No record found.</div>
 	</ion-list>
 </ion-content>

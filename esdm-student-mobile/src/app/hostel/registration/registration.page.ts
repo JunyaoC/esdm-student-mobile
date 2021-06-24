@@ -21,6 +21,25 @@ export class RegistrationPage implements OnInit {
     this.CheckPhase();
     this.checkStatus();
   }
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    let body = {
+      action:'check_status',
+      student_id : this.us.currentUserData.u_id,
+    }
+
+    axios.post(this.server + 'hostel/registration-status.php', JSON.stringify(body)).then((res:any) => {
+
+      this.status_info = [...res.data.detail]
+      console.log(res);
+
+    })
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
   CheckPhase(){
     let body = {
       action:'phase_period',

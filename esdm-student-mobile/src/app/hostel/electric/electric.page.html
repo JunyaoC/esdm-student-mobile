@@ -99,7 +99,26 @@
 
 	</ion-card>
 	<!--<ion-button border-width="30" text-align="right">Payment<ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon></ion-button>-->
-
+	<div style="display:none" class="fetchAppliances()" *ngFor="let option of electric">
+		<div *ngIf="option.item_name == 'Iron'">
+			<input [ngModel]="getIron(option.item_price)" type="number">
+		</div>
+		<div *ngIf="option.item_name == 'Water Heater/Electric Kettle'">
+			<input [ngModel]="getHeater(option.item_price)" type="number">
+		</div>
+		<div *ngIf="option.item_name == 'Laptop/Handphone Charger'">
+			<input [ngModel]="getCharger(option.item_price)" type="number">
+		</div>
+		<div *ngIf="option.item_name == 'Toaster'">
+			<input [ngModel]="getToaster(option.item_price)" type="number">
+		</div>
+		<div *ngIf="option.item_name == 'Hair Dryer'">
+			<input [ngModel]="getDryer(option.item_price)" type="number">
+		</div>
+		<div *ngIf="option.item_name == 'Radio'">
+			<input [ngModel]="getRadio(option.item_price)" type="number">
+		</div>
+	</div>
 	<div>
 	<ion-button style="margin-top:2rem;padding:0.2rem;--background:#81163F" (click)="paymentPage()" expand="block"> Submit <ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon></ion-button>
 	</div>

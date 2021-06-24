@@ -16,6 +16,8 @@ export class RegisterDetailPage implements OnInit {
 
   server : string = 'https://esdm-php-divio.us.aldryn.io/php-folder/';
   kolej_id;
+  block_id;
+  room_id;
   matric;
   activity:any;
   reason:any;
@@ -29,6 +31,8 @@ export class RegisterDetailPage implements OnInit {
         //console.log(params); // { kolej_id: 1 }
 
         this.kolej_id = params.kolej_id;
+        this.block_id = params.block_id;
+        this.room_id = params.room_id;
         console.log(this.kolej_id); // 1
       }
     );
@@ -37,6 +41,8 @@ export class RegisterDetailPage implements OnInit {
   submitForm() {
     let body = {
       kolej_id:this.kolej_id,
+      room_id:this.room_id,
+      block_id:this.block_id,
       student_id:this.us.currentUserData.u_id,
       activity:this.activity,
       reason:this.reason,
