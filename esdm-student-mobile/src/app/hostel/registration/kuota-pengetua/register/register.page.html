@@ -20,19 +20,22 @@
                 </ion-list-header>
                 <br/>
                 <p>Choose your preferred accommodation: </p><br>
-                <ion-item class="fetchCollege()">
+
+                <ion-item (click)="fetchCollege()">
                   <ion-label>Hostel</ion-label>
                       <ion-select [(ngModel)]="selectedOption">
                   <ion-select-option *ngFor="let option of college_records" [value]="option">{{option.kolej_name}}</ion-select-option>
                 </ion-select>
                 </ion-item>
-                <ion-item class="fetchBlock()">
+
+                <ion-item (click)="fetchBlock()">
                   <ion-label>Block</ion-label>
                       <ion-select [(ngModel)]="selectedOptionB">
                   <ion-select-option *ngFor="let optionb of block_records" [value]="optionb">{{optionb.block_name}}</ion-select-option>
                 </ion-select>
                 </ion-item>
-                <ion-item class="fetchRoom()">
+
+                <ion-item (click)="fetchRoom()">
                   <ion-label>Room</ion-label>
                       <ion-select [(ngModel)]="selectedOptionR">
                   <ion-select-option *ngFor="let optionr of room_records" [value]="optionr">{{optionr.room_no}}</ion-select-option>

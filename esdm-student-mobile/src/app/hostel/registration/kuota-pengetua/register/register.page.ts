@@ -65,6 +65,7 @@ export class RegisterPage implements OnInit {
 
   }
 
+
   registerdetail(){
     this.route.navigate(['hostel/registration/kuota-pengetua/register/register-detail'], {queryParams:{ kolej_id : this.selectedOption.kolej_id,block_id : this.selectedOptionB.block_id,room_id : this.selectedOptionR.room_id } });
 
