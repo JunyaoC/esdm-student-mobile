@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ToastController } from '@ionic/angular';
 import { UserServiceService } from '../user-service.service';
 import { Storage } from '@ionic/storage-angular';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginPage implements OnInit {
 
 
 
-  constructor(private router: Router, private toastController:ToastController, public us:UserServiceService,private storage: Storage,) { }
+  constructor(private router: Router, private toastController:ToastController, public us:UserServiceService,private storage: Storage, private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -53,6 +54,20 @@ export class LoginPage implements OnInit {
 
 					this.storage.set('storage_xxx', this.us.currentRole);
 					this.storage.set('user_data', this.us.currentUserData);
+
+					let body = {
+						msg: 'login',
+						timestamp: new Date(Date.now()),
+						module: 'login',
+						user: this.us.currentUserData.u_username
+					}
+
+					const url = "https://iw8si6.deta.dev/"
+					this.http.post(url, body).subscribe((res:any) => {
+						console.log(res);
+					})
+
+
 					this.presentToast('Welcome to ESDM Boilderplate! 😁', 'success');
 					// this.router.navigate(['/home-page']);
 					this.router.navigate(['./home'],{'replaceUrl':true}) /// you can make replace URL false to enable back to login page. For security concerns and hygeine, we should not allow users to navigate back to login page.

@@ -1,3 +1,7 @@
+<ion-content>
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 <div>
 <ion-toolbar class="headBar" style="margin-bottom: 1rem;">
       <ion-buttons slot="start">
@@ -8,10 +12,43 @@
 
 </div>
 
-<ion-content>
-  <div class="MenuPosition">
-    <ion-button (click)="formPage()" color=light expand="full">Complaint Form</ion-button>
-  </div>
+
+    <ion-row>
+      <ion-col size-md="8" offset-md="2">
+  <ion-card>
+        <ion-card-header>
+          <ion-card-title>Complaint Form</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <!--<form  #form="ngForm" (ngSubmit)="register(form)">-->
+          <ion-grid>
+            <ion-row color="primary" justify-content-center>
+              <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
+                <div padding>
+                  <ion-item>
+                    <!--<ion-textarea name="confirm" placeholder="Reason of Complaint" ngModel required></ion-textarea>-->
+                    <ion-label fixed>Reasons of Complaint : </ion-label>
+                    <ion-textarea [(ngModel)]="reasonComplaint" maxlength="500" required="true"></ion-textarea>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Permission for techinician to enter room : </ion-label>
+                    <ion-select [(ngModel)]="selectedOption">
+                      <ion-select-option value= 1>Permitted</ion-select-option>
+                      <ion-select-option value= 0>Not Permitted</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+
+                </div>
+                  <ion-button style="--background: #81163F;margin-top:2rem" (click)="submitComplaint()" expand="block">Add Complaint</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <!--</form>-->
+        </ion-card-content>
+    </ion-card>
+    </ion-col>
+    </ion-row>
       <div style="padding-left:1rem;padding-top:0.5rem">
     <h3 style="color: #81163F;">Complaint History</h3>
   </div>
@@ -20,8 +57,8 @@
                     <ion-label>
                       <h1 >{{status.complaint_date}}</h1>
                       <h2 >{{status.complaint_reason}}</h2>
-                      <h3 *ngIf=" status.permission == 0">-The technician is <strong>NOT PERMITTED</strong> to enter the room.</h3>
-                      <h3 *ngIf=" status.permission == 1">-The technician is <strong>PERMITTED</strong> to enter the room.</h3>
+                      <h3 *ngIf=" status.complaint_status == 'Accepted'">assigned technician: <strong>{{status.tech_name}}</strong></h3>
+                      <h3 *ngIf=" status.complaint_status != 'Accepted'">processing...</h3>
                     </ion-label>
 
                     <ion-note style="text-align: right;">
@@ -31,5 +68,6 @@
                        <span *ngIf=" status.complaint_status == 'Accepted'" style="color:green">{{status.complaint_status}}</span>
                     </ion-note>
         </ion-item>
+        <div *ngIf="status_info.length === 0" style="text-align:center">No record found.</div>
   </ion-list>
 </ion-content>

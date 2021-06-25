@@ -24,19 +24,6 @@ export class ComplaintFormPage implements OnInit {
     //this.submitComplaint();
   }
 
-  /*fetchStatus() {
-    let body = {
-      action: 'list_status',
-    }
-
-    axios.post(this.server + 'hostel/complaint-form.php', JSON.stringify(body)).then((res: any) => {
-
-      this.status_records = [...res.data.stats]
-
-      // console.log(this.status_records);
-  })
-
-  }*/
   submitComplaint() {
     let body = {
       permissions: this.selectedOption,
