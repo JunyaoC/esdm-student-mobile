@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { UserServiceService } from '../user-service.service';
 import { ToastController } from '@ionic/angular';
+// import axios from 'axios';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
 	selector: 'app-home',
@@ -50,9 +52,21 @@ export class HomePage {
 
 	]
 
-	constructor( private router:Router, private storage:Storage, public us:UserServiceService, private toastController:ToastController) {}
+	constructor( private router:Router, private storage:Storage, public us:UserServiceService, private toastController:ToastController, private http: HttpClient) {}
 
 	visitService(path){
+		let body = {
+			msg: this.us.currentUserData.u_username + "+" + path + "+" + new Date(Date.now()),
+			timestamp: new Date(Date.now()),
+			module: path,
+			user: this.us.currentUserData.u_username
+		}
+
+		const url = "https://iw8si6.deta.dev/"
+		this.http.post(url, body).subscribe((res:any) => {
+			console.log(res);
+		})
+		
 		this.router.navigate(['./' + path])
 	}
 
